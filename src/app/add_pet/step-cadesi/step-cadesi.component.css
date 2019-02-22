@@ -1,0 +1,39 @@
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 10px;
+}
+
+.mat-slider-horizontal {
+  width: 100%;
+}
+
+.mat-slider-vertical {
+  height: 300px;
+}
+
+table input {
+  width: 30px;
+  border: none;
+  pointer-events: none;
+}
+
+table {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*# sourceMappingURL=step-cadesi.component.css.map */

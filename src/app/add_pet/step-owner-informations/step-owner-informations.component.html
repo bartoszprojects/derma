@@ -1,0 +1,68 @@
+<div style="width: auto" class="container">
+
+  <section class="content-header">
+
+    <div class="box box-default box-solid ">
+      <div style="text-align:center" class="box-header with-border">
+        <h1 class="control-label" for="id_Sup2"> Let's fill some data about the owner in order for UZH to contact him
+          ? </h1>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="box-body">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+
+            <div class="col-sm-10">
+              <input ng-model="pet_data.owner_name" type="text" class="form-control" id="inputEmail3"
+                     placeholder="Owner's Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Phone Number</label>
+
+            <div class="col-sm-10">
+              <input ng-model="pet_data.owner_phone" type="number" class="form-control" id="inputPassword3"
+                     placeholder="Owner's phone number">
+            </div>
+
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">Email Adress</label>
+
+              <div class="col-sm-10">
+                <input ng-model="pet_data.owner_email" type="email" class="form-control" id="inputPassword3"
+                       placeholder="Owner's email adress">
+              </div>
+
+
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                  <label>
+                    <input ng-model="pet_data.accept_data_sharing" type="checkbox"> The owner accepts to share it's
+                    dog's medical data with with Zürich University and to be contacted by a member's faculty by phone of
+                    by email
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>            <!-- /.box-body -->
+        </div>
+
+
+        <button routerLink="/home/add-pet/success" routerLinkActive="active" ng-show="pet_data.accept_data_sharing=='1'" ng-click="save_profile_to_db()" ui-sref-active="active"
+                ui-sref='add_pet.sucess' id="moving" type="button" name="next"
+                class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
+        </button>
+
+
+        <button routerLink="/home/add-pet/fat" routerLinkActive="active" ui-sref='add_pet.breed' ng-click="backward()" id="" type="button" name="previous"
+                class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
+          Return
+        </button>
+
+      </div>
+    </div>
+  </section>
+</div>

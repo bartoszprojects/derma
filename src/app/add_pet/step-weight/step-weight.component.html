@@ -1,0 +1,37 @@
+<div style="width: auto" class="container">
+
+  <section class="content-header">
+
+    <div class="box box-default box-solid ">
+      <div style="text-align:center" class="box-header with-border">
+        <h1 class="control-label " for="id_weight"><b> {{pet_data.pet_name}}</b>'s Weight </h1>
+        <h4 class="control-label " for="id_weight"><i> Use the paw to select <b>{{pet_data.pet_name}}</b>'s weight.<br></i>
+        </h4>
+
+      </div>
+      <!-- /.box-header -->
+      <div style="text-align:center; padding-top:50px" class="box-body">
+        <!--<rzslider class="custom-slider"-->
+                  <!--rz-slider-model="pet_data.weight"-->
+                  <!--rz-slider-options="slider.options"></rzslider>-->
+        <h3><span>{{pet_data.weight}} Kilogramms </span>
+
+
+        </h3>
+      </div>
+      <!-- /.box-body -->
+    </div>
+
+
+    <button routerLink="/home/add-pet/fat" routerLinkActive="active" ng-show="pet_data.weight!==''" id="moving" type="button" name="next"
+            class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
+    </button>
+
+    <button routerLink="/home/add-pet/physical" routerLinkActive="active" id="" type="button" name="previous"
+            class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
+      Return
+    </button>
+
+
+  </section>
+</div>

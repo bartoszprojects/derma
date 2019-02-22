@@ -1,0 +1,1009 @@
+
+
+#gender_pictures{
+    width: 90%;
+    margin: 0 auto; 
+    margin-top:3%;
+    text-align: center
+}
+.ss-selector input{
+    margin:0;padding:0;
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.ss-selector input[type=radio] {
+  display: inline;
+
+
+}
+
+.ss-selector label {
+  width:17.5%;
+
+}
+
+
+
+
+.ss-selector input:active +.drunkcard-ss{opacity: .9;}
+.ss-selector input:checked +.drunkcard-ss{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.drunkcard-ss{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:300px;height:210px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: opacity(.5);
+       -moz-filter: opacity(.5);
+            filter: opacity(.5);
+}
+.drunkcard-ss:hover{
+    -webkit-filter:  opacity(.9);
+       -moz-filter:  opacity(.9);
+            filter:  opacity(.9);
+            transform:scale(1.25)
+
+}
+
+
+
+
+#specy_pictures{
+    width: 90%;
+    margin: 0 auto; 
+    margin-top:3%;
+    text-align: center
+}
+.specy-selector input{
+    margin:0;padding:0;
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.specy-selector input[type=radio] {
+  display: inline;
+
+}
+
+.specy-selector label {
+  width:17.5%;
+
+}
+
+ 
+
+
+.specy-selector input:active +.specy-ss{opacity: .9;}
+.specy-selector input:checked +.specy-ss{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.specy-ss{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:300px;height:210px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.specy-ss:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+            transform:scale(1.25);
+
+}
+
+
+#flea_drug_pictures{
+    width: 90%;
+    margin: 0 auto; 
+    margin-top:3%;
+    text-align: center
+}
+.ss-selector input{
+    margin:0;padding:0;
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.ss-selector input[type=radio] {
+  display: inline;
+
+
+}
+
+.ss-selector label {
+  width:17.5%;
+
+}
+
+
+.id_flea_drug_1{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/nexgard.jpg");
+}
+.id_flea_drug_2{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/simparica.jpg");
+}
+.id_flea_drug_3{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/bravecto.jpg");
+}
+
+.ss-selector input:active +.drunkcard-ss{opacity: .9;}
+.ss-selector input:checked +.drunkcard-ss{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.drunkcard-ss{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:300px;height:210px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: opacity(.5);
+       -moz-filter: opacity(.5);
+            filter: opacity(.5);
+}
+.drunkcard-ss:hover{
+    -webkit-filter:  opacity(.9);
+       -moz-filter:  opacity(.9);
+            filter:  opacity(.9);
+            transform:scale(1.25)
+
+}
+
+
+#crossed{
+    width: 100%;
+    margin: 0 auto; 
+    margin-top:3%;
+    text-align:center;
+}
+.tt-selector input{
+    margin:0;padding:0;
+    width:0%;
+    height:0%;
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.tt-selector input[type=radio] {
+  display: inline;
+}
+
+
+#format_dog_pictures{
+    width: 90%;
+    margin: 0 auto; 
+    margin-top:3%;
+}
+.cc-format-selector input{
+    margin:0;padding:0;
+    width:0%;
+    height:0%;
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.cc-format-selector input[type=radio] {
+  display: inline;
+}
+
+.cc-format-selector label {
+  width:17.5%;
+
+}
+
+
+.id_dog_format_0{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/dog_format_1.png");
+}
+.id_dog_format_1{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/dog_format_2.png");
+}
+.id_dog_format_2{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/dog_format_3.png");
+}
+.id_dog_format_3{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/dog_format_4.png");
+}
+.id_dog_format_4{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/dog_format_5.png");
+}
+
+.cc-format-selector input:active +.drinkcard-format-cc{opacity: .9;}
+.cc-format-selector input:checked +.drinkcard-format-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.drinkcard-format-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:300px;height:210px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: opacity(.5);
+       -moz-filter: opacity(.5);
+            filter: opacity(.5);
+}
+
+
+.drinkcard-format-cc:hover{
+    -webkit-filter:  opacity(.9);
+       -moz-filter:  opacity(.9);
+            filter:  opacity(.9);
+            transform:scale(2.0);
+
+}
+
+
+
+.active_sup_2 {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+
+}
+
+
+#sup2{
+    width: 100%;
+    margin: 0 auto; 
+    margin-top:3%;
+    text-align:center;
+}
+
+label{
+  padding:auto;
+  margin-right: 15px;
+  margin-top:15px;
+}
+
+.tt-selector input{
+    margin:0;padding:0;
+    width:0%;
+    height:0%;
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.tt-selector input[type=radio] {
+  display: inline;
+}
+
+
+
+.active_weight
+ {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+
+}
+
+/*Slider for the Weight
+*/
+.custom-slider-1.rzslider .rz-bar {
+  background: #df3341;
+  background: -moz-linear-gradient(right, #df3341 0%, #d4f355 50%, #61c0ec 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#df3341), color-stop(50%,#d4f355), color-stop(100%,#61c0ec));
+  background: -webkit-linear-gradient(right, #df3341 0%,#d4f355 50%,#61c0ec 100%);
+  background: -o-linear-gradient(right, #df3341 0%,#d4f355 50%,#61c0ec 100%); 
+  background: -ms-linear-gradient(right, #df3341 0%,#d4f355 50%,#61c0ec 100%);
+  background: linear-gradient(to left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
+  background: #df3341;
+  background: -moz-linear-gradient(right, #df3341 0%, #d4f355 50%, #61c0ec 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#df3341), color-stop(50%,#d4f355), color-stop(100%,#61c0ec));
+  background: -webkit-linear-gradient(left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
+  background: -o-linear-gradient(left, #df3341 0%,#d4f355 50%,#61c0ec 100%); 
+  background: -ms-linear-gradient(left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
+  background: linear-gradient(to left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
+  height: 10px;
+}
+.custom-slider-1.rzslider .rz-selection {
+  background: orange;
+}
+
+.custom-slider-1.rzslider .rz-pointer {
+  width: 53px;
+  height: 53px;
+  background-image: url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/footprint.png");
+  background-repeat:no-repeat;
+  top: auto; /* to remove the default positioning */
+  bottom: -20px;
+  background-color: transparent;
+}
+
+.custom-slider-1.rzslider .rz-pointer:after {
+  display: none;
+}
+
+
+.custom-slider-1.rzslider .rz-pointer:focus {
+    outline-width: 0;
+}
+
+.custom-slider-1.rzslider .rz-bubble {
+  bottom: 40px;
+  font-size:25px;
+}
+
+.custom-slider-1.rzslider .rz-limit {
+  font-weight: bold;
+  color: #3c8dbc;
+}
+
+.custom-slider-1.rzslider .rz-tick {
+  width: 10px;
+  height: 10px;
+  margin-left: 4px;
+  border-radius: 0;
+  background: #ffe4d1;
+  top: -1px;
+}
+
+.custom-slider-1.rzslider .rz-tick.rz-selected {
+  background: orange;
+}
+
+
+
+.custom-slider.rzslider .rz-bar {
+  background: #3c8dbc;
+  height: 10px;
+}
+.custom-slider.rzslider .rz-selection {
+  background: orange;
+}
+
+.custom-slider.rzslider .rz-pointer {
+  width: 53px;
+  height: 53px;
+  background-image: url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/footprint.png");
+  background-repeat:no-repeat;
+  top: auto; /* to remove the default positioning */
+  bottom: -20px;
+  background-color: transparent;
+}
+
+.custom-slider.rzslider .rz-pointer:after {
+  display: none;
+}
+
+
+.custom-slider.rzslider .rz-pointer:focus {
+    outline-width: 0;
+}
+
+.custom-slider.rzslider .rz-bubble {
+  bottom: 40px;
+  font-size:25px;
+}
+
+.custom-slider.rzslider .rz-limit {
+  font-weight: bold;
+  color: #3c8dbc;
+}
+
+.custom-slider.rzslider .rz-tick {
+  width: 10px;
+  height: 10px;
+  margin-left: 4px;
+  border-radius: 0;
+  background: #ffe4d1;
+  top: -1px;
+}
+
+.custom-slider.rzslider .rz-tick.rz-selected {
+  background: orange;
+}
+
+
+#fs_cat_pictures{
+    width: 90%;
+    margin: 0 auto; 
+    margin-top:3%;
+
+}
+.ct-selector input{
+    margin:0;padding:0;
+    width:0%;
+    height:0%;
+
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.ct-selector input[type=radio] {
+  display: inline;
+}
+
+.ct-selector label {
+  width:17.5%;
+
+}
+
+/*Fat_Score Cat 
+*/
+
+
+
+
+
+.ct-selector input:active +.boirecard-ct{opacity: .9;}
+.ct-selector input:checked +.boirecard-ct{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.boirecard-ct{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:300px;height:210px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.boirecard-ct:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+            transform:scale(1.25);
+
+}
+
+
+
+
+
+
+/*FatScore Dog
+*/
+
+#fs_dog_pictures{
+    width: 90%;
+    margin: 0 auto; 
+    margin-top:3%;
+}
+.cc-selector input{
+    margin:0;padding:0;
+    width:0%;
+    height:0%;
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.cc-selector input[type=radio] {
+  display: inline;
+}
+
+.cc-selector label {
+  width:17.5%;
+
+}
+
+
+
+
+
+
+.cc-selector input:active +.drinkcard-cc{opacity: .9;}
+.cc-selector input:checked +.drinkcard-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.drinkcard-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:300px;height:210px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.drinkcard-cc:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+            transform:scale(1.25);
+
+}
+
+/*Fecal Score Dog */ 
+
+.id_fecal_score_0{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/fecal_score_1.png");
+}
+.id_fecal_score_1{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/fecal_score_2.png");
+}
+.id_fecal_score_2{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/fecal_score_3.png");
+}
+.id_fecal_score_3{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/fecal_score_4.png");
+}
+.id_fecal_score_4{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/fecal_score_5.png");
+}
+
+
+
+
+
+#cat_in_out_picture{
+    width: 90%;
+    margin: 0 auto; 
+    margin-top:3%;
+}
+.cc-selector input{
+    margin:0;padding:0;
+    width:0%;
+    height:0%;
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+
+
+.cn-activity-selector label {
+  width:40%;
+
+}
+
+
+
+
+
+
+.ct-activity-selector input:active +.ct-activity{opacity: .9;}
+.ct-activity-selector input:checked +.ct-activity{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.ct-activity{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:300px;height:210px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: grayscale(1) opacity(.7) ;
+       -moz-filter: grayscale(1) opacity(.7) ;
+            filter: grayscale(1) opacity(.7) ;
+}
+.ct-activity:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) ;
+       -moz-filter: brightness(1.2) grayscale(.5) ;
+            filter: brightness(1.2) grayscale(.5) ;
+            transform:scale(1.4);
+
+}
+
+
+#physical_activity_picture{
+    width: 90%;
+    margin: 0 auto; 
+    margin-top:3%;
+}
+.cc-selector input{
+    margin:0;padding:0;
+    width:0%;
+    height:0%;
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+
+.cn-activity-selector label {
+  width:40%;
+
+}
+
+
+
+
+
+
+
+.cn-activity-selector input:active +.cn-activity{opacity: .9;}
+.cn-activity-selector input:checked +.cn-activity{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.cn-activity{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:300px;height:210px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.cn-activity:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+            transform:scale(1.4);
+
+}
+
+/*Sexual thing
+*/
+
+.active_neutered_intact{
+    background-color:transparent
+  }
+#sexual_capacity{
+    width: 100%;
+    margin: 0 auto; 
+    margin-top:3%;
+    text-align:center;
+}
+
+label{
+  padding:auto;
+  margin-right: 15px;
+  margin-top:15px;
+}
+
+.tt-selector input{
+    margin:0;padding:0;
+    width:0%;
+    height:0%;
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.tt-selector input[type=radio] {
+  display: inline;
+}
+
+
+#food_picture{
+    width: 90%;
+    margin: 0 auto; 
+    margin-top:3%;
+    text-align:center;
+
+}
+
+.food-selector input{
+    margin:0;padding:0;
+    width:0%;
+    height:0%;
+
+
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.food-selector input[type=radio] {
+  display: inline;
+
+}
+
+.food-selector label {
+  width:25%;
+
+}
+
+
+
+.food-selector input:active +.ct-cn-food{opacity: .9;}
+.food-selector input:checked +.ct-cn-food{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.ct-cn-food{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:300px;height:210px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: grayscale(1) opacity(.7) ;
+       -moz-filter: grayscale(1) opacity(.7) ;
+            filter: grayscale(1) opacity(.7) ;
+}
+.ct-cn-food:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) ;
+       -moz-filter: brightness(1.2) grayscale(.5) ;
+            filter: brightness(1.2) grayscale(.5) ;
+            transform:scale(1.4);
+
+}
+
+/*Food Choice */
+div.food_img {
+  font-size: 16px;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 8px;
+  width: calc(50% - 4px);
+  margin-right: 8px;
+}
+
+div.food_img:nth-of-type(2n) {
+  margin-right: 0;
+}
+
+@media screen and (min-width: 50em) {
+  div.food_img {
+    width: calc(25% - 6px);
+  }
+  
+  div.food_img:nth-of-type(2n) {
+    margin-right: 8px;
+  }
+  
+  div.food_img:nth-of-type(4n) {
+    margin-right: 0;
+  }
+}
+
+div.food_img:hover img {
+  transform: scale(1.15);
+}
+
+figure.food_img {
+  margin: 0;
+}
+img.food_img {
+  border: none;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background: transparent;
+  transition: transform .2s ease-in-out;
+}
+
+.reveal .hidden { display: block !important; visibility: visible !important; }
+.product:hover .reveal img { opacity: 1; }
+.reveal { position: relative; }
+.reveal .hidden { 
+  position: absolute; 
+  z-index: -1;
+  top: 0; 
+  width: 100%; 
+  height: 100%;  
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;  
+}
+.reveal:hover .hidden { 
+  z-index: 100000;
+  opacity: 1;    
+}
+.reveal .caption {
+  position: absolute;
+  top: 0;  
+  display: table;
+  width: 100%;
+  height: 100%;
+  background-color: white; 
+  background-color: rgba(255, 255, 255, 0.9);
+  font: 14px/1.6 Lato, sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #777;
+  letter-spacing: 1px;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+}
+.reveal .hidden .caption .centered {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@media (min-width: 480px) and (max-width: 979px) {
+  .reveal .caption { 
+    font-size: 11px; 
+  }
+}
+
+.chosen_food {
+  border-style: solid;
+  border-color:#00a2ff;
+}
+
+
+.chosen_food .glyphicon {
+  color:#00a2ff;
+}
+
+
+.chosen_food .food_img { opacity: 0; }
+.chosen_food .hidden { 
+  z-index: 100000;
+  opacity: 1;    
+}
+
+
+
+/* Extras */
+a:visited{color:#888}
+a{color:#444;text-decoration:none;}
+p{margin-bottom:.3em;}
+
+
+
+.form-control:focus {
+  border-color: grey;
+  box-shadow: none;
+}
+
+
+/* Color of valid field */
+.has-success .control-label,
+.has-success .help-block,
+.has-success .form-control-feedback {
+    color: #3c8dbc;
+
+}
+
+.form-group.has-success .form-control {
+  border-color: #3c8dbc;
+  box-shadow: none;
+}
+
+
+.active-button {
+  background-color : #5db0e0;
+}
+
+
+#form-views             { width:auto; }
+
+/* basic styling for entering and leaving */
+/* left and right added to ensure full width */
+
+#form-views.ng-enter,
+#form-views.ng-leave      { position:absolute; left:30px; right:30px;
+}
+
+/* enter animation */
+
+#form-views.ng-enter.continue            { 
+    -webkit-animation:slideInLeft 0.7s both ease;
+    -moz-animation:slideInLeft 0.7s both ease;
+    animation:slideInLeft 0.7s both ease; 
+}
+
+/* leave animation */
+
+#form-views.ng-leave.continue            { 
+    -webkit-animation:slideOutLeft 0.7s both ease;
+    -moz-animation:slideOutLeft 0.7s both ease;
+    animation:slideOutLeft 0.7s both ease;   
+}
+
+
+/* enter animation */
+
+#form-views.ng-enter.return            { 
+
+    -webkit-animation:slideInLeft 0.7s both ease;
+    -moz-animation:slideInLeft 0.7s both ease;
+    animation:slideInLeft 0.7s both ease; 
+}
+
+/* leave animation */
+
+#form-views.ng-leave.return            { 
+
+    -webkit-animation:slideOutRight 0.7s both ease;
+    -moz-animation:slideOutRight 0.7s both ease;
+    animation:slideOutRight 0.7s both ease;   
+}
+
+
+/* ANIMATIONS
+============================================================================= */
+/* slide out to the left */
+@keyframes slideOutLeft {
+    to      { transform: translateX(-200%); }
+}
+@-moz-keyframes slideOutLeft {  
+    to      { -moz-transform: translateX(-200%); }
+}
+@-webkit-keyframes slideOutLeft {
+    to      { -webkit-transform: translateX(-200%); }
+}
+
+/* slide out to the right */
+@keyframes slideOutRight {
+    to      { transform: translateX(200%); }
+}
+@-moz-keyframes slideOutRight {  
+    to      { -moz-transform: translateX(200%); }
+}
+@-webkit-keyframes slideOutRight {
+    to      { -webkit-transform: translateX(200%); }
+}
+
+
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform:translateX(200%); }
+    to      { transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+    from    { -moz-transform:translateX(200%); }
+    to      { -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+    from    { -webkit-transform:translateX(200%); }
+    to      { -webkit-transform: translateX(0); }
+}
+
+
+/* slide in from the left */
+@keyframes slideInLeft {
+    from    { transform:translateX(-200%); }
+    to      { transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+    from    { -moz-transform:translateX(-200%); }
+    to      { -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+    from    { -webkit-transform:translateX(-200%); }
+    to      { -webkit-transform: translateX(0); }
+}
+
+

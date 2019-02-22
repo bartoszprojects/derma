@@ -1,0 +1,84 @@
+<div style="width: auto" class="container">
+
+  <section class="content-header">
+    <div class="box box-default box-solid ">
+      <div style="text-align:center" class="box-header with-border">
+        <h1 class="control-label" for="id_Sup2"> Has this dog being recently desensitized ? </h1>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div style="text-align:center">
+          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['desensitized']=='1'}"
+                 for="id_desensitized_0" class="btn btn-1 btn-1a btn-crossed_0">
+            <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_desensitized_0" value="1"
+                   ng-model="pet_data['desensitized']" ng-required> Yes</label>
+
+          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['desensitized']=='0'}"
+                 for="id_desensitized_1" class="btn btn-1 btn-1a btn-crossed_1">
+            <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_desensitized_1" value="0"
+                   ng-model="pet_data['desensitized']" ng-required class='ng-hide'> No </label>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div ng-show="pet_data['desensitized']=='1'" class="box box-default box-solid ">
+      <div style="text-align:center" class="box-header with-border">
+        <h1 class="control-label" for="id_Sup2"> When did this desensitization occur? </h1>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div style="text-align:center">
+
+
+          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['desensitized_more_6_months']=='1'}"
+                 for="id_desensitized_6months_0" class="btn btn-1 btn-1a btn-crossed_0">
+            <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_desensitized_6months_0"
+                   value="1"
+                   ng-model="pet_data['desensitized_more_6_months']" ng-required> > 6 Months ago </label>
+
+          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['desensitized_more_6_months']=='0'}"
+                 for="id_desensitized_6months_1" class="btn btn-1 btn-1a btn-crossed_1">
+            <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_desensitized_6months_1"
+                   value="0"
+                   ng-model="pet_data['desensitized_more_6_months']" ng-required class='ng-hide'> < 6 Months ago
+          </label>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div ng-show="pet_data['desensitized_more_6_months']=='0' " class="box box-default box-solid ">
+      <div style="text-align:center" class="box-header with-border">
+        <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div style="text-align:center">
+          <label style="font-size: 2.5vw">
+            This dog can't be included in the study</label>
+        </div>
+      </div>
+
+    </div>
+
+
+    <button routerLink="/home/add-pet/drugs-history" routerLinkActive="active" ui-sref="add_pet.drugs_history"
+            ng-show="pet_data['desensitized']=='0' || (pet_data['desensitized']=='1' && pet_data['desensitized_more_6_months']=='1')"
+            id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+            style='float:right'>Continue
+    </button>
+
+    <button routerLink="/home/add-pet/otitis" routerLinkActive="active" ng-click='backward()' ui-sref="add_pet.otitis" id="moving" type="button"
+            name="previous"
+            class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
+      Return
+    </button>
+
+  </section>
+</div>

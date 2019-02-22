@@ -1,0 +1,85 @@
+<div style="width: auto" class="container">
+
+  <section class="content-header">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="box box-default box-solid">
+        <div style="text-align:center" class="box-header with-border">
+          <h1><i class="icon fa fa-warning"></i> This clinical study aims at studying the relationship between <b>atopic
+            dermatitis</b> and <b>homemade diet</b> <i class="icon fa fa-warning"></i></h1>
+          <h3 style='color:red'> Those diet are not balanced for specific therapeutic and physiolgic situation. Please
+            do
+            attest that : </h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div style="text-align:left" class="age">
+            <ul>
+              <li>Your candidate is not a growing dog, lactating or pregnant bitch</li>
+              <li> Your candidate is not suffering from any gastrointestinal diseases that would require specific
+                adjustment
+                of the diet : IBD, Exocrine Pancreatic Insufficiency, Diabetis, etc.
+              </li>
+              <li>Your candidate is not suffering from any chronical kidney disease or heat disea that would require
+                specific
+                adjustment of the diet
+              </li>
+              <li>Your candidate is not suffering from cancer</li>
+              <li>Your candidate is not suffering from obesity and engaging in a weight loss program</li>
+              <li>Your candidate is not suffering for a diagnosed allergy to the following item : egg, chicken,
+                zuchinnis,
+                pasta, blueberries, yeast
+              </li>
+            </ul>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                  <input type="checkbox" formControlName="diet_agreed" required id="diet_agreed" name="diet_agreed"
+                         placeholder="diet_agreed"> I agree
+                  with
+                  the previous statements
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- /.box-body -->
+
+
+      <button routerLink="/home/add-pet/favrot-criteria" routerLinkActive="active"
+              type="submit" [disabled]="!profileForm.valid"
+              class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
+      </button>
+
+
+      <button routerLink="/home/welcome" routerLinkActive="active" ng-click='back()' ui-sref="add_pet.favrot_criteria"
+              id="moving" type="button"
+              name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
+              style='float:left'>Return
+      </button>
+    </form>
+
+
+    <hr>
+
+
+    <p>
+      Form Value: {{ profileForm.value | json }}
+    </p>
+
+
+    <p>
+      Form Status: {{ profileForm.status }}
+    </p>
+
+
+    <p>_____________________________</p>
+    <p>personal: {{ personal }}</p>
+
+
+  </section>
+</div>

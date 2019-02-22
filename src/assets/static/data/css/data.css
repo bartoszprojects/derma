@@ -1,0 +1,14 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.djng-form-control-feedback {
+  position: absolute;
+  text-align: right;
+  top: 51px;
+  right: -3px;
+}

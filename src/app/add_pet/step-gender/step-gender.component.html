@@ -1,0 +1,34 @@
+<div style="width: auto" class="container">
+
+  <section class="content-header">
+    <div class="box box-default box-solid ">
+      <div style="text-align:center" class="box-header with-border">
+        <h1 class="control-label">Is <b> {{pet_data.pet_name}} </b> a boy or a girl ?</h1>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div style="text-align:center" id="gender_pictures" class="ss-selector has-feedback form-group">
+
+          <input id="id_gender_1" type="radio" name="gender" value="1" ng-model="pet_data['gender']" class='ng-hide'/>
+          <label class="drunkcard-ss id_gender_1" for="id_gender_1" style=""></label>
+
+          <input id="id_gender_2" type="radio" name="gender" value="2" ng-model="pet_data['gender']" class='ng-hide'/>
+          <label class="drunkcard-ss id_gender_2" for="id_gender_2" style=""></label>
+
+        </div>
+        <!-- /.box-body -->
+      </div>
+
+      <button routerLink="/home/add-pet/sex" routerLinkActive="active" ng-click="forward()" ui-sref="add_pet.sex"
+              ng-show="pet_data['gender']==1 || pet_data['gender']==2" id="moving" type="button" name="next"
+              class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
+      </button>
+
+      <button routerLink="/home/add-pet/breed" routerLinkActive="active" ng-click='backward()' ui-sref="add_pet.name" id="" type="button" name="previous"
+              class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
+        Return
+      </button>
+
+    </div>
+  </section>
+</div>

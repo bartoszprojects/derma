@@ -1,0 +1,88 @@
+<div style="width: auto" class="container">
+
+  <section class="content-header">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+
+          <h1>Select Favrot's criteria fitting your candidate's situation</h1>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body" style=''>
+
+          <div>
+            <input type="checkbox" formControlName="three_years" required id="three_years"
+                   name="three_years"
+                   placeholder="three_years"> Onset of signs under 3 years of age
+          </div>
+
+          <div>
+            <input type="checkbox" formControlName="indoor_dog" required id="indoor_dog" name="indoor_dog"
+                   placeholder="indoor_dog"/> Dog living mostly indoors
+          </div>
+
+          <div>
+            <input type="checkbox" formControlName="pruritus_corticoid" required id="pruritus_corticoid" name="pruritus_corticoid"
+                   placeholder="pruritus_corticoid"/> Glucocorticoid-responsive pruritus
+          </div>
+
+          <div>
+            <input type="checkbox" formControlName="no_lesion_pruritus" required id="no_lesion_pruritus" name="no_lesion_pruritus"
+                   placeholder="no_lesion_pruritus"/> Pruritus without lesions at onset
+          </div>
+
+          <div>
+            <input type="checkbox" formControlName="front_feet" required id="front_feet" name="front_feet"
+                   placeholder="front_feet"/> Affected front feet
+          </div>
+
+          <div>
+            <input type="checkbox" formControlName="ear_pinnae" required id="ear_pinnae" name="ear_pinnae"
+                   placeholder="ear_pinnae"/> Affected ear pinnae
+          </div>
+
+          <div>
+            <input type="checkbox" formControlName="ear_margins" required id="ear_margins" name="ear_margins"
+                   placeholder="ear_margins"/> Non-affected ear margins
+          </div>
+
+          <div>
+            <input type="checkbox" formControlName="dorso_lumbar" required id="dorso_lumbar" name="dorso_lumbar"
+                   placeholder="dorso_lumbar"/> Non-affecteddorso-lumbar area.
+          </div>
+
+
+        </div>
+        <!-- /.box-body -->
+      </div>
+
+
+      <button routerLink="/home/add-pet/cadesi" routerLinkActive="active"
+              type="submit" [disabled]="!profileForm.valid"
+              class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
+      </button>
+
+      <button routerLink="/home/add-pet/disclaimer" routerLinkActive="active" ng-click='back()'
+              ui-sref="add_pet.favrot_criteria" id="moving" type="button"
+              name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
+              style='float:left'>Return
+      </button>
+
+    </form>
+    <hr>
+
+
+    <p>
+      Form Value: {{ profileForm.value | json }}
+    </p>
+
+
+    <p>
+      Form Status: {{ profileForm.status }}
+    </p>
+
+
+    <p>barteeeeeeeeeeeeeeeeeeeeeek{{bartek}}</p>
+
+  </section>
+</div>
