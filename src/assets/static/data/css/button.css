@@ -1,4 +1,4 @@
-<style>
+
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before, .clearfix:after { content: " "; display: table; }
@@ -82,17 +82,6 @@
 }
 
 
-@font-face {
-  font-family: 'icomoon';
-  src:url("{% static 'data/fonts/icomoon/icomoon.eot' %}");
-  src:url("{% static 'data/fonts/icomoon/icomoon.eot?#iefix' %}") format('embedded-opentype'),
-    url("{% static 'data/fonts/icomoon/icomoon.woff' %}") format('woff'),
-    url("{% static 'data/fonts/icomoon/iicomoon.ttf' %}") format('truetype'),
-    url("{% static 'data/fonts/icomoon/svg#icomoon' %}"
-) format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 
 
 /* General button style (reset) */
@@ -514,7 +503,6 @@ background-color:#5db0e0;}
 /* Button 2i */
 .btn-2i {
   border-radius: 50%;
-  line-height: px;
   width: 90px;
   height: 90px;
   padding: 0;
@@ -1997,4 +1985,3 @@ background-color:#5db0e0;}
   transform: rotateX(90deg) translateY(-100%);
 }
 
-</style>

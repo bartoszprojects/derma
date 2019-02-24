@@ -25,7 +25,7 @@ $derma-theme: mat-light-theme($derma-primary, $derma-accent, $derma-warn);
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($derma-theme);
-
+@import "assets/static/data/css/add_a_pet.css";
 @import "assets/static/data/css/bootstrap.css";
 @import "assets/static/data/css/AdminLTE.css";
 @import "assets/static/data/css/select2.css";
@@ -34,7 +34,10 @@ $derma-theme: mat-light-theme($derma-primary, $derma-accent, $derma-warn);
 @import "assets/static/data/css/dataTables.bootstrap.css";
 @import "assets/static/data/css/_all-skins.css";
 @import "assets/static/data/css/animate.css";
-@import "assets/static/data/css/animate.css";
+@import "assets/static/data/css/basic.css";
+@import "assets/static/data/css/button.css";
+
+
 
 
 html, body { height: 100%; }

@@ -1,65 +1,106 @@
-  <div style="width: auto" class="container">
+<div style="width: auto" class="container">
 
-      <section class="content-header">
-
-
-    <div ng-show="pet_data['flea_allergy_excluded']=='0'" class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div style="text-align:center">
-          <label style="font-size: 2.5vw">
-            Flea Bite Dermatitis must be ruled out first before joining the study!</label>
+  <section class="content-header">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+          <h1 class="control-label" for="id_Sup2"> Has Flea Bite Dermatitis been ruled out ? </h1>
         </div>
-      </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div style="text-align:center">
+            <label style="font-size: 2.5vw" class="btn btn-1 btn-1a btn-crossed_0">
+              <input formControlName="flea_allergy_excluded" required id="flea_allergy_excluded"
+                     name="flea_allergy_excluded"
+                     placeholder="flea_allergy_excluded" class='ng-hide form-control' type="radio" value="1">
+              Yes</label>
 
-    </div>
-
-
-    <div ng-show="pet_data['flea_allergy_excluded']=='1'" class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label">Select the product with which Flea bite dermatitis has been ruled out</h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div id="flea_drug_pictures" class="ss-selector has-feedback form-group">
-
-          <input id="id_flea_drug_1" type="radio" name="gender" value="1" ng-model="pet_data['flea_drug']"
-                 class='ng-hide'/>
-          <label class="drunkcard-ss id_flea_drug_1" for="id_flea_drug_1" ></label>
-
-          <input id="id_flea_drug_2" type="radio" name="gender" value="2" ng-model="pet_data['flea_drug']"
-                 class='ng-hide'/>
-          <label class="drunkcard-ss id_flea_drug_2" for="id_flea_drug_2" ></label>
-
-          <input id="id_flea_drug_3" type="radio" name="gender" value="3" ng-model="pet_data['flea_drug']"
-                 class='ng-hide'/>
-          <label class="drunkcard-ss id_flea_drug_3" for="id_flea_drug_3" ></label>
-
-
-          <h3 ng-show="pet_data['flea_drug']=='1'" class="control-label"><b>NexGard &copy; </b> every five weeks </h3>
-          <h3 ng-show="pet_data['flea_drug']=='2'" class="control-label"><b> Simparica &copy; </b> every five weeks
-          </h3>
-          <h3 ng-show="pet_data['flea_drug']=='3'" class="control-label"><b> Bravecto &copy; </b> every three months
-          </h3>
+            <label style="font-size: 2.5vw" class="btn btn-1 btn-1a btn-crossed_1">
+              <input formControlName="flea_allergy_excluded" required id="" name="flea_allergy_excluded"
+                     placeholder="flea_allergy_excluded" class='ng-hide form-control' type="radio" value="0"> No
+            </label>
+          </div>
 
         </div>
-        <!-- /.box-body -->
+
       </div>
 
-      <button routerLink="/home/add-pet/food-allergy" routerLinkActive="active"  ng-click="call_breed();click_gender();forward()" ui-sref="add_pet.food_allergy"
-              ng-show="pet_data['flea_drug']=='1' || pet_data['flea_drug']=='2' || pet_data['flea_drug']=='3'"
-              id=""
-              type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-              style='float:right'>Continue
-      </button>
 
-      <button routerLink="/home/add-pet/cadesi" routerLinkActive="active" ng-click='backward()' ui-sref="add_pet.name" id="moving" type="button"
-              name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
-              style='float:left'>Return
-      </button>
-    </div>
+      <div ng-show="pet_data['flea_allergy_excluded']=='0'" class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+          <h1 class="control-label" for="id_Sup2"> Warning </h1>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div style="text-align:center">
+            <label style="font-size: 2.5vw">
+              Flea Bite Dermatitis must be ruled out first before joining the study!</label>
+          </div>
+        </div>
+
+      </div>
+
+      <ng-template [ngIf]="profileForm.value.flea_allergy_excluded == 1">
+        <div ng-show="pet_data['flea_allergy_excluded']=='1'" class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label">Select the product with which Flea bite dermatitis has been ruled out</h1>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div id="flea_drug_pictures" class="ss-selector has-feedback form-group">
+              <label class="drunkcard-ss">
+                <input formControlName="flea_product" required id="flea_product" name="flea_product"
+                       placeholder="flea_product" type="radio" value="1" ng-model="pet_data['flea_drug']"
+                       class='ng-hide form-control'/>
+                <img src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/nexgard.jpg"/>
+              </label>
+              <label class="drunkcard-ss"><input formControlName="flea_product" required id="h"
+                                                 name="flea_product"
+                                                 placeholder="flea_product" type="radio" value="2"
+                                                 ng-model="pet_data['flea_drug']"
+                                                 class='ng-hide form-control'/>
+                <img src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/simparica.jpg"/>
+              </label>
+
+              <label class="drunkcard-ss"> <input formControlName="flea_product" required id="dh"
+                                                  name="flea_product"
+                                                  placeholder="flea_product" type="radio" value="3"
+                                                  ng-model="pet_data['flea_drug']"
+                                                  class='ng-hide form-control'/> <img
+                src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/bravecto.jpg"/></label>
+
+              <ng-template [ngIf]="profileForm.value.flea_product == 1">
+                <h3 ng-show="pet_data['flea_drug']=='1'" class="control-label"><b>NexGard &copy; </b> every five weeks
+                </h3>
+              </ng-template>
+              <ng-template [ngIf]="profileForm.value.flea_product == 2">
+                <h3 ng-show="pet_data['flea_drug']=='2'" class="control-label"><b> Simparica &copy; </b> every five
+                  weeks
+                </h3></ng-template>
+              <ng-template [ngIf]="profileForm.value.flea_product == 3">
+                <h3 ng-show="pet_data['flea_drug']=='3'" class="control-label"><b> Bravecto &copy; </b> every three
+                  months
+                </h3></ng-template>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+          <button routerLink="/home/add-pet/food-allergy" routerLinkActive="active"
+
+                  type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+                  style='float:right'>Continue
+          </button>
+
+          <button routerLink="/home/add-pet/cadesi" routerLinkActive="active"
+                  id="moving" type="button"
+                  name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
+                  style='float:left'>Return
+          </button>
+        </div>
+      </ng-template>
+    </form>
+
+    Form Value: {{ profileForm.value | json }}
   </section>
 </div>

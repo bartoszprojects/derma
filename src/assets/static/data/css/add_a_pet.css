@@ -1,8 +1,7 @@
 
-
 #gender_pictures{
     width: 90%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
     text-align: center
 }
@@ -26,7 +25,10 @@
 }
 
 
-
+.id_gender_1{background-image:url("/assets/static/data/img/male_symbol.png");
+}
+.id_gender_2{background-image:url("/assets/static/data/img/female_symbol.png");
+}
 
 .ss-selector input:active +.drunkcard-ss{opacity: .9;}
 .ss-selector input:checked +.drunkcard-ss{
@@ -60,7 +62,7 @@
 
 #specy_pictures{
     width: 90%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
     text-align: center
 }
@@ -82,8 +84,13 @@
 
 }
 
- 
 
+
+
+.id_specy_1{background-image:url("/static/data/img/chien_icon_2.png");
+}
+.id_specy_2{background-image:url("/static/data/img/cat_icon_2.png");
+}
 
 .specy-selector input:active +.specy-ss{opacity: .9;}
 .specy-selector input:checked +.specy-ss{
@@ -115,7 +122,7 @@
 
 #flea_drug_pictures{
     width: 90%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
     text-align: center
 }
@@ -176,7 +183,7 @@
 
 #crossed{
     width: 100%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
     text-align:center;
 }
@@ -197,7 +204,7 @@
 
 #format_dog_pictures{
     width: 90%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
 }
 .cc-format-selector input{
@@ -271,7 +278,7 @@
 
 #sup2{
     width: 100%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
     text-align:center;
 }
@@ -312,14 +319,14 @@ label{
   background: -moz-linear-gradient(right, #df3341 0%, #d4f355 50%, #61c0ec 100%);
   background: -webkit-gradient(linear, left top, right top, color-stop(0%,#df3341), color-stop(50%,#d4f355), color-stop(100%,#61c0ec));
   background: -webkit-linear-gradient(right, #df3341 0%,#d4f355 50%,#61c0ec 100%);
-  background: -o-linear-gradient(right, #df3341 0%,#d4f355 50%,#61c0ec 100%); 
+  background: -o-linear-gradient(right, #df3341 0%,#d4f355 50%,#61c0ec 100%);
   background: -ms-linear-gradient(right, #df3341 0%,#d4f355 50%,#61c0ec 100%);
   background: linear-gradient(to left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
   background: #df3341;
   background: -moz-linear-gradient(right, #df3341 0%, #d4f355 50%, #61c0ec 100%);
   background: -webkit-gradient(linear, left top, right top, color-stop(0%,#df3341), color-stop(50%,#d4f355), color-stop(100%,#61c0ec));
   background: -webkit-linear-gradient(left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
-  background: -o-linear-gradient(left, #df3341 0%,#d4f355 50%,#61c0ec 100%); 
+  background: -o-linear-gradient(left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
   background: -ms-linear-gradient(left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
   background: linear-gradient(to left, #df3341 0%,#d4f355 50%,#61c0ec 100%);
   height: 10px;
@@ -425,7 +432,7 @@ label{
 
 #fs_cat_pictures{
     width: 90%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
 
 }
@@ -449,8 +456,20 @@ label{
 
 }
 
-/*Fat_Score Cat 
+/*Fat_Score Cat
 */
+
+.id_fat_score_cat_0{background-image:url("/static/data/img/CT_bodyscore-12.png");
+}
+.id_fat_score_cat_1{background-image:url("/static/data/img/CT_bodyscore-32.png");
+}
+.id_fat_score_cat_2{background-image:url("/static/data/img/CT_bodyscore-52.png");
+}
+.id_fat_score_cat_3{background-image:url("/static/data/img/CT_bodyscore-72.png");
+}
+.id_fat_score_cat_4{background-image:url("/static/data/img/CT_bodyscore-92.png");
+}
+
 
 
 
@@ -493,7 +512,7 @@ label{
 
 #fs_dog_pictures{
     width: 90%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
 }
 .cc-selector input{
@@ -513,6 +532,18 @@ label{
 .cc-selector label {
   width:17.5%;
 
+}
+
+
+.id_fat_score_dog_0{background-image:url("/static/data/img/CN_bodyscore-12.png");
+}
+.id_fat_score_dog_1{background-image:url("/static/data/img/CN_bodyscore-32.png");
+}
+.id_fat_score_dog_2{background-image:url("/static/data/img/CN_bodyscore-52.png");
+}
+.id_fat_score_dog_3{background-image:url("/static/data/img/CN_bodyscore-72.png");
+}
+.id_fat_score_dog_4{background-image:url("/static/data/img/CN_bodyscore-92.png");
 }
 
 
@@ -547,7 +578,7 @@ label{
 
 }
 
-/*Fecal Score Dog */ 
+/*Fecal Score Dog */
 
 .id_fecal_score_0{background-image:url("https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/fecal_score_1.png");
 }
@@ -566,7 +597,7 @@ label{
 
 #cat_in_out_picture{
     width: 90%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
 }
 .cc-selector input{
@@ -579,7 +610,9 @@ label{
             appearance:none;
 }
 
-
+.cn-activity-selector input[type=radio] {
+  float:center
+}
 
 .cn-activity-selector label {
   width:40%;
@@ -587,6 +620,16 @@ label{
 }
 
 
+.id_indoor_outdoor_0{background-image:url("/static/data/img/cat_out_in_1.png");
+}
+.id_indoor_outdoor_1_1{background-image:url("/static/data/img/cat_out_in_2_1.png");
+}
+
+.id_indoor_outdoor_1_2{background-image:url("/static/data/img/cat_out_in_2_2.png");
+
+}
+.id_indoor_outdoor_2{background-image:url("/static/data/img/cat_out_in_3.png");
+}
 
 
 
@@ -621,7 +664,7 @@ label{
 
 #physical_activity_picture{
     width: 90%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
 }
 .cc-selector input{
@@ -634,12 +677,24 @@ label{
             appearance:none;
 }
 
+.cn-activity-selector input[type=radio] {
+  float:center
+}
 
 .cn-activity-selector label {
   width:40%;
 
 }
 
+
+.id_physical_activity_0{background-image:url("/assets/static/data/img/dog_level_1.png");
+}
+.id_physical_activity_1{background-image:url("/assets/static/data/img/dog_level_2.png");
+}
+.id_physical_activity_2{background-image:url("/assets/static/data/img/dog_level_3.png");
+}
+.id_physical_activity_3{background-image:url("/assets/static/data/img/dog_level_4.png");
+}
 
 
 
@@ -681,7 +736,7 @@ label{
   }
 #sexual_capacity{
     width: 100%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
     text-align:center;
 }
@@ -709,7 +764,7 @@ label{
 
 #food_picture{
     width: 90%;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top:3%;
     text-align:center;
 
@@ -737,7 +792,14 @@ label{
 }
 
 
+.id_food_presentation_0{background-image:url("/static/data/img/dry_food.png");
+}
+.id_food_presentation_1{background-image:url("/static/data/img/wet_food.png");
+}
 
+.id_food_presentation_2{background-image:url("/static/data/img/natural_food.png");
+
+}
 .food-selector input:active +.ct-cn-food{opacity: .9;}
 .food-selector input:checked +.ct-cn-food{
     -webkit-filter: none;
@@ -783,11 +845,11 @@ div.food_img:nth-of-type(2n) {
   div.food_img {
     width: calc(25% - 6px);
   }
-  
+
   div.food_img:nth-of-type(2n) {
     margin-right: 8px;
   }
-  
+
   div.food_img:nth-of-type(4n) {
     margin-right: 0;
   }
@@ -812,29 +874,29 @@ img.food_img {
 .reveal .hidden { display: block !important; visibility: visible !important; }
 .product:hover .reveal img { opacity: 1; }
 .reveal { position: relative; }
-.reveal .hidden { 
-  position: absolute; 
+.reveal .hidden {
+  position: absolute;
   z-index: -1;
-  top: 0; 
-  width: 100%; 
-  height: 100%;  
+  top: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-in-out;
   -moz-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;  
+  transition: opacity 0.3s ease-in-out;
 }
-.reveal:hover .hidden { 
+.reveal:hover .hidden {
   z-index: 100000;
-  opacity: 1;    
+  opacity: 1;
 }
 .reveal .caption {
   position: absolute;
-  top: 0;  
+  top: 0;
   display: table;
   width: 100%;
   height: 100%;
-  background-color: white; 
+  background-color: white;
   background-color: rgba(255, 255, 255, 0.9);
   font: 14px/1.6 Lato, sans-serif;
   text-transform: uppercase;
@@ -850,8 +912,8 @@ img.food_img {
 }
 
 @media (min-width: 480px) and (max-width: 979px) {
-  .reveal .caption { 
-    font-size: 11px; 
+  .reveal .caption {
+    font-size: 11px;
   }
 }
 
@@ -867,9 +929,9 @@ img.food_img {
 
 
 .chosen_food .food_img { opacity: 0; }
-.chosen_food .hidden { 
+.chosen_food .hidden {
   z-index: 100000;
-  opacity: 1;    
+  opacity: 1;
 }
 
 
@@ -917,37 +979,37 @@ p{margin-bottom:.3em;}
 
 /* enter animation */
 
-#form-views.ng-enter.continue            { 
+#form-views.ng-enter.continue            {
     -webkit-animation:slideInLeft 0.7s both ease;
     -moz-animation:slideInLeft 0.7s both ease;
-    animation:slideInLeft 0.7s both ease; 
+    animation:slideInLeft 0.7s both ease;
 }
 
 /* leave animation */
 
-#form-views.ng-leave.continue            { 
+#form-views.ng-leave.continue            {
     -webkit-animation:slideOutLeft 0.7s both ease;
     -moz-animation:slideOutLeft 0.7s both ease;
-    animation:slideOutLeft 0.7s both ease;   
+    animation:slideOutLeft 0.7s both ease;
 }
 
 
 /* enter animation */
 
-#form-views.ng-enter.return            { 
+#form-views.ng-enter.return            {
 
     -webkit-animation:slideInLeft 0.7s both ease;
     -moz-animation:slideInLeft 0.7s both ease;
-    animation:slideInLeft 0.7s both ease; 
+    animation:slideInLeft 0.7s both ease;
 }
 
 /* leave animation */
 
-#form-views.ng-leave.return            { 
+#form-views.ng-leave.return            {
 
     -webkit-animation:slideOutRight 0.7s both ease;
     -moz-animation:slideOutRight 0.7s both ease;
-    animation:slideOutRight 0.7s both ease;   
+    animation:slideOutRight 0.7s both ease;
 }
 
 
@@ -957,7 +1019,7 @@ p{margin-bottom:.3em;}
 @keyframes slideOutLeft {
     to      { transform: translateX(-200%); }
 }
-@-moz-keyframes slideOutLeft {  
+@-moz-keyframes slideOutLeft {
     to      { -moz-transform: translateX(-200%); }
 }
 @-webkit-keyframes slideOutLeft {
@@ -968,7 +1030,7 @@ p{margin-bottom:.3em;}
 @keyframes slideOutRight {
     to      { transform: translateX(200%); }
 }
-@-moz-keyframes slideOutRight {  
+@-moz-keyframes slideOutRight {
     to      { -moz-transform: translateX(200%); }
 }
 @-webkit-keyframes slideOutRight {
@@ -1005,5 +1067,3 @@ p{margin-bottom:.3em;}
     from    { -webkit-transform:translateX(-200%); }
     to      { -webkit-transform: translateX(0); }
 }
-
-

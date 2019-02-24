@@ -1,188 +1,183 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+          <h1 class="control-label" for="id_Sup2"> Is the drug history of the past month known
+            ? </h1>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div style="text-align:center">
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
+              <input formControlName="drug_history_known" class='ng-hide' class='form-control' type="radio" value="1">
+              Yes</label>
 
-    <div class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Is the drug history of the past month known
-          ? </h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div style="text-align:center">
-          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data.drug_history_known=='1'}"
-                 for="id_crossed_0"
-                 class="btn btn-1 btn-1a btn-crossed_0">
-            <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_0" value="1"
-                   ng-model="pet_data.drug_history_known" ng-required> Yes</label>
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
+              <input formControlName="drug_history_known" class='ng-hide' class='form-control' type="radio" value="0"
+                     class='ng-hide'> No </label>
+          </div>
 
-          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data.drug_history_known=='0'}"
-                 for="id_crossed_1"
-                 class="btn btn-1 btn-1a btn-crossed_1">
-            <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_1" value="0"
-                   ng-model="pet_data.drug_history_known" ng-required class='ng-hide'> No </label>
         </div>
 
       </div>
 
-    </div>
-
-
-    <div ng-show="pet_data.drug_history_known=='0'" class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2" style="float:center;color:red"> Warning </h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div style="text-align:center">
-          <label style="font-size: 2.5vw">
-            A drug history must be known to join the study!</label>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div ng-show="pet_data.drug_history_known=='1'" class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label">Select the systemic product with wich atopis dermatitis is being controlled for this
-          dog
-          ? </h1>
-      </div>
-      <!-- /.box-header -->
-
-      <div class="box-body">
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Prednisolone</label>
-
-          <div class="col-sm-10">
-            <div class='input-group'>
-              <input ng-model="pet_data.drugs.prednisolone" type="number" class="form-control" placeholder="Posology">
-              <span class="input-group-addon">mg/kg/day</span>
+      <ng-template [ngIf]="profileForm.value.drug_history_known == 0">
+        <div ng-show="pet_data.drug_history_known=='0'" class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div style="text-align:center">
+              <label style="font-size: 2.5vw">
+                A drug history must be known to join the study!</label>
             </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Oclacitinib</label>
 
-          <div class="col-sm-10">
-            <div class='input-group'>
-              <input ng-model="pet_data.drugs.oclacitinib " type="number" class="form-control" placeholder="Posology">
-              <span class="input-group-addon">mg/kg/day</span>
-            </div>
+        </div>
+      </ng-template>
+      <ng-template [ngIf]="profileForm.value.drug_history_known == 1">
+        <div ng-show="pet_data.drug_history_known=='1'" class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label">Select the systemic product with wich atopis dermatitis is being controlled for
+              this
+              dog
+              ? </h1>
           </div>
-        </div>
+          <!-- /.box-header -->
 
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Cyclosporine</label>
+          <div class="box-body">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Prednisolone</label>
 
-          <div class="col-sm-10">
-            <div class='input-group'>
-              <input ng-model="pet_data.drugs.cyclosporine" type="number" class="form-control" placeholder="Posology">
-              <span class="input-group-addon">mg/kg/day</span>
+              <div class="col-sm-10">
+                <div class='input-group'>
+                  <input formControlName="prednisolone" type="number" class="form-control" placeholder="Posology">
+                  <span class="input-group-addon">mg/kg/day</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Oclacitinib</label>
 
-      </div>
-
-    </div>
-
-
-    <div ng-show="pet_data.drug_history_known=='1'" class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label">Select the topic product with wich atopis dermatitis is being controlled for this dog
-          ? </h1>
-      </div>
-      <!-- /.box-header -->
-
-      <div class="box-body">
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Cortavance / Topic Prednisolone</label>
-
-          <div class="col-sm-10">
-            <div class='input-group'>
-              <input ng-model="pet_data.drugs.cortavance" type="number" class="form-control"
-                     placeholder="Frequencies of use each week">
-              <span class="input-group-addon">times/week</span>
+              <div class="col-sm-10">
+                <div class='input-group'>
+                  <input formControlName="oclacitinib" type="number" class="form-control" placeholder="Posology">
+                  <span class="input-group-addon">mg/kg/day</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Antiseptic Shampoo (ex : Douxo Pyo)</label>
 
-          <div class="col-sm-10">
-            <div class='input-group'>
-              <input ng-model="pet_data.drugs.antibacterial_shampoo " type="number" class="form-control"
-                     placeholder="Frequencies of use each week">
-              <span class="input-group-addon">times/week</span>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Cyclosporine</label>
+
+              <div class="col-sm-10">
+                <div class='input-group'>
+                  <input formControlName="cyclosporine" type="number" class="form-control" placeholder="Posology">
+                  <span class="input-group-addon">mg/kg/day</span>
+                </div>
+              </div>
             </div>
+
           </div>
+
         </div>
 
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Dermatologic Shampoo (ex : Douxo Calm)</label>
 
-          <div class="col-sm-10">
-            <div class='input-group'>
-              <input ng-model="pet_data.drugs.dermatologic_shampoo" type="number" class="form-control"
-                     placeholder="Frequencies of use each week">
-              <span class="input-group-addon">times/week</span>
+        <div ng-show="pet_data.drug_history_known=='1'" class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label">Select the topic product with wich atopis dermatitis is being controlled for this
+              dog
+              ? </h1>
+          </div>
+          <!-- /.box-header -->
+
+          <div class="box-body">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Cortavance / Topic Prednisolone</label>
+
+              <div class="col-sm-10">
+                <div class='input-group'>
+                  <input formControlName="cortavance" type="number" class="form-control" placeholder="Frequencies of use each week">
+                  <span class="input-group-addon">times/week</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Antiseptic Shampoo (ex : Douxo Pyo)</label>
 
-      </div>
-
-    </div>
-
-
-    <div ng-show="pet_data.drug_history_known=='1'" class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label">Are there any food oral supplements ?</h1>
-      </div>
-      <!-- /.box-header -->
-
-      <div class="box-body">
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Omega3/Omega6 - Fish Oil </label>
-
-          <div class="col-sm-10">
-            <div class='input-group'>
-              <input ng-model="pet_data.drugs.omega" type="number" class="form-control"
-                     placeholder="Frequencies of use each week">
-              <span class="input-group-addon">times/week</span>
+              <div class="col-sm-10">
+                <div class='input-group'>
+                  <input formControlName="antibacterial_shampoo" type="number" class="form-control" placeholder="Frequencies of use each week">
+                  <span class="input-group-addon">times/week</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Yeast</label>
 
-          <div class="col-sm-10">
-            <div class='input-group'>
-              <input ng-model="pet_data.drugs.yeast " type="number" class="form-control"
-                     placeholder="Frequencies of use each week">
-              <span class="input-group-addon">times/week</span>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Dermatologic Shampoo (ex : Douxo Calm)</label>
+
+              <div class="col-sm-10">
+                <div class='input-group'>
+                  <input formControlName="dermatologic_shampoo" type="number" class="form-control" placeholder="Frequencies of use each week">
+                  <span class="input-group-addon">times/week</span>
+                </div>
+              </div>
             </div>
+
           </div>
+
         </div>
 
 
-      </div>
+        <div ng-show="pet_data.drug_history_known=='1'" class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label">Are there any food oral supplements ?</h1>
+          </div>
+          <!-- /.box-header -->
 
-    </div>
+          <div class="box-body">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Omega3/Omega6 - Fish Oil </label>
+
+              <div class="col-sm-10">
+                <div class='input-group'>
+                  <input formControlName="omega" type="number" class="form-control" placeholder="Frequencies of use each week">
+                  <span class="input-group-addon">times/week</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Yeast</label>
+
+              <div class="col-sm-10">
+                <div class='input-group'>
+                  <input formControlName="yeast" type="number" class="form-control" placeholder="Frequencies of use each week">
+                  <span class="input-group-addon">times/week</span>
+                </div>
+              </div>
+            </div>
 
 
-    <button routerLink="/home/add-pet/name" routerLinkActive="active" ng-click="forward()" ui-sref="add_pet.name"
-            ng-show="pet_data.drug_history_known=='1'"
-            id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-            style='float:right'>Continue
-    </button>
+          </div>
 
-    <button routerLink="/home/add-pet/desensitized" routerLinkActive="active" ng-click='backward()' ui-sref="add_pet.desensitized" id="moving" type="button"
-            name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
-            style='float:left'>Return
-    </button>
+        </div>
+      </ng-template>
 
+      <button routerLink="/home/add-pet/name" routerLinkActive="active" ng-click="forward()" ui-sref="add_pet.name"
+              ng-show="pet_data.drug_history_known=='1'"
+              id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+              style='float:right'>Continue
+      </button>
+
+      <button routerLink="/home/add-pet/desensitized" routerLinkActive="active" ng-click='backward()'
+              ui-sref="add_pet.desensitized" id="moving" type="button"
+              name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
+              style='float:left'>Return
+      </button>
+    </form>
+    Form Value: {{ profileForm.value | json }}
   </section>
 </div>

@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { StepFavrotCriteria } from '../../formData.model';
-import { DataService } from '../../data.service';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
+import {Validators} from '@angular/forms';
+import {StepFavrotCriteria} from '../../formData.model';
+import {DataService} from '../../data.service';
+
 
 @Component({
   selector: 'app-step-favrot-criteria',
@@ -14,7 +15,6 @@ export class StepFavrotCriteriaComponent implements OnInit {
   title = 'Please tell us about yourself.';
   favrot_criteria: StepFavrotCriteria;
   form: any;
-bartek;
   profileForm = this.fb.group({
     three_years: [false, Validators.required],
     indoor_dog: [false, Validators.required],
@@ -27,19 +27,20 @@ bartek;
 
   });
 
-  constructor(private fb: FormBuilder, private DataService: DataService) { }
+  constructor(private fb: FormBuilder, private DataService: DataService) {
+  }
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
-     this.DataService.setFavrotCriteria(this.profileForm.value);
-     console.log(this.DataService.getFavrotCriteria());
+    this.DataService.setFavrotCriteria(this.profileForm.value);
+    console.log(this.DataService.getFavrotCriteria());
 
   }
 
   ngOnInit() {
     this.favrot_criteria = this.DataService.getFavrotCriteria();
-        console.log('Personal feature loaded!');
+    console.log('Personal feature loaded!');
 
   }
 }

@@ -1,3 +1,13 @@
+label img {
+  width: 73%;
+  height: auto;
+}
 
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
 /*# sourceMappingURL=step-flea-treatment.component.css.map */

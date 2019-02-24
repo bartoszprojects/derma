@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {coerceNumberProperty} from '@angular/cdk/coercion';
+import {FormControl} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
+import {Validators} from '@angular/forms';
+import {DataService} from '../../data.service';
+import {StepFleaTreatment} from '../../formData.model';
+
 
 @Component({
   selector: 'app-step-flea-treatment',
@@ -7,9 +14,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StepFleaTreatmentComponent implements OnInit {
 
-  constructor() { }
+  flea_treatment: StepFleaTreatment;
+  form: any;
+  profileForm = this.fb.group({
+    flea_allergy_excluded: [0, Validators.required],
+    flea_product: [0, Validators.required],
+  });
 
-  ngOnInit() {
+  constructor(private fb: FormBuilder, private DataService: DataService) {
+    this.DataService.setCadesi(this.profileForm.value)
   }
 
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.profileForm.value);
+    this.DataService.setFleaTreatment(this.profileForm.value);
+    console.log(this.DataService.getFleaTreatment());
+
+  }
+
+  ngOnInit() {
+    this.flea_treatment = this.DataService.getFleaTreatment();
+    console.log('Personal feature loaded!');
+
+  }
 }

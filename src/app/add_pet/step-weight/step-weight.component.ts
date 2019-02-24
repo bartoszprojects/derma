@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {coerceNumberProperty} from '@angular/cdk/coercion';
+import {FormControl} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
+import {Validators} from '@angular/forms';
+import {DataService} from '../../data.service';
+import {StepWeight} from '../../formData.model';
 
 @Component({
   selector: 'app-step-weight',
@@ -7,9 +13,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StepWeightComponent implements OnInit {
 
-  constructor() { }
+  weight: StepWeight;
+  form: any;
+  profileForm = this.fb.group({
+    weight: [null, Validators.required],
 
-  ngOnInit() {
+  });
+
+  constructor(private fb: FormBuilder, private DataService: DataService) {
+    this.DataService.setWeight(this.profileForm.value)
   }
 
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.profileForm.value);
+    this.DataService.setWeight(this.profileForm.value);
+    console.log(this.DataService.getWeight());
+
+  }
+
+  ngOnInit() {
+    this.weight = this.DataService.getWeight();
+    console.log('Personal feature loaded!');
+
+  }
 }

@@ -1,115 +1,120 @@
-
-
 <div style="width: auto" class="container">
 
   <section class="content-header">
-<div class="box box-default box-solid ">
-  <div style="text-align:center" class="box-header with-border">
-    <h1 class="control-label" for="id_Sup2"> Is this dog known to have RECURRING otitis externa? </h1>
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body">
-    <div style="text-align:center">
-      <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['recurring_otitis']=='1'}"
-             for="id_crossed_20" class="btn btn-1 btn-1a btn-crossed_0">
-        <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_20" value="1"
-               ng-model="pet_data['recurring_otitis']" ng-required> Yes</label>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+          <h1 class="control-label" for="id_Sup2"> Is this dog known to have RECURRING otitis externa? </h1>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div style="text-align:center">
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
+              <input formControlName="recurring_otitis" class='ng-hide' class='form-control' type="radio" value="1"> Yes</label>
 
-      <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['recurring_otitis']=='0'}"
-             for="id_crossed_21" class="btn btn-1 btn-1a btn-crossed_1">
-        <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_21" value="0"
-               ng-model="pet_data['recurring_otitis']" ng-required class='ng-hide'> No </label>
-    </div>
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
+              <input formControlName="recurring_otitis" class='ng-hide' class='form-control' type="radio" value="0"
+                     class='ng-hide'> No </label>
+          </div>
 
-  </div>
+        </div>
 
-</div>
+      </div>
+      <ng-template [ngIf]="profileForm.value.recurring_otitis == 1">
+        <div ng-show="pet_data['recurring_otitis']=='1'" class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div style="text-align:center">
+              <label style="font-size: 2.5vw">
+                Your candidate can't be part of this study! Chances are too high he will create systematic increase of
+                the
+                CADESI-04</label>
+            </div>
+          </div>
 
-<div ng-show="pet_data['recurring_otitis']=='1'" class="box box-default box-solid ">
-  <div style="text-align:center" class="box-header with-border">
-    <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body">
-    <div style="text-align:center">
-      <label style="font-size: 2.5vw">
-        Your candidate can't be part of this study! Chances are too high he will create systematic increase of the
-        CADESI-04</label>
-    </div>
-  </div>
+        </div>
+      </ng-template>
+      <ng-template [ngIf]="profileForm.value.recurring_otitis == 0">
+        <div ng-show="pet_data['recurring_otitis']=='0'" class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label" for="id_Sup2"> Is this dog having a otitis externa right now ? </h1>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div style="text-align:center">
+              <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='1'}"
+                     class="btn btn-1 btn-1a btn-crossed_0">
+                <input formControlName="otitis" class='ng-hide' class='form-control' type="radio" value="1"> Yes</label>
 
-</div>
+              <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='0'}"
+                     class="btn btn-1 btn-1a btn-crossed_1">
+                <input formControlName="otitis" class='ng-hide' class='form-control' type="radio" value="0"
+                       class='ng-hide'> No </label>
+            </div>
+
+          </div>
+
+        </div>
+      </ng-template>
+      <ng-template [ngIf]="profileForm.value.otitis == 1">
+        <div ng-show="pet_data['otitis']=='1' " class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div style="text-align:center">
+              <label style="font-size: 2.5vw">
+                Otitis externa must be cured before joining the study!</label>
+            </div>
+          </div>
+
+        </div>
+      </ng-template>
+    <ng-template [ngIf]="profileForm.value.otitis == 0">
+      <div ng-show="pet_data['recurring_otitis']=='0' && pet_data['otitis']=='0'" class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+          <h1 class="control-label">Has this candidate ever encounter otitis externa episodes in the past ?</h1>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div style="text-align:center">
+            <label style="font-size: 2.5vw;"
+                   class="btn btn-1 btn-1a btn-crossed_0">
+              <input formControlName="otitis_history" class='ng-hide' class='form-control' type="radio" value="1">
+              Yes</label>
+
+            <label
+              class="btn btn-1 btn-1a btn-crossed_1">
+              <input formControlName="otitis_history" class='ng-hide' class='form-control' type="radio" value="0"
+                     class='ng-hide'> No </label>
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </div>
+
+    </ng-template>
 
 
 
-<div ng-show="pet_data['recurring_otitis']=='0'" class="box box-default box-solid ">
-  <div style="text-align:center" class="box-header with-border">
-    <h1 class="control-label" for="id_Sup2"> Is this dog having a otitis externa right now ? </h1>
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body">
-    <div style="text-align:center">
-      <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='1'}" for="id_crossed_0"
-             class="btn btn-1 btn-1a btn-crossed_0">
-        <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_0" value="1"
-               ng-model="pet_data['otitis']" ng-required> Yes</label>
-
-      <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='0'}" for="id_crossed_1"
-             class="btn btn-1 btn-1a btn-crossed_1">
-        <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_1" value="0"
-               ng-model="pet_data['otitis']" ng-required class='ng-hide'> No </label>
-    </div>
-
-  </div>
-
-</div>
-
-<div ng-show="pet_data['otitis']=='1' " class="box box-default box-solid ">
-  <div style="text-align:center" class="box-header with-border">
-    <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body">
-    <div style="text-align:center">
-      <label style="font-size: 2.5vw">
-        Otitis externa must be cured before joining the study!</label>
-    </div>
-  </div>
-
-</div>
 
 
-<div ng-show="pet_data['recurring_otitis']=='0' && pet_data['otitis']=='0'" class="box box-default box-solid ">
-  <div style="text-align:center" class="box-header with-border">
-    <h1 class="control-label">Has this candidate ever encounter otitis externa episodes in the past ?</h1>
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body">
-    <div style="text-align:center">
-      <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis_history']=='1'}" for="id_history_0"
-             class="btn btn-1 btn-1a btn-crossed_0">
-        <input class='ng-hide' class='form-control' type="radio" name="history" id="id_history_0" value="1"
-               ng-model="pet_data['otitis_history']" ng-required> Yes</label>
 
-      <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis_history']=='0'}" for="id_history_1"
-             class="btn btn-1 btn-1a btn-crossed_1">
-        <input class='ng-hide' class='form-control' type="radio" name="history" id="id_history_1" value="0"
-               ng-model="pet_data['otitis_history']" ng-required class='ng-hide'> No </label>
-    </div>
-    <!-- /.box-body -->
-  </div>
+      <button routerLink="/home/add-pet/desensitized" routerLinkActive="active" ui-sref="add_pet.desensitized"
+              ng-show="pet_data['otitis']=='0' &&( pet_data['otitis_history']=='0'|| pet_data['otitis_history']=='1')"
+              id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+              style='float:right'>Continue
+      </button>
 
-  <button routerLink="/home/add-pet/desensitized" routerLinkActive="active" ui-sref="add_pet.desensitized"
-          ng-show="pet_data['otitis']=='0' &&( pet_data['otitis_history']=='0'|| pet_data['otitis_history']=='1')"
-          id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-          style='float:right'>Continue
-  </button>
-
-  <button routerLink="/home/add-pet/malassezia" routerLinkActive="active" ng-click='backward()' ui-sref="add_pet.food_allergy" id="moving" type="button"
-          name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
-          style='float:left'>Return
-  </button>
-
-</div>
+      <button routerLink="/home/add-pet/malassezia" routerLinkActive="active" ng-click='backward()'
+              ui-sref="add_pet.food_allergy" id="moving" type="button"
+              name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
+              style='float:left'>Return
+      </button>
+    </form>
+    Form Value: {{ profileForm.value | json }}
   </section>
 </div>

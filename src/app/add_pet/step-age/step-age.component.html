@@ -1,53 +1,51 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <div class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label"> How old is <b> {{pet_data.pet_name}} </b> ? </h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div class="row">
-
-          <!--<div class="has-feedback form-group col-lg-6">-->
-            <!--<ui-select ng-model="pet_data.year_age" style="width:100%;" theme="bootstrap" title="How old in years ?"-->
-                       <!--append-to-body="true">-->
-              <!--<ui-select-match placeholder="Select a number of year">{{$select.selected.Display}}</ui-select-match>-->
-              <!--<ui-select-choices repeat="year.Value as year in age_year_list">-->
-                <!--<div ng-bind-html="year.Display"></div>-->
-              <!--</ui-select-choices>-->
-            <!--</ui-select>-->
-          <!--</div>-->
-
-
-          <!--<div class="has-feedback form-group col-lg-6">-->
-            <!--<ui-select ng-model="pet_data.month_age" style="width:100%;" theme="bootstrap"-->
-                       <!--title="How old is {{pet_data.pet_name}} in months ?" append-to-body="true">-->
-              <!--<ui-select-match placeholder="Select a number of months">{{$select.selected.Display}}</ui-select-match>-->
-              <!--<ui-select-choices repeat="month.Value as month in age_month_list">-->
-                <!--<div ng-bind-html="month.Display"></div>-->
-              <!--</ui-select-choices>-->
-            <!--</ui-select>-->
-          <!--</div>-->
-
-
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+          <h1 class="control-label"> How old is <b> </b> ? </h1>
         </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+
+
+            <div class="has-feedback form-group col-lg-6">
+              <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap" formControlName="age_year">
+                <option class="dropdown-select" *ngFor="let year of years">
+                  {{year}}</option>
+              </select>
+            </div>
+
+
+            <div class="has-feedback form-group col-lg-6">
+              <select class="dropdown-select" theme="bootstrap" formControlName="age_month">
+                <option class="dropdown-select" *ngFor="let month of months">{{month}}</option>
+              </select>
+            </div>
+
+
+          </div>
+        </div>
+        <!-- /.box-body -->
       </div>
-      <!-- /.box-body -->
-    </div>
 
 
-    <button routerLink="/home/add-pet/breed" routerLinkActive="active" ng-click='call_breed()' ui-sref-active="active" ui-sref='add_pet.breed'
-            ng-show="(pet_data.specy==1 && pet_data['year_age']!=='' && pet_form['month_age']!=='')" id="moving"
-            type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-            style='float:right'>Continue
-    </button>
+      <button routerLink="/home/add-pet/breed" routerLinkActive="active" ng-click='call_breed()' ui-sref-active="active"
+              ui-sref='add_pet.breed'
+              ng-show="(pet_data.specy==1 && pet_data['year_age']!=='' && pet_form['month_age']!=='')" id="moving"
+              type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+              style='float:right'>Continue
+      </button>
 
 
-    <button routerLink="/home/add-pet/name" routerLinkActive="active" ng-click="backward()" id="" type="button" name="previous"
-            class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
-      Return
-    </button>
-
+      <button routerLink="/home/add-pet/name" routerLinkActive="active" ng-click="backward()" id="" type="button"
+              name="previous"
+              class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
+        Return
+      </button>
+    </form>
+    Form Value: {{ profileForm.value | json }}
   </section>
 </div>

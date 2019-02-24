@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {coerceNumberProperty} from '@angular/cdk/coercion';
+import {FormControl} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
+import {Validators} from '@angular/forms';
+import {DataService} from '../../data.service';
+import {StepFoodAllergy} from '../../formData.model';
 
 @Component({
   selector: 'app-step-food-allergy',
@@ -7,9 +13,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StepFoodAllergyComponent implements OnInit {
 
-  constructor() { }
+  food_allergy: StepFoodAllergy;
+  form: any;
+  profileForm = this.fb.group({
+    excluded: [null, Validators.required],
+    more_8_weeks: [null, Validators.required],
+    industrial_or_homemade: [null, Validators.required],
+    what_petfood: [0, Validators.required],
+  });
 
-  ngOnInit() {
+  constructor(private fb: FormBuilder, private DataService: DataService) {
+    this.DataService.setFoodAllergy(this.profileForm.value)
   }
 
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.profileForm.value);
+    this.DataService.setFoodAllergy(this.profileForm.value);
+    console.log(this.DataService.getFoodAllergy());
+
+  }
+
+  ngOnInit() {
+    this.food_allergy = this.DataService.getFoodAllergy();
+    console.log('Personal feature loaded!');
+
+  }
 }

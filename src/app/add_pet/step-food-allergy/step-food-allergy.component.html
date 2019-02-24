@@ -1,211 +1,227 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <div class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Has food allergy been ruled out with an exclusion diet
-          ? </h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div style="text-align:center">
-          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data.food_allergy.excluded=='1'}"
-                 for="id_crossed_13" class="btn btn-1 btn-1a btn-crossed_0">
-            <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_13" value="1"
-                   ng-model="pet_data.food_allergy.excluded" ng-required> Yes</label>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+          <h1 class="control-label" for="id_Sup2"> Has food allergy been ruled out with an exclusion diet
+            ? </h1>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div style="text-align:center">
+            <label style="font-size: 2.5vw;"
+                   class="btn btn-1 btn-1a btn-crossed_0">
+              <input formControlName="excluded" class='ng-hide' class='form-control' type="radio" value="1"
+              > Yes</label>
 
-          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data.food_allergy.excluded=='0'}"
-                 for="id_crossed_12" class="btn btn-1 btn-1a btn-crossed_1">
-            <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_12" value="0"
-                   ng-model="pet_data.food_allergy.excluded" ng-required class='ng-hide'> No </label>
+            <label style="font-size: 2.5vw;"
+                   class="btn btn-1 btn-1a btn-crossed_1">
+              <input formControlName="excluded" class='ng-hide' class='form-control' type="radio" value="0"
+                     class='ng-hide'> No </label>
+          </div>
+
         </div>
 
       </div>
 
-    </div>
-
-
-    <div ng-show="pet_data.food_allergy.excluded=='0'" class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div style="text-align:center">
-          <label style="font-size: 2.5vw">
-            Food allergy must be ruled out first before joining the study!</label>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div ng-show="pet_data.food_allergy.excluded=='1'" class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Has this exclusion diet been followed for 8 weeks
-          ? </h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div style="text-align:center">
-          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data.food_allergy.more_8_weeks=='1'}"
-                 for="id_crossed_23" class="btn btn-1 btn-1a btn-crossed_0">
-            <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_23" value="1"
-                   ng-model="pet_data.food_allergy.more_8_weeks" ng-required> Yes</label>
-
-          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data.food_allergy.more_8_weeks=='0'}"
-                 for="id_crossed_22" class="btn btn-1 btn-1a btn-crossed_1">
-            <input class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_22" value="0"
-                   ng-model="pet_data.food_allergy.more_8_weeks" ng-required class='ng-hide'> No </label>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div ng-show="pet_data.food_allergy.excluded=='1' && pet_data.food_allergy.more_8_weeks=='0'"
-         class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div style="text-align:center">
-          <label style="font-size: 2.5vw">
-            You need a 8 week long exclusion diet to exclude food allergy</label>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div ng-show="pet_data.food_allergy.excluded=='1' && pet_data.food_allergy.more_8_weeks=='1'"
-         class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label"> Has Food Allergy been ruled out with industrial or homemade diet? </h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div id="food_picture" class="food-selector has-feedback form-group">
-
-
-          <input id="id_food_presentation_0" type="radio" name="food_presentation" value="1"
-                 ng-model="pet_data.food_allergy.type" class='form-control ng-hide' style='width:0%'/>
-          <label class="ct-cn-food id_food_presentation_0" for="id_food_presentation_0"></label>
-
-          <input id="id_food_presentation_2" type="radio" name="food_presentation" value="2"
-                 ng-model="pet_data.food_allergy.type" class='form-control ng-hide' style='width:0%'/>
-          <label class="ct-cn-food id_food_presentation_2" for="id_food_presentation_2"></label>
-
+      <ng-template [ngIf]="profileForm.value.excluded == 0">
+        <div ng-show="pet_data.food_allergy.excluded=='0'" class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div style="text-align:center">
+              <label style="font-size: 2.5vw">
+                Food allergy must be ruled out first before joining the study!</label>
+            </div>
+          </div>
 
         </div>
+      </ng-template>
 
-        <div ng-show="pet_data.food_allergy.type=='1'" class="box-body form-group has-feedback">
-          <blockquote>
-            <h2><p>Industrial Petfood</p></h2>
-          </blockquote>
+
+      <ng-template [ngIf]="profileForm.value.excluded == 1">
+        <div ng-show="pet_data.food_allergy.excluded=='1'" class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label" for="id_Sup2"> Has this exclusion diet been followed for 8 weeks
+              ? </h1>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div style="text-align:center">
+              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
+                <input formControlName="more_8_weeks" class='ng-hide' class='form-control' type="radio" value="1"
+                       class='ng-hide'> Yes</label>
+
+              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
+                <input formControlName="more_8_weeks" class='ng-hide' class='form-control' type="radio" value="0"
+                       class='ng-hide'> No </label>
+            </div>
+
+          </div>
 
         </div>
-        <div ng-show="pet_data.food_allergy.type=='2'" class="box-body form-group has-feedback">
-          <blockquote>
-            <h2><p>Homemade Petfood</p></h2>
-          </blockquote>
+      </ng-template>
 
+
+      <ng-template [ngIf]="profileForm.value.more_8_weeks == 0">
+        <div ng-show="pet_data.food_allergy.excluded=='1' && pet_data.food_allergy.more_8_weeks=='0'"
+             class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div style="text-align:center">
+              <label style="font-size: 2.5vw">
+                You need a 8 week long exclusion diet to exclude food allergy</label>
+            </div>
+          </div>
+
+        </div>
+      </ng-template>
+
+      <ng-template [ngIf]="profileForm.value.more_8_weeks == 1">
+        <div ng-show="pet_data.food_allergy.excluded=='1' && pet_data.food_allergy.more_8_weeks=='1'"
+             class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label"> Has Food Allergy been ruled out with industrial or homemade diet? </h1>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div id="food_picture" class="food-selector has-feedback form-group">
+
+
+              <label class="ct-cn-food id_food_presentation_0"> <input formControlName="industrial_or_homemade"
+                                                                       type="radio" value="1"
+                                                                       class='form-control ng-hide'/></label>
+
+              <label class="ct-cn-food id_food_presentation_2">
+                <input formControlName="industrial_or_homemade" type="radio" value="2"
+                       class='form-control ng-hide'/></label>
+
+
+            </div>
+
+            <ng-template [ngIf]="profileForm.value.industrial_or_homemade == 1">
+              <div ng-show="pet_data.food_allergy.type=='1'" class="box-body form-group has-feedback">
+                <blockquote>
+                  <h2><p>Industrial Petfood</p></h2>
+                </blockquote>
+              </div>
+            </ng-template>
+            <ng-template [ngIf]="profileForm.value.industrial_or_homemade == 2">
+              <div ng-show="pet_data.food_allergy.type=='2'" class="box-body form-group has-feedback">
+                <blockquote>
+                  <h2><p>Homemade Petfood</p></h2>
+                </blockquote>
+
+              </div>
+            </ng-template>
+
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </ng-template>
+
+      <div
+        ng-show="pet_data.food_allergy.excluded=='1' && pet_data.food_allergy.more_8_weeks=='1' && (pet_data.food_allergy.type=='1' || pet_data.food_allergy.type=='2')"
+        class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+          <h1 class="control-label" for="id_Sup2"> What petfood did you use in particular ? </h1>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <ng-template [ngIf]="profileForm.value.industrial_or_homemade == 1">
+            <div  style="text-align:center">
+
+              <div>
+
+                <input formControlName="what_petfood" type="radio" value='Royal Canin Hypoallergenic'/> Royal
+                Canin
+                Hypoallergenic
+              </div>
+
+              <div>
+                <input formControlName="what_petfood" type="radio" value='Royal Canin Anallergenic'/> Royal
+                Canin
+                Anallergenic
+              </div>
+
+              <div>
+                <input formControlName="what_petfood" type="radio"  value="Hill's Z/D"/> Hill's Z/D
+              </div>
+
+              <div>
+                <input formControlName="what_petfood" type="radio"  value="Hill's D/D"/> Hill's D/D
+              </div>
+
+              <div>
+                <input formControlName="what_petfood" type="radio"  value="Derm Defense"/> Hill's Derm Defense
+              </div>
+
+              <div>
+                <input formControlName="what_petfood" type="radio"  value='Specific Food Allergy s D/D'/>
+                Specific
+                Food Allergy CDD
+              </div>
+
+              <div>
+                <input formControlName="what_petfood" type="radio"  value='Nestlé Purina HA s D/D'/> Nestlé
+                Purina
+                HA
+              </div>
+
+
+              <div>
+                <input formControlName="what_petfood" type="radio"
+                       value="Virbac Hypoallergy - Food Intolerance's D/D"/> Virbac Hypoallergy - Food Intolerance
+              </div>
+
+              <div>
+                <input formControlName="what_petfood" type="radio"
+                       value="Virbac Hypoallergy - Dermatology Support"/>
+                Virbac Hypoallergy - Dermatology Support
+              </div>
+
+
+              <div>
+                <input formControlName="what_petfood" type="radio"
+                       value="Advance Veterinary Diets Hypoallergenic"/>
+                Advance Veterinary Diets Hypoallergenic
+              </div>
+
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="profileForm.value.industrial_or_homemade == 2">
+            <div ng-show="pet_data.food_allergy.type=='2'" style="text-align:center">
+              <div><p>
+                Share with us the ingredients of the recipe. Ex : chicken, pasta, spinach, minerals.</p></div>
+              <div>
+                <textarea formControlName="what_petfood"></textarea>
+              </div>
+
+            </div>
+          </ng-template>
         </div>
 
       </div>
       <!-- /.box-body -->
-    </div>
 
 
-    <div
-      ng-show="pet_data.food_allergy.excluded=='1' && pet_data.food_allergy.more_8_weeks=='1' && (pet_data.food_allergy.type=='1' || pet_data.food_allergy.type=='2')"
-      class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> What petfood did you use in particular ? </h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div ng-show="pet_data.food_allergy.type=='1'" style="text-align:center">
+      <button routerLink="/home/add-pet/pyodermatitis" routerLinkActive="active" name="next"
+              class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+              style='float:right'>Continue
+      </button>
 
-          <div>
-            <input type="radio" ng-model='pet_data.food_allergy.product' value='Royal Canin Hypoallergenic'/> Royal
-            Canin
-            Hypoallergenic
-          </div>
-
-          <div>
-            <input type="radio" ng-model='pet_data.food_allergy.product' value='Royal Canin Anallergenic'/> Royal Canin
-            Anallergenic
-          </div>
-
-          <div>
-            <input type="radio" ng-model='pet_data.food_allergy.product' value="Hill's Z/D"/> Hill's Z/D
-          </div>
-
-          <div>
-            <input type="radio" ng-model='pet_data.food_allergy.product' value="Hill's D/D"/> Hill's D/D
-          </div>
-
-          <div>
-            <input type="radio" ng-model='pet_data.food_allergy.product' value="Derm Defense"/> Hill's Derm Defense
-          </div>
-
-          <div>
-            <input type="radio" ng-model='pet_data.food_allergy.product' value='Specific Food Allergy s D/D'/> Specific
-            Food Allergy CDD
-          </div>
-
-          <div>
-            <input type="radio" ng-model='pet_data.food_allergy.product' value='Nestlé Purina HA s D/D'/> Nestlé Purina
-            HA
-          </div>
-
-
-          <div>
-            <input type="radio" ng-model='pet_data.food_allergy.product'
-                   value="Virbac Hypoallergy - Food Intolerance's D/D"/> Virbac Hypoallergy - Food Intolerance
-          </div>
-
-          <div>
-            <input type="radio" ng-model='pet_data.food_allergy.product'
-                   value="Virbac Hypoallergy - Dermatology Support"/>
-            Virbac Hypoallergy - Dermatology Support
-          </div>
-
-
-          <div>
-            <input type="radio" ng-model='pet_data.food_allergy.product'
-                   value="Advance Veterinary Diets Hypoallergenic"/>
-            Advance Veterinary Diets Hypoallergenic
-          </div>
-
-        </div>
-
-        <div ng-show="pet_data.food_allergy.type=='2'" style="text-align:center">
-          <div><p>
-            Share with us the ingredients of the recipe. Ex : chicken, pasta, spinach, minerals.</p></div>
-          <div>
-            <textarea ng-model="pet_data.food_allergy.recipe"></textarea>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-    <!-- /.box-body -->
-
-
-    <button routerLink="/home/add-pet/pyodermatitis" routerLinkActive="active" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-            style='float:right'>Continue
-    </button>
-
-    <button routerLink="/home/add-pet/flea-treatment" routerLinkActive="active" id="" type="button" name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left"
-            value="Previous" style='float:left'>Return
-    </button>
-
-
+      <button routerLink="/home/add-pet/flea-treatment" routerLinkActive="active" id="" type="button" name="previous"
+              class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left"
+              value="Previous" style='float:left'>Return
+      </button>
+    </form>
+    Form Value: {{ profileForm.value | json }}
   </section>
 </div>
 

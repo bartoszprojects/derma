@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {coerceNumberProperty} from '@angular/cdk/coercion';
+import {FormControl} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
+import {Validators} from '@angular/forms';
+import {DataService} from '../../data.service';
+import {StepName} from '../../formData.model';
 
 @Component({
   selector: 'app-step-name',
@@ -7,9 +13,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StepNameComponent implements OnInit {
 
-  constructor() { }
+  name: StepName;
+  form: any;
+  profileForm = this.fb.group({
+    name: ['', Validators.required],
 
-  ngOnInit() {
+  });
+
+  constructor(private fb: FormBuilder, private DataService: DataService) {
+    this.DataService.setName(this.profileForm.value)
   }
 
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.profileForm.value);
+    this.DataService.setName(this.profileForm.value);
+    console.log(this.DataService.getName());
+
+  }
+
+  ngOnInit() {
+    this.name = this.DataService.getName();
+    console.log('Personal feature loaded!');
+
+  }
 }

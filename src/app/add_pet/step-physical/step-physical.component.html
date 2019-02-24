@@ -1,88 +1,105 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <div class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label"> How active is <b>  {{pet_data.pet_name}}'</b> ? </h1> <br>
-        <h4><i>Select the picture that fits best <b>  {{pet_data.pet_name}}'</b>s daily phsyical expenditure. <br> Get
-          further informations by selecting a picture </i></h4>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+          <h1 class="control-label"> How active is <b> </b> ? </h1> <br>
+          <h4><i>Select the picture that fits best <b> </b>s daily phsyical expenditure. <br> Get
+            further informations by selecting a picture </i></h4>
+        </div>
+        <!-- /.box-header -->
+        <div style="text-align:center" class="box-body">
+          <div id="physical_activity_picture" class="cn-activity-selector has-feedback form-group">
+
+
+            <label class="cn-activity id_physical_activity_0"> <input formControlName="physical_activity" type="radio"
+                                                                      value="1"
+                                                                      ng-model="pet_data['physical_activity']"
+                                                                      class='ng-hide'/></label>
+
+            <label class="cn-activity id_physical_activity_1">
+              <input formControlName="physical_activity" type="radio" value="2"
+                     ng-model="pet_data['physical_activity']" class='ng-hide'/></label>
+
+
+            <label class="cn-activity id_physical_activity_2"> <input formControlName="physical_activity" type="radio"
+                                                                      value="3"
+                                                                      ng-model="pet_data['physical_activity']"
+                                                                      class='ng-hide'/></label>
+
+
+            <label class="cn-activity id_physical_activity_3"> <input formControlName="physical_activity" type="radio"
+                                                                      value="4"
+                                                                      ng-model="pet_data['physical_activity']"
+                                                                      class='ng-hide'/></label>
+
+          </div>
+
+
+        </div>
+        <!-- /.box-body -->
       </div>
-      <!-- /.box-header -->
-      <div style="text-align:center" class="box-body">
-        <div id="physical_activity_picture" class="cn-activity-selector has-feedback form-group">
 
-          <input id="id_physical_activity_0" type="radio" name="{{ form.physical_activity.html_name }}" value="1"
-                 ng-model="pet_data['physical_activity']" class='ng-hide'/>
-          <label class="cn-activity id_physical_activity_0" for="id_physical_activity_0"></label>
+      <div class="box box-default box-solid ">
+        <!-- /.box-header -->
+        <div class="box-body">
+          <ng-template [ngIf]="profileForm.value.physical_activity == 1">
+            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='1'} ">
+              <blockquote>
+                <p> Your dog is a typical dog ! Small leash walk every day and never more than one hour. </p>
+                <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for Dog
+                </cite></small>
+              </blockquote>
 
-          <input id="id_physical_activity_1" type="radio" name="{{ form.physical_activity.html_name }}" value="2"
-                 ng-model="pet_data['physical_activity']" class='ng-hide'/>
-          <label class="cn-activity id_physical_activity_1" for="id_physical_activity_1"></label>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="profileForm.value.physical_activity == 2">
+            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='2'} ">
+              <blockquote>
+                <p> Your dog is doing at least one hour of moderate exercice : long walk </p>
+                <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for Dog
+                </cite></small>
+              </blockquote>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="profileForm.value.physical_activity == 3">
+            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='3'} ">
+              <blockquote>
+                <p> Your dog is doing at least one hour of intense exercice : running while you're biking or running (or
+                  a
+                  friend, family member of yours), agility training. This also includes one-time-a-week hunting dogs</p>
+                <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for dog
+                </cite></small>
+              </blockquote>
 
-          <input id="id_physical_activity_2" type="radio" name="{{ form.physical_activity.html_name }}" value="3"
-                 ng-model="pet_data['physical_activity']" class='ng-hide'/>
-          <label class="cn-activity id_physical_activity_2" for="id_physical_activity_2"></label>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="profileForm.value.physical_activity == 4">
+            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='4'} ">
+              <blockquote>
+                <p>Your dog is a real worker : every-day hunting dogs, guard dog, guide dog and any assistance dog </p>
+                <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for dog
+                </cite></small>
+              </blockquote>
 
-          <input id="id_physical_activity_3" type="radio" name="{{ form.physical_activity.html_name }}" value="4"
-                 ng-model="pet_data['physical_activity']" class='ng-hide'/>
-          <label class="cn-activity id_physical_activity_3" for="id_physical_activity_3"></label>
-
+            </div>
+          </ng-template>
         </div>
-
-
+        <!-- /.box-body -->
       </div>
-      <!-- /.box-body -->
-    </div>
-
-    <div ng-show="pet_data['specy']=='1'" class="box box-default box-solid ">
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='1'} ">
-          <blockquote>
-            <p> Your dog is a typical dog ! Small leash walk every day and never more than one hour. </p>
-            <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for Dog
-            </cite></small>
-          </blockquote>
-
-        </div>
-
-        <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='2'} ">
-          <blockquote>
-            <p> Your dog is doing at least one hour of moderate exercice : long walk </p>
-            <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for Dog
-            </cite></small>
-          </blockquote>
-        </div>
-
-        <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='3'} ">
-          <blockquote>
-            <p> Your dog is doing at least one hour of intense exercice : running while you're biking or running (or a
-              friend, family member of yours), agility training. This also includes one-time-a-week hunting dogs</p>
-            <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for dog
-            </cite></small>
-          </blockquote>
-
-        </div>
-
-        <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='4'} ">
-          <blockquote>
-            <p>Your dog is a real worker : every-day hunting dogs, guard dog, guide dog and any assistance dog </p>
-            <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for dog
-            </cite></small>
-          </blockquote>
-
-        </div>
-      </div>
-      <!-- /.box-body -->
-    </div>
-    <button routerLink="/home/add-pet/weight" routerLinkActive="active" ui-sref="add_pet.weight" ng-click="click_active_indoor_outdoor();forward()"
+    </form>
+    <button routerLink="/home/add-pet/weight" routerLinkActive="active" ui-sref="add_pet.weight"
+            ng-click="click_active_indoor_outdoor();forward()"
             ng-show="pet_data.physical_activity!==''" id="moving" type="button" name="next"
             class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
     </button>
 
-    <button routerLink="/home/add-pet/sex" routerLinkActive="active" uis-red="add_pet.sex;backward()" id="" type="button" name="previous"
+    <button routerLink="/home/add-pet/sex" routerLinkActive="active" uis-red="add_pet.sex;backward()" id=""
+            type="button" name="previous"
             class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
       Return
     </button>
+    Form Value: {{ profileForm.value | json }}
   </section>
 </div>
