@@ -15,28 +15,17 @@ export class StepFoodAllergyComponent implements OnInit {
 
   food_allergy: StepFoodAllergy;
   form: any;
-  profileForm = this.fb.group({
-    excluded: [null, Validators.required],
-    more_8_weeks: [null, Validators.required],
-    industrial_or_homemade: [null, Validators.required],
-    what_petfood: [0, Validators.required],
-  });
 
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setFoodAllergy(this.profileForm.value)
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setFoodAllergy(this.profileForm.value);
-    console.log(this.DataService.getFoodAllergy());
-
+  constructor(private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.food_allergy = this.DataService.getFoodAllergy();
+    this.food_allergy = this.formDataService.getFoodAllergy();
     console.log('Personal feature loaded!');
+  }
 
+  save() {
+    this.formDataService.setFoodAllergy(this.food_allergy);
+    return true;
   }
 }

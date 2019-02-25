@@ -16,26 +16,20 @@ export class StepFleaTreatmentComponent implements OnInit {
 
   flea_treatment: StepFleaTreatment;
   form: any;
-  profileForm = this.fb.group({
-    flea_allergy_excluded: [0, Validators.required],
-    flea_product: [0, Validators.required],
-  });
 
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setCadesi(this.profileForm.value)
+  constructor(private formDataService: DataService) {
   }
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setFleaTreatment(this.profileForm.value);
-    console.log(this.DataService.getFleaTreatment());
-
-  }
 
   ngOnInit() {
-    this.flea_treatment = this.DataService.getFleaTreatment();
+    this.flea_treatment = this.formDataService.getFleaTreatment();
     console.log('Personal feature loaded!');
-
   }
+
+
+  save() {
+    this.formDataService.setFleaTreatment(this.flea_treatment);
+    return true;
+  }
+
 }

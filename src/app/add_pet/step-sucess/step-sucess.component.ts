@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../../data.service';
+import {FormBuilder} from "@angular/forms";
+
 
 @Component({
   selector: 'app-step-sucess',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./step-sucess.component.scss']
 })
 export class StepSucessComponent implements OnInit {
+bartek;
+  constructor(private DataService: DataService) {
+        this.bartek = this.DataService.getOwnerInformations();
 
-  constructor() { }
+  }
 
-  ngOnInit() {
+  ngOnInit() {     this.bartek = this.DataService.getOwnerInformations();
   }
 
 }

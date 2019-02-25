@@ -1,7 +1,7 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <form #weight_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label " for="id_weight"><b> </b>'s Weight </h1>
@@ -12,19 +12,16 @@
         </div>
         <!-- /.box-header -->
         <div style="text-align:center; padding-top:50px" class="box-body">
-        <mat-slider class="custom-slider" step="0.5" max=100 min=0 [(ngModel)]="rv" [ngModelOptions]="{standalone: true}"></mat-slider>
+        <mat-slider class="custom-slider" step="0.5" max=100 min=0 #weight="ngModel" [(ngModel)]="weight_form.weight" name="weight" [ngModelOptions]="{standalone: true}"></mat-slider>
 
-        <mat-form-field>
-          <input type="text"  matInput placeholder="Range" [(ngModel)]="rv" [ngModelOptions]="{standalone: true}">
-        </mat-form-field>
-          <h3><span>Kilogramms </span>
+          <h3><span>{{ weight_form.weight }} Kilogramms </span>
           </h3>
         </div>
         <!-- /.box-body -->
       </div>
     </form>
 
-    <button routerLink="/home/add-pet/fat" routerLinkActive="active" ng-show="pet_data.weight!==''" id="moving"
+    <button (click)="save()" routerLink="/home/add-pet/fat" routerLinkActive="active" id="moving"
             type="button" name="next"
             class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
     </button>

@@ -2,7 +2,7 @@
   <div>
 
     <section class="content-header">
-      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <form #cadesiForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
         <div class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
             <div>
@@ -49,18 +49,16 @@
 
                       <td><img src="{{region.value.img_adress}}"></td>
                       <td>{{ region.value.region }}</td>
-                      <td
-                        (click)="region.value.value_erythema> 2  ? region.value.value_erythema=0 : region.value.value_erythema=region.value.value_erythema+1">
-                        <input formControlName="Perilabial_Area" required id="Perilabial_Area" name="Perilabial_Area"
-                   placeholder="Perilabial_Area" type="text" value="{{ region.value.value_erythema }} readonly"></td>
-                      <td
-                        (click)="region.value.value_lichenification> 2  ? region.value.value_lichenification=0 : region.value.value_lichenification=region.value.value_lichenification+1">
-                        <input formControlName="Left_Medial_Pinna" required id="Left_Medial_Pinna" name="Left_Medial_Pinna"
-                   placeholder="Left_Medial_Pinna" type="text" value="{{ region.value.value_lichenification }} readonly"></td>
-                      <td
-                        (click)="region.value.value_alopecia> 2  ? region.value.value_alopecia=0 : region.value.value_alopecia=region.value.value_alopecia+1">
-                        <input formControlName="Right_Medial_Pinna" required id="Right_Medial_Pinna" name="Right_Medial_Pinna"
-                   placeholder="Right_Medial_Pinna" type="text" value="{{ region.value.value_alopecia }} readonly"></td>
+
+
+
+
+                      <td (click)="updateErythema(region.key)">
+                        <input value="{{ region.value.value_erythema }} readonly"></td>
+                      <td (click)="updateLichenification(region.key)">
+                        <input type="text" value="{{ region.value.value_lichenification }} readonly"></td>
+                      <td (click)="updateAlopecia(region.key)">
+                        <input value="{{ region.value.value_alopecia }} readonly"></td>
                     </tr>
 
                     </tbody>
@@ -85,42 +83,43 @@
           <div class="box-body" style="text-align:center">
             <br>
             <br>
-            <!--<rzslider class="custom-slider"-->
-            <!--rz-slider-model="pet_data.pruritus_score"-->
-            <!--rz-slider-options="slider_pruritus.options"></rzslider>-->
+
+
+        <mat-slider step="1" max=10 min=0 #pruritus_score="ngModel"
+                 [(ngModel)]="cadesi.pruritus_score" name="pruritus_score" [ngModelOptions]="{standalone: true}"></mat-slider>
           </div>
           <div style="text-align:center">
-            <div [ngStyle]="(rv == null || rv == 0 || rv == 1) && {'color': 'red'}">
+            <div [ngStyle]="(cadesi.pruritus_score == null || cadesi.pruritus_score == 0 || cadesi.pruritus_score == 1) && {'color': 'red'}">
               <h3><span> No itching </span></h3>
               <h4> Normal Dog, I don't think itching is a problem </h4>
             </div>
 
-            <div [ngStyle]="(rv == 1 || rv == 2 || rv == 3) && {'color': 'red'}">
+            <div [ngStyle]="(cadesi.pruritus_score == 1 || cadesi.pruritus_score == 2 || cadesi.pruritus_score == 3) && {'color': 'red'}">
               <h3><span> Very Mild Itching / Occasional Episodes </span></h3>
               <h4> The dog is slightly more itchy than it was before the skin problem started</h4>
             </div>
 
 
-            <div [ngStyle]="(rv == 3 || rv == 4 || rv == 5) && {'color': 'red'}">
+            <div [ngStyle]="(cadesi.pruritus_score == 3 || cadesi.pruritus_score == 4 || cadesi.pruritus_score == 5) && {'color': 'red'}">
               <h3><span>Mild itching / a bit more frequent</span></h3>
               <h4>Wouldn't itch when sleeping, eating, playing, exercising or being distracted </h4>
             </div>
 
 
-            <div [ngStyle]="(rv == 5 || rv == 6 || rv == 7) && {'color': 'red'}">
+            <div [ngStyle]="(cadesi.pruritus_score == 5 || cadesi.pruritus_score == 6 || cadesi.pruritus_score == 7) && {'color': 'red'}">
               <h3><span> Moderate itching / regular episodes </span></h3>
               <h4> Itching might occur at night (if observed), but not when eating, playing, or being distracted </h4>
             </div>
 
 
-            <div [ngStyle]="(rv == 7 || rv == 8 || rv == 9) && {'color': 'red'}">
+            <div [ngStyle]="(cadesi.pruritus_score == 7 || cadesi.pruritus_score == 8 || cadesi.pruritus_score == 9) && {'color': 'red'}">
               <h3><span> Severe itching / prolonged episodes </span></h3>
               <h4> Itching might occur at night (if observed) and also when eating, playing, exercising or being
                 distracted </h4>
             </div>
 
 
-            <div [ngStyle]="(rv == 10 || rv == 9) && {'color': 'red'}">
+            <div [ngStyle]="(cadesi.pruritus_score == 10 || cadesi.pruritus_score == 9) && {'color': 'red'}">
               <h3><span> Extremely sever itching / almost continuous </span></h3>
               <h4> Itching doesn't stop whatever is happening, even in the consulting room (needs to be physically
                 restrained
@@ -134,7 +133,7 @@
         <!-- /.box-body -->
 
 
-        <button routerLink="/home/add-pet/flea-treatment" routerLinkActive="active" ui-sref="add_pet.flea_treatment"
+        <button routerLink="/home/add-pet/flea-treatment" routerLinkActive="active" (click)="save()" ui-sref="add_pet.flea_treatment"
                 ng-show="getTotal_of_cadesi()!=='0' & pet_data.pruritus_score!=''" id="" type="button" name="next"
                 class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
         </button>
@@ -147,19 +146,13 @@
         </button>
 
 
-        <mat-slider step="1" max=10 min=0 [(ngModel)]="rv" [ngModelOptions]="{standalone: true}"></mat-slider>
-
-        <mat-form-field>
-          <input type="text"  matInput placeholder="Range" [(ngModel)]="rv" [ngModelOptions]="{standalone: true}">
-        </mat-form-field>
       </form>
-          Form Value: {{ profileForm.value | json }}
+
     </section>
 
 
   </div>
 </div>
-
 
 
 

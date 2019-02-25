@@ -16,8 +16,6 @@ export class SmartAtopiaWelcomeComponent implements OnInit {
 
   }
 
-  showChildValue(secondValue: string) {
-    console.log(secondValue);
-  }
+
 
 }

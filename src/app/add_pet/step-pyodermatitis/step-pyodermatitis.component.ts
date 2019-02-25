@@ -13,28 +13,19 @@ import {StepPyodermatitis} from '../../formData.model';
 })
 export class StepPyodermatitisComponent implements OnInit {
 
-  pyodermatitis: StepPyodermatitis;
+  pyodermatitis_form: StepPyodermatitis;
   form: any;
-  profileForm = this.fb.group({
-    pyodermatitis: [null, Validators.required],
-    pyodermatitis_history: [null, Validators.required],
-  });
 
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setFoodAllergy(this.profileForm.value)
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setPyodermatitis(this.profileForm.value);
-    console.log(this.DataService.getPyodermatitis());
-
+  constructor(private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.pyodermatitis = this.DataService.getPyodermatitis();
+    this.pyodermatitis_form = this.formDataService.getPyodermatitis();
     console.log('Personal feature loaded!');
+  }
 
+  save() {
+    this.formDataService.setPyodermatitis(this.pyodermatitis_form);
+    return true;
   }
 }

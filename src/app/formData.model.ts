@@ -8,43 +8,44 @@ export class FormData {
   ear_pinnae = false;
   ear_margins = false;
   dorso_lumbar = false;
-  Perilabial_Area = '';
-  Left_Medial_Pinna = '';
-  Right_Medial_Pinna = '';
-  Left_Axilla = '';
-  Right_Axilla = '';
-  Left_Front_Paw = '';
-  Right_Front_Paw = '';
-  Left_Hind_Paw = '';
-  Right_Hind_Paw = '';
-  Left_Cubital_Flexor = '';
-  Right_Cubital_Flexor = '';
-  Left_Palmar_Metacarpal = '';
-  Right_Palmar_Metacarpal = '';
-  Left_Flank = '';
-  Right_Flank = '';
-  Left_Inguinal_Aera = '';
-  Right_Inguinal_Aera = '';
-  Abdomen = '';
-  Perineum = '';
-  Ventral_Tail = '';
+  Perilabial_Area = {};
+  Left_Medial_Pinna = {};
+  Right_Medial_Pinna = {};
+  Left_Axilla = {};
+  Right_Axilla = {};
+  Left_Front_Paw = {};
+  Right_Front_Paw = {};
+  Left_Hind_Paw = {};
+  Right_Hind_Paw = {};
+  Left_Cubital_Flexor = {};
+  Right_Cubital_Flexor = {};
+  Left_Palmar_Metacarpal = {};
+  Right_Palmar_Metacarpal = {};
+  Left_Flank = {};
+  Right_Flank = {};
+  Left_Inguinal_Aera = {};
+  Right_Inguinal_Aera = {};
+  Abdomen = {};
+  Perineum = {};
+  Ventral_Tail = {};
   total = 0;
-  flea_allergy_excluded = false;
+  pruritus_score = 0;
+  flea_allergy_excluded = null;
   flea_product = 0;
-  excluded = false;
-  more_8_weeks = false;
-  industrial_or_homemade = '';
+  excluded = null;
+  more_8_weeks = null;
+  industrial_or_homemade = null;
   what_petfood = '';
-  pyodermatitis = false;
-  pyodermatitis_history = false;
-  malassezia = false;
-  malassezia_history = false;
-  recurring_otitis = false;
-  otitis = false;
-  otitis_history = false;
-  desensitized = false;
-  desensitized_more_6_months  = false;
-  drug_history_known = false;
+  pyodermatitis = null;
+  pyodermatitis_history = null;
+  malassezia = null;
+  malassezia_history = null;
+  recurring_otitis = null;
+  otitis = null;
+  otitis_history = null;
+  desensitized = null;
+  desensitized_more_6_months = null;
+  drug_history_known = null;
   prednisolone = 0;
   oclacitinib = 0;
   cyclosporine = 0;
@@ -58,12 +59,17 @@ export class FormData {
   age_month = '';
   crossed = 0;
   breed_dog_1 = '';
-  breed_dog_2 ='';
+  breed_dog_2 = '';
   dog_format = 0;
   gender = 0;
   sex = 0;
   physical_activity = 0;
   weight = 0;
+  fat_score_dog = 0;
+  owner_name = '';
+  owner_phone = '';
+  owner_email = '';
+  accept_data_sharing = false;
 
   clear() {
     this.diet_agreed = false;
@@ -74,43 +80,44 @@ export class FormData {
     this.ear_pinnae = false;
     this.ear_margins = false;
     this.dorso_lumbar = false;
-    this.Perilabial_Area = '';
-    this.Left_Medial_Pinna = '';
-    this.Right_Medial_Pinna = '';
-    this.Left_Axilla = '';
-    this.Right_Axilla = '';
-    this.Left_Front_Paw = '';
-    this.Right_Front_Paw = '';
-    this.Left_Hind_Paw = '';
-    this.Right_Hind_Paw = '';
-    this.Left_Cubital_Flexor = '';
-    this.Right_Cubital_Flexor = '';
-    this.Left_Palmar_Metacarpal = '';
-    this.Right_Palmar_Metacarpal = '';
-    this.Left_Flank = '';
-    this.Right_Flank = '';
-    this.Left_Inguinal_Aera = '';
-    this.Right_Inguinal_Aera = '';
-    this.Abdomen = '';
-    this.Perineum = '';
-    this.Ventral_Tail = '';
+    this.Perilabial_Area = {};
+    this.Left_Medial_Pinna = {};
+    this.Right_Medial_Pinna = {};
+    this.Left_Axilla = {};
+    this.Right_Axilla = {};
+    this.Left_Front_Paw = {};
+    this.Right_Front_Paw = {};
+    this.Left_Hind_Paw = {};
+    this.Right_Hind_Paw = {};
+    this.Left_Cubital_Flexor = {};
+    this.Right_Cubital_Flexor = {};
+    this.Left_Palmar_Metacarpal = {};
+    this.Right_Palmar_Metacarpal = {};
+    this.Left_Flank = {};
+    this.Right_Flank = {};
+    this.Left_Inguinal_Aera = {};
+    this.Right_Inguinal_Aera = {};
+    this.Abdomen = {};
+    this.Perineum = {};
+    this.Ventral_Tail = {};
     this.total = 0;
-    this.flea_allergy_excluded = false;
+    this.pruritus_score = 0;
+    this.flea_allergy_excluded = null;
     this.flea_product = 0;
-    this.excluded = false;
-    this.more_8_weeks = false;
-    this.industrial_or_homemade = '';
+    this.excluded = null;
+    this.more_8_weeks = null;
+    this.industrial_or_homemade = null;
     this.what_petfood = '';
-    this.pyodermatitis = false;
-    this.pyodermatitis_history = false;
-    this.malassezia = false;
-    this.malassezia_history = false;
-    this.recurring_otitis = false;
-    this.otitis = false;
-    this.otitis_history = false;
-    this.desensitized = false;
-    this.desensitized_more_6_months  = false;
-    this.drug_history_known = false;
+    this.pyodermatitis = null;
+    this.pyodermatitis_history = null;
+    this.malassezia = null;
+    this.malassezia_history = null;
+    this.recurring_otitis = null;
+    this.otitis = null;
+    this.otitis_history = null;
+    this.desensitized = null;
+    this.desensitized_more_6_months = null;
+    this.drug_history_known = null;
     this.prednisolone = 0;
     this.oclacitinib = 0;
     this.cyclosporine = 0;
@@ -124,12 +131,17 @@ export class FormData {
     this.age_month = '';
     this.crossed = 0;
     this.breed_dog_1 = '';
-    this.breed_dog_2 ='';
+    this.breed_dog_2 = '';
     this.dog_format = 0;
     this.gender = 0;
     this.sex = 0;
     this.physical_activity = 0;
     this.weight = 0;
+    this.fat_score_dog = 0;
+    this.owner_name = '';
+    this.owner_phone = '';
+    this.owner_email = '';
+    this.accept_data_sharing = false;
   }
 }
 
@@ -149,88 +161,89 @@ export class StepFavrotCriteria {
 }
 
 export class StepCadesi {
-  Perilabial_Area: string = '';
-  Left_Medial_Pinna: string = '';
-  Right_Medial_Pinna: string = '';
-  Left_Axilla: string = '';
-  Right_Axilla: string = '';
-  Left_Front_Paw: string = '';
-  Right_Front_Paw: string = '';
-  Left_Hind_Paw: string = '';
-  Right_Hind_Paw: string = '';
-  Left_Cubital_Flexor: string = '';
-  Right_Cubital_Flexor: string = '';
-  Left_Palmar_Metacarpal: string = '';
-  Right_Palmar_Metacarpal: string = '';
-  Left_Flank: string = '';
-  Right_Flank: string = '';
-  Left_Inguinal_Aera: string = '';
-  Right_Inguinal_Aera: string = '';
-  Abdomen: string = '';
-  Perineum: string = '';
-  Ventral_Tail: string = '';
+  Perilabial_Area: {} = {};
+  Left_Medial_Pinna: {} = {};
+  Right_Medial_Pinna: {} = {};
+  Left_Axilla: {} = {};
+  Right_Axilla: {} = {};
+  Left_Front_Paw: {} = {};
+  Right_Front_Paw: {} = {};
+  Left_Hind_Paw: {} = {};
+  Right_Hind_Paw: {} = {};
+  Left_Cubital_Flexor: {} ={};
+  Right_Cubital_Flexor: {} = {};
+  Left_Palmar_Metacarpal: {} = {};
+  Right_Palmar_Metacarpal: {} = {};
+  Left_Flank: {} = {};
+  Right_Flank: {} = {};
+  Left_Inguinal_Aera: {} = {};
+  Right_Inguinal_Aera: {} = {};
+  Abdomen: {} = {};
+  Perineum: {} = {};
+  Ventral_Tail: {} = {};
   total: number = 0;
+  pruritus_score : number = 0;
 }
 
 export class StepFleaTreatment {
-  flea_allergy_excluded: boolean = false;
+  flea_allergy_excluded: boolean = null;
   flea_product: number = 0;
 }
 
 export class StepFoodAllergy {
-  excluded: boolean = false;
-  more_8_weeks: boolean = false;
-  industrial_or_homemade: string = '';
+  excluded: boolean = null;
+  more_8_weeks: boolean = null;
+  industrial_or_homemade: boolean = null;
   what_petfood: string = '';
 }
 
 export class StepPyodermatitis {
-  pyodermatitis: boolean = false;
-  pyodermatitis_history: boolean = false
+  pyodermatitis: boolean = null;
+  pyodermatitis_history: boolean = null
 }
 
 export class StepMalassezia {
-  malassezia: boolean = false;
-  malassezia_history: boolean = false
+  malassezia: boolean = null;
+  malassezia_history: boolean = null
 }
 
 export class StepOtitis {
-  recurring_otitis: boolean = false;
-  otitis: boolean = false;
-  otitis_history: boolean = false;
+  recurring_otitis: boolean = null;
+  otitis: boolean = null;
+  otitis_history: boolean = null;
 }
 
 export class StepDesensitized {
-  desensitized: boolean = false;
-  desensitized_more_6_months : boolean = false;
+  desensitized: boolean = null;
+  desensitized_more_6_months: boolean = null;
 }
 
 export class StepDrugsHistory {
-  drug_history_known : boolean = false;
-  prednisolone : number = 0;
-  oclacitinib : number = 0;
-  cyclosporine : number = 0;
-  cortavance : number  = 0;
-  antibacterial_shampoo : number = 0;
-  dermatologic_shampoo : number = 0;
-  omega : number = 0;
-  yeast : number = 0;
+  drug_history_known: boolean = null;
+  prednisolone: number = 0;
+  oclacitinib: number = 0;
+  cyclosporine: number = 0;
+  cortavance: number = 0;
+  antibacterial_shampoo: number = 0;
+  dermatologic_shampoo: number = 0;
+  omega: number = 0;
+  yeast: number = 0;
 }
 
 export class StepName {
-  name : string = '';
+  name: string = '';
 }
 
 export class StepAge {
-  age_year : string = '';
-  age_month : string = '';
+  age_year: string = '';
+  age_month: string = '';
 }
 
 export class StepBreed {
-  crossed : number = 0;
-  breed_dog_1 : string = '';
+  crossed: number = 0;
+  breed_dog_1: string = '';
   breed_dog_2: string = '';
-  dog_format  : number = 0;
+  dog_format: number = 0;
 }
 
 export class StepGender {
@@ -242,9 +255,22 @@ export class StepSex {
 }
 
 export class StepPhysical {
-  physical_activity : number = 0;
+  physical_activity: number = 0;
 }
 
 export class StepWeight {
-  weight : number = 0;
+  weight: number = 0;
 }
+
+export class StepFat {
+  fat_score_dog: number = 0;
+}
+
+export class StepOwnerInformations {
+  owner_name: string = '';
+  owner_phone: string = '';
+  owner_email: string = '';
+  accept_data_sharing : boolean = false;
+}
+
+

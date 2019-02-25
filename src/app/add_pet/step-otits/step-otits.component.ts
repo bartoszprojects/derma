@@ -13,29 +13,19 @@ import {StepOtitis} from '../../formData.model';
 })
 export class StepOtitsComponent implements OnInit {
 
-  otitis: StepOtitis;
+  otitis_form: StepOtitis;
   form: any;
-  profileForm = this.fb.group({
-    recurring_otitis: [null, Validators.required],
-    otitis: [null, Validators.required],
-    otitis_history: [null, Validators.required],
-  });
 
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setOtitis(this.profileForm.value)
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setOtitis(this.profileForm.value);
-    console.log(this.DataService.getOtitis());
-
+  constructor(private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.otitis = this.DataService.getOtitis();
+    this.otitis_form = this.formDataService.getOtitis();
     console.log('Personal feature loaded!');
+  }
 
+  save() {
+    this.formDataService.setOtitis(this.otitis_form);
+    return true;
   }
 }

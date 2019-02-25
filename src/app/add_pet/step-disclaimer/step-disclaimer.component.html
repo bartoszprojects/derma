@@ -1,7 +1,7 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <form #diet_agreedForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid">
         <div style="text-align:center" class="box-header with-border">
           <h1><i class="icon fa fa-warning"></i> This clinical study aims at studying the relationship between <b>atopic
@@ -33,8 +33,9 @@
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
-                  <input type="checkbox" formControlName="diet_agreed" required id="diet_agreed" name="diet_agreed"
-                         placeholder="diet_agreed"> I agree
+                  <input #diet_agreed="ngModel" [(ngModel)]="disclaimer.diet_agreed" type="checkbox"
+                         placeholder="diet_agreed"
+                         required id="diet_agreed" name="diet_agreed"> I agree
                   with
                   the previous statements
 
@@ -49,9 +50,8 @@
       </div>
       <!-- /.box-body -->
 
-
-      <button routerLink="/home/add-pet/favrot-criteria" routerLinkActive="active"
-              type="submit" [disabled]="!profileForm.valid"
+       <button routerLink="/home/add-pet/favrot-criteria" routerLinkActive="active" (click)="save()"
+              type="submit"
               class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
       </button>
 
@@ -61,24 +61,8 @@
               name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
               style='float:left'>Return
       </button>
+
     </form>
-
-
-    <hr>
-
-
-    <p>
-      Form Value: {{ profileForm.value | json }}
-    </p>
-
-
-    <p>
-      Form Status: {{ profileForm.status }}
-    </p>
-
-
-    <p>_____________________________</p>
-    <p>personal: {{ personal }}</p>
 
 
   </section>

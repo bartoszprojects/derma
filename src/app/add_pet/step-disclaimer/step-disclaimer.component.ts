@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { StepDisclaimer } from '../../formData.model';
-import { DataService } from '../../data.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
+import {StepDisclaimer} from '../../formData.model';
+import {DataService} from '../../data.service';
+
 
 @Component({
   selector: 'app-step-disclaimer',
@@ -15,23 +15,27 @@ export class StepDisclaimerComponent implements OnInit {
   title = 'Please tell us about yourself.';
   disclaimer: StepDisclaimer;
   form: any;
-
-  profileForm = this.fb.group({
-    diet_agreed: ['', Validators.required],
-
-  });
-
-  constructor(private fb: FormBuilder, private DataService: DataService) { }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value.diet_agreed);
-     this.DataService.setDisclaimer(this.profileForm.value);
-     console.log(this.DataService.getDisclaimer())
+  constructor(private router: Router, private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.disclaimer = this.DataService.getDisclaimer();
-        console.log('Personal feature loaded!');
+    this.disclaimer = this.formDataService.getDisclaimer();
+    console.log('Personal feature loaded!');
   }
+
+
+  save() {
+    this.formDataService.setDisclaimer(this.disclaimer);
+    return true;
+  }
+
+
 }
+
+
+
+
+
+
+
+

@@ -2,4 +2,8 @@ mat-slider {
   width: 100%;
 }
 
+label input {
+  display: none !important;
+}
+
 /*# sourceMappingURL=step-weight.component.css.map */

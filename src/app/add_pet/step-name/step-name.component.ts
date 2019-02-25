@@ -13,28 +13,22 @@ import {StepName} from '../../formData.model';
 })
 export class StepNameComponent implements OnInit {
 
-  name: StepName;
+  name_form: StepName;
   form: any;
-  profileForm = this.fb.group({
-    name: ['', Validators.required],
 
-  });
-
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setName(this.profileForm.value)
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setName(this.profileForm.value);
-    console.log(this.DataService.getName());
-
+  constructor(private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.name = this.DataService.getName();
+    this.name_form = this.formDataService.getName();
     console.log('Personal feature loaded!');
+  }
 
+  save() {
+    this.formDataService.setName(this.name_form);
+    return true;
   }
 }
+
+
+

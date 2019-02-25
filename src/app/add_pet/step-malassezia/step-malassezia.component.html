@@ -1,7 +1,7 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <form #malassezia_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label" for="id_Sup2"> Is this dog having a Malassezia dermatitis right now
@@ -11,12 +11,12 @@
         <div class="box-body">
           <div style="text-align:center">
             <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
-              <input formControlName="malassezia" class='ng-hide' class='form-control' type="radio" value="1">
+              <input #malassezia="ngModel" [(ngModel)]="malassezia_form.malassezia" name="malassezia" class='ng-hide' class='form-control' type="radio" value="1">
               Yes</label>
 
             <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['malassezia']=='0'}"
                    class="btn btn-1 btn-1a btn-crossed_1">
-              <input formControlName="malassezia" class='ng-hide' class='form-control' type="radio" value="0"
+              <input #malassezia="ngModel" [(ngModel)]="malassezia_form.malassezia" name="malassezia" class='ng-hide' class='form-control' type="radio" value="0"
                      class='ng-hide'> No </label>
           </div>
 
@@ -24,7 +24,7 @@
 
       </div>
 
-      <ng-template [ngIf]="profileForm.value.malassezia == 1">
+      <ng-template [ngIf]="malassezia_form.malassezia == true">
         <div ng-show="pet_data['malassezia']=='1' " class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
@@ -39,7 +39,7 @@
 
         </div>
       </ng-template>
-      <ng-template [ngIf]="profileForm.value.malassezia == 0">
+      <ng-template [ngIf]="malassezia_form.malassezia == false">
         <div ng-show="pet_data['malassezia']=='0'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label">Has this candidate ever encounter Malassezia dermatitis episodes in the past
@@ -50,20 +50,20 @@
             <div style="text-align:center">
               <label style="font-size: 2.5vw;"
                      class="btn btn-1 btn-1a btn-crossed_0">
-                <input formControlName="malassezia_history" class='ng-hide' class='form-control' type="radio" value="1"
+                <input #malassezia_history="ngModel" [(ngModel)]="malassezia_form.malassezia_history" name="malassezia_history" class='ng-hide' class='form-control' type="radio" value="1"
                 > Yes</label>
 
               <label style="font-size: 2.5vw;"
                      class="btn btn-1 btn-1a btn-crossed_1">
-                <input formControlName="malassezia_history" class='ng-hide' class='form-control' type="radio"
+                <input #malassezia_history="ngModel" [(ngModel)]="malassezia_form.malassezia_history" class='ng-hide' class='form-control' type="radio"
                        value="0"
                        class='ng-hide'> No </label>
             </div>
             <!-- /.box-body -->
           </div>
 
-          <button routerLink="/home/add-pet/otitis" ui-sref="add_pet.otitis"
-                  ng-show="pet_data['malassezia']=='0' &&( pet_data['malassezia_history']=='0'|| pet_data['malassezia_history']=='1')"
+          <button routerLink="/home/add-pet/otitis"
+                  (click)="save()"
                   id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
                   style='float:right'>Continue
           </button>
@@ -77,6 +77,6 @@
         </div>
       </ng-template>
     </form>
-    Form Value: {{ profileForm.value | json }}
+
   </section>
 </div>

@@ -1,37 +1,39 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <div class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label">Is <b>  </b> a boy or a girl ?</h1>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <div style="text-align:center" id="gender_pictures" class="ss-selector has-feedback form-group">
-
-
-          <label class="drunkcard-ss id_gender_1" style=""> <input formControlName="gender" type="radio" value="1" class='ng-hide'/></label>
-
-
-          <label class="drunkcard-ss id_gender_2" style=""><input formControlName="gender" type="radio" value="2" class='ng-hide'/></label>
-
+    <form #gender_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
+      <div class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+          <h1 class="control-label">Is <b> </b> a boy or a girl ?</h1>
         </div>
-        <!-- /.box-body -->
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div style="text-align:center" id="gender_pictures" class="ss-selector has-feedback form-group">
+
+
+            <label class="drunkcard-ss id_gender_1" style=""> <input #gender="ngModel" [(ngModel)]="gender_form.gender" name="gender" type="radio" value="1"
+                                                                     class='ng-hide'/></label>
+
+
+            <label class="drunkcard-ss id_gender_2" style=""><input #gender="ngModel" [(ngModel)]="gender_form.gender" name="gender" type="radio" value="2"
+                                                                    class='ng-hide'/></label>
+
+          </div>
+          <!-- /.box-body -->
+        </div>
+
+        <button (click)="save()" routerLink="/home/add-pet/sex" routerLinkActive="active"  id="moving" type="button" name="next"
+                class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
+        </button>
+
+        <button routerLink="/home/add-pet/breed" routerLinkActive="active"
+                id="" type="button" name="previous"
+                class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
+          Return
+        </button>
+
       </div>
+    </form>
 
-      <button routerLink="/home/add-pet/sex" routerLinkActive="active" ng-click="forward()" ui-sref="add_pet.sex"
-              ng-show="pet_data['gender']==1 || pet_data['gender']==2" id="moving" type="button" name="next"
-              class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
-      </button>
-
-      <button routerLink="/home/add-pet/breed" routerLinkActive="active" ng-click='backward()' ui-sref="add_pet.name" id="" type="button" name="previous"
-              class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
-        Return
-      </button>
-
-    </div>
-        </form>
-        Form Value: {{ profileForm.value | json }}
   </section>
 </div>

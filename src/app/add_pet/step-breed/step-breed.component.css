@@ -1,3 +1,7 @@
+label input {
+  display: none !important;
+}
+
 select {
   width: 100%;
   background: #f4f4f4;

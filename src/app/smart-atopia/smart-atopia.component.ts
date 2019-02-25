@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-smart-atopia',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./smart-atopia.component.scss']
 })
 export class SmartAtopiaComponent implements OnInit {
+  @Input() formData;
 
-  constructor() { }
+    constructor(private DataService: DataService) {
+    }
 
   ngOnInit() {
+      this.formData = this.DataService.getFormData();
   }
 
 }

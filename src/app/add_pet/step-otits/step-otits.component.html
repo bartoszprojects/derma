@@ -1,7 +1,7 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <form #otitis_form_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label" for="id_Sup2"> Is this dog known to have RECURRING otitis externa? </h1>
@@ -10,17 +10,17 @@
         <div class="box-body">
           <div style="text-align:center">
             <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
-              <input formControlName="recurring_otitis" class='ng-hide' class='form-control' type="radio" value="1"> Yes</label>
+              <input #recurring_otitis="ngModel" [(ngModel)]="otitis_form.recurring_otitis" name="recurring_otitis" class='ng-hide' class='form-control' type="radio" value="1"> Yes</label>
 
             <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
-              <input formControlName="recurring_otitis" class='ng-hide' class='form-control' type="radio" value="0"
+              <input #recurring_otitis="ngModel" [(ngModel)]="otitis_form.recurring_otitis" name="recurring_otitis" class='ng-hide' class='form-control' type="radio" value="0"
                      class='ng-hide'> No </label>
           </div>
 
         </div>
 
       </div>
-      <ng-template [ngIf]="profileForm.value.recurring_otitis == 1">
+      <ng-template [ngIf]="otitis_form.recurring_otitis == true">
         <div ng-show="pet_data['recurring_otitis']=='1'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
@@ -37,7 +37,7 @@
 
         </div>
       </ng-template>
-      <ng-template [ngIf]="profileForm.value.recurring_otitis == 0">
+      <ng-template [ngIf]="otitis_form.recurring_otitis == false">
         <div ng-show="pet_data['recurring_otitis']=='0'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label" for="id_Sup2"> Is this dog having a otitis externa right now ? </h1>
@@ -47,11 +47,11 @@
             <div style="text-align:center">
               <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='1'}"
                      class="btn btn-1 btn-1a btn-crossed_0">
-                <input formControlName="otitis" class='ng-hide' class='form-control' type="radio" value="1"> Yes</label>
+                <input #otitis="ngModel" [(ngModel)]="otitis_form.otitis" name="otitis" class='ng-hide' class='form-control' type="radio" value="1"> Yes</label>
 
               <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='0'}"
                      class="btn btn-1 btn-1a btn-crossed_1">
-                <input formControlName="otitis" class='ng-hide' class='form-control' type="radio" value="0"
+                <input #otitis="ngModel" [(ngModel)]="otitis_form.otitis" name="otitis" class='ng-hide' class='form-control' type="radio" value="0"
                        class='ng-hide'> No </label>
             </div>
 
@@ -59,7 +59,7 @@
 
         </div>
       </ng-template>
-      <ng-template [ngIf]="profileForm.value.otitis == 1">
+      <ng-template [ngIf]="otitis_form.otitis == true">
         <div ng-show="pet_data['otitis']=='1' " class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
@@ -74,8 +74,8 @@
 
         </div>
       </ng-template>
-    <ng-template [ngIf]="profileForm.value.otitis == 0">
-      <div ng-show="pet_data['recurring_otitis']=='0' && pet_data['otitis']=='0'" class="box box-default box-solid ">
+    <ng-template [ngIf]="otitis_form.otitis == false">
+      <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label">Has this candidate ever encounter otitis externa episodes in the past ?</h1>
         </div>
@@ -84,13 +84,13 @@
           <div style="text-align:center">
             <label style="font-size: 2.5vw;"
                    class="btn btn-1 btn-1a btn-crossed_0">
-              <input formControlName="otitis_history" class='ng-hide' class='form-control' type="radio" value="1">
+              <input #otitis_history="ngModel" [(ngModel)]="otitis_form.otitis_history" name="otitis_history" class='ng-hide' class='form-control' type="radio" value="1">
               Yes</label>
 
-            <label
+            <label style="font-size: 2.5vw;"
               class="btn btn-1 btn-1a btn-crossed_1">
-              <input formControlName="otitis_history" class='ng-hide' class='form-control' type="radio" value="0"
-                     class='ng-hide'> No </label>
+              <input #otitis_history="ngModel" [(ngModel)]="otitis_form.otitis_history" name="otitis_history" class='ng-hide' class='form-control' type="radio" value="0"
+                     > No </label>
           </div>
           <!-- /.box-body -->
         </div>
@@ -98,23 +98,16 @@
 
     </ng-template>
 
-
-
-
-
-
-      <button routerLink="/home/add-pet/desensitized" routerLinkActive="active" ui-sref="add_pet.desensitized"
-              ng-show="pet_data['otitis']=='0' &&( pet_data['otitis_history']=='0'|| pet_data['otitis_history']=='1')"
+      <button (click)="save()" routerLink="/home/add-pet/desensitized" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>
 
-      <button routerLink="/home/add-pet/malassezia" routerLinkActive="active" ng-click='backward()'
-              ui-sref="add_pet.food_allergy" id="moving" type="button"
+      <button routerLink="/home/add-pet/malassezia" routerLinkActive="active"  id="moving" type="button"
               name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
               style='float:left'>Return
       </button>
     </form>
-    Form Value: {{ profileForm.value | json }}
+
   </section>
 </div>

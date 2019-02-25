@@ -1,7 +1,7 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <form #flea_treatmentForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label" for="id_Sup2"> Has Flea Bite Dermatitis been ruled out ? </h1>
@@ -10,13 +10,13 @@
         <div class="box-body">
           <div style="text-align:center">
             <label style="font-size: 2.5vw" class="btn btn-1 btn-1a btn-crossed_0">
-              <input formControlName="flea_allergy_excluded" required id="flea_allergy_excluded"
+              <input #flea_allergy_excluded="ngModel" [(ngModel)]="flea_treatment.flea_allergy_excluded" required id="flea_allergy_excluded"
                      name="flea_allergy_excluded"
                      placeholder="flea_allergy_excluded" class='ng-hide form-control' type="radio" value="1">
               Yes</label>
 
             <label style="font-size: 2.5vw" class="btn btn-1 btn-1a btn-crossed_1">
-              <input formControlName="flea_allergy_excluded" required id="" name="flea_allergy_excluded"
+              <input #flea_allergy_excluded="ngModel" [(ngModel)]="flea_treatment.flea_allergy_excluded" required id="" name="flea_allergy_excluded"
                      placeholder="flea_allergy_excluded" class='ng-hide form-control' type="radio" value="0"> No
             </label>
           </div>
@@ -25,8 +25,8 @@
 
       </div>
 
-
-      <div ng-show="pet_data['flea_allergy_excluded']=='0'" class="box box-default box-solid ">
+      <ng-template [ngIf]="flea_treatment.flea_allergy_excluded == false">
+      <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label" for="id_Sup2"> Warning </h1>
         </div>
@@ -39,8 +39,8 @@
         </div>
 
       </div>
-
-      <ng-template [ngIf]="profileForm.value.flea_allergy_excluded == 1">
+      </ng-template>
+      <ng-template [ngIf]="flea_treatment.flea_allergy_excluded == true">
         <div ng-show="pet_data['flea_allergy_excluded']=='1'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label">Select the product with which Flea bite dermatitis has been ruled out</h1>
@@ -49,35 +49,33 @@
           <div class="box-body">
             <div id="flea_drug_pictures" class="ss-selector has-feedback form-group">
               <label class="drunkcard-ss">
-                <input formControlName="flea_product" required id="flea_product" name="flea_product"
-                       placeholder="flea_product" type="radio" value="1" ng-model="pet_data['flea_drug']"
+                <input #flea_product="ngModel" [(ngModel)]="flea_treatment.flea_product" required id="flea_product" name="flea_product"
+                       placeholder="flea_product" type="radio" value="1"
                        class='ng-hide form-control'/>
                 <img src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/nexgard.jpg"/>
               </label>
-              <label class="drunkcard-ss"><input formControlName="flea_product" required id="h"
+              <label class="drunkcard-ss"><input #flea_product="ngModel" [(ngModel)]="flea_treatment.flea_product" required id="h"
                                                  name="flea_product"
                                                  placeholder="flea_product" type="radio" value="2"
-                                                 ng-model="pet_data['flea_drug']"
                                                  class='ng-hide form-control'/>
                 <img src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/simparica.jpg"/>
               </label>
 
-              <label class="drunkcard-ss"> <input formControlName="flea_product" required id="dh"
+              <label class="drunkcard-ss"> <input #flea_product="ngModel" [(ngModel)]="flea_treatment.flea_product" required id="dh"
                                                   name="flea_product"
                                                   placeholder="flea_product" type="radio" value="3"
-                                                  ng-model="pet_data['flea_drug']"
                                                   class='ng-hide form-control'/> <img
                 src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/bravecto.jpg"/></label>
 
-              <ng-template [ngIf]="profileForm.value.flea_product == 1">
+              <ng-template [ngIf]="flea_treatment.flea_product == 1">
                 <h3 ng-show="pet_data['flea_drug']=='1'" class="control-label"><b>NexGard &copy; </b> every five weeks
                 </h3>
               </ng-template>
-              <ng-template [ngIf]="profileForm.value.flea_product == 2">
+              <ng-template [ngIf]="flea_treatment.flea_product == 2">
                 <h3 ng-show="pet_data['flea_drug']=='2'" class="control-label"><b> Simparica &copy; </b> every five
                   weeks
                 </h3></ng-template>
-              <ng-template [ngIf]="profileForm.value.flea_product == 3">
+              <ng-template [ngIf]="flea_treatment.flea_product == 3">
                 <h3 ng-show="pet_data['flea_drug']=='3'" class="control-label"><b> Bravecto &copy; </b> every three
                   months
                 </h3></ng-template>
@@ -86,7 +84,7 @@
             <!-- /.box-body -->
           </div>
 
-          <button routerLink="/home/add-pet/food-allergy" routerLinkActive="active"
+          <button (click)="save()" routerLink="/home/add-pet/food-allergy" routerLinkActive="active"
 
                   type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
                   style='float:right'>Continue
@@ -101,6 +99,5 @@
       </ng-template>
     </form>
 
-    Form Value: {{ profileForm.value | json }}
   </section>
 </div>

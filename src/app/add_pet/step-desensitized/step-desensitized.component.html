@@ -1,7 +1,7 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <form #desensitized_form_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label" for="id_Sup2"> Has this dog being recently desensitized ? </h1>
@@ -10,10 +10,10 @@
         <div class="box-body">
           <div style="text-align:center">
             <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
-              <input formControlName="desensitized" class='ng-hide' class='form-control' type="radio" value="1"> Yes</label>
+              <input #desensitized="ngModel" [(ngModel)]="desensitized_form.desensitized" name="malassezia" class='ng-hide' class='form-control' type="radio" value="1"> Yes</label>
 
             <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
-              <input formControlName="desensitized" class='ng-hide' class='form-control' type="radio" value="0"
+              <input #desensitized="ngModel" [(ngModel)]="desensitized_form.desensitized" name="malassezia" class='ng-hide' class='form-control' type="radio" value="0"
                      class='ng-hide'> No </label>
           </div>
 
@@ -21,7 +21,7 @@
 
       </div>
 
-      <ng-template [ngIf]="profileForm.value.desensitized == 1">
+      <ng-template [ngIf]="desensitized_form.desensitized == true">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label" for="id_Sup2"> When did this desensitization occur? </h1>
@@ -32,11 +32,11 @@
 
 
             <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
-              <input formControlName="desensitized_more_6_months" class='ng-hide' class='form-control' type="radio"
+              <input #desensitized_more_6_months="ngModel" [(ngModel)]="desensitized_form.desensitized_more_6_months" name="desensitized_more_6_months" class='ng-hide' class='form-control' type="radio"
                      value="1"> > 6 Months ago </label>
 
             <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
-              <input formControlName="desensitized_more_6_months" class='ng-hide' class='form-control' type="radio"
+              <input #desensitized_more_6_months="ngModel" [(ngModel)]="desensitized_form.desensitized_more_6_months" name="desensitized_more_6_months" class='ng-hide' class='form-control' type="radio"
                      value="0" class='ng-hide'> < 6 Months ago
             </label>
 
@@ -46,7 +46,7 @@
 
       </div>
       </ng-template>
-      <ng-template [ngIf]="profileForm.value.desensitized_more_6_months == 0">
+      <ng-template [ngIf]="desensitized_form.desensitized_more_6_months == false">
       <div ng-show="pet_data['desensitized_more_6_months']=='0' " class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
@@ -62,8 +62,7 @@
       </div>
       </ng-template>
 
-      <button routerLink="/home/add-pet/drugs-history" routerLinkActive="active" ui-sref="add_pet.drugs_history"
-              ng-show="pet_data['desensitized']=='0' || (pet_data['desensitized']=='1' && pet_data['desensitized_more_6_months']=='1')"
+      <button (click)="save()" routerLink="/home/add-pet/drugs-history" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>
@@ -75,7 +74,7 @@
         Return
       </button>
     </form>
-    Form Value: {{ profileForm.value | json }}
+
   </section>
 </div>
 

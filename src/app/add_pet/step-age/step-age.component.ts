@@ -27,30 +27,21 @@ export class StepAgeComponent implements OnInit {
     }
   }
 
-  age: StepAge;
+  age_form: StepAge;
   form: any;
-  profileForm = this.fb.group({
-    age_year: ['', Validators.required],
-    age_month: ['', Validators.required],
 
-  });
-
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setAge(this.profileForm.value)
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setAge(this.profileForm.value);
-    console.log(this.DataService.getAge());
-
+  constructor(private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.age = this.DataService.getAge();
-    console.log('Personal feature loaded!');
+    this.age_form = this.formDataService.getAge();
     this.generateYears();
     this.generateMonths();
+    console.log('Personal feature loaded!');
+  }
+
+  save() {
+    this.formDataService.setAge(this.age_form);
+    return true;
   }
 }

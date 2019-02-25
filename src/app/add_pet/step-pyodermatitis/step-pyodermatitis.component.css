@@ -1,3 +1,5 @@
-
+label input, input {
+  display: none !important;
+}
 
 /*# sourceMappingURL=step-pyodermatitis.component.css.map */

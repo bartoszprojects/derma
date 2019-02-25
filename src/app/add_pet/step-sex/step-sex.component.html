@@ -1,7 +1,7 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <form #sex_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label"> Is <b> </b> neutered or intact ? </h1>
@@ -9,32 +9,30 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div style="text-align:center" class="neutered_intact">
-            <label ng-class="{'active-button':pet_data.sexual_capacity==1}" class="btn btn-1 btn-1a btn-neutered"
+            <label class="btn btn-1 btn-1a btn-neutered"
                    style="font-size: 2.5vw;">
-              <input formControlName="sex" type="radio" value="1" class='ng-hide'> Neutered </label>
-            <label ng-class="{'active-button':pet_data.sexual_capacity==2}" class="btn btn-1 btn-1a btn-intact"
+              <input #sex="ngModel" [(ngModel)]="sex_form.sex" name="sex" type="radio" value="1" class='ng-hide'> Neutered </label>
+            <label class="btn btn-1 btn-1a btn-intact"
                    style="font-size: 2.5vw;">
-              <input formControlName="sex" type="radio" value="2" class="ng-hide"> Intact </label>
+              <input #sex="ngModel" [(ngModel)]="sex_form.sex" name="sex" type="radio" value="2" class="ng-hide"> Intact </label>
           </div>
         </div>
         <!-- /.box-body -->
       </div>
 
 
-      <button routerLink="/home/add-pet/physical" routerLinkActive="active" ng-click='click_none_reprod();forward()'
-              ui-sref='add_pet.physical'
-              ng-show="pet_data.sexual_capacity=='1' || pet_data.sexual_capacity=='2'" id="" type="button"
+      <button (click)="save()" routerLink="/home/add-pet/physical" routerLinkActive="active" id="" type="button"
               name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>
         Continue
       </button>
 
 
-      <button routerLink="/home/add-pet/gender" routerLinkActive="active" ng-click="backward()" ui-sref='add_pet.gender'
+      <button routerLink="/home/add-pet/gender" routerLinkActive="active"
               id="moving" type="button"
               name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
               style='float:left'>Return
       </button>
     </form>
-    Form Value: {{ profileForm.value | json }}
+
   </section>
 </div>

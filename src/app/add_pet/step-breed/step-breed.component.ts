@@ -13,31 +13,20 @@ import {StepBreed} from '../../formData.model';
 })
 export class StepBreedComponent implements OnInit {
 
-  breed: StepBreed;
+  breed_form: StepBreed;
   form: any;
-  profileForm = this.fb.group({
-    crossed: [null, Validators.required],
-    breed_dog_1: ['', Validators.required],
-    breed_dog_2: ['', Validators.required],
-    dog_format: [null, Validators.required],
 
-  });
-
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setBreed(this.profileForm.value)
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setBreed(this.profileForm.value);
-    console.log(this.DataService.getBreed());
-
+  constructor(private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.breed = this.DataService.getBreed();
+    this.breed_form = this.formDataService.getBreed();
     console.log('Personal feature loaded!');
-
   }
+
+  save() {
+    this.formDataService.setBreed(this.breed_form);
+    return true;
+  }
+
 }

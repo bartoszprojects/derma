@@ -13,28 +13,19 @@ import {StepDesensitized} from '../../formData.model';
 })
 export class StepDesensitizedComponent implements OnInit {
 
-  desensitized: StepDesensitized;
+  desensitized_form: StepDesensitized;
   form: any;
-  profileForm = this.fb.group({
-    desensitized: [null, Validators.required],
-    desensitized_more_6_months: [null, Validators.required]
-  });
 
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setDesensitized(this.profileForm.value)
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setDesensitized(this.profileForm.value);
-    console.log(this.DataService.getDesensitized());
-
+  constructor(private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.desensitized = this.DataService.getDesensitized();
+    this.desensitized_form = this.formDataService.getDesensitized();
     console.log('Personal feature loaded!');
+  }
 
+  save() {
+    this.formDataService.setDesensitized(this.desensitized_form);
+    return true;
   }
 }

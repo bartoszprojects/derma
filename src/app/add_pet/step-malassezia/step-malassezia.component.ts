@@ -13,28 +13,20 @@ import {StepMalassezia} from '../../formData.model';
 })
 export class StepMalasseziaComponent implements OnInit {
 
-  malassezia: StepMalassezia;
+  malassezia_form: StepMalassezia;
   form: any;
-  profileForm = this.fb.group({
-    malassezia: [null, Validators.required],
-    malassezia_history: [null, Validators.required],
-  });
 
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setMalassezia(this.profileForm.value)
-  }
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setMalassezia(this.profileForm.value);
-    console.log(this.DataService.getMalassezia());
-
+  constructor(private fb: FormBuilder, private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.malassezia = this.DataService.getMalassezia();
+    this.malassezia_form = this.formDataService.getMalassezia();
     console.log('Personal feature loaded!');
+  }
 
+  save() {
+    this.formDataService.setMalassezia(this.malassezia_form);
+    return true;
   }
 }

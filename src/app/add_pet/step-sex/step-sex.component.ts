@@ -13,28 +13,19 @@ import {StepSex} from '../../formData.model';
 })
 export class StepSexComponent implements OnInit {
 
-  sex: StepSex;
+  sex_form: StepSex;
   form: any;
-  profileForm = this.fb.group({
-    sex: [null, Validators.required],
 
-  });
-
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setSex(this.profileForm.value)
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setSex(this.profileForm.value);
-    console.log(this.DataService.getSex());
-
+  constructor(private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.sex = this.DataService.getSex();
+    this.sex_form = this.formDataService.getSex();
     console.log('Personal feature loaded!');
+  }
 
+  save() {
+    this.formDataService.setSex(this.sex_form);
+    return true;
   }
 }

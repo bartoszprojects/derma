@@ -1,256 +1,283 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <div ng-if="pet_data['specy'] == '1'" style="text-align:center">
+    <form #fat_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
+      <div ng-if="pet_data['specy'] == '1'" style="text-align:center">
 
-      <div class="box box-default box-solid ">
-        <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label"><b> {{pet_data.pet_name}}</b>'s Fat/Lean Ratio. </h1><h4
-          class="control-label"><i> Try to figure out which skectch fits the best to
-          <b> {{pet_data.pet_name}}</b>.<br> When you click on a skecth you get additional keys of decision ! </i></h4>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-
-          <div id="fs_dog_pictures" class="cc-selector has-feedback form-group">
-
-            <input id="id_fat_score_dog_0" type="radio" name="fat_score_dog" value="1"
-                   ng-model="pet_data['fat_score_dog']"
-                   style='width:0%' class='ng-hide'/>
-            <label class="drinkcard-cc id_fat_score_dog_0" for="id_fat_score_dog_0"></label>
-
-            <input id="id_fat_score_dog_1" type="radio" name="fat_score_dog" value="3"
-                   ng-model="pet_data['fat_score_dog']"
-                   style='width:0%' class='ng-hide'/>
-            <label class="drinkcard-cc id_fat_score_dog_1" for="id_fat_score_dog_1"></label>
-
-
-            <input id="id_fat_score_dog_2" type="radio" name="fat_score_dog" value="5"
-                   ng-model="pet_data['fat_score_dog']"
-                   style='width:0%' class='ng-hide'/>
-            <label class="drinkcard-cc id_fat_score_dog_2" for="id_fat_score_dog_2"></label>
-
-
-            <input id="id_fat_score_dog_3" type="radio" name="fat_score_dog" value="7"
-                   ng-model="pet_data['fat_score_dog']"
-                   style='width:0%' class='ng-hide'/>
-            <label class="drinkcard-cc id_fat_score_dog_3" for="id_fat_score_dog_3"></label>
-
-
-            <input id="id_fat_score_dog_4" type="radio" name="fat_score_dog" value="9"
-                   ng-model="pet_data['fat_score_dog']"
-                   style='width:0%' class='ng-hide'/>
-            <label class="drinkcard-cc id_fat_score_dog_4" for="id_fat_score_dog_4"></label>
-
-
+        <div class="box box-default box-solid ">
+          <div style="text-align:center" class="box-header with-border">
+            <h1 class="control-label"><b> </b>'s Fat/Lean Ratio. </h1><h4
+            class="control-label"><i> Try to figure out which skectch fits the best to
+            <b> </b>.<br> When you click on a skecth you get additional keys of decision ! </i>
+          </h4>
           </div>
+          <!-- /.box-header -->
+          <div class="box-body">
 
-        </div>
-        <!-- /.box-body -->
-      </div>
+            <div id="fs_dog_pictures" class="cc-selector has-feedback form-group">
+
+              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_0" type="radio" name="fat_score_dog" value="1"
+
+                     style='width:0%' class='ng-hide'/>
+              <label class="drinkcard-cc id_fat_score_dog_0" for="id_fat_score_dog_0"></label>
+
+              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_1" type="radio" name="fat_score_dog" value="3"
+
+                     style='width:0%' class='ng-hide'/>
+              <label class="drinkcard-cc id_fat_score_dog_1" for="id_fat_score_dog_1"></label>
 
 
-      <div ng-show="pet_data.fat_score_dog!==''" class="box box-default box-solid ">
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="Text_Sortie_Dog">
-            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='1'} ">
-              <blockquote>
-                <p>Ribs, lumbar vertebrae, pelvic bones and all bony prominences evident from a distance. No discernible
-                  body fat. Obvious loss of muscle mass.</p>
-                <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to Assess
-                  the
-                  Body Condition of Their Dog or Cat
-                </cite></small>
-              </blockquote>
-            </div>
+              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_2" type="radio" name="fat_score_dog" value="5"
 
-            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='3'} ">
-              <blockquote>
-                <p>Ribs easily palpated and may be visible with no palpable fat. Tops of lumbar vertebrae visible.
-                  Pelvic
-                  bones becoming prominent. Obvious waist and abdominal tuck. </p>
-                <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to Assess
-                  the
-                  Body Condition of Their Dog or Cat
-                </cite></small>
-              </blockquote>
-            </div>
+                     style='width:0%' class='ng-hide'/>
+              <label class="drinkcard-cc id_fat_score_dog_2" for="id_fat_score_dog_2"></label>
 
-            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='5'} ">
-              <blockquote>
-                <p>Ribs palpable without excess fat covering. Waist observed behind ribs when viewed from above. Abdomen
-                  tucked up when viewed from side.</p>
-                <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to Assess
-                  the
-                  Body Condition of Their Dog or Cat
-                </cite></small>
-              </blockquote>
-            </div>
-            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='7'} ">
-              <blockquote>
-                <p>Ribs palpable with dif culty; heavy fat cover. Noticeable fat deposits over lumbar area and base of
-                  tail.
-                  Waist absent or barely visible. Abdominal tuck may be present.</p>
-                <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to Assess
-                  the
-                  Body Condition of Their Dog or Cat
-                </cite></small>
-              </blockquote>
-            </div>
-            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='9'} ">
-              <blockquote>
-                <p>Massive fat deposits over thorax, spine and base of tail. Waist and abdominal tuck absent. Fat
-                  deposits
-                  on neck and limbs.Obvious abdominal distention.</p>
-                <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to Assess
-                  the
-                  Body Condition of Their Dog or Cat
-                </cite></small>
-              </blockquote>
+
+              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_3" type="radio" name="fat_score_dog" value="7"
+
+                     style='width:0%' class='ng-hide'/>
+              <label class="drinkcard-cc id_fat_score_dog_3" for="id_fat_score_dog_3"></label>
+
+
+              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_4" type="radio" name="fat_score_dog" value="9"
+
+                     style='width:0%' class='ng-hide'/>
+              <label class="drinkcard-cc id_fat_score_dog_4" for="id_fat_score_dog_4"></label>
+
+
             </div>
 
           </div>
+          <!-- /.box-body -->
         </div>
-        <!-- /.box-body -->
-      </div>
 
 
-    </div>
+        <div ng-show="pet_data.fat_score_dog!==''" class="box box-default box-solid ">
+          <!-- /.box-header -->
+          <div class="box-body">
 
-
-    <div ng-if="pet_data['specy'] == '2'" style="text-align:center">
-
-      <div class="box box-default box-solid ">
-        <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label"><b> {{pet_data.pet_name}}</b>'s Fat/Lean Ratio. </h1><h4
-          class="control-label"><i> Try to figure out which skectch fits the best to
-          <b> {{pet_data.pet_name}}</b>.<br> When you click on a skecth you get additional keys of decision ! </i></h4>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div id="fs_cat_pictures" class="ct-selector has-feedback form-group">
-
-            <input id="id_fat_score_cat_0" type="radio" name="fat_score_cat" value="1"
-                   ng-model="pet_data['fat_score_cat']"
-                   class='ng-hide'/>
-            <label class="boirecard-ct id_fat_score_cat_0" for="id_fat_score_cat_0"></label>
-
-            <input id="id_fat_score_cat_1" type="radio" name="fat_score_cat" value="3"
-                   ng-model="pet_data['fat_score_cat']"
-                   class='ng-hide'/>
-            <label class="boirecard-ct id_fat_score_cat_1" for="id_fat_score_cat_1"></label>
-
-
-            <input id="id_fat_score_cat_2" type="radio" name="fat_score_cat" value="5"
-                   ng-model="pet_data['fat_score_cat']"
-                   class='ng-hide'/>
-            <label class="boirecard-ct id_fat_score_cat_2" for="id_fat_score_cat_2"></label>
-
-
-            <input id="id_fat_score_cat_3" type="radio" name="fat_score_cat" value="7"
-                   ng-model="pet_data['fat_score_cat']"
-                   class='ng-hide'/>
-            <label class="boirecard-ct id_fat_score_cat_3" for="id_fat_score_cat_3"></label>
-
-            <input id="id_fat_score_cat_4" type="radio" name="fat_score_cat" value="9"
-                   ng-model="pet_data['fat_score_cat']"
-                   class='ng-hide'/>
-            <label class="boirecard-ct id_fat_score_cat_4" for="id_fat_score_cat_4"></label>
-
-
+            <div class="Text_Sortie_Dog">
+              <ng-template [ngIf]="fat_form.fat_score_dog == 1">
+                <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='1'} ">
+                  <blockquote>
+                    <p>Ribs, lumbar vertebrae, pelvic bones and all bony prominences evident from a distance. No
+                      discernible
+                      body fat. Obvious loss of muscle mass.</p>
+                    <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
+                      Assess
+                      the
+                      Body Condition of Their Dog or Cat
+                    </cite></small>
+                  </blockquote>
+                </div>
+              </ng-template>
+              <ng-template [ngIf]="fat_form.fat_score_dog == 3">
+                <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='3'} ">
+                  <blockquote>
+                    <p>Ribs easily palpated and may be visible with no palpable fat. Tops of lumbar vertebrae visible.
+                      Pelvic
+                      bones becoming prominent. Obvious waist and abdominal tuck. </p>
+                    <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
+                      Assess
+                      the
+                      Body Condition of Their Dog or Cat
+                    </cite></small>
+                  </blockquote>
+                </div>
+              </ng-template>
+              <ng-template [ngIf]="fat_form.fat_score_dog == 5">
+                <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='5'} ">
+                  <blockquote>
+                    <p>Ribs palpable without excess fat covering. Waist observed behind ribs when viewed from above.
+                      Abdomen
+                      tucked up when viewed from side.</p>
+                    <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
+                      Assess
+                      the
+                      Body Condition of Their Dog or Cat
+                    </cite></small>
+                  </blockquote>
+                </div>
+              </ng-template>
+              <ng-template [ngIf]="fat_form.fat_score_dog == 7">
+                <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='7'} ">
+                  <blockquote>
+                    <p>Ribs palpable with dif culty; heavy fat cover. Noticeable fat deposits over lumbar area and base
+                      of
+                      tail.
+                      Waist absent or barely visible. Abdominal tuck may be present.</p>
+                    <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
+                      Assess
+                      the
+                      Body Condition of Their Dog or Cat
+                    </cite></small>
+                  </blockquote>
+                </div>
+              </ng-template>
+              <ng-template [ngIf]="fat_form.fat_score_dog == 9">
+                <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='9'} ">
+                  <blockquote>
+                    <p>Massive fat deposits over thorax, spine and base of tail. Waist and abdominal tuck absent. Fat
+                      deposits
+                      on neck and limbs.Obvious abdominal distention.</p>
+                    <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
+                      Assess
+                      the
+                      Body Condition of Their Dog or Cat
+                    </cite></small>
+                  </blockquote>
+                </div>
+              </ng-template>
+            </div>
           </div>
-
+          <!-- /.box-body -->
         </div>
-        <!-- /.box-body -->
+
+
       </div>
 
 
-      <div ng-show="pet_data.fat_score_cat!==''" class="box box-default box-solid ">
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="Text_Sortie_Cat">
+      <!--<div ng-if="pet_data['specy'] == '2'" style="text-align:center">-->
 
-            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_cat!=='1'} ">
-              <blockquote>
-                <p>Ribs, lumbar vertebrae, pelvic bones and all bony prominences evident from a distance. No discernible
-                  body fat. Obvious loss of muscle mass.</p>
-                <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to Assess
-                  the
-                  Body Condition of Their Dog or Cat
-                </cite></small>
-              </blockquote>
-            </div>
+      <!--<div class="box box-default box-solid ">-->
+      <!--<div style="text-align:center" class="box-header with-border">-->
+      <!--<h1 class="control-label"><b> {{pet_data.pet_name}}</b>'s Fat/Lean Ratio. </h1><h4-->
+      <!--class="control-label"><i> Try to figure out which skectch fits the best to-->
+      <!--<b> {{pet_data.pet_name}}</b>.<br> When you click on a skecth you get additional keys of decision ! </i>-->
+      <!--</h4>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; /.box-header &ndash;&gt;-->
+      <!--<div class="box-body">-->
+      <!--<div id="fs_cat_pictures" class="ct-selector has-feedback form-group">-->
 
+      <!--<input id="id_fat_score_cat_0" type="radio" name="fat_score_cat" value="1"-->
+      <!--ng-model="pet_data['fat_score_cat']"-->
+      <!--class='ng-hide'/>-->
+      <!--<label class="boirecard-ct id_fat_score_cat_0" for="id_fat_score_cat_0"></label>-->
 
-            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_cat!=='3'} ">
-              <blockquote>
-                <p>Ribs easily palpated and may be visible with no palpable fat. Tops of lumbar vertebrae visible.
-                  Pelvic
-                  bones becoming prominent. Obvious waist and abdominal tuck. </p>
-                <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to Assess
-                  the
-                  Body Condition of Their Dog or Cat
-                </cite></small>
-              </blockquote>
-            </div>
+      <!--<input id="id_fat_score_cat_1" type="radio" name="fat_score_cat" value="3"-->
+      <!--ng-model="pet_data['fat_score_cat']"-->
+      <!--class='ng-hide'/>-->
+      <!--<label class="boirecard-ct id_fat_score_cat_1" for="id_fat_score_cat_1"></label>-->
 
 
-            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_cat!=='5'} ">
-              <blockquote>
-                <p>Ribs palpable without excess fat covering. Waist observed behind ribs when viewed from above. Abdomen
-                  tucked up when viewed from side.</p>
-                <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to Assess
-                  the
-                  Body Condition of Their Dog or Cat
-                </cite></small>
-              </blockquote>
-            </div>
-
-            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_cat!=='7'} ">
-              <blockquote>
-                <p>Ribs palpable with dif culty; heavy fat cover. Noticeable fat deposits over lumbar area and base of
-                  tail.
-                  Waist absent or barely visible. Abdominal tuck may be present.</p>
-                <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to Assess
-                  the
-                  Body Condition of Their Dog or Cat
-                </cite></small>
-              </blockquote>
-            </div>
+      <!--<input id="id_fat_score_cat_2" type="radio" name="fat_score_cat" value="5"-->
+      <!--ng-model="pet_data['fat_score_cat']"-->
+      <!--class='ng-hide'/>-->
+      <!--<label class="boirecard-ct id_fat_score_cat_2" for="id_fat_score_cat_2"></label>-->
 
 
-            <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_cat!=='9'} ">
-              <blockquote>
-                <p>Massive fat deposits over thorax, spine and base of tail. Waist and abdominal tuck absent. Fat
-                  deposits
-                  on neck and limbs.Obvious abdominal distention.</p>
-                <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to Assess
-                  the
-                  Body Condition of Their Dog or Cat
-                </cite></small>
-              </blockquote>
-            </div>
+      <!--<input id="id_fat_score_cat_3" type="radio" name="fat_score_cat" value="7"-->
+      <!--ng-model="pet_data['fat_score_cat']"-->
+      <!--class='ng-hide'/>-->
+      <!--<label class="boirecard-ct id_fat_score_cat_3" for="id_fat_score_cat_3"></label>-->
 
-          </div>
-        </div>
-        <!-- /.box-body -->
-      </div>
+      <!--<input id="id_fat_score_cat_4" type="radio" name="fat_score_cat" value="9"-->
+      <!--ng-model="pet_data['fat_score_cat']"-->
+      <!--class='ng-hide'/>-->
+      <!--<label class="boirecard-ct id_fat_score_cat_4" for="id_fat_score_cat_4"></label>-->
 
 
-    </div>
+      <!--</div>-->
+
+      <!--</div>-->
+      <!--&lt;!&ndash; /.box-body &ndash;&gt;-->
+      <!--</div>-->
 
 
-    <button routerLink="/home/add-pet/owner-informations" routerLinkActive="active" ng-click="forward()" ui-sref='add_pet.owner_informations'
-            ng-show="(pet_data['specy']==1 && pet_data['fat_score_dog']=='1') ||(pet_data['specy']==1 && pet_data['fat_score_dog']=='3') ||(pet_data['specy']==1 && pet_data['fat_score_dog']=='5') ||(pet_data['specy']==1 && pet_data['fat_score_dog']=='7') ||(pet_data['specy']==1 && pet_data['fat_score_dog']=='9') || (pet_data['specy']==2 && pet_data['fat_score_cat']=='1') || (pet_data['specy']==2 && pet_data['fat_score_cat']=='3') || (pet_data['specy']==2 && pet_data['fat_score_cat']=='5') || (pet_data['specy']==2 && pet_data['fat_score_cat']=='7') || (pet_data['specy']==2 && pet_data['fat_score_cat']=='9')"
+      <!--<div ng-show="pet_data.fat_score_cat!==''" class="box box-default box-solid ">-->
+      <!--&lt;!&ndash; /.box-header &ndash;&gt;-->
+      <!--<div class="box-body">-->
+      <!--<div class="Text_Sortie_Cat">-->
+
+      <!--<div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_cat!=='1'} ">-->
+      <!--<blockquote>-->
+      <!--<p>Ribs, lumbar vertebrae, pelvic bones and all bony prominences evident from a distance. No-->
+      <!--discernible-->
+      <!--body fat. Obvious loss of muscle mass.</p>-->
+      <!--<small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to-->
+      <!--Assess-->
+      <!--the-->
+      <!--Body Condition of Their Dog or Cat-->
+      <!--</cite></small>-->
+      <!--</blockquote>-->
+      <!--</div>-->
+
+
+      <!--<div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_cat!=='3'} ">-->
+      <!--<blockquote>-->
+      <!--<p>Ribs easily palpated and may be visible with no palpable fat. Tops of lumbar vertebrae visible.-->
+      <!--Pelvic-->
+      <!--bones becoming prominent. Obvious waist and abdominal tuck. </p>-->
+      <!--<small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to-->
+      <!--Assess-->
+      <!--the-->
+      <!--Body Condition of Their Dog or Cat-->
+      <!--</cite></small>-->
+      <!--</blockquote>-->
+      <!--</div>-->
+
+
+      <!--<div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_cat!=='5'} ">-->
+      <!--<blockquote>-->
+      <!--<p>Ribs palpable without excess fat covering. Waist observed behind ribs when viewed from above.-->
+      <!--Abdomen-->
+      <!--tucked up when viewed from side.</p>-->
+      <!--<small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to-->
+      <!--Assess-->
+      <!--the-->
+      <!--Body Condition of Their Dog or Cat-->
+      <!--</cite></small>-->
+      <!--</blockquote>-->
+      <!--</div>-->
+
+      <!--<div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_cat!=='7'} ">-->
+      <!--<blockquote>-->
+      <!--<p>Ribs palpable with dif culty; heavy fat cover. Noticeable fat deposits over lumbar area and base of-->
+      <!--tail.-->
+      <!--Waist absent or barely visible. Abdominal tuck may be present.</p>-->
+      <!--<small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to-->
+      <!--Assess-->
+      <!--the-->
+      <!--Body Condition of Their Dog or Cat-->
+      <!--</cite></small>-->
+      <!--</blockquote>-->
+      <!--</div>-->
+
+
+      <!--<div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_cat!=='9'} ">-->
+      <!--<blockquote>-->
+      <!--<p>Massive fat deposits over thorax, spine and base of tail. Waist and abdominal tuck absent. Fat-->
+      <!--deposits-->
+      <!--on neck and limbs.Obvious abdominal distention.</p>-->
+      <!--<small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to-->
+      <!--Assess-->
+      <!--the-->
+      <!--Body Condition of Their Dog or Cat-->
+      <!--</cite></small>-->
+      <!--</blockquote>-->
+      <!--</div>-->
+
+      <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; /.box-body &ndash;&gt;-->
+      <!--</div>-->
+
+
+      <!--</div>-->
+
+    </form>
+    <button (click)="save()" routerLink="/home/add-pet/owner-informations" routerLinkActive="active"
             id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
             style='float:right'>Continue
     </button>
 
-    <button routerLink="/home/add-pet/weight" routerLinkActive="active" ng-click="backward()" ui-sref='add_pet.weight' id="moving" type="button"
+    <button routerLink="/home/add-pet/weight" routerLinkActive="active"
+            id="moving" type="button"
             name="previous"
             class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
       Return
     </button>
+
   </section>
 </div>

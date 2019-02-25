@@ -13,35 +13,19 @@ import {StepDrugsHistory} from '../../formData.model';
 })
 export class StepDrugsHistoryComponent implements OnInit {
 
-  drug_history: StepDrugsHistory;
+  drug_history_form: StepDrugsHistory;
   form: any;
-  profileForm = this.fb.group({
-    drug_history_known: [null, Validators.required],
-    prednisolone: [null, Validators.required],
-    oclacitinib: [null, Validators.required],
-    cyclosporine: [null, Validators.required],
-    cortavance: [null, Validators.required],
-    antibacterial_shampoo: [null, Validators.required],
-    dermatologic_shampoo: [null, Validators.required],
-    omega: [null, Validators.required],
-    yeast: [null, Validators.required]
-  });
 
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setDrugHistory(this.profileForm.value)
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setDrugHistory(this.profileForm.value);
-    console.log(this.DataService.getDrugHistory());
-
+  constructor(private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.drug_history = this.DataService.getDrugHistory();
+    this.drug_history_form = this.formDataService.getDrugHistory();
     console.log('Personal feature loaded!');
+  }
 
+  save() {
+    this.formDataService.setDrugHistory(this.drug_history_form);
+    return true;
   }
 }

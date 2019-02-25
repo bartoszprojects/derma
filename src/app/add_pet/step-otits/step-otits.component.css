@@ -1,3 +1,5 @@
-
+label input, input {
+  display: none !important;
+}
 
 /*# sourceMappingURL=step-otits.component.css.map */

@@ -12,29 +12,21 @@ import {StepWeight} from '../../formData.model';
   styleUrls: ['./step-weight.component.scss']
 })
 export class StepWeightComponent implements OnInit {
-
-  weight: StepWeight;
+  rv: any;
+  weight_form: StepWeight;
   form: any;
-  profileForm = this.fb.group({
-    weight: [null, Validators.required],
 
-  });
 
-  constructor(private fb: FormBuilder, private DataService: DataService) {
-    this.DataService.setWeight(this.profileForm.value)
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-    this.DataService.setWeight(this.profileForm.value);
-    console.log(this.DataService.getWeight());
-
+  constructor(private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.weight = this.DataService.getWeight();
+    this.weight_form = this.formDataService.getWeight();
     console.log('Personal feature loaded!');
+  }
 
+  save() {
+    this.formDataService.setWeight(this.weight_form);
+    return true;
   }
 }

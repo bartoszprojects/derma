@@ -1,7 +1,7 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <form #favrot_criteriaForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
 
@@ -11,43 +11,43 @@
         <div class="box-body" style=''>
 
           <div>
-            <input type="checkbox" formControlName="three_years" required id="three_years"
+            <input type="checkbox" #three_years="ngModel" [(ngModel)]="favrot_criteria.three_years" required id="three_years"
                    name="three_years"
                    placeholder="three_years"> Onset of signs under 3 years of age
           </div>
 
           <div>
-            <input type="checkbox" formControlName="indoor_dog" required id="indoor_dog" name="indoor_dog"
+            <input type="checkbox" #indoor_dog="ngModel" [(ngModel)]="favrot_criteria.indoor_dog" required id="indoor_dog" name="indoor_dog"
                    placeholder="indoor_dog"/> Dog living mostly indoors
           </div>
 
           <div>
-            <input type="checkbox" formControlName="pruritus_corticoid" required id="pruritus_corticoid" name="pruritus_corticoid"
+            <input type="checkbox" #pruritus_corticoid="ngModel" [(ngModel)]="favrot_criteria.pruritus_corticoid" required id="pruritus_corticoid" name="pruritus_corticoid"
                    placeholder="pruritus_corticoid"/> Glucocorticoid-responsive pruritus
           </div>
 
           <div>
-            <input type="checkbox" formControlName="no_lesion_pruritus" required id="no_lesion_pruritus" name="no_lesion_pruritus"
+            <input type="checkbox" #no_lesion_pruritus="ngModel" [(ngModel)]="favrot_criteria.no_lesion_pruritus" required id="no_lesion_pruritus" name="no_lesion_pruritus"
                    placeholder="no_lesion_pruritus"/> Pruritus without lesions at onset
           </div>
 
           <div>
-            <input type="checkbox" formControlName="front_feet" required id="front_feet" name="front_feet"
+            <input type="checkbox" #front_feet="ngModel" [(ngModel)]="favrot_criteria.front_feet" required id="front_feet" name="front_feet"
                    placeholder="front_feet"/> Affected front feet
           </div>
 
           <div>
-            <input type="checkbox" formControlName="ear_pinnae" required id="ear_pinnae" name="ear_pinnae"
+            <input type="checkbox" #ear_pinnae="ngModel" [(ngModel)]="favrot_criteria.ear_pinnae" required id="ear_pinnae" name="ear_pinnae"
                    placeholder="ear_pinnae"/> Affected ear pinnae
           </div>
 
           <div>
-            <input type="checkbox" formControlName="ear_margins" required id="ear_margins" name="ear_margins"
+            <input type="checkbox" #ear_margins="ngModel" [(ngModel)]="favrot_criteria.ear_margins" required id="ear_margins" name="ear_margins"
                    placeholder="ear_margins"/> Non-affected ear margins
           </div>
 
           <div>
-            <input type="checkbox" formControlName="dorso_lumbar" required id="dorso_lumbar" name="dorso_lumbar"
+            <input type="checkbox" #dorso_lumbar="ngModel" [(ngModel)]="favrot_criteria.dorso_lumbar" required id="dorso_lumbar" name="dorso_lumbar"
                    placeholder="dorso_lumbar"/> Non-affecteddorso-lumbar area.
           </div>
 
@@ -58,29 +58,18 @@
 
 
       <button routerLink="/home/add-pet/cadesi" routerLinkActive="active"
-              type="submit" [disabled]="!profileForm.valid"
+              type="submit" (click)="save()"
               class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
       </button>
 
       <button routerLink="/home/add-pet/disclaimer" routerLinkActive="active" ng-click='back()'
-              ui-sref="add_pet.favrot_criteria" id="moving" type="button"
+              id="moving" type="button"
               name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
               style='float:left'>Return
       </button>
 
     </form>
     <hr>
-
-
-    <p>
-      Form Value: {{ profileForm.value | json }}
-    </p>
-
-
-    <p>
-      Form Status: {{ profileForm.status }}
-    </p>
-
 
 
   </section>

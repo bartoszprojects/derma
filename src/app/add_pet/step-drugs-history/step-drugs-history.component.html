@@ -1,7 +1,7 @@
 <div style="width: auto" class="container">
 
   <section class="content-header">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <form #drug_history_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label" for="id_Sup2"> Is the drug history of the past month known
@@ -11,11 +11,11 @@
         <div class="box-body">
           <div style="text-align:center">
             <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
-              <input formControlName="drug_history_known" class='ng-hide' class='form-control' type="radio" value="1">
+              <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known" name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="1">
               Yes</label>
 
             <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
-              <input formControlName="drug_history_known" class='ng-hide' class='form-control' type="radio" value="0"
+              <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known" name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="0"
                      class='ng-hide'> No </label>
           </div>
 
@@ -23,7 +23,7 @@
 
       </div>
 
-      <ng-template [ngIf]="profileForm.value.drug_history_known == 0">
+      <ng-template [ngIf]="drug_history_form.drug_history_known == false">
         <div ng-show="pet_data.drug_history_known=='0'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
@@ -38,7 +38,7 @@
 
         </div>
       </ng-template>
-      <ng-template [ngIf]="profileForm.value.drug_history_known == 1">
+      <ng-template [ngIf]="drug_history_form.drug_history_known == true">
         <div ng-show="pet_data.drug_history_known=='1'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label">Select the systemic product with wich atopis dermatitis is being controlled for
@@ -54,7 +54,7 @@
 
               <div class="col-sm-10">
                 <div class='input-group'>
-                  <input formControlName="prednisolone" type="number" class="form-control" placeholder="Posology">
+                  <input #prednisolone="ngModel" [(ngModel)]="drug_history_form.prednisolone" name="prednisolone" type="number" class="form-control" placeholder="Posology">
                   <span class="input-group-addon">mg/kg/day</span>
                 </div>
               </div>
@@ -64,7 +64,7 @@
 
               <div class="col-sm-10">
                 <div class='input-group'>
-                  <input formControlName="oclacitinib" type="number" class="form-control" placeholder="Posology">
+                  <input #oclacitinib="ngModel" [(ngModel)]="drug_history_form.oclacitinib" name="oclacitinib" type="number" class="form-control" placeholder="Posology">
                   <span class="input-group-addon">mg/kg/day</span>
                 </div>
               </div>
@@ -75,7 +75,7 @@
 
               <div class="col-sm-10">
                 <div class='input-group'>
-                  <input formControlName="cyclosporine" type="number" class="form-control" placeholder="Posology">
+                  <input #cyclosporine="ngModel" [(ngModel)]="drug_history_form.cyclosporine" name="cyclosporine" type="number" class="form-control" placeholder="Posology">
                   <span class="input-group-addon">mg/kg/day</span>
                 </div>
               </div>
@@ -100,7 +100,7 @@
 
               <div class="col-sm-10">
                 <div class='input-group'>
-                  <input formControlName="cortavance" type="number" class="form-control" placeholder="Frequencies of use each week">
+                  <input #cortavance="ngModel" [(ngModel)]="drug_history_form.cortavance" name="cortavance" type="number" class="form-control" placeholder="Frequencies of use each week">
                   <span class="input-group-addon">times/week</span>
                 </div>
               </div>
@@ -110,7 +110,7 @@
 
               <div class="col-sm-10">
                 <div class='input-group'>
-                  <input formControlName="antibacterial_shampoo" type="number" class="form-control" placeholder="Frequencies of use each week">
+                  <input #antibacterial_shampoo="ngModel" [(ngModel)]="drug_history_form.antibacterial_shampoo" name="antibacterial_shampoo" type="number" class="form-control" placeholder="Frequencies of use each week">
                   <span class="input-group-addon">times/week</span>
                 </div>
               </div>
@@ -121,7 +121,7 @@
 
               <div class="col-sm-10">
                 <div class='input-group'>
-                  <input formControlName="dermatologic_shampoo" type="number" class="form-control" placeholder="Frequencies of use each week">
+                  <input #dermatologic_shampoo="ngModel" [(ngModel)]="drug_history_form.dermatologic_shampoo" name="dermatologic_shampoo" type="number" class="form-control" placeholder="Frequencies of use each week">
                   <span class="input-group-addon">times/week</span>
                 </div>
               </div>
@@ -144,7 +144,7 @@
 
               <div class="col-sm-10">
                 <div class='input-group'>
-                  <input formControlName="omega" type="number" class="form-control" placeholder="Frequencies of use each week">
+                  <input #omega="ngModel" [(ngModel)]="drug_history_form.omega" name="omega" type="number" class="form-control" placeholder="Frequencies of use each week">
                   <span class="input-group-addon">times/week</span>
                 </div>
               </div>
@@ -154,7 +154,7 @@
 
               <div class="col-sm-10">
                 <div class='input-group'>
-                  <input formControlName="yeast" type="number" class="form-control" placeholder="Frequencies of use each week">
+                  <input #yeast="ngModel" [(ngModel)]="drug_history_form.yeast" name="yeast" type="number" class="form-control" placeholder="Frequencies of use each week">
                   <span class="input-group-addon">times/week</span>
                 </div>
               </div>
@@ -166,18 +166,16 @@
         </div>
       </ng-template>
 
-      <button routerLink="/home/add-pet/name" routerLinkActive="active" ng-click="forward()" ui-sref="add_pet.name"
-              ng-show="pet_data.drug_history_known=='1'"
+      <button (click)="save()" routerLink="/home/add-pet/name" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>
 
-      <button routerLink="/home/add-pet/desensitized" routerLinkActive="active" ng-click='backward()'
-              ui-sref="add_pet.desensitized" id="moving" type="button"
+      <button routerLink="/home/add-pet/desensitized" routerLinkActive="active" id="moving" type="button"
               name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
               style='float:left'>Return
       </button>
     </form>
-    Form Value: {{ profileForm.value | json }}
+
   </section>
 </div>
