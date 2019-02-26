@@ -9,11 +9,13 @@ import {DataService} from '../data.service';
 export class SmartAtopiaComponent implements OnInit {
   @Input() formData;
 
+
     constructor(private DataService: DataService) {
     }
 
   ngOnInit() {
       this.formData = this.DataService.getFormData();
+
   }
 
 }

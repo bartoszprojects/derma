@@ -8,7 +8,6 @@ import {StepCadesi} from '../../formData.model';
 import {Router} from "@angular/router";
 
 
-
 @Component({
   selector: 'app-step-cadesi',
   templateUrl: './step-cadesi.component.html',
@@ -17,8 +16,31 @@ import {Router} from "@angular/router";
 export class StepCadesiComponent implements OnInit {
   rv: any;
   number = 0;
+  route_boolean;
+  route_link_next;
+  route_link_back;
 
+  checkRouteUrl() {
+    let add_pet_substring = "add-pet";
+    let new_physical_consultation_substring = "new-physical-consultation";
+    let new_phone_consultation_substring = "new-phone-consultation";
 
+    if (this.router.url.includes(add_pet_substring)) {
+      this.route_boolean = 'add-pet';
+      this.route_link_next = 'add-pet/flea-treatment';
+      this.route_link_back = 'add-pet/favrot-criteria'
+    }
+    if (this.router.url.includes(new_physical_consultation_substring)) {
+      this.route_boolean = 'new-physical-consultation';
+      this.route_link_next = 'new-physical-consultation/drugs-history';
+      this.route_link_back = 'new-physical-consultation/flea-treatment'
+    }
+    if (this.router.url.includes(new_phone_consultation_substring)) {
+      this.route_boolean = 'new-phone-consultation';
+      this.route_link_next = 'new-phone-consultation/drugs-history';
+      this.route_link_back = 'new-phone-consultation/supporting-diet'
+    }
+  }
 
   cadesi_details = {
     "Perilabial_Area": {
@@ -179,6 +201,7 @@ export class StepCadesiComponent implements OnInit {
     this.cadesi[wchich_region].value_erythema = (this.cadesi_details[wchich_region].value_erythema)
 
   }
+
   updateLichenification(wchich_region) {
     this.cadesi_details[wchich_region].value_lichenification += 1;
     if (this.cadesi_details[wchich_region].value_lichenification > 3) {
@@ -186,6 +209,7 @@ export class StepCadesiComponent implements OnInit {
     }
     this.cadesi[wchich_region].value_lichenification = (this.cadesi_details[wchich_region].value_lichenification)
   }
+
   updateAlopecia(wchich_region) {
     this.cadesi_details[wchich_region].value_alopecia += 1;
     if (this.cadesi_details[wchich_region].value_alopecia > 3) {
@@ -203,12 +227,16 @@ export class StepCadesiComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.checkRouteUrl();
+
     this.cadesi = this.formDataService.getCadesi();
-    console.log('Personal feature loaded!');
+
+
   }
 
   save() {
     this.formDataService.setCadesi(this.cadesi);
+
     return true;
   }
 

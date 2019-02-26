@@ -34,6 +34,11 @@ import { StepWeightComponent } from './add_pet/step-weight/step-weight.component
 import { StepFatComponent } from './add_pet/step-fat/step-fat.component';
 import { StepOwnerInformationsComponent } from './add_pet/step-owner-informations/step-owner-informations.component';
 import { StepSucessComponent } from './add_pet/step-sucess/step-sucess.component';
+import { NewPhysicalConsultationComponent } from './new_physical_consultation/new-physical-consultation/new-physical-consultation.component';
+import { PetComponent } from './new_physical_consultation/pet/pet.component';
+import { SupportingDietComponent } from './new_physical_consultation/supporting-diet/supporting-diet.component';
+import { PyodermaOtitisComponent } from './new_physical_consultation/pyoderma-otitis/pyoderma-otitis.component';
+
 
 
 @NgModule({
@@ -62,7 +67,12 @@ import { StepSucessComponent } from './add_pet/step-sucess/step-sucess.component
     StepWeightComponent,
     StepFatComponent,
     StepOwnerInformationsComponent,
-    StepSucessComponent
+    StepSucessComponent,
+    NewPhysicalConsultationComponent,
+    PetComponent,
+    SupportingDietComponent,
+    PyodermaOtitisComponent,
+
   ],
   imports: [
     BrowserModule,

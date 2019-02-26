@@ -5,6 +5,7 @@ import {FormBuilder} from '@angular/forms';
 import {Validators} from '@angular/forms';
 import {DataService} from '../../data.service';
 import {StepDrugsHistory} from '../../formData.model';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-step-drugs-history',
@@ -15,13 +16,38 @@ export class StepDrugsHistoryComponent implements OnInit {
 
   drug_history_form: StepDrugsHistory;
   form: any;
+  route_boolean;
+  route_link_next;
+  route_link_back;
 
-  constructor(private formDataService: DataService) {
+checkRouteUrl() {
+    let add_pet_substring = "add-pet";
+    let new_physical_consultation_substring = "new-physical-consultation";
+    let new_phone_consultation_substring = "new-phone-consultation";
+
+    if (this.router.url.includes(add_pet_substring)) {
+      this.route_boolean = 'add-pet';
+      this.route_link_next = 'add-pet/name';
+      this.route_link_back = 'add-pet/desensitized'
+    }
+    if (this.router.url.includes(new_physical_consultation_substring)) {
+      this.route_boolean = 'new-physical-consultation';
+      this.route_link_next = 'new-physical-consultation/fat';
+      this.route_link_back = 'new-physical-consultation/cadesi'
+    }
+    if (this.router.url.includes(new_phone_consultation_substring)) {
+      this.route_boolean = 'new-phone-consultation';
+      this.route_link_next = 'new-phone-consultation/success';
+      this.route_link_back = 'new-phone-consultation/cadesi'
+    }
+  }
+
+  constructor(private router: Router, private formDataService: DataService) {
   }
 
   ngOnInit() {
+    this.checkRouteUrl();
     this.drug_history_form = this.formDataService.getDrugHistory();
-    console.log('Personal feature loaded!');
   }
 
   save() {

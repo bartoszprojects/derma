@@ -186,91 +186,90 @@ export class StepCadesi {
 }
 
 export class StepFleaTreatment {
-  flea_allergy_excluded: boolean = null;
-  flea_product: number = 0;
+  flea_allergy_excluded?: boolean = null;
+  flea_product?: number = 0;
 }
 
 export class StepFoodAllergy {
-  excluded: boolean = null;
-  more_8_weeks: boolean = null;
-  industrial_or_homemade: boolean = null;
-  what_petfood: string = '';
+  excluded?: boolean = null;
+  more_8_weeks?: boolean = null;
+  industrial_or_homemade?: boolean = null;
+  what_petfood?: string = '';
 }
 
 export class StepPyodermatitis {
-  pyodermatitis: boolean = null;
-  pyodermatitis_history: boolean = null
+  pyodermatitis?: boolean = null;
+  pyodermatitis_history?: boolean = null
 }
 
 export class StepMalassezia {
-  malassezia: boolean = null;
-  malassezia_history: boolean = null
+  malassezia?: boolean = null;
+  malassezia_history?: boolean = null
 }
 
 export class StepOtitis {
-  recurring_otitis: boolean = null;
-  otitis: boolean = null;
-  otitis_history: boolean = null;
+  recurring_otitis?: boolean = null;
+  otitis?: boolean = null;
+  otitis_history?: boolean = null;
 }
 
 export class StepDesensitized {
-  desensitized: boolean = null;
-  desensitized_more_6_months: boolean = null;
+  desensitized?: boolean = null;
+  desensitized_more_6_months?: boolean = null;
 }
 
 export class StepDrugsHistory {
-  drug_history_known: boolean = null;
-  prednisolone: number = 0;
-  oclacitinib: number = 0;
-  cyclosporine: number = 0;
-  cortavance: number = 0;
-  antibacterial_shampoo: number = 0;
-  dermatologic_shampoo: number = 0;
-  omega: number = 0;
-  yeast: number = 0;
+  drug_history_known?: boolean = null;
+  prednisolone?: number = 0;
+  oclacitinib?: number = 0;
+  cyclosporine?: number = 0;
+  cortavance?: number = 0;
+  antibacterial_shampoo?: number = 0;
+  dermatologic_shampoo?: number = 0;
+  omega?: number = 0;
+  yeast?: number = 0;
 }
 
 export class StepName {
-  name: string = '';
+  name?: string = '';
 }
 
 export class StepAge {
-  age_year: string = '';
-  age_month: string = '';
+  age_year?: string = '';
+  age_month?: string = '';
 }
 
 export class StepBreed {
-  crossed: number = 0;
-  breed_dog_1: string = '';
-  breed_dog_2: string = '';
-  dog_format: number = 0;
+  crossed?: number = 0;
+  breed_dog_1?: string = '';
+  breed_dog_2?: string = '';
+  dog_format?: number = 0;
 }
 
 export class StepGender {
-  gender: number = 0;
+  gender?: number = 0;
 }
 
 export class StepSex {
-  sex: number = 0;
+  sex?: number = 0;
 }
 
 export class StepPhysical {
-  physical_activity: number = 0;
+  physical_activity?: number = 0;
 }
 
 export class StepWeight {
-  weight: number = 0;
+  weight?: number = 0;
 }
 
 export class StepFat {
-  fat_score_dog: number = 0;
+  fat_score_dog?: number = 0;
 }
 
 export class StepOwnerInformations {
-  owner_name: string = '';
-  owner_phone: string = '';
-  owner_email: string = '';
-  accept_data_sharing : boolean = false;
+  owner_name?: string = '';
+  owner_phone?: string = '';
+  owner_email?: string = '';
+  accept_data_sharing? : boolean = false;
 }
-
 

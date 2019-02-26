@@ -25,6 +25,11 @@ import {StepWeightComponent} from "./add_pet/step-weight/step-weight.component";
 import {StepFatComponent} from "./add_pet/step-fat/step-fat.component";
 import {StepOwnerInformationsComponent} from "./add_pet/step-owner-informations/step-owner-informations.component";
 import {StepSucessComponent} from "./add_pet/step-sucess/step-sucess.component";
+import {NewPhysicalConsultationComponent} from "./new_physical_consultation/new-physical-consultation/new-physical-consultation.component";
+import {PetComponent} from "./new_physical_consultation/pet/pet.component";
+import {SupportingDietComponent} from "./new_physical_consultation/supporting-diet/supporting-diet.component";
+import {PyodermaOtitisComponent} from "./new_physical_consultation/pyoderma-otitis/pyoderma-otitis.component";
+
 
 const routes: Routes = [
   {
@@ -118,7 +123,77 @@ const routes: Routes = [
             component: StepSucessComponent
           }
         ]
+      },
+      {
+        path: 'new-physical-consultation',
+        component: NewPhysicalConsultationComponent,
+        children: [
+          {
+            path: 'pet',
+            component: PetComponent
+          },
+          {
+            path: 'supporting-diet',
+            component: SupportingDietComponent
+          },
+          {
+            path: 'pyoderma-otitis',
+            component: PyodermaOtitisComponent
+          },
+          {
+            path : 'flea-treatment',
+            component: StepFleaTreatmentComponent
+          },
+          {
+            path : 'cadesi',
+            component: StepCadesiComponent
+          },
+          {
+            path: 'drugs-history',
+            component: StepDrugsHistoryComponent
+          },
+          {
+            path: 'fat',
+            component: StepFatComponent
+          },
+          {
+            path: 'weight',
+            component: StepWeightComponent
+          },
+          {
+            path: 'success',
+            component: StepSucessComponent
+          }
+        ]
+      },
+      {
+        path: 'new-phone-consultation',
+        component: NewPhysicalConsultationComponent,
+        children: [
+          {
+            path: 'pet',
+            component: PetComponent
+          },
+          {
+            path: 'supporting-diet',
+            component: SupportingDietComponent
+          },
+          {
+            path : 'cadesi',
+            component: StepCadesiComponent
+          },
+          {
+            path: 'drugs-history',
+            component: StepDrugsHistoryComponent
+          },
+          {
+            path: 'success',
+            component: StepSucessComponent
+          }
+
+        ]
       }
+
     ]
   },
 

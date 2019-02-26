@@ -1,0 +1,106 @@
+<div style="width: auto" class="container">
+
+  <section class="content-header">
+    <div class="box box-default box-solid ">
+      <div style="text-align:center" class="box-header with-border">
+        <h1 class="control-label" for="id_Sup2" style=""> Is there any diarrhea since is fed with the new diet ? (or
+          more than with the previous diet) </h1>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div style="text-align:center">
+          <label style="font-size: 2.5vw" for="id_crossed_0"
+                 class="btn btn-1 btn-1a btn-crossed_0">
+            <input [(ngModel)]="diarrhea" class='ng-hide' class='form-control' type="radio" name="crossed"
+                   id="id_crossed_0" value="1"
+                   ng-model="pet_data['diarrhea']" ng-required> Yes </label>
+
+          <label style="font-size: 2.5vw" ng-class="{'active-button':pet_data['diarrhea']=='0'}" for="id_crossed_1"
+                 class="btn btn-1 btn-1a btn-crossed_1">
+            <input [(ngModel)]="diarrhea" class='ng-hide' class='form-control' type="radio" name="crossed"
+                   id="id_crossed_1" value="0"
+                   ng-model="pet_data['diarrhea']" ng-required class='ng-hide'> No </label>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="box box-default box-solid ">
+      <div style="text-align:center" class="box-header with-border">
+        <h1 class="control-label" for="id_Sup2"> Is there any vomitting since is fed with the new diet ? (or more than
+          with the previous diet) </h1>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div style="text-align:center">
+          <label style="font-size: 2.5vw" ng-class="{'active-button':pet_data['vomitting']=='1'}" for="id_crossed_10"
+                 class="btn btn-1 btn-1a btn-crossed_0">
+            <input [(ngModel)]="vomitting" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_10" value="1"
+                   ng-model="pet_data['vomitting']" ng-required> Yes </label>
+
+          <label style="font-size: 2.5vw" ng-class="{'active-button':pet_data['vomitting']=='0'}" for="id_crossed_11"
+                 class="btn btn-1 btn-1a btn-crossed_1">
+            <input [(ngModel)]="vomitting" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_11" value="0"
+                   ng-model="pet_data['vomitting']" ng-required class='ng-hide'> No </label>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="box box-default box-solid ">
+      <div style="text-align:center" class="box-header with-border">
+        <h1 class="control-label" for="id_Sup2"> Is the owner under the impression that is craving for food more than he
+          was before starting this diet ? </h1>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div style="text-align:center">
+          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['satiety']=='1'}" for="id_crossed_303"
+                 class="btn btn-1 btn-1a btn-crossed_0">
+            <input [(ngModel)]="satiety" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_303" value="1"
+                   ng-model="pet_data['satiety']" ng-required> Yes </label>
+
+          <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['satiety']=='0'}" for="id_crossed_110"
+                 class="btn btn-1 btn-1a btn-crossed_1">
+            <input [(ngModel)]="satiety" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_110" value="0"
+                   ng-model="pet_data['satiety']" ng-required class='ng-hide'> No </label>
+        </div>
+
+      </div>
+
+    </div>
+
+    <ng-template [ngIf]="diarrhea == 1 || vomitting == 1 || satiety == 1">
+      <div class="box box-default box-solid ">
+        <div style="text-align:center" class="box-header with-border">
+          <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div style="text-align:center">
+            <label style="font-size: 2.5vw">
+              It seems that is not adapting well enough to its new diet to remain in
+              the study! </label>
+          </div>
+        </div>
+
+      </div>
+    </ng-template>
+
+    <button routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
+            type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+            style='float:right'>Continue
+    </button>
+
+    <button routerLink="/home/{{ route_link_back }}" routerLinkActive="active"
+            type="button"
+            name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
+            style='float:left'>Return
+    </button>
+
+  </section>
+</div>

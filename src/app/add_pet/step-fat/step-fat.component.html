@@ -267,12 +267,12 @@
       <!--</div>-->
 
     </form>
-    <button (click)="save()" routerLink="/home/add-pet/owner-informations" routerLinkActive="active"
+    <button (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
             id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
             style='float:right'>Continue
     </button>
 
-    <button routerLink="/home/add-pet/weight" routerLinkActive="active"
+    <button routerLink="/home/{{ route_link_back }}" routerLinkActive="active"
             id="moving" type="button"
             name="previous"
             class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>

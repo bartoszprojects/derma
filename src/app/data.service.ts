@@ -16,8 +16,6 @@ export class DataService {
   constructor() {
   }
 
-
-
   getDisclaimer(): StepDisclaimer {
     var disclaimer: StepDisclaimer = {
       diet_agreed: this.formData.diet_agreed,
@@ -335,9 +333,21 @@ export class DataService {
     this.formData.accept_data_sharing = data.accept_data_sharing;
   }
 
-
   getFormData(): FormData {
     // Return the entire Form Data
+    console.log('from DataService:');
+    console.log(this.formData);
     return this.formData;
   }
+
+
+
+
+
+
+
+
+
+
 }
+
