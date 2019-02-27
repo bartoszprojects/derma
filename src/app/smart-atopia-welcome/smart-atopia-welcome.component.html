@@ -1,163 +1,74 @@
-<!-- Content Wrapper. Contains page content ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-
 <link rel="stylesheet" href="assets/static/data/css/home.css">
 
 
 <script src="assets/static/data/js/home.js"></script>
 
 
-  <div ng-switch on="list_of_pets_from_user.length"
-       style="text-align:center;padding: 20px 30px; background-color: rgb(243, 156, 18); z-index: 999999; font-size: 16px; font-weight: 600; background-position: initial; background-repeat: initial;">
-    <h2 ng-switch-default ng-style
-        style="color: rgba(255, 255, 255, 0.901961); margin-right: 10px; text-decoration: none;"><i
-      class="fa fa-home"></i> Home </h2>
-    <div ng-switch-when="0">
-      <div>
-        <h2 ng-style style="color: rgba(255, 255, 255, 0.901961); margin-right: 10px; text-decoration: none;"><i
-          class="fa fa-home"></i> Welcome on Smart-Atopia ! </h2>
+<div ng-switch on="list_of_pets_from_user.length"
+     style="text-align:center;padding: 20px 30px; background-color: rgb(243, 156, 18); z-index: 999999; font-size: 16px; font-weight: 600; background-position: initial; background-repeat: initial;">
+  <h2 ng-switch-default ng-style
+      style="color: rgba(255, 255, 255, 0.901961); margin-right: 10px; text-decoration: none;"><i
+    class="fa fa-home"></i> Home </h2>
+  <div ng-switch-when="0">
+    <div>
+      <h2 ng-style style="color: rgba(255, 255, 255, 0.901961); margin-right: 10px; text-decoration: none;"><i
+        class="fa fa-home"></i> Welcome on Smart-Atopia ! </h2>
+    </div>
+    <div>
+      <p style="color: rgba(255, 255, 255, 0.901961);  margin-right: 10px; text-decoration: none;">You must be new
+        here :) Why don't you start by adding a first dog to include in the study</p></div>
+
+  </div>
+</div>
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <!--       <h1> Welcome
+          <small>it all starts here</small>
+        </h1>
+   -->
+  <!-- Main content -->
+  <section class="content">
+
+
+    <div class="row" style="text-align:center">
+      <div *ngFor="let tab of main_tabs" (mouseover)="mouse_tab=tab.id" >
+        <div class="slide_in col-sm-4 cardflow-card active-tab">
+          <a routerLink="{{ tab.url }}" routerLinkActive="active">
+            <h1 class="display-1">
+              <i class="{{ tab.icon }}"></i>
+            </h1>
+          </a>
+          {{ tab.title }}
+
+        </div>
+
       </div>
-      <div>
-        <p style="color: rgba(255, 255, 255, 0.901961);  margin-right: 10px; text-decoration: none;">You must be new
-          here :) Why don't you start by adding a first dog to include in the study</p></div>
+    </div>
+
+
+    <div class="bs-callout bs-callout-primary information_tool_box">
+      <div class="row" *ngFor="let tab of main_tabs">
+        <div *ngIf="mouse_tab == tab.id">
+          <div class="col-sm-8">
+            <h3>{{ tab.desc_title }}</h3>
+            <p>{{ tab.desc_desc }}</p>
+
+          </div>
+          <div class="col-sm-4" style="text-align:right">
+            <a routerLink="{{ tab.url }}" routerLinkActive="active">
+              <h1 class="animated infinite pulse">
+                <i class="{{ tab.icon }}"></i>
+              </h1>
+            </a>
+          </div>
+        </div>
+      </div>
+
 
     </div>
-  </div>
-
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <!--       <h1> Welcome
-            <small>it all starts here</small>
-          </h1>
-     -->
-    <!-- Main content -->
-    <section class="content">
 
 
-      <div class="row" style="text-align:center">
-        <div ng-repeat="card in cards" model="cardflowSwipe" ng-mouseover="cardflowSwipe.current=card.id">
-          <div class="slide_in col-sm-4 cardflow-card"
-               ng-class="{'cardflow-active ': cardflowSwipe.current === card.id && list_of_pets_from_user.length >0}">
-            <a a-disabled="list_of_pets_from_user.length == 0 && card.id!==2">
-              <h1
-                ng-class="{'animated infinite pulse' : (cardflowSwipe.current === card.id && list_of_pets_from_user.length > 0) || (list_of_pets_from_user.length == 0 && cardflowSwipe.current==2)}"
-                class="display-1" ng-bind-html="card.icon"></h1>
-            </a>
-            title1
-          </div>
-        </div>
-      </div>
-
-
-      <div ng-show="cardflowSwipe.current==1 && list_of_pets_from_user.length > 0 "
-           class="bs-callout bs-callout-primary information_tool_box">
-        <div class="row">
-          <div class="col-sm-8">
-            <h3>Manage the pet you included in the study</h3>
-            <p>Access those pet's profile</p>
-
-          </div>
-          <div class="col-sm-4" style="text-align:right">
-            <a>
-              <h1 class="animated infinite pulse">
-                <i class="glyphicon glyphicon-dashboard"></i>
-              </h1>
-            </a>
-
-          </div>
-        </div>
-
-
-      </div>
-
-
-      <div ng-show="cardflowSwipe.current==2" class="bs-callout bs-callout-primary information_tool_box">
-        <div class="row">
-          <div class="col-sm-8">
-            <h3>Include an atopic dog</h3>
-            <p>Click on the cross to add a pet to UZH's study!</p>
-
-          </div>
-          <div class="col-sm-4" style="text-align:right">
-            <a routerLink="/home/add-pet/disclaimer" routerLinkActive="active">
-              <h1 class="animated infinite pulse">
-                <i class="fa fa-plus"></i>
-              </h1>
-            </a>
-
-          </div>
-        </div>
-
-
-      </div>
-
-
-      <div ng-show="cardflowSwipe.current==5 && list_of_pets_from_user.length > 0 "
-           class="bs-callout bs-callout-primary information_tool_box">
-        <div class="row">
-          <div class="col-sm-8">
-            <h3>Add a physical consultation</h3>
-            <p>Follow up Consultation</p>
-          </div>
-          <div class="col-sm-4" style="text-align:right">
-            <a routerLink="/home/new-physical-consultation/pet" type="button">
-              <h1 class="animated infinite pulse">
-                <i class="fa fa-stethoscope"></i>
-              </h1>
-            </a>
-
-          </div>
-        </div>
-
-
-      </div>
-
-
-      <div ng-show="cardflowSwipe.current==6 && list_of_pets_from_user.length > 0 "
-           class="bs-callout bs-callout-primary information_tool_box">
-        <div class="row">
-          <div class="col-sm-8">
-            <h3>Add a Telephone consultation</h3>
-            <p>Follow up by Telephone</p>
-
-          </div>
-          <div class="col-sm-4" style="text-align:right">
-            <a routerLink="/home/new-phone-consultation/pet" type="button">
-              <h1 class="animated infinite pulse">
-                <i class="fa fa-phone"></i>
-              </h1>
-            </a>
-
-          </div>
-        </div>
-
-
-      </div>
-
-
-      <div ng-show="cardflowSwipe.current==8 && list_of_pets_from_user.length > 0 "
-           class="bs-callout bs-callout-primary information_tool_box">
-        <div class="row">
-          <div class="col-sm-8">
-            <h3>Dessssssssssssssssssssssign a tailor-made dermatologic recipe</h3>
-            <p>This diet will be specifically enriched in nutrients to improve the candidate's skin conditione</p>
-
-          </div>
-          <div class="col-sm-4" style="text-align:right">
-            <a>
-
-              <h1 class="animated infinite pulse">
-                <i class="fa fa-cutlery"></i>
-              </h1>
-            </a>
-
-          </div>
-        </div>
-
-
-      </div>
-
-
-    </section>
   </section>
+</section>
 

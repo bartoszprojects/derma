@@ -32,7 +32,7 @@
       </div>
     </form>
 
-    <button (click)="save()" routerLink="/home/add-pet/age" routerLinkActive="active"  id="" type="button" name="next"
+    <button *ngIf="name_form.name.length > 2" (click)="save()" routerLink="/home/add-pet/age" routerLinkActive="active"  id="" type="button" name="next"
             class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
     </button>
 

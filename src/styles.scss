@@ -37,11 +37,26 @@ $derma-theme: mat-light-theme($derma-primary, $derma-accent, $derma-warn);
 @import "assets/static/data/css/animate.css";
 @import "assets/static/data/css/basic.css";
 
-
-
-
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.icon-arrow-right:before {
+  content: ""!important;
+}
+.content-header h1 {
+  font-size: 30px;
+  font-weight: normal;
+}
+.clicked_button {
+  background: #a3cbe2!important;
+}
+.clicked_button_warning {
+  background: #FF6C3E!important;
+  border: 3px solid #FF6C3E!important
+}
+
+.clicked_image {
+  filter: opacity(1) grayscale(0)!important;
+
+}
 
 //label { font-size: 33px!important; font-weight: normal!important; }

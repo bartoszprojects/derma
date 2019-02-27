@@ -21,7 +21,7 @@
       </div>
     </form>
 
-    <button (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active" id="moving"
+    <button *ngIf="weight_form.weight > 0" (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active" id="moving"
             type="button" name="next"
             class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
     </button>

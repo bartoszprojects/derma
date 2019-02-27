@@ -273,3 +273,17 @@ export class StepOwnerInformations {
   accept_data_sharing? : boolean = false;
 }
 
+export class Login {
+  username?: string = '';
+  password?: string = '';
+}
+
+export class LoginData {
+  username = '';
+  password = '';
+
+  clear() {
+    this.username = '';
+    this.password = '';
+  }
+}

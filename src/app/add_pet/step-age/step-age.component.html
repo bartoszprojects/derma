@@ -32,7 +32,7 @@
       </div>
 
 
-      <button (click)="save()" routerLink="/home/add-pet/breed" routerLinkActive="active"  id="moving"
+      <button  *ngIf="age_form.age_year && age_form.age_month" (click)="save()" routerLink="/home/add-pet/breed" routerLinkActive="active"  id="moving"
               type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>

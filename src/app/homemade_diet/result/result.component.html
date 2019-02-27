@@ -1,0 +1,152 @@
+<script type="text/ng-template" id="info_data.html">
+  <div class="modal fade in" id="modal-default" style="display: block;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          {{title_modal}}
+          <span aria-hidden="true">×</span>
+          <h4 class="modal-title">Default Modal</h4>
+        </div>
+        <div class="modal-body">
+          <p>{{text_modal}}
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" type="button" ng-click="ok()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="myModalContent_delete.html">
+  <div class="alert alert-warning">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-title">Are you sure you want to delete {% verbatim
+        %}{{pet_to_be_deleted.pet_name}}{% endverbatim %}? </h3>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" type="button" ng-click="ok()">Yes I am</button>
+      <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+  </div>
+</script>
+
+<style>
+  .grid {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<div class="box box-default box-solid ">
+  <div class="box-header with-border">
+    <h3 class="box-title">{{pet_data_selected.pet_name}}'s key datas</h3>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+
+    <div class="row">
+      <div class="col-sm-4">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <h3>{{ pet_data_selected.getIDEALWEIGHT }}<sup style="font-size: 20px">kg</sup></h3>
+
+            <p>Ideal Weight</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-ios-speedometer"></i>
+          </div>
+          <a data-toggle="modal" data-target="#myModal_pet_weight" href="#" class="small-box-footer">More info <i
+            class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-sm-4">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <h3>{{ pet_data_selected.getCALCULUS["ER_tot"] }}<sup style="font-size: 20px">kcal</sup></h3>
+
+            <p>Energy Requirement</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-ios-bolt"></i>
+          </div>
+          <a data-toggle="modal" href="#" data-target="#myModal_pet_energy" class="small-box-footer">More info <i
+            class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-sm-4">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+          <div class="inner">
+            <h3>{{ pet_data_selected.getCALCULUS["RPC"] }}<sup style="font-size: 20px">g/Mcal</sup></h3>
+
+            <p>Protein's goal</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-erlenmeyer-flask-bubbles"></i>
+          </div>
+          <a ng-click="more_info(info_protein.Title,info_protein.Text)" class="small-box-footer">More info <i
+            class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<uib-accordion>
+  <div uib-accordion-group is-open="status1.open" class="box box-primary box-default">
+    <uib-accordion-heading class="box-header with-border">
+      <h3><i class="fa fa-fw fa-bar-chart"></i><b>Taylor Made Recipe</b> : Start cooking
+        for {{pet_data_selected.pet_name}} with this recipe<i class="pull-right glyphicon"
+                                                              ng-class="{'fa fa-minus': status1.open, 'fa fa-plus': !status1.open}"></i>
+      </h3>
+    </uib-accordion-heading>
+    <div ng-repeat="food in recipe | orderBy: 'quantity'">
+      <div class="info-box">
+        <span class="info-box-icon"><img class="img-circle"
+                                         src='https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/IMG_NATURAL/{{food.img}}'></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">{{food.title}}</span>
+          <span class="info-box-number">{{food.quantity}} g</span>
+          <span class="info-box-text"><p>{{food.information_quantity}}</p></span>
+
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+
+    </div>
+
+  </div>
+</uib-accordion>
+
+
+<uib-accordion>
+  <div uib-accordion-group is-open="status2.open" class="box box-primary box-default">
+    <uib-accordion-heading class="box-header with-border">
+      <h3><i class="fa fa-fw fa-bar-chart"></i><b>To Go Further</b> : Take a look at the macros <i
+        class="pull-right glyphicon" ng-class="{'fa fa-minus': status2.open, 'fa fa-plus': !status2.open}"></i></h3>
+    </uib-accordion-heading>
+    <div id="grid1" ui-grid="gridOptions" class="grid"></div>
+  </div>
+</uib-accordion>
+
+<button ui-sref-active="active" ng-click='back()' ui-sref="homemade.details" id="moving" type="button" name="previous"
+        class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>Return
+</button>
+
+
+<!--       <div id="grid1" ui-grid="gridOptions" class="grid"></div>
+ -->
+
+
+

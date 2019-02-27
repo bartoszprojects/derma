@@ -1,3 +1,6 @@
-
+mat-expansion-panel {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
 
 /*# sourceMappingURL=pet.component.css.map */

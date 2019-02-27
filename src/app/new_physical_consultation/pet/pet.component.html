@@ -1,156 +1,181 @@
+
 <div style="width: auto" class="container">
 
   <section class="content-header">
-<div class="row">
-  <div class="col-lg-6 col-xs-6">
-    <!-- small box -->
-    <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-search"></i></span>
-      <input ng-model="query" type="text" class="form-control" placeholder="Search by name">
-    </div>
-  </div>
-  <!-- ./col -->
-  <div class="col-lg-6 col-xs-6">
-    <a href="/add_pet/">
-      <button type="button" class="btn btn-block btn-default">Add a new pet <i class="fa fa-plus"
-                                                                               style="float:right"></i></button>
-    </a>
-  </div>
-</div>
-
-
-<div>
-  <br>
-</div>
-
-
-<div class="row">
-  <div ng-repeat="pet in list_of_pets_from_user | filter:query | orderBy: 'pet_name' track by $index"
-       ng-click="$parent.selected = pet;show_next_button_pet()">
-
-
-    <div class="col-md-6">
-      <div class="box box-widget widget-user-2">
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" ng-click="askDelete($index,pet)"><i
-            class="fa fa-times"></i></button>
-        </div>
-
-        <div class="widget-user-header" ng-class="class_choice(pet,selected)">
-
-          <div class="widget-user-image">
-            <img class="img-circle" src="https://smart-nutrition.s3.amazonaws.com/data/img/dog_user.png"
-                 alt="Pet Avatar Dog">
-          </div>
-
-          <!-- /.widget-user-image -->
-          <h3 class="widget-user-username"> <i ng-if="pet.is_sick==1"
-                                                                 class="fa fa-stethoscope"></i></h3>
-          <h5 style="font-size:12px" ng-if="pet.is_sick==1"><b>The Homemade recipe is available but need to be
-            checked by your Vet</b></h5>
-          <h5 class="widget-user-desc">Inclusion Date : <i></i></h5>
-        </div>
-        <div class="box-footer no-padding">
-          <ul class="nav nav-stacked">
-            <li><a>Ideal Weight<span class="pull-right badge bg-blue"> kg</span></a>
-            </li>
-            <li ng-click="manageCollapseExpand(pet, false);weight_logs_graphs($index,pet)"><a>Update Weights<span
-              class="pull-right"><i class="glyphicon glyphicon-scale"></i></span>
-            </a></li>
-            <li><a>Update datas<span class="pull-right badge bg-red"><i
-              class="glyphicon glyphicon-wrench"></i></span></a></li>
-            <li ng-show="show_collapse==1">
-              <div style="border-top-style: solid; border-top-color:#3c8dbc; padding-bottom:100px;"
-                   uib-collapse="!pet.expanded">
-                <form name="weightForm">
-                  <div class="modal-header">
-                    <h3 style="text-align:center" class="modal-title" id="modal-title"> Follow up
-                      with <b></b> weight </h3>
-
-                    <canvas id="bar" class="chart chart-bar"
-                            chart-data="data" chart-labels="labels" chart-options="weight_options">
-                    </canvas>
-                  </div>
-
-                  <div>
-                  </div>
-
-
-                  <uib-accordion close-others="oneAtATime">
-                    <div uib-accordion-group is-open="status.open" class="panel-danger">
-                      <uib-accordion-heading>
-                        Add a Weight to <b></b> logs <i
-                        class="pull-right glyphicon"
-                        ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-                      </uib-accordion-heading>
-
-                      <div class="col-lg-6">
-
-
-                        <p class="input-group">
-                          <input name="new_date"
-                                 ng-class="{ 'has-error' : weightForm.new_date.$invalid && !weightForm.new_date.$pristine ,'has-success':weightForm.new_date.$valid}"
-                                 type="text" class="form-control" uib-datepicker-popup
-                                 ng-model="pet_to_show_weight.dt" is-open="popup2.opened"
-                                 datepicker-options="dateOptions" ng-required="true"
-                                 close-text="Close" ng-click="open2()" required />
-                          <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="open2()"><i
-              class="glyphicon glyphicon-calendar"></i></button>
-          </span>
-                        </p>
-
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group has-feedback">
-                          <input style='width:100%'
-
-                                 min="0" max="150" ng-model="pet_to_show_weight.new_weight"
-                                 type="number" class="form-control" name="new_weight"
-                                 placeholder="Type your pet'sweight on the specified date"
-                                 required>
-
-                        </div>
-
-                      </div>
-                      <p style='text-align:center'
-                         ng-show="weightForm.new_weight.$error.min || weightForm.new_weight.$error.max"
-                         class="help-block error">Do not get cocky and give me a valid weight</p>
-                      <p style='text-align:center' ng-show="weightForm.new_weight.$error.number"
-                         class="help-block error">You could at list give numbers! </p>
-
-
-                      <button style='width:100%' ng-disabled="weightForm.$invalid"
-                              ng-click='update_weight(pet)' type="button"
-                              class="btn btn-info btn-flat">Update current Weight
-                      </button>
-                    </div>
-                  </uib-accordion>
-                  <div>
-
-
-                  </div>
-                  <div>
-                  </div>
-                </form>
-
-              </div>
-            </li>
-
-          </ul>
+    <div class="row">
+      <div class="col-lg-6 col-xs-6">
+        <!-- small box -->
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-search"></i></span>
+          <input ng-model="query" type="text" class="form-control" placeholder="Search by name">
         </div>
       </div>
+      <!-- ./col -->
+      <div class="col-lg-6 col-xs-6">
+        <a href="/add_pet/">
+          <button type="button" class="btn btn-block btn-default">Add a new pet <i class="fa fa-plus"
+                                                                                   style="float:right"></i></button>
+        </a>
+      </div>
     </div>
-  </div>
 
 
-  <button routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
-          id="moving" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-          style='float:right'>Continue
-  </button>
+    <div>
+      <br>
+    </div>
 
 
+    <div class="row">
+      <div ng-repeat="pet in list_of_pets_from_user | filter:query | orderBy: 'pet_name' track by $index"
+           ng-click="$parent.selected = pet;show_next_button_pet()">
 
-</div>
+
+        <div class="col-md-6">
+          <div class="box box-widget widget-user-2">
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" ng-click="askDelete($index,pet)"><i
+                class="fa fa-times"></i></button>
+            </div>
+
+            <div class="widget-user-header" ng-class="class_choice(pet,selected)">
+
+              <div class="widget-user-image">
+                <img class="img-circle" src="https://smart-nutrition.s3.amazonaws.com/data/img/dog_user.png"
+                     alt="Pet Avatar Dog">
+              </div>
+
+              <!-- /.widget-user-image -->
+              <h3 class="widget-user-username"><i ng-if="pet.is_sick==1"
+                                                  class="fa fa-stethoscope"></i></h3>
+              <h5 style="font-size:12px" ng-if="pet.is_sick==1"><b>The Homemade recipe is available but need to be
+                checked by your Vet</b></h5>
+              <h5 class="widget-user-desc">Inclusion Date : <i></i></h5>
+            </div>
+            <div class="box-footer no-padding">
+
+              <ul class="nav nav-stacked">
+
+                <li>
+                  <a>Ideal Weights<span class="pull-right badge bg-blue"> kg</span></a>
+                </li>
+
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Update Weights
+
+                    </mat-panel-title>
+
+                  </mat-expansion-panel-header>
+                  <li>
+                    <div style="border-top-style: solid; border-top-color:#3c8dbc;"
+                         uib-collapse="!pet.expanded">
+                      <form name="weightForm">
+                        <div class="modal-header">
+                          <h3 style="text-align:center" class="modal-title" id="modal-title"> Follow up
+                            with <b></b> weight </h3>
+
+
+                          <canvas baseChart id="bar" class="chart chart-bar" style="width: 100%"
+                                  [datasets]="pieChartData"
+                                  [labels]="pieChartLabels"
+                                  [chartType]="pieChartType"
+                                  [legend]="false"
+                                  (chartClick)="chartClicked($event)"></canvas>
+                        </div>
+
+                        <div>
+                        </div>
+
+
+                        <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                              Add a Weight to logs
+
+                            </mat-panel-title>
+
+                          </mat-expansion-panel-header>
+
+                          <div class="col-lg-6">
+
+
+                            <p class="input-group">
+                              <input name="new_date"
+                                     ng-class="{ 'has-error' : weightForm.new_date.$invalid && !weightForm.new_date.$pristine ,'has-success':weightForm.new_date.$valid}"
+                                     type="text" class="form-control" uib-datepicker-popup
+                                     ng-model="pet_to_show_weight.dt" is-open="popup2.opened"
+                                     datepicker-options="dateOptions" ng-required="true"
+                                     close-text="Close" ng-click="open2()" required/>
+                              <span class="input-group-btn">
+                                      <button type="button" class="btn btn-default" ng-click="open2()"><i
+                                        class="glyphicon glyphicon-calendar"></i>
+                                      </button>
+                                </span>
+                            </p>
+
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="form-group has-feedback">
+                              <input style='width:100%'
+
+                                     min="0" max="150" ng-model="pet_to_show_weight.new_weight"
+                                     type="number" class="form-control" name="new_weight"
+                                     placeholder="Type your pet'sweight on the specified date"
+                                     required>
+
+                            </div>
+
+                          </div>
+                          <p style='text-align:center'
+                             ng-show="weightForm.new_weight.$error.min || weightForm.new_weight.$error.max"
+                             class="help-block error">Do not get cocky and give me a valid weight</p>
+                          <p style='text-align:center' ng-show="weightForm.new_weight.$error.number"
+                             class="help-block error">You could at list give numbers! </p>
+
+
+                          <button style='width:100%' ng-disabled="weightForm.$invalid"
+                                  ng-click='update_weight(pet)' type="button"
+                                  class="btn btn-info btn-flat">Update current Weight
+                          </button>
+
+
+                        </mat-expansion-panel>
+                        <div>
+
+
+                        </div>
+                        <div>
+                        </div>
+                      </form>
+
+                    </div>
+                  </li>
+
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Update Datas
+
+                    </mat-panel-title>
+
+                  </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <button routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
+              id="moving" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+              style='float:right'>Continue
+      </button>
+
+
+    </div>
   </section>
 </div>

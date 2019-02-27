@@ -9,10 +9,10 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div style="text-align:center">
-            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0" [class.clicked_button]="otitis_form.recurring_otitis == true">
               <input #recurring_otitis="ngModel" [(ngModel)]="otitis_form.recurring_otitis" name="recurring_otitis" class='ng-hide' class='form-control' type="radio" value="1"> Yes</label>
 
-            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1" [class.clicked_button]="otitis_form.recurring_otitis == false">
               <input #recurring_otitis="ngModel" [(ngModel)]="otitis_form.recurring_otitis" name="recurring_otitis" class='ng-hide' class='form-control' type="radio" value="0"
                      class='ng-hide'> No </label>
           </div>
@@ -45,11 +45,11 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div style="text-align:center">
-              <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='1'}"
+              <label style="font-size: 2.5vw;" [class.clicked_button]="otitis_form.otitis == true"
                      class="btn btn-1 btn-1a btn-crossed_0">
                 <input #otitis="ngModel" [(ngModel)]="otitis_form.otitis" name="otitis" class='ng-hide' class='form-control' type="radio" value="1"> Yes</label>
 
-              <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='0'}"
+              <label style="font-size: 2.5vw;" [class.clicked_button]="otitis_form.otitis == false"
                      class="btn btn-1 btn-1a btn-crossed_1">
                 <input #otitis="ngModel" [(ngModel)]="otitis_form.otitis" name="otitis" class='ng-hide' class='form-control' type="radio" value="0"
                        class='ng-hide'> No </label>
@@ -82,12 +82,12 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div style="text-align:center">
-            <label style="font-size: 2.5vw;"
+            <label style="font-size: 2.5vw;" [class.clicked_button]="otitis_form.otitis_history == true"
                    class="btn btn-1 btn-1a btn-crossed_0">
               <input #otitis_history="ngModel" [(ngModel)]="otitis_form.otitis_history" name="otitis_history" class='ng-hide' class='form-control' type="radio" value="1">
               Yes</label>
 
-            <label style="font-size: 2.5vw;"
+            <label style="font-size: 2.5vw;" [class.clicked_button]="otitis_form.otitis_history == false"
               class="btn btn-1 btn-1a btn-crossed_1">
               <input #otitis_history="ngModel" [(ngModel)]="otitis_form.otitis_history" name="otitis_history" class='ng-hide' class='form-control' type="radio" value="0"
                      > No </label>
@@ -98,7 +98,7 @@
 
     </ng-template>
 
-      <button (click)="save()" routerLink="/home/add-pet/desensitized" routerLinkActive="active"
+      <button  *ngIf="otitis_form.otitis_history == false || otitis_form.otitis_history == true" (click)="save()" routerLink="/home/add-pet/desensitized" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>

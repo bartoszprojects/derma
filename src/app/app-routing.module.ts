@@ -29,9 +29,13 @@ import {NewPhysicalConsultationComponent} from "./new_physical_consultation/new-
 import {PetComponent} from "./new_physical_consultation/pet/pet.component";
 import {SupportingDietComponent} from "./new_physical_consultation/supporting-diet/supporting-diet.component";
 import {PyodermaOtitisComponent} from "./new_physical_consultation/pyoderma-otitis/pyoderma-otitis.component";
-
+import {ResultComponent} from "./homemade_diet/result/result.component"
+import {LoginComponent} from "./others/login/login.component";
 
 const routes: Routes = [
+  {
+    path: 'login', component: LoginComponent
+  },
   {
     path: 'home', component: SmartAtopiaComponent, children: [
       {
@@ -191,6 +195,24 @@ const routes: Routes = [
             component: StepSucessComponent
           }
 
+        ]
+      },
+      {
+        path: 'homemade',
+        component: NewPhysicalConsultationComponent,
+        children: [
+          {
+            path: 'pet',
+            component: PetComponent
+          },
+          {
+            path:'disclaimer',
+            component: StepDisclaimerComponent
+          },
+          {
+            path: 'result',
+            component: ResultComponent
+          },
         ]
       }
 

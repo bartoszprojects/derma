@@ -10,13 +10,13 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div style="text-align:center">
-            <label style="font-size: 2.5vw;"
+            <label [class.clicked_button]="food_allergy.excluded == true" style="font-size: 2.5vw;"
                    class="btn btn-1 btn-1a btn-crossed_0">
               <input #excluded="ngModel" [(ngModel)]="food_allergy.excluded" name="excluded" class='ng-hide'
                      class='form-control' type="radio" value="1"
               > Yes</label>
 
-            <label style="font-size: 2.5vw;"
+            <label [class.clicked_button]="food_allergy.excluded == false" style="font-size: 2.5vw;"
                    class="btn btn-1 btn-1a btn-crossed_1">
               <input #excluded="ngModel" [(ngModel)]="food_allergy.excluded" name="excluded" class='form-control'
                      type="radio" value="0"
@@ -53,12 +53,12 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div style="text-align:center">
-              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
+              <label [class.clicked_button]="food_allergy.more_8_weeks == true" style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
                 <input #more_8_weeks="ngModel" [(ngModel)]="food_allergy.more_8_weeks" name="more_8_weeks"
                        class='ng-hide' class='form-control' type="radio" value="1"
                        class='ng-hide'> Yes</label>
 
-              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
+              <label [class.clicked_button]="food_allergy.more_8_weeks == false"  style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
                 <input #more_8_weeks="ngModel" [(ngModel)]="food_allergy.more_8_weeks" name="more_8_weeks"
                        class='ng-hide' class='form-control' type="radio" value="0"
                        class='ng-hide'> No </label>
@@ -98,13 +98,13 @@
             <div id="food_picture" class="food-selector has-feedback form-group">
 
 
-              <label class="ct-cn-food id_food_presentation_0"> <input #industrial_or_homemade="ngModel"
+              <label class="ct-cn-food id_food_presentation_0" [class.clicked_image]="food_allergy.industrial_or_homemade == 0"> <input #industrial_or_homemade="ngModel"
                                                                        [(ngModel)]="food_allergy.industrial_or_homemade"
                                                                        name="industrial_or_homemade"
                                                                        type="radio" value="0"
                                                                        class='form-control ng-hide'/></label>
 
-              <label class="ct-cn-food id_food_presentation_2">
+              <label class="ct-cn-food id_food_presentation_2" [class.clicked_image]="food_allergy.industrial_or_homemade == 1">
                 <input #industrial_or_homemade="ngModel" [(ngModel)]="food_allergy.industrial_or_homemade"
                        name="industrial_or_homemade" type="radio" value="1"
                        class='form-control ng-hide'/></label>
@@ -227,7 +227,7 @@
         <!-- /.box-body -->
       </ng-template>
 
-        <button (click)="save()" routerLink="/home/add-pet/pyodermatitis" routerLinkActive="active" name="next"
+        <button *ngIf="food_allergy.what_petfood.length > 0" (click)="save()" routerLink="/home/add-pet/pyodermatitis" routerLinkActive="active" name="next"
                 class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
                 style='float:right'>Continue
         </button>

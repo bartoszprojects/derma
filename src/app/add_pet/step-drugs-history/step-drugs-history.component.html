@@ -11,12 +11,12 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div style="text-align:center">
-              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
+              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0" [class.clicked_button]="drug_history_form.drug_history_known == true">
                 <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known"
                        name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="1">
                 Yes</label>
 
-              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
+              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1" [class.clicked_button]="drug_history_form.drug_history_known == false">
                 <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known"
                        name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="0"
                        class='ng-hide'> No </label>
@@ -179,7 +179,7 @@
       </ng-template>
       </ng-template>
 
-      <button (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
+      <button *ngIf="drug_history_form.drug_history_known == true " (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>

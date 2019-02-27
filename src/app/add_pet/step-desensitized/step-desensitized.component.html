@@ -9,10 +9,10 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div style="text-align:center">
-            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0" [class.clicked_button]="desensitized_form.desensitized == true">
               <input #desensitized="ngModel" [(ngModel)]="desensitized_form.desensitized" name="malassezia" class='ng-hide' class='form-control' type="radio" value="1"> Yes</label>
 
-            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1" [class.clicked_button]="desensitized_form.desensitized == false">
               <input #desensitized="ngModel" [(ngModel)]="desensitized_form.desensitized" name="malassezia" class='ng-hide' class='form-control' type="radio" value="0"
                      class='ng-hide'> No </label>
           </div>
@@ -31,11 +31,11 @@
           <div style="text-align:center">
 
 
-            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0" [class.clicked_button]="desensitized_form.desensitized_more_6_months == true">
               <input #desensitized_more_6_months="ngModel" [(ngModel)]="desensitized_form.desensitized_more_6_months" name="desensitized_more_6_months" class='ng-hide' class='form-control' type="radio"
                      value="1"> > 6 Months ago </label>
 
-            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1" [class.clicked_button]="desensitized_form.desensitized_more_6_months == false">
               <input #desensitized_more_6_months="ngModel" [(ngModel)]="desensitized_form.desensitized_more_6_months" name="desensitized_more_6_months" class='ng-hide' class='form-control' type="radio"
                      value="0" class='ng-hide'> < 6 Months ago
             </label>
@@ -62,7 +62,7 @@
       </div>
       </ng-template>
 
-      <button (click)="save()" routerLink="/home/add-pet/drugs-history" routerLinkActive="active"
+      <button *ngIf="desensitized_form.desensitized_more_6_months == true" (click)="save()" routerLink="/home/add-pet/drugs-history" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>

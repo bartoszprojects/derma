@@ -11,18 +11,18 @@
           <div style="text-align:center" id="gender_pictures" class="ss-selector has-feedback form-group">
 
 
-            <label class="drunkcard-ss id_gender_1" style=""> <input #gender="ngModel" [(ngModel)]="gender_form.gender" name="gender" type="radio" value="1"
+            <label class="drunkcard-ss id_gender_1" style=""  [class.clicked_image]="gender_form.gender == 1"> <input #gender="ngModel" [(ngModel)]="gender_form.gender" name="gender" type="radio" value="1"
                                                                      class='ng-hide'/></label>
 
 
-            <label class="drunkcard-ss id_gender_2" style=""><input #gender="ngModel" [(ngModel)]="gender_form.gender" name="gender" type="radio" value="2"
+            <label class="drunkcard-ss id_gender_2" style=""  [class.clicked_image]="gender_form.gender == 2"><input #gender="ngModel" [(ngModel)]="gender_form.gender" name="gender" type="radio" value="2"
                                                                     class='ng-hide'/></label>
 
           </div>
           <!-- /.box-body -->
         </div>
 
-        <button (click)="save()" routerLink="/home/add-pet/sex" routerLinkActive="active"  id="moving" type="button" name="next"
+        <button *ngIf="gender_form.gender" (click)="save()" routerLink="/home/add-pet/sex" routerLinkActive="active"  id="moving" type="button" name="next"
                 class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
         </button>
 

@@ -10,12 +10,12 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div style="text-align:center">
-            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0" [class.clicked_button]="malassezia_form.malassezia == true">
               <input #malassezia="ngModel" [(ngModel)]="malassezia_form.malassezia" name="malassezia" class='ng-hide' class='form-control' type="radio" value="1">
               Yes</label>
 
             <label style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['malassezia']=='0'}"
-                   class="btn btn-1 btn-1a btn-crossed_1">
+                   class="btn btn-1 btn-1a btn-crossed_1" [class.clicked_button]="malassezia_form.malassezia == false">
               <input #malassezia="ngModel" [(ngModel)]="malassezia_form.malassezia" name="malassezia" class='ng-hide' class='form-control' type="radio" value="0"
                      class='ng-hide'> No </label>
           </div>
@@ -49,20 +49,21 @@
           <div class="box-body">
             <div style="text-align:center">
               <label style="font-size: 2.5vw;"
-                     class="btn btn-1 btn-1a btn-crossed_0">
+                     class="btn btn-1 btn-1a btn-crossed_0" [class.clicked_button]="malassezia_form.malassezia_history == true">
                 <input #malassezia_history="ngModel" [(ngModel)]="malassezia_form.malassezia_history" name="malassezia_history" class='ng-hide' class='form-control' type="radio" value="1"
                 > Yes</label>
 
               <label style="font-size: 2.5vw;"
-                     class="btn btn-1 btn-1a btn-crossed_1">
-                <input #malassezia_history="ngModel" [(ngModel)]="malassezia_form.malassezia_history" class='ng-hide' class='form-control' type="radio"
+                     class="btn btn-1 btn-1a btn-crossed_1" [class.clicked_button]="malassezia_form.malassezia_history == false">
+                <input #malassezia_history="ngModel" [(ngModel)]="malassezia_form.malassezia_history" name="malassezia_history" class='form-control' type="radio"
                        value="0"
                        class='ng-hide'> No </label>
             </div>
             <!-- /.box-body -->
           </div>
 
-          <button routerLink="/home/add-pet/otitis"
+          <button *ngIf="malassezia_form.malassezia_history == false || malassezia_form.malassezia_history == true"
+                  routerLink="/home/add-pet/otitis"
                   (click)="save()"
                   id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
                   style='float:right'>Continue

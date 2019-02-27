@@ -10,20 +10,17 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div style="text-align:center">
-            <label style="font-size: 2.5vw;" ng-click="click_pure_breed()"
-                   ng-class="{'active-button':pet_data.crossed==0}"
+            <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 0"
                    class="btn btn-1 btn-1a btn-crossed_0">
               <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="0"> Pure Breed
             </label>
 
-            <label style="font-size: 2.5vw;" ng-click="click_crossed_breed()"
-                   ng-class="{'active-button':pet_data.crossed==1}"
+            <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 1"
                    class="btn btn-1 btn-1a btn-crossed_1">
               <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="1"
                      class='ng-hide'> Crossed Breeds</label>
 
-            <label style="font-size: 2.5vw;" ng-click="click_unknown_breed()"
-                   ng-class="{'active-button':pet_data.crossed==2}"
+            <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 2"
                    class="btn btn-1 btn-1a btn-crossed_2">
               <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="2"
                      class='ng-hide'>I don't know</label>
@@ -97,12 +94,12 @@
                   <div id="format_dog_pictures" class="cc-format-selector has-feedback form-group">
 
 
-                    <label class="drinkcard-format-cc id_dog_format_0">
+                    <label class="drinkcard-format-cc id_dog_format_0" [class.clicked_button]="breed_form.crossed == 1">
                       <input #dog_format="ngModel" [(ngModel)]="breed_form.dog_format" name="dog_format" id="id_dog_format_0" type="radio" value="1"
                              style='width:0%' class='ng-hide'/></label>
 
 
-                    <label class="drinkcard-format-cc id_dog_format_1">
+                    <label class="drinkcard-format-cc id_dog_format_1" [class.clicked_image]="breed_form.dog_format == 2">
                       <input #dog_format="ngModel" [(ngModel)]="breed_form.dog_format" name="dog_format"
                              id="id_dog_format_1" type="radio"
                              value="2"
@@ -110,21 +107,21 @@
                              class='ng-hide'/></label>
 
 
-                    <label class="drinkcard-format-cc id_dog_format_2">
+                    <label class="drinkcard-format-cc id_dog_format_2" [class.clicked_image]="breed_form.dog_format == 3">
                       <input #dog_format="ngModel" [(ngModel)]="breed_form.dog_format" name="dog_format"
                              id="id_dog_format_2" type="radio"
                              value="3"
                              style='width:0%' class='ng-hide'/></label>
 
 
-                    <label class="drinkcard-format-cc id_dog_format_3">
+                    <label class="drinkcard-format-cc id_dog_format_3" [class.clicked_image]="breed_form.dog_format == 4">
                       <input #dog_format="ngModel" [(ngModel)]="breed_form.dog_format" name="dog_format" id="id_dog_format_3" type="radio"
                              value="4"
                              style='width:0%'
                              class='ng-hide'/></label>
 
 
-                    <label class="drinkcard-format-cc id_dog_format_4">
+                    <label class="drinkcard-format-cc id_dog_format_4" [class.clicked_image]="breed_form.dog_format == 5">
                       <input #dog_format="ngModel" [(ngModel)]="breed_form.dog_format" name="dog_format" id="id_dog_format_4" type="radio" value="5"
                              style='width:0%' class='ng-hide'/></label>
                   </div>
@@ -137,7 +134,8 @@
         </div>
       </ng-template>
 
-      <button (click)="save()" routerLink="/home/add-pet/gender" routerLinkActive="active"
+      <button *ngIf="breed_form.breed_dog_1 || breed_form.breed_dog_2 || breed_form.dog_format"
+              (click)="save()" routerLink="/home/add-pet/gender" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>

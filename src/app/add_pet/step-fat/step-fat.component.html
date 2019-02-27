@@ -16,30 +16,30 @@
 
             <div id="fs_dog_pictures" class="cc-selector has-feedback form-group">
 
-              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_0" type="radio" name="fat_score_dog" value="1"
+              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_0" type="radio" value="1"
 
                      style='width:0%' class='ng-hide'/>
               <label class="drinkcard-cc id_fat_score_dog_0" for="id_fat_score_dog_0"></label>
 
-              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_1" type="radio" name="fat_score_dog" value="3"
+              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_1" type="radio" value="3"
 
                      style='width:0%' class='ng-hide'/>
               <label class="drinkcard-cc id_fat_score_dog_1" for="id_fat_score_dog_1"></label>
 
 
-              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_2" type="radio" name="fat_score_dog" value="5"
+              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_2" type="radio" value="5"
 
                      style='width:0%' class='ng-hide'/>
               <label class="drinkcard-cc id_fat_score_dog_2" for="id_fat_score_dog_2"></label>
 
 
-              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_3" type="radio" name="fat_score_dog" value="7"
+              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_3" type="radio" value="7"
 
                      style='width:0%' class='ng-hide'/>
               <label class="drinkcard-cc id_fat_score_dog_3" for="id_fat_score_dog_3"></label>
 
 
-              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_4" type="radio" name="fat_score_dog" value="9"
+              <input #fat_score_dog="ngModel" [(ngModel)]="fat_form.fat_score_dog" name="fat_score_dog"  id="id_fat_score_dog_4" type="radio" value="9"
 
                      style='width:0%' class='ng-hide'/>
               <label class="drinkcard-cc id_fat_score_dog_4" for="id_fat_score_dog_4"></label>
@@ -267,7 +267,7 @@
       <!--</div>-->
 
     </form>
-    <button (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
+    <button *ngIf="fat_form.fat_score_dog" (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
             id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
             style='float:right'>Continue
     </button>

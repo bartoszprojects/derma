@@ -15,6 +15,7 @@ import {Router} from "@angular/router";
 export class StepFavrotCriteriaComponent implements OnInit {
   title = 'Please tell us about yourself.';
   favrot_criteria: StepFavrotCriteria;
+  favrot_click =0;
   form: any;
   constructor(private router: Router, private formDataService: DataService) {
   }

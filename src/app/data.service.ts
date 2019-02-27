@@ -3,18 +3,47 @@ import {
   FormData, StepDisclaimer, StepFavrotCriteria, StepCadesi, StepFleaTreatment,
   StepFoodAllergy, StepPyodermatitis, StepMalassezia, StepOtitis,
   StepDesensitized, StepDrugsHistory, StepName, StepAge, StepBreed, StepGender, StepSex, StepPhysical, StepWeight,
-  StepFat, StepOwnerInformations
+  StepFat, StepOwnerInformations, Login, LoginData
 } from './formData.model';
-
+import {Observable, Subject, ReplaySubject, timer, from} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import 'rxjs';
+import {interval} from 'rxjs';
+import {switchMap, map, tap, share, shareReplay} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   private formData: FormData = new FormData();
+  private loginData: LoginData = new LoginData();
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
+
+
+  sendDataToBackend() {
+    var postData = {
+      owner_email: 'email@email.com',
+      date_logs: {},
+      weight_logs: {},
+      fat_score_logs: {},
+      favrot_criteria: {},
+      pruritus_score_logs: {},
+      cadesi_total_logs: {},
+      cadesi_details_logs: {},
+      drug_logs: {}
+    };
+
+    const headers: HttpHeaders = new HttpHeaders();
+    headers.set('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post('http://127.0.0.1:8001/snippets/', postData, {headers: headers})
+      .subscribe(result => {
+        console.log('FROOM POSSTTT: ', result)
+      });
+  }
+
 
   getDisclaimer(): StepDisclaimer {
     var disclaimer: StepDisclaimer = {
@@ -78,7 +107,7 @@ export class DataService {
       Perineum: this.formData.Perineum,
       Ventral_Tail: this.formData.Ventral_Tail,
       total: this.formData.total,
-      pruritus_score : this.formData.pruritus_score
+      pruritus_score: this.formData.pruritus_score
     };
     return cadesi;
   }
@@ -333,20 +362,29 @@ export class DataService {
     this.formData.accept_data_sharing = data.accept_data_sharing;
   }
 
+  getLogin(): Login {
+    var login: Login = {
+      username: this.loginData.username,
+      password: this.loginData.password,
+    };
+    return login;
+  }
+
+  setLogin(data: Login) {
+    this.loginData.username = data.username;
+    this.loginData.password = data.password;
+  }
+
+  getLoginForm(): LoginData {
+    return this.loginData;
+  }
+
   getFormData(): FormData {
     // Return the entire Form Data
     console.log('from DataService:');
     console.log(this.formData);
     return this.formData;
   }
-
-
-
-
-
-
-
-
 
 
 }
