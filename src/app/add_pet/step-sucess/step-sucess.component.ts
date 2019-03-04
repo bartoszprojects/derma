@@ -18,7 +18,6 @@ export class StepSucessComponent implements OnInit {
   ngOnInit() {
     this.formData = this.DataService.getFormData();
     this.DataService.sendDataToBackend();
-    console.log(this.formData)
   }
 
 

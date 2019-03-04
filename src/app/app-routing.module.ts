@@ -32,6 +32,7 @@ import {PyodermaOtitisComponent} from "./new_physical_consultation/pyoderma-otit
 import {ResultComponent} from "./homemade_diet/result/result.component"
 import {LoginComponent} from "./others/login/login.component";
 
+
 const routes: Routes = [
   {
     path: 'login', component: LoginComponent

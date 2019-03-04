@@ -24,24 +24,268 @@ export class DataService {
 
   sendDataToBackend() {
     var postData = {
-      owner_email: 'email@email.com',
-      date_logs: {},
-      weight_logs: {},
-      fat_score_logs: {},
-      favrot_criteria: {},
-      pruritus_score_logs: {},
-      cadesi_total_logs: {},
-      cadesi_details_logs: {},
-      drug_logs: {}
+        "owner_email": "bartttttttttttttttttosz.projects1@gmail.com",
+        "owner_name": "barttttttttttttttosz.projects1@gmail.com",
+        "recruiter_id": 1,
+        "recruiter_email": "admin@example.com",
+        "owner_phone": "564654",
+        "pet_name": "rrrrrrrrrr",
+        "breed_dog_1_pure": null,
+        "breed_dog_1": null,
+        "breed_dog_2": null,
+        "dog_format": 4,
+        "date_logs": {
+            "inclusion_date": "2019-03-04"
+        },
+        "display": 1,
+        "gender": 2,
+        "weight_logs": {
+            "2019-03-04": 53.5
+        },
+        "fat_score_logs": {
+            "2019-03-04": "5"
+        },
+        "sexual_capacity": 2,
+        "physical_activity": 4,
+        "getIDEALWEIGHT": 9.1,
+        "getCALCULUS": {
+            "last_weight_date": {
+                "date": "2019-03-04",
+                "value": 53.5
+            },
+            "last_fat_date": {
+                "date": "2019-03-04",
+                "value": "5"
+            },
+            "last_cadesi_date": {
+                "date": "2019-03-04",
+                "value": 6
+            },
+            "last_pruritus_date": {
+                "date": "2019-03-04",
+                "value": 6
+            },
+            "last_drugs_date": {
+                "date": "2019-03-04",
+                "value": {
+                    "omega": 44,
+                    "yeast": 44,
+                    "cortavance": 66,
+                    "oclacitinib": 66,
+                    "cyclosporine": 66,
+                    "prednisolone": 66,
+                    "dermatologic_shampoo": 66666,
+                    "antibacterial_shampoo": 66
+                }
+            },
+            "ER_tot": 1020.7,
+            "RPC": 37.0,
+            "rpc_ref": 55,
+            "k_tot_for_nutrient_adjustment": 1.5,
+            "ca_ref": 1.8,
+            "phos_ref": 1.6,
+            "ca_goal": 1.2,
+            "phos_goal": 1.1,
+            "ca_p_min": 1.0,
+            "ca_p_max": 1.3
+        },
+        "favrot_criteria": {
+            "ear_pinnae": 1,
+            "front_feet": 1,
+            "indoor_dog": 0,
+            "ear_margins": 1,
+            "three_years": 0,
+            "dorso_lumbar": 1,
+            "no_lesion_pruritus": 1,
+            "pruritus_corticoid": 0
+        },
+        "pruritus_score_logs": {
+            "2019-03-04": 6
+        },
+        "cadesi_total_logs": {
+            "2019-03-04": 6
+        },
+        "cadesi_details_logs": {
+            "2019-03-04": {
+                "Abdomen": {
+                    "region": "Abdomen",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/abdomen.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Perineum": {
+                    "region": "Perineum",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/perineum.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Left_Flank": {
+                    "region": "Left Flank",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/flank_L.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Left_Axilla": {
+                    "region": "Left Axilla",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/axilla_L.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Right_Flank": {
+                    "region": "Right Flank",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/flank_R.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Right_Axilla": {
+                    "region": "Right Axilla",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/axilla_R.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Ventral Tail": {
+                    "region": "Ventral Tail",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/ventral_tail.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Left_Hind_Paw": {
+                    "region": "Left Hind Paw",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/hind_paw_L.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Left_Front_Paw": {
+                    "region": "Left Front Paw",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/front_paw_L.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Right_Hind_Paw": {
+                    "region": "Right Hind Paw",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/hind_paw_R.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Perilabial_Area": {
+                    "region": "Perilabial Area",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/perilabial.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Right_Front_Paw": {
+                    "region": "Right Front Paw",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/front_paw_R.png",
+                    "value_alopecia": 1,
+                    "value_erythema": 1,
+                    "value_lichenification": 1
+                },
+                "Left_Medial_Pinna": {
+                    "region": "Left Medial Pinna",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/medial_pinna_L.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 1,
+                    "value_lichenification": 2
+                },
+                "Left_Inguinal_Aera": {
+                    "region": "Left Inguinal Aera",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/inguinal_L.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Right_Medial_Pinna": {
+                    "region": "Right Medial Pinna",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/medial_pinna_R.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Left_Cubital_Flexor": {
+                    "region": "Left Cubital Flexor",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/cubital_flexor_L.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Right_Inguinal_Aera": {
+                    "region": "Right Inguinal Aera",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/inguinal_R.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Right_Cubital_Flexor": {
+                    "region": "Right Cubital Flexor",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/cubital_flexor_R.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Left_Palmar_Metacarpal": {
+                    "region": "Left Palmar Metacarpal",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/palmar_metacarpal_L.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                },
+                "Right_Palmar_Metacarpal": {
+                    "region": "Right Palmar Metacarpal",
+                    "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/palmar_metacarpal_R.png",
+                    "value_alopecia": 0,
+                    "value_erythema": 0,
+                    "value_lichenification": 0
+                }
+            }
+        },
+        "drug_logs": {
+            "2019-03-04": {
+                "omega": 44,
+                "yeast": 44,
+                "cortavance": 66,
+                "oclacitinib": 66,
+                "cyclosporine": 66,
+                "prednisolone": 66,
+                "dermatologic_shampoo": 66666,
+                "antibacterial_shampoo": 66
+            }
+        },
+        "pyodermatitis_history": 0,
+        "otitis_history": 0,
+        "malassezia_history": 1,
+        "age": 1.1,
+        "accept_data_sharing": true,
+        "flea_treatment": 2,
+        "exclusion_diet": 1,
+        "exlcusion_diet_food_recipe": "nbc"
     };
 
-    const headers: HttpHeaders = new HttpHeaders();
-    headers.set('Content-Type', 'application/x-www-form-urlencoded');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'my-auth-token'
+      })
+    };
 
-    this.http.post('http://127.0.0.1:8001/snippets/', postData, {headers: headers})
+    this.http.post('http://127.0.0.1:8001/snippets/', postData, httpOptions)
       .subscribe(result => {
         console.log('FROOM POSSTTT: ', result)
       });
+
+
+
+
   }
 
 
@@ -377,6 +621,24 @@ export class DataService {
 
   getLoginForm(): LoginData {
     return this.loginData;
+  }
+
+    sendLoginToBackend() {
+    var postData = {
+      username: 'snv',
+      password: 'snv',
+
+    };
+
+    let headers: HttpHeaders = new HttpHeaders({'Content-Type' : 'application/json'});
+
+    headers.append('responseType', 'text');
+    headers.append('Authorization', 'Bearer ' + 'oRJVuwLHlmsSSTnA0xiQrHoD0xKB95NuODCzXU3Ncc5nDxdaca4suVgtZOt7D5WS');
+
+    this.http.post('http://127.0.0.1:8001/login/', postData,{ responseType: 'text' as 'json' })
+      .subscribe(result => {
+        console.log('FROM LOGIN: ', result)
+      });
   }
 
   getFormData(): FormData {

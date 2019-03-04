@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   save() {
     this.formDataService.setLogin(this.login);
     console.log(this.formDataService.getLoginForm());
+    this.formDataService.sendLoginToBackend();
     return true;
   }
 

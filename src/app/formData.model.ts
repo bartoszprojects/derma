@@ -278,6 +278,11 @@ export class Login {
   password?: string = '';
 }
 
+export class WeightHistory {
+  date?: string = '';
+  weight?: string = '';
+}
+
 export class LoginData {
   username = '';
   password = '';

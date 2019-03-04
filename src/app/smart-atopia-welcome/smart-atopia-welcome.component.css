@@ -3,7 +3,7 @@
 }
 
 .active-tab:hover {
-  box-shadow: 0 0 4px 4px rgba(127, 127, 127, 0.5);
+  box-shadow: 0 0 1px 1px rgba(127, 127, 127, 0.5);
 }
 
 /*# sourceMappingURL=smart-atopia-welcome.component.css.map */
