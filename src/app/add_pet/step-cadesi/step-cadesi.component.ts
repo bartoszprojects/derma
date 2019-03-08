@@ -187,19 +187,25 @@ export class StepCadesiComponent implements OnInit {
       "value_alopecia": 0,
       "img_adress": "https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/cadesi/ventral_tail.png"
     },
-
-
   };
 
+  countTotal(which_region) {
+    let number = 0;
+    Object.entries(this.cadesi_details).forEach(([key, value]) => {
+      number += value.value_erythema;
+      number += value.value_alopecia;
+      number += value.value_lichenification;
+    });
+    let final_number = number;
+    this.cadesi.total = final_number;
+  }
 
   updateErythema(wchich_region) {
-
     this.cadesi_details[wchich_region].value_erythema += 1;
     if (this.cadesi_details[wchich_region].value_erythema > 3) {
       this.cadesi_details[wchich_region].value_erythema = 0;
     }
-    this.cadesi[wchich_region].value_erythema = (this.cadesi_details[wchich_region].value_erythema)
-
+    this.cadesi.cadesi_details_logs[wchich_region].value_erythema = (this.cadesi_details[wchich_region].value_erythema)
   }
 
   updateLichenification(wchich_region) {
@@ -207,7 +213,7 @@ export class StepCadesiComponent implements OnInit {
     if (this.cadesi_details[wchich_region].value_lichenification > 3) {
       this.cadesi_details[wchich_region].value_lichenification = 0;
     }
-    this.cadesi[wchich_region].value_lichenification = (this.cadesi_details[wchich_region].value_lichenification)
+    this.cadesi.cadesi_details_logs[wchich_region].value_lichenification = (this.cadesi_details[wchich_region].value_lichenification)
   }
 
   updateAlopecia(wchich_region) {
@@ -215,11 +221,9 @@ export class StepCadesiComponent implements OnInit {
     if (this.cadesi_details[wchich_region].value_alopecia > 3) {
       this.cadesi_details[wchich_region].value_alopecia = 0;
     }
-    this.cadesi[wchich_region].value_alopecia = (this.cadesi_details[wchich_region].value_alopecia)
+    this.cadesi.cadesi_details_logs[wchich_region].value_alopecia = (this.cadesi_details[wchich_region].value_alopecia)
   }
 
-
-  title = 'Please tell us about yourself.';
   cadesi: StepCadesi;
   form: any;
 
@@ -228,15 +232,11 @@ export class StepCadesiComponent implements OnInit {
 
   ngOnInit() {
     this.checkRouteUrl();
-
     this.cadesi = this.formDataService.getCadesi();
-
-
   }
 
   save() {
     this.formDataService.setCadesi(this.cadesi);
-
     return true;
   }
 

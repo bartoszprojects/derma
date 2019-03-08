@@ -1,3 +1,27 @@
+let cadesi_dictionary = {
+  "Abdomen" : {},
+  "Perineum": {},
+  "Left_Flank": {},
+  "Left_Axilla": {},
+  "Right_Flank": {},
+  "Right_Axilla": {},
+  "Ventral Tail": {},
+  "Left_Hind_Paw": {},
+  "Left_Front_Paw": {},
+  "Right_Hind_Paw" : {},
+  "Perilabial_Area": {},
+  "Right_Front_Paw": {},
+  "Left_Medial_Pinna": {},
+  "Left_Inguinal_Aera": {},
+  "Right_Medial_Pinna": {},
+  "Left_Cubital_Flexor": {},
+  "Right_Inguinal_Aera": {},
+  "Right_Cubital_Flexor": {},
+  "Left_Palmar_Metacarpal": {},
+  "Right_Palmar_Metacarpal": {},
+  "Ventral_Tail": {}
+};
+
 export class FormData {
   diet_agreed = false;
   three_years = false;
@@ -8,30 +32,11 @@ export class FormData {
   ear_pinnae = false;
   ear_margins = false;
   dorso_lumbar = false;
-  Perilabial_Area = {};
-  Left_Medial_Pinna = {};
-  Right_Medial_Pinna = {};
-  Left_Axilla = {};
-  Right_Axilla = {};
-  Left_Front_Paw = {};
-  Right_Front_Paw = {};
-  Left_Hind_Paw = {};
-  Right_Hind_Paw = {};
-  Left_Cubital_Flexor = {};
-  Right_Cubital_Flexor = {};
-  Left_Palmar_Metacarpal = {};
-  Right_Palmar_Metacarpal = {};
-  Left_Flank = {};
-  Right_Flank = {};
-  Left_Inguinal_Aera = {};
-  Right_Inguinal_Aera = {};
-  Abdomen = {};
-  Perineum = {};
-  Ventral_Tail = {};
+  cadesi_details_logs = cadesi_dictionary;
   total = 0;
   pruritus_score = 0;
   flea_allergy_excluded = null;
-  flea_product = 0;
+  flea_treatment = 0;
   excluded = null;
   more_8_weeks = null;
   industrial_or_homemade = null;
@@ -55,14 +60,13 @@ export class FormData {
   omega = 0;
   yeast = 0;
   name = '';
-  age_year = '';
-  age_month = '';
+  age = 0;
   crossed = 0;
   breed_dog_1 = '';
   breed_dog_2 = '';
   dog_format = 0;
   gender = 0;
-  sex = 0;
+  sexual_capacity = 0;
   physical_activity = 0;
   weight = 0;
   fat_score_dog = 0;
@@ -80,30 +84,11 @@ export class FormData {
     this.ear_pinnae = false;
     this.ear_margins = false;
     this.dorso_lumbar = false;
-    this.Perilabial_Area = {};
-    this.Left_Medial_Pinna = {};
-    this.Right_Medial_Pinna = {};
-    this.Left_Axilla = {};
-    this.Right_Axilla = {};
-    this.Left_Front_Paw = {};
-    this.Right_Front_Paw = {};
-    this.Left_Hind_Paw = {};
-    this.Right_Hind_Paw = {};
-    this.Left_Cubital_Flexor = {};
-    this.Right_Cubital_Flexor = {};
-    this.Left_Palmar_Metacarpal = {};
-    this.Right_Palmar_Metacarpal = {};
-    this.Left_Flank = {};
-    this.Right_Flank = {};
-    this.Left_Inguinal_Aera = {};
-    this.Right_Inguinal_Aera = {};
-    this.Abdomen = {};
-    this.Perineum = {};
-    this.Ventral_Tail = {};
+    this.cadesi_details_logs = cadesi_dictionary;
     this.total = 0;
     this.pruritus_score = 0;
     this.flea_allergy_excluded = null;
-    this.flea_product = 0;
+    this.flea_treatment = null;
     this.excluded = null;
     this.more_8_weeks = null;
     this.industrial_or_homemade = null;
@@ -127,14 +112,13 @@ export class FormData {
     this.omega = 0;
     this.yeast = 0;
     this.name = '';
-    this.age_year = '';
-    this.age_month = '';
+    this.age = 0;
     this.crossed = 0;
     this.breed_dog_1 = '';
     this.breed_dog_2 = '';
     this.dog_format = 0;
     this.gender = 0;
-    this.sex = 0;
+    this.sexual_capacity = 0;
     this.physical_activity = 0;
     this.weight = 0;
     this.fat_score_dog = 0;
@@ -161,33 +145,14 @@ export class StepFavrotCriteria {
 }
 
 export class StepCadesi {
-  Perilabial_Area: {} = {};
-  Left_Medial_Pinna: {} = {};
-  Right_Medial_Pinna: {} = {};
-  Left_Axilla: {} = {};
-  Right_Axilla: {} = {};
-  Left_Front_Paw: {} = {};
-  Right_Front_Paw: {} = {};
-  Left_Hind_Paw: {} = {};
-  Right_Hind_Paw: {} = {};
-  Left_Cubital_Flexor: {} ={};
-  Right_Cubital_Flexor: {} = {};
-  Left_Palmar_Metacarpal: {} = {};
-  Right_Palmar_Metacarpal: {} = {};
-  Left_Flank: {} = {};
-  Right_Flank: {} = {};
-  Left_Inguinal_Aera: {} = {};
-  Right_Inguinal_Aera: {} = {};
-  Abdomen: {} = {};
-  Perineum: {} = {};
-  Ventral_Tail: {} = {};
+  cadesi_details_logs? : any;
   total: number = 0;
   pruritus_score : number = 0;
 }
 
 export class StepFleaTreatment {
   flea_allergy_excluded?: boolean = null;
-  flea_product?: number = 0;
+  flea_treatment?: number = 0;
 }
 
 export class StepFoodAllergy {
@@ -235,8 +200,7 @@ export class StepName {
 }
 
 export class StepAge {
-  age_year?: string = '';
-  age_month?: string = '';
+  age?: number = 0;
 }
 
 export class StepBreed {
@@ -251,7 +215,7 @@ export class StepGender {
 }
 
 export class StepSex {
-  sex?: number = 0;
+  sexual_capacity?: number = 0;
 }
 
 export class StepPhysical {
@@ -281,7 +245,7 @@ export class Login {
 export class WeightHistory {
   date?: string = '';
   weight?: string = '';
-}
+} 
 
 export class LoginData {
   username = '';

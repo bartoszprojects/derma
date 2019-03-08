@@ -12,7 +12,7 @@
 
 
             <div class="has-feedback form-group col-lg-6">
-              <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap" #age_year="ngModel" [(ngModel)]="age_form.age_year" name="age_year">
+              <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap" [(ngModel)]="age_year" name="age_year">
                 <option class="dropdown-select" *ngFor="let year of years">
                   {{year}}</option>
               </select>
@@ -20,7 +20,7 @@
 
 
             <div class="has-feedback form-group col-lg-6">
-              <select class="dropdown-select" theme="bootstrap" #age_month="ngModel" [(ngModel)]="age_form.age_month" name="age_month">
+              <select class="dropdown-select" theme="bootstrap"[(ngModel)]="age_month" name="age_month">
                 <option class="dropdown-select" *ngFor="let month of months">{{month}}</option>
               </select>
             </div>
@@ -32,7 +32,7 @@
       </div>
 
 
-      <button  *ngIf="age_form.age_year && age_form.age_month" (click)="save()" routerLink="/home/add-pet/breed" routerLinkActive="active"  id="moving"
+      <button  *ngIf="age_year && age_month" (click)="save()" routerLink="/home/add-pet/breed" routerLinkActive="active"  id="moving"
               type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>

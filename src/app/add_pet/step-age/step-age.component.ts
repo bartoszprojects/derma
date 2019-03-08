@@ -14,16 +14,18 @@ import {StepAge} from '../../formData.model';
 export class StepAgeComponent implements OnInit {
   years = [];
   months = [];
+  age_month;
+  age_year;
 
   generateYears() {
     for (let i = 0; i < 25 + 1; i++) {
-      this.years.push(i + ' years')
+      this.years.push(Number(i))
     }
   }
 
   generateMonths() {
     for (let i = 0; i < 12 + 1; i++) {
-      this.months.push(i + ' months')
+      this.months.push(Number(i))
     }
   }
 
@@ -41,7 +43,12 @@ export class StepAgeComponent implements OnInit {
   }
 
   save() {
+    let full_age = this.age_month.toString() + '.' + this.age_year.toString();
+    this.age_form.age = parseFloat(full_age);
     this.formDataService.setAge(this.age_form);
     return true;
   }
+
+
+
 }

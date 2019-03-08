@@ -22,7 +22,7 @@
                   <div class="box-header">
                     <div>
                       <h2 class="box-title" ng-class="{cadesi_sup_35:getTotal_of_cadesi()>35}">
-                        Total: </h2>
+                        Total: {{ cadesi.total  }} </h2>
                     </div>
                     <div>
                       <h2 style="color:red" ng-show="getTotal_of_cadesi()>35" class="box-title"
@@ -45,33 +45,26 @@
                         <th>Alopecia</th>
                       </tr>
 
-
                       <tr style='text-align:center;font-size:50px' *ngFor="let region of cadesi_details | keyvalue">
-
                         <td><img src="{{region.value.img_adress}}"></td>
                         <td>{{ region.value.region }}</td>
 
-
-                        <td (click)="updateErythema(region.key)">
+                        <td (click)="updateErythema(region.key); countTotal(region.key)">
                           <input value="{{ region.value.value_erythema }} readonly"></td>
-                        <td (click)="updateLichenification(region.key)">
+                        <td (click)="updateLichenification(region.key); countTotal(region.key)">
                           <input type="text" value="{{ region.value.value_lichenification }} readonly"></td>
-                        <td (click)="updateAlopecia(region.key)">
+                        <td (click)="updateAlopecia(region.key); countTotal(region.key)">
                           <input value="{{ region.value.value_alopecia }} readonly"></td>
                       </tr>
 
                       </tbody>
                     </table>
                   </div>
-                  <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
               </div>
             </div>
 
-
           </div>
-          <!-- /.box-body -->
         </ng-template>
 
         <div class="box box-default box-solid ">
@@ -130,20 +123,14 @@
                 restrained
                 from itching) </h4>
             </div>
-
           </div>
-
-
         </div>
-        <!-- /.box-body -->
-
 
         <button routerLink="/home/{{ route_link_next }}" routerLinkActive="active" (click)="save()"
                 ui-sref="add_pet.flea_treatment"
                 ng-show="getTotal_of_cadesi()!=='0' & pet_data.pruritus_score!=''" id="" type="button" name="next"
                 class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
         </button>
-
 
         <button routerLink="/home/{{ route_link_back }}" routerLinkActive="active" ng-click='back()'
                 ui-sref="add_pet.favrot_criteria" id="moving" type="button"
