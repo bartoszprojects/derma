@@ -19,6 +19,9 @@ export class StepCadesiComponent implements OnInit {
   route_boolean;
   route_link_next;
   route_link_back;
+  vertical = true;
+  invert = true;
+  thumbLabel = true;
 
   checkRouteUrl() {
     let add_pet_substring = "add-pet";

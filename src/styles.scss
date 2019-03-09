@@ -56,7 +56,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .clicked_image {
   filter: opacity(1) grayscale(0)!important;
+}
 
+.error-header {
+  background-color: #FF6C3E!important;
+  background: #FF6C3E!important;
 }
 
 //label { font-size: 33px!important; font-weight: normal!important; }

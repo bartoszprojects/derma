@@ -6,26 +6,22 @@
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label"> Is <b> </b> neutered or intact ? </h1>
         </div>
-        <!-- /.box-header -->
         <div class="box-body">
           <div style="text-align:center" class="neutered_intact">
             <label class="btn btn-1 btn-1a btn-neutered" [class.clicked_button]="sex_form.sex == 1"
                    style="font-size: 2.5vw;">
-              <input #sexual_capacity="ngModel" [(ngModel)]="sex_form.sexual_capacity" name="sexual_capacity" type="radio" value="1" class='ng-hide'> Neutered </label>
+              <input #sexual_capacity="ngModel" [(ngModel)]="sex_form.sex" name="sexual_capacity" type="radio" value="1" class='ng-hide'> Neutered </label>
             <label class="btn btn-1 btn-1a btn-intact" [class.clicked_button]="sex_form.sex == 2"
                    style="font-size: 2.5vw;">
-              <input #sexual_capacity="ngModel" [(ngModel)]="sex_form.sexual_capacity" name="sexual_capacity" type="radio" value="2" class="ng-hide"> Intact </label>
+              <input #sexual_capacity="ngModel" [(ngModel)]="sex_form.sex" name="sexual_capacity" type="radio" value="2" class="ng-hide"> Intact </label>
           </div>
         </div>
-        <!-- /.box-body -->
       </div>
 
-
-      <button *ngIf="sex_form.sexual_capacity" (click)="save()" routerLink="/home/add-pet/physical" routerLinkActive="active" id="" type="button"
+      <button *ngIf="sex_form.sex" (click)="save()" routerLink="/home/add-pet/physical" routerLinkActive="active" id="" type="button"
               name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>
         Continue
       </button>
-
 
       <button routerLink="/home/add-pet/gender" routerLinkActive="active"
               id="moving" type="button"

@@ -121,7 +121,7 @@
           <span class="info-box-text"><p>{{food.information_quantity}}</p></span>
 
         </div>
-        <!-- /.info-box-content -->
+
       </div>
 
     </div>
@@ -130,7 +130,7 @@
 </uib-accordion>
 
 
-<uib-accordion>
+<uib-accordion id="printableArea">
   <div uib-accordion-group is-open="status2.open" class="box box-primary box-default">
     <uib-accordion-heading class="box-header with-border">
       <h3><i class="fa fa-fw fa-bar-chart"></i><b>To Go Further</b> : Take a look at the macros <i
@@ -143,6 +143,11 @@
 <button ui-sref-active="active" ng-click='back()' ui-sref="homemade.details" id="moving" type="button" name="previous"
         class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>Return
 </button>
+
+
+
+
+<input type="button" (click)="printDiv('printableArea')" value="print a div!" />
 
 
 <!--       <div id="grid1" ui-grid="gridOptions" class="grid"></div>

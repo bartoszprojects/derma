@@ -6,11 +6,10 @@
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label" for="id_Sup2"> Is this dog having a Pyoderma now ? </h1>
         </div>
-        <!-- /.box-header -->
         <div class="box-body">
           <div style="text-align:center">
             <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0"
-                   [class.clicked_button]="pyodermatitis_form.pyodermatitis == true">
+                   [class.clicked_button_warning]="pyodermatitis_form.pyodermatitis == true">
               <input #pyodermatitis="ngModel" [(ngModel)]="pyodermatitis_form.pyodermatitis" name="pyodermatitis"
                      class='ng-hide' class='form-control' type="radio" value="1"
               > Yes</label>
@@ -26,10 +25,9 @@
 
       <ng-template [ngIf]="pyodermatitis_form.pyodermatitis == true">
         <div class="box box-default box-solid ">
-          <div style="text-align:center" class="box-header with-border">
-            <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+          <div style="text-align:center" class="box-header with-border error-header">
+            <h1 class="control-label" for="id_Sup2"> Warning </h1>
           </div>
-          <!-- /.box-header -->
           <div class="box-body">
             <div style="text-align:center">
               <label style="font-size: 2.5vw">
@@ -78,7 +76,6 @@
         </div>
       </ng-template>
     </form>
-
 
   </section>
 </div>

@@ -35,21 +35,19 @@
               <input #desensitized_more_6_months="ngModel" [(ngModel)]="desensitized_form.desensitized_more_6_months" name="desensitized_more_6_months" class='ng-hide' class='form-control' type="radio"
                      value="1"> > 6 Months ago </label>
 
-            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1" [class.clicked_button]="desensitized_form.desensitized_more_6_months == false">
+            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1" [class.clicked_button_warning]="desensitized_form.desensitized_more_6_months == false">
               <input #desensitized_more_6_months="ngModel" [(ngModel)]="desensitized_form.desensitized_more_6_months" name="desensitized_more_6_months" class='ng-hide' class='form-control' type="radio"
                      value="0" class='ng-hide'> < 6 Months ago
             </label>
-
           </div>
-
         </div>
 
       </div>
       </ng-template>
       <ng-template [ngIf]="desensitized_form.desensitized_more_6_months == false">
       <div ng-show="pet_data['desensitized_more_6_months']=='0' " class="box box-default box-solid ">
-        <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+        <div style="text-align:center" class="box-header with-border error-header">
+          <h1 class="control-label" for="id_Sup2"> Warning </h1>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -62,7 +60,7 @@
       </div>
       </ng-template>
 
-      <button *ngIf="desensitized_form.desensitized_more_6_months == true" (click)="save()" routerLink="/home/add-pet/drugs-history" routerLinkActive="active"
+      <button *ngIf="desensitized_form.desensitized_more_6_months == true || desensitized_form.desensitized == false" (click)="save()" routerLink="/home/add-pet/drugs-history" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>

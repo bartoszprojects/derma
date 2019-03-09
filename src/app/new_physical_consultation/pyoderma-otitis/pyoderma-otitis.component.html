@@ -9,7 +9,7 @@
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
-          <label [class.clicked_button]="pyodermatitis == 1" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['pyodermatitis']=='1'}"
+          <label [class.clicked_button_warning]="pyodermatitis == 1" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['pyodermatitis']=='1'}"
                  for="id_crossed_0" class="btn btn-1 btn-1a btn-crossed_0">
             <input [(ngModel)]="pyodermatitis" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_0" value="1"
                    > Yes</label>
@@ -26,8 +26,8 @@
 
     <ng-template [ngIf]="pyodermatitis == 1">
     <div class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+      <div style="text-align:center" class="box-header with-border error-header">
+        <h1 class="control-label" for="id_Sup2"> Warning </h1>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -48,7 +48,7 @@
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
-          <label [class.clicked_button]="otitis == 1" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='1'}" for="id_crossed_3"
+          <label [class.clicked_button_warning]="otitis == 1" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='1'}" for="id_crossed_3"
                  class="btn btn-1 btn-1a btn-crossed_0">
             <input [(ngModel)]="otitis" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_3" value="1"
                    > Yes</label>
@@ -65,8 +65,8 @@
 
     <ng-template [ngIf]="otitis == 1">
     <div class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+      <div style="text-align:center" class="box-header with-border error-header">
+        <h1 class="control-label" for="id_Sup2"> Warning </h1>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -87,7 +87,7 @@
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
-          <label [class.clicked_button]="malassezia == 1" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['malassezia']=='1'}" for="id_crossed_9"
+          <label [class.clicked_button_warning]="malassezia == 1" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['malassezia']=='1'}" for="id_crossed_9"
                  class="btn btn-1 btn-1a btn-crossed_0">
             <input [(ngModel)]="malassezia" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_9" value="1"
                    > Yes</label>
@@ -103,8 +103,8 @@
     </div>
     <ng-template [ngIf]="malassezia == 1">
     <div class="box box-default box-solid ">
-      <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+      <div style="text-align:center" class="box-header with-border error-header">
+        <h1 class="control-label" for="id_Sup2"> Warning </h1>
       </div>
       <!-- /.box-header -->
       <div class="box-body">

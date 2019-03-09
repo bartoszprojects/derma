@@ -12,7 +12,7 @@
         </div>
         <!-- /.box-header -->
         <div style="text-align:center; padding-top:50px" class="box-body">
-        <mat-slider class="custom-slider" step="0.5" max=100 min=0 #weight="ngModel" [(ngModel)]="weight_form.weight" name="weight" [ngModelOptions]="{standalone: true}"></mat-slider>
+        <mat-slider [thumbLabel]="true" class="custom-slider" step="0.5" max=100 min=0 #weight="ngModel" [(ngModel)]="weight_form.weight" name="weight" [ngModelOptions]="{standalone: true}"></mat-slider>
 
           <h3><span>{{ weight_form.weight }} Kilogramms </span>
           </h3>

@@ -16,4 +16,9 @@ label input {
   background-size: 80%;
 }
 
+textarea {
+  width: 50%;
+  min-height: 140px;
+}
+
 /*# sourceMappingURL=step-food-allergy.component.css.map */

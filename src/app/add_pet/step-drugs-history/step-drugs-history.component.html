@@ -16,7 +16,7 @@
                        name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="1">
                 Yes</label>
 
-              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1" [class.clicked_button]="drug_history_form.drug_history_known == false">
+              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1" [class.clicked_button_warning]="drug_history_form.drug_history_known == false">
                 <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known"
                        name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="0"
                        class='ng-hide'> No </label>
@@ -27,8 +27,8 @@
 
       <ng-template [ngIf]="drug_history_form.drug_history_known == false">
         <div ng-show="pet_data.drug_history_known=='0'" class="box box-default box-solid ">
-          <div style="text-align:center" class="box-header with-border">
-            <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+          <div style="text-align:center" class="box-header with-border error-header">
+            <h1 class="control-label" for="id_Sup2"> Warning </h1>
           </div>
           <!-- /.box-header -->
           <div class="box-body">

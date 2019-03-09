@@ -16,7 +16,7 @@
                      class='form-control' type="radio" value="1"
               > Yes</label>
 
-            <label [class.clicked_button]="food_allergy.excluded == false" style="font-size: 2.5vw;"
+            <label [class.clicked_button_warning]="food_allergy.excluded == false" style="font-size: 2.5vw;"
                    class="btn btn-1 btn-1a btn-crossed_1">
               <input #excluded="ngModel" [(ngModel)]="food_allergy.excluded" name="excluded" class='form-control'
                      type="radio" value="0"
@@ -29,8 +29,8 @@
 
       <ng-template [ngIf]="food_allergy.excluded == false">
         <div ng-show="pet_data.food_allergy.excluded=='0'" class="box box-default box-solid ">
-          <div style="text-align:center" class="box-header with-border">
-            <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+          <div style="text-align:center" class="box-header with-border error-header">
+            <h1 class="control-label" for="id_Sup2"> Warning </h1>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -58,7 +58,7 @@
                        class='ng-hide' class='form-control' type="radio" value="1"
                        class='ng-hide'> Yes</label>
 
-              <label [class.clicked_button]="food_allergy.more_8_weeks == false"  style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
+              <label [class.clicked_button_warning]="food_allergy.more_8_weeks == false"  style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
                 <input #more_8_weeks="ngModel" [(ngModel)]="food_allergy.more_8_weeks" name="more_8_weeks"
                        class='ng-hide' class='form-control' type="radio" value="0"
                        class='ng-hide'> No </label>
@@ -70,11 +70,11 @@
       </ng-template>
 
 
-      <ng-template [ngIf]="food_allergy.more_8_weeks == false">
+      <ng-template [ngIf]="food_allergy.more_8_weeks == false && food_allergy.excluded == true">
         <div
           class="box box-default box-solid ">
-          <div style="text-align:center" class="box-header with-border">
-            <h1 class="control-label" for="id_Sup2" style="color:red"> Warning </h1>
+          <div style="text-align:center" class="box-header with-border error-header">
+            <h1 class="control-label" for="id_Sup2"> Warning </h1>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -108,8 +108,6 @@
                 <input #industrial_or_homemade="ngModel" [(ngModel)]="food_allergy.industrial_or_homemade"
                        name="industrial_or_homemade" type="radio" value="1"
                        class='form-control ng-hide'/></label>
-
-
             </div>
 
             <ng-template [ngIf]="food_allergy.industrial_or_homemade == false">
@@ -129,7 +127,7 @@
             </ng-template>
 
           </div>
-          <!-- /.box-body -->
+
         </div>
       </ng-template>
       <ng-template [ngIf]="food_allergy.industrial_or_homemade == false || food_allergy.industrial_or_homemade == true">
@@ -137,7 +135,7 @@
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label" for="id_Sup2"> What petfood did you use in particular ? </h1>
           </div>
-          <!-- /.box-header -->
+
           <div class="box-body">
             <ng-template [ngIf]="food_allergy.industrial_or_homemade == false">
               <div style="text-align:center">
