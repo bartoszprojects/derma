@@ -107,6 +107,15 @@ export class DataService {
       });
   }
 
+  getDataFromBackend() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.http.get('http://127.0.0.1:8001/snippets/', httpOptions)
+  }
+
   getDisclaimer(): StepDisclaimer {
     var disclaimer: StepDisclaimer = {
       diet_agreed: this.formData.diet_agreed,
@@ -401,7 +410,7 @@ export class DataService {
     return this.loginData;
   }
 
-    sendLoginToBackend() {
+  sendLoginToBackend() {
     var postData = {
       username: 'snv',
       password: 'snv',

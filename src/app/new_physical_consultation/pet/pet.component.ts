@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {MatExpansionModule} from '@angular/material/expansion';
+import {DataService} from '../../data.service';
 
 @Component({
   selector: 'app-pet',
@@ -13,6 +14,7 @@ export class PetComponent implements OnInit {
   route_link_back;
   panelOpenState = false;
   showFiller = false;
+  pets;
 
   checkRouteUrl() {
     let splitted_url = this.router.url.split('/');
@@ -31,11 +33,12 @@ export class PetComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private formDataService: DataService) {
   }
 
   ngOnInit() {
-    this.checkRouteUrl()
+    this.checkRouteUrl();
+    this.getDataFromBackend()
   }
 
   public pieChartLabels: string[] = ["2018-09-09", "2018-09-11"];
@@ -48,6 +51,12 @@ export class PetComponent implements OnInit {
 
   public chartClicked(e: any): void {
     console.log(e);
+  }
+
+  getDataFromBackend() {
+    this.formDataService.getDataFromBackend().subscribe(result => {
+        this.pets = result
+      });
   }
 
 }

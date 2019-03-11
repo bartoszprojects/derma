@@ -26,8 +26,7 @@
 
 
     <div class="row">
-      <div ng-repeat="pet in list_of_pets_from_user | filter:query | orderBy: 'pet_name' track by $index"
-           ng-click="$parent.selected = pet;show_next_button_pet()">
+      <div *ngFor="let pet of pets">
 
 
         <div class="col-md-6">
@@ -37,7 +36,7 @@
                 class="fa fa-times"></i></button>
             </div>
 
-            <div class="widget-user-header" ng-class="class_choice(pet,selected)">
+            <div class="widget-user-header" [class.girl-header]="pet?.gender == 2" [class.boy-header]="pet?.gender == 1">
 
               <div class="widget-user-image">
                 <img class="img-circle" src="https://smart-nutrition.s3.amazonaws.com/data/img/dog_user.png"
@@ -45,17 +44,17 @@
               </div>
 
               <!-- /.widget-user-image -->
-              <h3 class="widget-user-username">My Pet Name</h3>
+              <h3 class="widget-user-username">{{ pet?.pet_name }}</h3>
               <!--<h5 style="font-size:12px" ng-if="pet.is_sick==1"><b>The Homemade recipe is available but need to be-->
                 <!--checked by your Vet</b></h5>-->
-              <h5 class="widget-user-desc">Inclusion Date : <i></i></h5>
+              <h5 class="widget-user-desc">Inclusion Date :<i>{{ pet?.date_logs.inclusion_date }}</i></h5>
             </div>
             <div class="box-footer no-padding">
 
               <ul class="nav nav-stacked">
 
                 <li>
-                  <a>Ideal Weights<span class="pull-right badge bg-blue"> kg</span></a>
+                  <a>Ideal Weights<span class="pull-right badge bg-blue">{{ pet?.getIDEALWEIGHT }} kg</span></a>
                 </li>
 
                 <mat-expansion-panel>

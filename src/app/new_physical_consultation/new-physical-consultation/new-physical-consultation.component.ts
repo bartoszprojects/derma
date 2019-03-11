@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-new-physical-consultation',
   templateUrl: './new-physical-consultation.component.html',
