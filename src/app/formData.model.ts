@@ -60,7 +60,7 @@ export class FormData {
   omega = 0;
   yeast = 0;
   name = '';
-  age = 0;
+  age = '';
   crossed = 0;
   breed_dog_1 = '';
   breed_dog_2 = '';
@@ -112,7 +112,7 @@ export class FormData {
     this.omega = 0;
     this.yeast = 0;
     this.name = '';
-    this.age = 0;
+    this.age = '';
     this.crossed = 0;
     this.breed_dog_1 = '';
     this.breed_dog_2 = '';
@@ -200,7 +200,7 @@ export class StepName {
 }
 
 export class StepAge {
-  age?: number = 0;
+  age?: string = '';
 }
 
 export class StepBreed {

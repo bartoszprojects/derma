@@ -9,25 +9,17 @@
         <!-- /.box-header -->
         <div style="text-align:center" class="box-body">
 
-
           <div class="form-group has-feedback">
-
             <input #name="ngModel" [(ngModel)]="name_form.name" name="name" style="text-align:center;margin: auto;width:60%;height:115%;font-size:30px"
                    ng-maxlength="45"
                    ng-minlength="2" class="form-control" placeholder="Type here your pet's name"
                    type="text" ng-required="true">
 
-
-
               <p *ngIf="name_form.name.length > 15" class="help-block">Let's go for short name :) </p>
-
               <p *ngIf="name_form.name.length > 0 && name_form.name.length < 3" class="help-block">It's a bit short ! </p>
 
-
           </div>
-
         </div>
-
 
       </div>
     </form>
@@ -35,7 +27,6 @@
     <button *ngIf="name_form.name.length > 2" (click)="save()" routerLink="/home/add-pet/age" routerLinkActive="active"  id="" type="button" name="next"
             class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
     </button>
-
 
     <button routerLink="/home/add-pet/drugs-history" routerLinkActive="active"  id="moving" type="button"
             name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"

@@ -12,7 +12,6 @@ import {StepName} from '../../formData.model';
   styleUrls: ['./step-name.component.scss']
 })
 export class StepNameComponent implements OnInit {
-
   name_form: StepName;
   form: any;
 

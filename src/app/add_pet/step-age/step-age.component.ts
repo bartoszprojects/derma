@@ -43,12 +43,11 @@ export class StepAgeComponent implements OnInit {
   }
 
   save() {
-    let full_age = this.age_month.toString() + '.' + this.age_year.toString();
-    this.age_form.age = parseFloat(full_age);
+    let age_year_converted = this.age_year.toString().match(/\d/g).join("");
+    let age_month_converted = this.age_month.toString().match(/\d/g).join("");
+    let full_age =  age_year_converted + '.' + age_month_converted;
+    this.age_form.age = parseFloat(full_age).toFixed(2);
     this.formDataService.setAge(this.age_form);
     return true;
   }
-
-
-
 }

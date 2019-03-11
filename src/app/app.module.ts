@@ -43,6 +43,7 @@ import {SupportingDietComponent} from './new_physical_consultation/supporting-di
 import {PyodermaOtitisComponent} from './new_physical_consultation/pyoderma-otitis/pyoderma-otitis.component';
 import { ResultComponent } from './homemade_diet/result/result.component';
 import { LoginComponent } from './others/login/login.component';
+import { PetNameComponent } from './others/common/pet-name/pet-name.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { LoginComponent } from './others/login/login.component';
     PyodermaOtitisComponent,
     ResultComponent,
     LoginComponent,
+    PetNameComponent,
 
   ],
   imports: [

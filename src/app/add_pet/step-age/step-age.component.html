@@ -4,24 +4,32 @@
     <form #age_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label"> How old is <b> </b> ? </h1>
+          <h1 class="control-label"> How old is <b><app-pet-name></app-pet-name></b> ? </h1>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
 
-
             <div class="has-feedback form-group col-lg-6">
               <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap" [(ngModel)]="age_year" name="age_year">
                 <option class="dropdown-select" *ngFor="let year of years">
-                  {{year}}</option>
+                  {{year}}
+                  <span *ngIf="year == 0"> years</span>
+                  <span *ngIf="year == 1"> year</span>
+                  <span *ngIf="year > 1"> years</span>
+                </option>
               </select>
             </div>
 
 
             <div class="has-feedback form-group col-lg-6">
               <select class="dropdown-select" theme="bootstrap"[(ngModel)]="age_month" name="age_month">
-                <option class="dropdown-select" *ngFor="let month of months">{{month}}</option>
+                <option class="dropdown-select" *ngFor="let month of months">
+                  {{month}}
+                  <span *ngIf="month == 0"> months</span>
+                  <span *ngIf="month == 1"> month</span>
+                  <span *ngIf="month > 1"> months</span>
+                </option>
               </select>
             </div>
 

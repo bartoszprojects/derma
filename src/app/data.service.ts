@@ -51,48 +51,7 @@ export class DataService {
         },
         "sexual_capacity": data.sexual_capacity,
         "physical_activity": data.physical_activity,
-        "getIDEALWEIGHT": 9.1,
-        "getCALCULUS": {
-            "last_weight_date": {
-                "date": "2019-03-04",
-                "value": 53.5
-            },
-            "last_fat_date": {
-                "date": "2019-03-04",
-                "value": "5"
-            },
-            "last_cadesi_date": {
-                "date": "2019-03-04",
-                "value": 6
-            },
-            "last_pruritus_date": {
-                "date": "2019-03-04",
-                "value": 6
-            },
-            "last_drugs_date": {
-                "date": "2019-03-04",
-                "value": {
-                    "omega": 44,
-                    "yeast": 44,
-                    "cortavance": 66,
-                    "oclacitinib": 66,
-                    "cyclosporine": 66,
-                    "prednisolone": 66,
-                    "dermatologic_shampoo": 66666,
-                    "antibacterial_shampoo": 66
-                }
-            },
-            "ER_tot": 1020.7,
-            "RPC": 37.0,
-            "rpc_ref": 55,
-            "k_tot_for_nutrient_adjustment": 1.5,
-            "ca_ref": 1.8,
-            "phos_ref": 1.6,
-            "ca_goal": 1.2,
-            "phos_goal": 1.1,
-            "ca_p_min": 1.0,
-            "ca_p_max": 1.3
-        },
+
         "favrot_criteria": {
             "ear_pinnae": data.ear_pinnae,
             "front_feet": data.front_feet,
@@ -117,17 +76,13 @@ export class DataService {
                 "dermatologic_shampoo": data.dermatologic_shampoo,
                 "antibacterial_shampoo": data.antibacterial_shampoo
         },
-        // "pyodermatitis_history": data.pyodermatitis_history,
-        "pyodermatitis_history": 1,
-        // "otitis_history": data.otitis_history,
-        "otitis_history": 1,
-        // "malassezia_history": data.malassezia_history,
-        "malassezia_history": 1,
-        "age": 1,
-        "accept_data_sharing": true,
-        // "flea_treatment": data.flea_treatment,
-        "flea_treatment": 1,
-        "exclusion_diet": 1,
+        "pyodermatitis_history": data.pyodermatitis_history,
+        "otitis_history": data.otitis_history,
+        "malassezia_history": data.malassezia_history,
+        "age": Number(data.age),
+        "accept_data_sharing": data.accept_data_sharing,
+        "flea_treatment":  data.flea_treatment,
+        "exclusion_diet": data.flea_allergy_excluded,
         "exlcusion_diet_food_recipe": "nbc"
     };
 

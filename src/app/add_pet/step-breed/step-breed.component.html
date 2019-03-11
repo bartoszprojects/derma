@@ -4,7 +4,7 @@
     <form #breed_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label " for="id_crossed_name"> Tell us more about <b> </b>'s breed !
+          <h1 class="control-label " for="id_crossed_name"> Tell us more about <b><app-pet-name></app-pet-name></b>'s breed !
           </h1>
         </div>
         <!-- /.box-header -->
@@ -44,7 +44,7 @@
                 <ng-template [ngIf]="breed_form.crossed == 0">
                   <div class="has-feedback form-group ng-class">
 
-                    <h2 class="control-label" for="id_breed_dog_1_pure"> What is <b> </b>'s breed ?
+                    <h2 class="control-label" for="id_breed_dog_1_pure"> What is <b><app-pet-name></app-pet-name></b>'s breed ?
                     </h2>
 
                     <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
@@ -60,7 +60,7 @@
                 <ng-template [ngIf]="breed_form.crossed == 1">
                   <div class="has-feedback form-group ng-class" ng-show="pet_data.crossed==1">
                     <div class="col-lg-6 ng-class">
-                      <h2 class="control-label" for="id_breed_dog_1"> What is <b></b>'s 1st breed ?
+                      <h2 class="control-label" for="id_breed_dog_1"> What is <b><app-pet-name></app-pet-name></b>'s 1st breed ?
                       </h2>
 
                       <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
@@ -73,7 +73,7 @@
 
                     </div>
                     <div class="col-lg-6 ng-class">
-                      <h2 class="control-label" for="id_breed_dog_2"> What is <b> </b>'s 2nd breed ?
+                      <h2 class="control-label" for="id_breed_dog_2"> What is <b><app-pet-name></app-pet-name></b>'s 2nd breed ?
                       </h2>
                       <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
                               #breed_dog_2="ngModel" [(ngModel)]="breed_form.breed_dog_2" name="breed_dog_2">
@@ -89,7 +89,7 @@
               <ng-template [ngIf]="breed_form.crossed == 2">
                 <div>
                   <div style="text-align:center">
-                    <h2 class="control-label" for="id_dog_format"> Evaluate <b></b>'s size </h2>
+                    <h2 class="control-label" for="id_dog_format"> Evaluate <b><app-pet-name></app-pet-name></b>'s size </h2>
                   </div>
                   <div id="format_dog_pictures" class="cc-format-selector has-feedback form-group">
 
