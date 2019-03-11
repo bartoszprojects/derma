@@ -125,12 +125,36 @@ export class DataService {
 
     let weight_logs_content = {};
     weight_logs_content[date_now] = 11;
+    let fat_score_logs_content = {};
+    fat_score_logs_content[date_now] = data.fat_score_dog;
+    let pruritus_score_logs_content = {};
+    pruritus_score_logs_content[date_now] = data.pruritus_score;
+    let cadesi_total_logs_content = {};
+    cadesi_total_logs_content[date_now] = data.total;
+    let cadesi_details_logs_content = {};
+    cadesi_details_logs_content[date_now] = data.cadesi_details_logs;
+    let drug_logs_single_content = {
+      "cortavance": data.cortavance,
+      "oclacitinib": data.oclacitinib,
+      "cyclosporine": data.cyclosporine,
+      "prednisolone": data.prednisolone,
+      "dermatologic_shampoo": data.dermatologic_shampoo,
+      "antibacterial_shampoo": data.antibacterial_shampoo
+    };
+    let drug_logs_content = {};
+    drug_logs_content[date_now] = drug_logs_single_content;
 
     var postData = {
       "recruiter_id": 1,
       "recruiter_email": "admin@example.com",
       "id": data.id_number,
-      "weight_logs": weight_logs_content
+      "weight_logs": weight_logs_content,
+      "flea_treatment": data.flea_treatment,
+      "pruritus_score_logs": pruritus_score_logs_content,
+      "cadesi_total_logs": cadesi_total_logs_content,
+      "cadesi_details_logs": cadesi_details_logs_content,
+      "drug_logs": drug_logs_content,
+      "fat_score_logs": fat_score_logs_content,
     };
 
     const httpOptions = {
@@ -140,20 +164,20 @@ export class DataService {
       })
     };
 
-    this.http.put('http://127.0.0.1:8001/snippets/1/', postData, httpOptions)
+    this.http.put('http://127.0.0.1:8001/snippets/' + data.id_number + '/', postData, httpOptions)
       .subscribe(result => {
         console.log('FROOM POSSTTT: ', result)
       });
   }
 
-  getId(): idPet {
-    var idpet: idPet = {
+  getId(): idPetModel {
+    var idpet: idPetModel = {
       id_number: this.formData.id_number
     };
     return idpet
   }
 
-  setId(data: idPet) {
+  setId(data: idPetModel) {
     this.formData.id_number = data.id_number;
   }
 
@@ -476,7 +500,4 @@ export class DataService {
     return this.formData;
   }
 
-
 }
-
-                                                 
