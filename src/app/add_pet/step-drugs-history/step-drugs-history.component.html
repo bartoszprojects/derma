@@ -179,7 +179,7 @@
       </ng-template>
       </ng-template>
 
-      <button *ngIf="drug_history_form.drug_history_known == true " (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
+      <button (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>

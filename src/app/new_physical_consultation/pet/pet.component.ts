@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {MatExpansionModule} from '@angular/material/expansion';
 import {DataService} from '../../data.service';
-
+import {idPetModel} from '../../formData.model';
 @Component({
   selector: 'app-pet',
   templateUrl: './pet.component.html',
@@ -15,6 +15,18 @@ export class PetComponent implements OnInit {
   panelOpenState = false;
   showFiller = false;
   pets;
+  set_color;
+  is_clicked = false;
+  wchich_id;
+  id_pet : idPetModel;
+  form: any;
+
+  setSelected(index) {
+    this.set_color = index;
+    this.wchich_id = index;
+    this.is_clicked = true;
+    this.id_pet.id_number = this.wchich_id;
+  }
 
   checkRouteUrl() {
     let splitted_url = this.router.url.split('/');
@@ -37,8 +49,10 @@ export class PetComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.id_pet = this.formDataService.getId();
     this.checkRouteUrl();
-    this.getDataFromBackend()
+    this.getDataFromBackend();
+
   }
 
   public pieChartLabels: string[] = ["2018-09-09", "2018-09-11"];
@@ -57,6 +71,10 @@ export class PetComponent implements OnInit {
     this.formDataService.getDataFromBackend().subscribe(result => {
         this.pets = result
       });
+  }
+
+  putData() {
+    this.formDataService.setId(this.id_pet);
   }
 
 }

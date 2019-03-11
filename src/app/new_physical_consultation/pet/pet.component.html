@@ -1,4 +1,3 @@
-
 <div style="width: auto" class="container">
 
   <section class="content-header">
@@ -19,7 +18,6 @@
       </div>
     </div>
 
-
     <div>
       <br>
     </div>
@@ -27,16 +25,16 @@
 
     <div class="row">
       <div *ngFor="let pet of pets">
-
-
         <div class="col-md-6">
-          <div class="box box-widget widget-user-2">
+          <div class="box box-widget widget-user-2 list-single-pet" (click)="setSelected(pet.id)"
+               [class.wasClicked]="set_color == pet.id">
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" ng-click="askDelete($index,pet)"><i
                 class="fa fa-times"></i></button>
             </div>
 
-            <div class="widget-user-header" [class.girl-header]="pet?.gender == 2" [class.boy-header]="pet?.gender == 1">
+            <div class="widget-user-header" [class.girl-header]="pet?.gender == 2"
+                 [class.boy-header]="pet?.gender == 1">
 
               <div class="widget-user-image">
                 <img class="img-circle" src="https://smart-nutrition.s3.amazonaws.com/data/img/dog_user.png"
@@ -46,7 +44,7 @@
               <!-- /.widget-user-image -->
               <h3 class="widget-user-username">{{ pet?.pet_name }}</h3>
               <!--<h5 style="font-size:12px" ng-if="pet.is_sick==1"><b>The Homemade recipe is available but need to be-->
-                <!--checked by your Vet</b></h5>-->
+              <!--checked by your Vet</b></h5>-->
               <h5 class="widget-user-desc">Inclusion Date :<i>{{ pet?.date_logs.inclusion_date }}</i></h5>
             </div>
             <div class="box-footer no-padding">
@@ -137,11 +135,8 @@
                                   class="btn btn-info btn-flat">Update current Weight
                           </button>
 
-
                         </mat-expansion-panel>
                         <div>
-
-
                         </div>
                         <div>
                         </div>
@@ -167,13 +162,12 @@
         </div>
       </div>
 
-
-      <button routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
+      <button *ngIf="is_clicked" routerLink="/home/{{ route_link_next }}" routerLinkActive="active" (click)="putData()"
               id="moving" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>
 
-
     </div>
   </section>
+
 </div>

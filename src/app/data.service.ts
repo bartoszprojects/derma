@@ -3,7 +3,7 @@ import {
   FormData, StepDisclaimer, StepFavrotCriteria, StepCadesi, StepFleaTreatment,
   StepFoodAllergy, StepPyodermatitis, StepMalassezia, StepOtitis,
   StepDesensitized, StepDrugsHistory, StepName, StepAge, StepBreed, StepGender, StepSex, StepPhysical, StepWeight,
-  StepFat, StepOwnerInformations, Login, LoginData
+  StepFat, StepOwnerInformations, Login, LoginData, idPetModel
 } from './formData.model';
 import {Observable, Subject, ReplaySubject, timer, from} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
@@ -20,7 +20,8 @@ export class DataService {
   private formData: FormData = new FormData();
   private loginData: LoginData = new LoginData();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   sendDataToBackend() {
     let data = this.getFormData();
@@ -40,63 +41,63 @@ export class DataService {
     let cadesi_details_logs_content = {};
     cadesi_details_logs_content[date_now] = data.cadesi_details_logs;
     let drug_logs_single_content = {
-                "omega": data.omega,
-                "yeast": data.yeast,
-                "cortavance": data.cortavance,
-                "oclacitinib": data.oclacitinib,
-                "cyclosporine": data.cyclosporine,
-                "prednisolone": data.prednisolone,
-                "dermatologic_shampoo": data.dermatologic_shampoo,
-                "antibacterial_shampoo": data.antibacterial_shampoo
-        };
+      "omega": data.omega,
+      "yeast": data.yeast,
+      "cortavance": data.cortavance,
+      "oclacitinib": data.oclacitinib,
+      "cyclosporine": data.cyclosporine,
+      "prednisolone": data.prednisolone,
+      "dermatologic_shampoo": data.dermatologic_shampoo,
+      "antibacterial_shampoo": data.antibacterial_shampoo
+    };
     let drug_logs_content = {};
     drug_logs_content[date_now] = drug_logs_single_content;
 
     var postData = {
-        "owner_email": data.owner_email,
-        "owner_name": data.owner_name,
-        "recruiter_id": 1,
-        "recruiter_email": "admin@example.com",
-        "owner_phone": data.owner_phone,
-        "pet_name": data.name,
-        "breed_dog_1_pure": null,
-        "breed_dog_1": data.breed_dog_1,
-        "breed_dog_2": data.breed_dog_2,
-        "dog_format": data.dog_format,
-        "date_logs": {"inclusion_date": date_now},
-        "display": 1,
-        "gender": data.gender,
-        "weight_logs": weight_logs_content,
-        "fat_score_logs": fat_score_logs_content,
-        "sexual_capacity": data.sexual_capacity,
-        "physical_activity": data.physical_activity,
-        "favrot_criteria": {
-            "ear_pinnae": data.ear_pinnae,
-            "front_feet": data.front_feet,
-            "indoor_dog": data.indoor_dog,
-            "ear_margins": data.ear_margins,
-            "three_years": data.three_years,
-            "dorso_lumbar": data.dorso_lumbar,
-            "no_lesion_pruritus": data.no_lesion_pruritus,
-            "pruritus_corticoid": data.pruritus_corticoid
-        },
-        "pruritus_score_logs": pruritus_score_logs_content,
-        "cadesi_total_logs": cadesi_total_logs_content,
-        "cadesi_details_logs": cadesi_details_logs_content,
-        "drug_logs": drug_logs_content,
-        "pyodermatitis_history": data.pyodermatitis_history,
-        "otitis_history": data.otitis_history,
-        "malassezia_history": data.malassezia_history,
-        "age": Number(data.age),
-        "accept_data_sharing": data.accept_data_sharing,
-        "flea_treatment":  data.flea_treatment,
-        "exclusion_diet": data.flea_allergy_excluded,
-        "exlcusion_diet_food_recipe": "nbc"
+      "owner_email": data.owner_email,
+      "owner_name": data.owner_name,
+      "recruiter_id": 1,
+      "recruiter_email": "admin@example.com",
+      "owner_phone": data.owner_phone,
+      "pet_name": data.name,
+      "breed_dog_1_pure": null,
+      "breed_dog_1": data.breed_dog_1,
+      "breed_dog_2": data.breed_dog_2,
+      "dog_format": data.dog_format,
+      "date_logs": {"inclusion_date": date_now},
+      "display": 1,
+      "gender": data.gender,
+      "weight_logs": weight_logs_content,
+      "fat_score_logs": fat_score_logs_content,
+      "sexual_capacity": data.sexual_capacity,
+      "physical_activity": data.physical_activity,
+      "favrot_criteria": {
+        "ear_pinnae": data.ear_pinnae,
+        "front_feet": data.front_feet,
+        "indoor_dog": data.indoor_dog,
+        "ear_margins": data.ear_margins,
+        "three_years": data.three_years,
+        "dorso_lumbar": data.dorso_lumbar,
+        "no_lesion_pruritus": data.no_lesion_pruritus,
+        "pruritus_corticoid": data.pruritus_corticoid
+      },
+      "pruritus_score_logs": pruritus_score_logs_content,
+      "cadesi_total_logs": cadesi_total_logs_content,
+      "cadesi_details_logs": cadesi_details_logs_content,
+      "drug_logs": drug_logs_content,
+      "pyodermatitis_history": data.pyodermatitis_history,
+      "otitis_history": data.otitis_history,
+      "malassezia_history": data.malassezia_history,
+      "age": Number(data.age),
+      "accept_data_sharing": data.accept_data_sharing,
+      "flea_treatment": data.flea_treatment,
+      "exclusion_diet": data.flea_allergy_excluded,
+      "exlcusion_diet_food_recipe": "nbc"
     };
 
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
         'Authorization': 'my-auth-token'
       })
     };
@@ -110,10 +111,50 @@ export class DataService {
   getDataFromBackend() {
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
       })
     };
     return this.http.get('http://127.0.0.1:8001/snippets/', httpOptions)
+  }
+
+  putDataToBackend() {
+    let data = this.getFormData();
+    let now = moment();
+    let now_date = moment(now).format("YYYY-MM-DD");
+    let date_now = now_date.valueOf();
+
+    let weight_logs_content = {};
+    weight_logs_content[date_now] = 11;
+
+    var postData = {
+      "recruiter_id": 1,
+      "recruiter_email": "admin@example.com",
+      "id": data.id_number,
+      "weight_logs": weight_logs_content
+    };
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'my-auth-token'
+      })
+    };
+
+    this.http.put('http://127.0.0.1:8001/snippets/1/', postData, httpOptions)
+      .subscribe(result => {
+        console.log('FROOM POSSTTT: ', result)
+      });
+  }
+
+  getId(): idPet {
+    var idpet: idPet = {
+      id_number: this.formData.id_number
+    };
+    return idpet
+  }
+
+  setId(data: idPet) {
+    this.formData.id_number = data.id_number;
   }
 
   getDisclaimer(): StepDisclaimer {
@@ -417,12 +458,12 @@ export class DataService {
 
     };
 
-    let headers: HttpHeaders = new HttpHeaders({'Content-Type' : 'application/json'});
+    let headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
     headers.append('responseType', 'text');
     headers.append('Authorization', 'Bearer ' + 'oRJVuwLHlmsSSTnA0xiQrHoD0xKB95NuODCzXU3Ncc5nDxdaca4suVgtZOt7D5WS');
 
-    this.http.post('http://127.0.0.1:8001/login/', postData,{ responseType: 'text' as 'json' })
+    this.http.post('http://127.0.0.1:8001/login/', postData, {responseType: 'text' as 'json'})
       .subscribe(result => {
         console.log('FROM LOGIN: ', result)
       });
@@ -438,3 +479,4 @@ export class DataService {
 
 }
 
+                                                 
