@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import {ChartsModule} from 'ng2-charts/ng2-charts';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
+import { MomentModule } from 'ngx-moment';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -95,7 +96,8 @@ import { PetNameComponent } from './others/common/pet-name/pet-name.component';
     FormsModule,
     ChartsModule,
     MatExpansionModule,
-    HttpClientModule
+    HttpClientModule,
+    MomentModule
 
   ],
   providers: [],

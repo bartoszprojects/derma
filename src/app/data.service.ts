@@ -10,6 +10,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import 'rxjs';
 import {interval} from 'rxjs';
 import {switchMap, map, tap, share, shareReplay} from 'rxjs/operators';
+import * as moment from 'moment'
+import {post} from "selenium-webdriver/http";
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +20,37 @@ export class DataService {
   private formData: FormData = new FormData();
   private loginData: LoginData = new LoginData();
 
-  constructor(private http: HttpClient) {
-  }
-
+  constructor(private http: HttpClient) {}
 
   sendDataToBackend() {
     let data = this.getFormData();
 
+    let now = moment();
+    let now_date = moment(now).format("YYYY-MM-DD");
+    let date_now = now_date.valueOf();
 
+    let weight_logs_content = {};
+    weight_logs_content[date_now] = data.weight;
+    let fat_score_logs_content = {};
+    fat_score_logs_content[date_now] = data.fat_score_dog;
+    let pruritus_score_logs_content = {};
+    pruritus_score_logs_content[date_now] = data.pruritus_score;
+    let cadesi_total_logs_content = {};
+    cadesi_total_logs_content[date_now] = data.total;
+    let cadesi_details_logs_content = {};
+    cadesi_details_logs_content[date_now] = data.cadesi_details_logs;
+    let drug_logs_single_content = {
+                "omega": data.omega,
+                "yeast": data.yeast,
+                "cortavance": data.cortavance,
+                "oclacitinib": data.oclacitinib,
+                "cyclosporine": data.cyclosporine,
+                "prednisolone": data.prednisolone,
+                "dermatologic_shampoo": data.dermatologic_shampoo,
+                "antibacterial_shampoo": data.antibacterial_shampoo
+        };
+    let drug_logs_content = {};
+    drug_logs_content[date_now] = drug_logs_single_content;
 
     var postData = {
         "owner_email": data.owner_email,
@@ -38,20 +63,13 @@ export class DataService {
         "breed_dog_1": data.breed_dog_1,
         "breed_dog_2": data.breed_dog_2,
         "dog_format": data.dog_format,
-        "date_logs": {
-            "inclusion_date": "2019-03-04"
-        },
+        "date_logs": {"inclusion_date": date_now},
         "display": 1,
         "gender": data.gender,
-        "weight_logs": {
-            "2019-03-04": 53.5
-        },
-        "fat_score_logs": {
-            "2019-03-04": "5"
-        },
+        "weight_logs": weight_logs_content,
+        "fat_score_logs": fat_score_logs_content,
         "sexual_capacity": data.sexual_capacity,
         "physical_activity": data.physical_activity,
-
         "favrot_criteria": {
             "ear_pinnae": data.ear_pinnae,
             "front_feet": data.front_feet,
@@ -62,20 +80,10 @@ export class DataService {
             "no_lesion_pruritus": data.no_lesion_pruritus,
             "pruritus_corticoid": data.pruritus_corticoid
         },
-        "pruritus_score_logs": data.pruritus_score,
-        "cadesi_total_logs": data.total,
-        "cadesi_details_logs": data.cadesi_details_logs
-        ,
-        "drug_logs": {
-                "omega": data.omega,
-                "yeast": data.yeast,
-                "cortavance": data.cortavance,
-                "oclacitinib": data.oclacitinib,
-                "cyclosporine": data.cyclosporine,
-                "prednisolone": data.prednisolone,
-                "dermatologic_shampoo": data.dermatologic_shampoo,
-                "antibacterial_shampoo": data.antibacterial_shampoo
-        },
+        "pruritus_score_logs": pruritus_score_logs_content,
+        "cadesi_total_logs": cadesi_total_logs_content,
+        "cadesi_details_logs": cadesi_details_logs_content,
+        "drug_logs": drug_logs_content,
         "pyodermatitis_history": data.pyodermatitis_history,
         "otitis_history": data.otitis_history,
         "malassezia_history": data.malassezia_history,
@@ -99,7 +107,6 @@ export class DataService {
       });
   }
 
-
   getDisclaimer(): StepDisclaimer {
     var disclaimer: StepDisclaimer = {
       diet_agreed: this.formData.diet_agreed,
@@ -111,7 +118,6 @@ export class DataService {
   setDisclaimer(data: StepDisclaimer) {
     this.formData.diet_agreed = data.diet_agreed;
   }
-
 
   getFavrotCriteria(): StepFavrotCriteria {
     var favrot_criteria: StepFavrotCriteria = {
