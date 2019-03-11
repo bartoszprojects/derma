@@ -14,7 +14,7 @@ import {Router} from "@angular/router";
 })
 export class StepFleaTreatmentComponent implements OnInit {
 
-  flea_treatment: StepFleaTreatment;
+  flea: StepFleaTreatment;
   form: any;
   route_boolean;
   route_link_next;
@@ -40,12 +40,12 @@ export class StepFleaTreatmentComponent implements OnInit {
 
   ngOnInit() {
     this.checkRouteUrl();
-    this.flea_treatment = this.formDataService.getFleaTreatment();
+    this.flea = this.formDataService.getFleaTreatment();
 
   }
 
   save() {
-   this.formDataService.setFleaTreatment(this.flea_treatment);
+   this.formDataService.setFleaTreatment(this.flea);
 
     return true;
   }

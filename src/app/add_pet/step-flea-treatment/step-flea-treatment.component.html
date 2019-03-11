@@ -10,15 +10,15 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div style="text-align:center">
-              <label [class.clicked_button]="flea_treatment.flea_allergy_excluded == true" style="font-size: 2.5vw" class="btn btn-1 btn-1a btn-crossed_0">
-                <input #flea_allergy_excluded="ngModel" [(ngModel)]="flea_treatment.flea_allergy_excluded" required
+              <label [class.clicked_button]="flea.flea_allergy_excluded == true" style="font-size: 2.5vw" class="btn btn-1 btn-1a btn-crossed_0">
+                <input #flea_allergy_excluded="ngModel" [(ngModel)]="flea.flea_allergy_excluded" required
                        id="flea_allergy_excluded"
                        name="flea_allergy_excluded"
                        placeholder="flea_allergy_excluded" class='ng-hide form-control' type="radio" value="1">
                 Yes</label>
 
-              <label [class.clicked_button_warning]="flea_treatment.flea_allergy_excluded == false" style="font-size: 2.5vw" class="btn btn-1 btn-1a btn-crossed_1">
-                <input #flea_allergy_excluded="ngModel" [(ngModel)]="flea_treatment.flea_allergy_excluded" required
+              <label [class.clicked_button_warning]="flea.flea_allergy_excluded == false" style="font-size: 2.5vw" class="btn btn-1 btn-1a btn-crossed_1">
+                <input #flea_allergy_excluded="ngModel" [(ngModel)]="flea.flea_allergy_excluded" required
                        id="" name="flea_allergy_excluded"
                        placeholder="flea_allergy_excluded" class='ng-hide form-control' type="radio" value="0"> No
               </label>
@@ -28,7 +28,7 @@
 
         </div>
       </ng-template>
-      <ng-template [ngIf]="flea_treatment.flea_allergy_excluded == false">
+      <ng-template [ngIf]="flea.flea_allergy_excluded == false">
         <div class="box box-default box-solid ">
           <div style="text-align:center;" class="error-header box-header with-border">
             <h1 class="control-label" for="id_Sup2"> Warning </h1>
@@ -43,7 +43,7 @@
 
         </div>
       </ng-template>
-      <ng-template [ngIf]="flea_treatment.flea_allergy_excluded == true || route_boolean == 0">
+      <ng-template [ngIf]="flea.flea_allergy_excluded == true || route_boolean == 0">
         <div ng-show="pet_data['flea_allergy_excluded']=='1'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label">Select the product with which Flea bite dermatitis has been ruled out</h1>
@@ -51,37 +51,38 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div id="flea_drug_pictures" class="ss-selector has-feedback form-group">
-              <label [class.clicked_image]="flea_treatment.flea_treatment == 1" class="drunkcard-ss">
-                <input #flea_product="ngModel" [(ngModel)]="flea_treatment.flea_product" required id="flea_product"
-                       name="flea_product"
-                       placeholder="flea_product" type="radio" value="1"
+              <label [class.clicked_image]="flea.flea_treatment == 1" class="drunkcard-ss">
+                <input #flea_treatment="ngModel" [(ngModel)]="flea.flea_treatment" required id="flea_treatment"
+                       name="flea_treatment"
+                       placeholder="flea_treatment" type="radio" value="1"
                        class='ng-hide form-control'/>
                 <img src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/nexgard.jpg"/>
               </label>
-              <label [class.clicked_image]="flea_treatment.flea_treatment == 2" class="drunkcard-ss"><input #flea_product="ngModel" [(ngModel)]="flea_treatment.flea_product"
+              <label [class.clicked_image]="flea.flea_treatment == 2" class="drunkcard-ss"><input #flea_treatment="ngModel" [(ngModel)]="flea.flea_treatment"
                                                  required id="h"
-                                                 name="flea_product"
-                                                 placeholder="flea_product" type="radio" value="2"
+                                                 name="flea_treatment"
+                                                 placeholder="flea_treatment" type="radio" value="2"
                                                  class='ng-hide form-control'/>
                 <img src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/simparica.jpg"/>
               </label>
 
-              <label [class.clicked_image]="flea_treatment.flea_treatment == 3" class="drunkcard-ss"> <input #flea_product="ngModel" [(ngModel)]="flea_treatment.flea_product"
+              <label [class.clicked_image]="flea.flea_treatment == 3" class="drunkcard-ss"> <input #flea_treatment="ngModel" [(ngModel)]="flea.flea_treatment"
                                                   required id="dh"
-                                                  name="flea_product"
-                                                  placeholder="flea_product" type="radio" value="3"
-                                                  class='ng-hide form-control'/> <img
+                                                  name="flea_treatment"
+                                                  placeholder="flea_treatment" type="radio" value="3"
+                                                  class='ng-hide form-control'/>
+                <img
                 src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/bravecto.jpg"/></label>
 
-              <ng-template [ngIf]="flea_treatment.flea_product == 1">
+              <ng-template [ngIf]="flea.flea_treatment == 1">
                 <h3 ng-show="pet_data['flea_drug']=='1'" class="control-label"><b>NexGard &copy; </b> every five weeks
                 </h3>
               </ng-template>
-              <ng-template [ngIf]="flea_treatment.flea_product == 2">
+              <ng-template [ngIf]="flea.flea_treatment == 2">
                 <h3 ng-show="pet_data['flea_drug']=='2'" class="control-label"><b> Simparica &copy; </b> every five
                   weeks
                 </h3></ng-template>
-              <ng-template [ngIf]="flea_treatment.flea_product == 3">
+              <ng-template [ngIf]="flea.flea_treatment == 3">
                 <h3 ng-show="pet_data['flea_drug']=='3'" class="control-label"><b> Bravecto &copy; </b> every three
                   months
                 </h3></ng-template>
@@ -90,7 +91,7 @@
             <!-- /.box-body -->
           </div>
 
-          <button *ngIf="flea_treatment.flea_product >= 1" (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
+          <button *ngIf="flea.flea_treatment >= 1" (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
 
                   type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
                   style='float:right'>Continue

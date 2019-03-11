@@ -155,11 +155,11 @@ export class DataService {
   }
 
   getFleaTreatment(): StepFleaTreatment {
-    var flea_treatment: StepFleaTreatment = {
+    var flea: StepFleaTreatment = {
       flea_allergy_excluded: this.formData.flea_allergy_excluded,
       flea_treatment: this.formData.flea_treatment,
     };
-    return flea_treatment;
+    return flea;
   }
 
   setFleaTreatment(data: StepFleaTreatment) {
