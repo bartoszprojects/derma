@@ -91,12 +91,12 @@
       </div>
     </ng-template>
 
-    <button [routerLink]="['../pyoderma-otitis']"
+    <button routerLink="{{ route_link_next }}" routerLinkActive="active"
             type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
             style='float:right'>Continue
     </button>
 
-    <button routerLink="/home/{{ route_link_back }}" routerLinkActive="active"
+    <button routerLink="{{ route_link_back }}" routerLinkActive="active"
             type="button"
             name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
             style='float:left'>Return

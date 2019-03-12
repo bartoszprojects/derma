@@ -17,13 +17,13 @@ export class SupportingDietComponent implements OnInit {
     console.log(splitted_url);
     if (splitted_url[2] == 'new-physical-consultation') {
       this.route_boolean = 0;
-      this.route_link_next = 'new-physical-consultation/update/' + this.get_param + '/pyoderma-otitis';
-      this.route_link_back = 'new-physical-consultation/pet';
+      this.route_link_next = '../pyoderma-otitis';
+      this.route_link_back = '/home/new-physical-consultation/pet';
     }
     if (splitted_url[2] == 'new-phone-consultation') {
       this.route_boolean = 1;
-      this.route_link_next = 'new-phone-consultation/cadesi';
-      this.route_link_back = 'new-phone-consultation/pet';
+      this.route_link_next = '../cadesi';
+      this.route_link_back = '/home/new-phone-consultation/pet';
     }
   }
 

@@ -31,6 +31,7 @@ export class CommonDataComponent implements OnInit {
   showUrlParam() {
     const param = this.route.parent.snapshot.params['id'];
     this.get_param = param;
+    console.log('url param id:     ', this.get_param)
   }
 }
 

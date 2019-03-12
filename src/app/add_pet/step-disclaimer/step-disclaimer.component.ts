@@ -26,12 +26,12 @@ export class StepDisclaimerComponent implements OnInit {
     if (this.router.url.includes(add_pet_substring)) {
       this.route_boolean = 'add-pet';
       this.route_link_next = 'add-pet/favrot-criteria';
-      this.route_link_back = 'welcome'
+      this.route_link_back = '/home/welcome'
     }
     if (this.router.url.includes(homemade_substring)) {
       this.route_boolean = 'homemade';
-      this.route_link_next = 'homemade/result';
-      this.route_link_back = 'homemade/pet'
+      this.route_link_next = '../result';
+      this.route_link_back = '/home/homemade/pet'
     }
 
   }

@@ -40,8 +40,8 @@ export class StepCadesiComponent implements OnInit {
     }
     if (this.router.url.includes(new_phone_consultation_substring)) {
       this.route_boolean = 'new-phone-consultation';
-      this.route_link_next = 'new-phone-consultation/drugs-history';
-      this.route_link_back = 'new-phone-consultation/supporting-diet'
+      this.route_link_next = '../drugs-history';
+      this.route_link_back = '../supporting-diet'
     }
   }
 

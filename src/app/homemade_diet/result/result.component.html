@@ -41,7 +41,7 @@
 
 <div class="box box-default box-solid ">
   <div class="box-header with-border">
-    <h3 class="box-title">{{pet_data_selected.pet_name}}'s key datas</h3>
+    <h3 class="box-title"><app-common-data [element]="'pet_name'"></app-common-data>'s key datas</h3>
   </div>
   <!-- /.box-header -->
   <div class="box-body">
@@ -51,7 +51,7 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">
-            <h3>{{ pet_data_selected.getIDEALWEIGHT }}<sup style="font-size: 20px">kg</sup></h3>
+            <h3><app-common-data [element]="'getIDEALWEIGHT'"></app-common-data><sup style="font-size: 20px">kg</sup></h3>
 
             <p>Ideal Weight</p>
           </div>
@@ -67,7 +67,7 @@
         <!-- small box -->
         <div class="small-box bg-green">
           <div class="inner">
-            <h3>{{ pet_data_selected.getCALCULUS["ER_tot"] }}<sup style="font-size: 20px">kcal</sup></h3>
+            <h3><app-common-data [element]="'getCALCULUS'"></app-common-data><sup style="font-size: 20px">kcal</sup></h3>
 
             <p>Energy Requirement</p>
           </div>
@@ -83,7 +83,7 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
           <div class="inner">
-            <h3>{{ pet_data_selected.getCALCULUS["RPC"] }}<sup style="font-size: 20px">g/Mcal</sup></h3>
+            <h3><app-common-data [element]="'getCALCULUS.RPC'"></app-common-data><sup style="font-size: 20px">g/Mcal</sup></h3>
 
             <p>Protein's goal</p>
           </div>
@@ -106,19 +106,17 @@
   <div uib-accordion-group is-open="status1.open" class="box box-primary box-default">
     <uib-accordion-heading class="box-header with-border">
       <h3><i class="fa fa-fw fa-bar-chart"></i><b>Taylor Made Recipe</b> : Start cooking
-        for {{pet_data_selected.pet_name}} with this recipe<i class="pull-right glyphicon"
+        for <app-common-data [element]="'pet_name'"></app-common-data> with this recipe<i class="pull-right glyphicon"
                                                               ng-class="{'fa fa-minus': status1.open, 'fa fa-plus': !status1.open}"></i>
       </h3>
     </uib-accordion-heading>
     <div ng-repeat="food in recipe | orderBy: 'quantity'">
       <div class="info-box">
         <span class="info-box-icon"><img class="img-circle"
-                                         src='https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/IMG_NATURAL/{{food.img}}'></span>
+                                         src='https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/IMG_NATURAL/'></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">{{food.title}}</span>
-          <span class="info-box-number">{{food.quantity}} g</span>
-          <span class="info-box-text"><p>{{food.information_quantity}}</p></span>
+ 
 
         </div>
 

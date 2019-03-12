@@ -37,8 +37,8 @@ checkRouteUrl() {
     }
     if (this.router.url.includes(new_phone_consultation_substring)) {
       this.route_boolean = 'new-phone-consultation';
-      this.route_link_next = 'new-phone-consultation/success';
-      this.route_link_back = 'new-phone-consultation/cadesi';
+      this.route_link_next = '../success';
+      this.route_link_back = '../cadesi';
     }
   }
 

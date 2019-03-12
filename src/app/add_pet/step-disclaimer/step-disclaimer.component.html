@@ -50,13 +50,13 @@
       </div>
       <!-- /.box-body -->
 
-       <button *ngIf="disclaimer.diet_agreed == true" routerLink="/home/{{ route_link_next }}" routerLinkActive="active" (click)="save()"
+       <button *ngIf="disclaimer.diet_agreed == true" routerLink="{{ route_link_next }}" routerLinkActive="active" (click)="save()"
               type="submit"
               class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
       </button>
 
 
-      <button routerLink="/home/{{ route_link_back }}" routerLinkActive="active" ng-click='back()' ui-sref="add_pet.favrot_criteria"
+      <button routerLink="{{ route_link_back }}" routerLinkActive="active" ng-click='back()' ui-sref="add_pet.favrot_criteria"
               id="moving" type="button"
               name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
               style='float:left'>Return

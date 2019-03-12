@@ -186,21 +186,26 @@ const routes: Routes = [
             component: PetComponent
           },
           {
-            path: 'supporting-diet',
-            component: SupportingDietComponent
+            path: 'update/:id',
+            component: UpdateComponent,
+            children: [{
+              path: 'supporting-diet',
+              component: SupportingDietComponent
+            },
+              {
+                path: 'cadesi',
+                component: StepCadesiComponent
+              },
+              {
+                path: 'drugs-history',
+                component: StepDrugsHistoryComponent
+              },
+              {
+                path: 'success',
+                component: StepSucessComponent
+              }]
           },
-          {
-            path: 'cadesi',
-            component: StepCadesiComponent
-          },
-          {
-            path: 'drugs-history',
-            component: StepDrugsHistoryComponent
-          },
-          {
-            path: 'success',
-            component: StepSucessComponent
-          }
+
 
         ]
       },
@@ -213,13 +218,20 @@ const routes: Routes = [
             component: PetComponent
           },
           {
-            path: 'disclaimer',
-            component: StepDisclaimerComponent
+            path: 'update/:id',
+            component: UpdateComponent,
+            children: [
+              {
+                path: 'disclaimer',
+                component: StepDisclaimerComponent
+              },
+              {
+                path: 'result',
+                component: ResultComponent
+              },
+            ]
           },
-          {
-            path: 'result',
-            component: ResultComponent
-          },
+
         ]
       }
 

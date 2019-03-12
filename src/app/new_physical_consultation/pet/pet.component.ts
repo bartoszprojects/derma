@@ -38,11 +38,11 @@ export class PetComponent implements OnInit {
     }
     if (splitted_url[2] == 'new-phone-consultation') {
       this.route_boolean = 1;
-      this.route_link_next = 'new-phone-consultation/supporting-diet';
+      this.route_link_next = 'new-phone-consultation/update/' + this.wchich_id + '/supporting-diet';
     }
      if (splitted_url[2] == 'homemade') {
       this.route_boolean = 2;
-      this.route_link_next = 'homemade/disclaimer';
+      this.route_link_next = 'homemade/update/' + this.wchich_id + '/disclaimer';
     }
   }
 
