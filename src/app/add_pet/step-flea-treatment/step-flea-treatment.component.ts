@@ -25,13 +25,13 @@ export class StepFleaTreatmentComponent implements OnInit {
     console.log(splitted_url);
     if (splitted_url[2] == 'new-physical-consultation') {
       this.route_boolean = 0;
-      this.route_link_next = 'new-physical-consultation/cadesi';
-      this.route_link_back = 'new-physical-consultation/pyoderma-otitis'
+      this.route_link_next = '../cadesi';
+      this.route_link_back = '../pyoderma-otitis'
     }
     if (splitted_url[2] == 'add-pet') {
       this.route_boolean = 1;
-      this.route_link_next = 'add-pet/food-allergy';
-      this.route_link_back = 'add-pet/cadesi';
+      this.route_link_next = '/home/add-pet/food-allergy';
+      this.route_link_back = '/home/add-pet/cadesi';
     }
   }
 

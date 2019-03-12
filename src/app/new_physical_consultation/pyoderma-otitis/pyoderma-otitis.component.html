@@ -3,7 +3,7 @@
   <section class="content-header">
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Is having a
+        <h1 class="control-label" for="id_Sup2"> Is <b><app-common-data [element]="'pet_name'"></app-common-data></b> having a
           Pyoderma now ? </h1>
       </div>
       <!-- /.box-header -->
@@ -42,7 +42,7 @@
 
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Is having an externa
+        <h1 class="control-label" for="id_Sup2"> Is <b><app-common-data [element]="'pet_name'"></app-common-data></b> having an externa
           otitis now ? </h1>
       </div>
       <!-- /.box-header -->
@@ -81,7 +81,7 @@
 
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Is having Malassezia
+        <h1 class="control-label" for="id_Sup2"> Is <b><app-common-data [element]="'pet_name'"></app-common-data></b> having Malassezia
           dermatitis now ? </h1>
       </div>
       <!-- /.box-header -->
@@ -117,7 +117,7 @@
     </div>
 
     </ng-template>
-    <button routerLink="/home/new-physical-consultation/flea-treatment"
+    <button [routerLink]="['../flea-treatment']"
       type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
       style='float:right'>Continue
     </button>

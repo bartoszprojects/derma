@@ -24,13 +24,13 @@ export class StepWeightComponent implements OnInit {
     console.log(splitted_url);
     if (splitted_url[2] == 'new-physical-consultation') {
       this.route_boolean = 0;
-      this.route_link_next = 'new-physical-consultation/success';
-      this.route_link_back = 'new-physical-consultation/fat'
+      this.route_link_next = '../success';
+      this.route_link_back = '../fat'
     }
     if (splitted_url[2] == 'add-pet') {
       this.route_boolean = 1;
-      this.route_link_next = 'add-pet/fat';
-      this.route_link_back = 'add-pet/physical';
+      this.route_link_next = '/home/add-pet/fat';
+      this.route_link_back = '/home/add-pet/physical';
     }
   }
 

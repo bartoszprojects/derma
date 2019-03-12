@@ -26,6 +26,7 @@ export class PetComponent implements OnInit {
     this.wchich_id = index;
     this.is_clicked = true;
     this.id_pet.id_number = this.wchich_id;
+    this.checkRouteUrl()
   }
 
   checkRouteUrl() {
@@ -33,7 +34,7 @@ export class PetComponent implements OnInit {
     console.log(splitted_url);
     if (splitted_url[2] == 'new-physical-consultation') {
       this.route_boolean = 0;
-      this.route_link_next = 'new-physical-consultation/supporting-diet';
+      this.route_link_next = 'new-physical-consultation/update/' + this.wchich_id + '/supporting-diet';
     }
     if (splitted_url[2] == 'new-phone-consultation') {
       this.route_boolean = 1;

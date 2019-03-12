@@ -4,15 +4,30 @@
     <form #weight_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label " for="id_weight"><b><app-pet-name></app-pet-name></b>'s Weight </h1>
-          <h4 class="control-label " for="id_weight"><i> Use the paw to select <b><app-pet-name></app-pet-name></b>'s
-            weight.<br></i>
-          </h4>
-
+          <div *ngIf="route_boolean == 1">
+            <h1 class="control-label " for="id_weight">
+              <b>
+                <app-pet-name></app-pet-name>
+              </b>
+              's Weight
+            </h1>
+            <h4 class="control-label " for="id_weight"><i> Use the paw to select <b>
+              <app-pet-name></app-pet-name>
+            </b>'s
+              weight.<br></i>
+            </h4>
+          </div>
+          <div *ngIf="route_boolean == 0">
+            <h1 class="control-label " for="id_weight">
+              Update
+              <b><app-common-data [element]="'pet_name'"></app-common-data></b>'s Weight
+            </h1>
+          </div>
         </div>
         <!-- /.box-header -->
         <div style="text-align:center; padding-top:50px" class="box-body">
-        <mat-slider [thumbLabel]="true" class="custom-slider" step="0.5" max=100 min=0 #weight="ngModel" [(ngModel)]="weight_form.weight" name="weight" [ngModelOptions]="{standalone: true}"></mat-slider>
+          <mat-slider [thumbLabel]="true" class="custom-slider" step="0.5" max=100 min=0 #weight="ngModel"
+                      [(ngModel)]="weight_form.weight" name="weight" [ngModelOptions]="{standalone: true}"></mat-slider>
 
           <h3><span>{{ weight_form.weight }} Kilogramms </span>
           </h3>
@@ -21,12 +36,13 @@
       </div>
     </form>
 
-    <button *ngIf="weight_form.weight > 0" (click)="save()" routerLink="/home/{{ route_link_next }}" routerLinkActive="active" id="moving"
+    <button *ngIf="weight_form.weight > 0" (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
+            id="moving"
             type="button" name="next"
             class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
     </button>
 
-    <button routerLink="/home/{{ route_link_back }}" routerLinkActive="active" id="" type="button" name="previous"
+    <button routerLink="{{ route_link_back }}" routerLinkActive="active" id="" type="button" name="previous"
             class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
       Return
     </button>

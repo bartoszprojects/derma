@@ -45,7 +45,8 @@ import {PyodermaOtitisComponent} from './new_physical_consultation/pyoderma-otit
 import { ResultComponent } from './homemade_diet/result/result.component';
 import { LoginComponent } from './others/login/login.component';
 import { PetNameComponent } from './others/common/pet-name/pet-name.component';
-
+import { UpdateComponent } from './new_physical_consultation/update/update.component';
+import { CommonDataComponent } from './others/common-data/common-data.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { PetNameComponent } from './others/common/pet-name/pet-name.component';
     ResultComponent,
     LoginComponent,
     PetNameComponent,
-
+    UpdateComponent,
+    CommonDataComponent,
   ],
   imports: [
     BrowserModule,

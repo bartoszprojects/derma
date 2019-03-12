@@ -24,13 +24,13 @@ export class StepFatComponent implements OnInit {
     console.log(splitted_url);
     if (splitted_url[2] == 'new-physical-consultation') {
       this.route_boolean = 0;
-      this.route_link_next = 'new-physical-consultation/weight';
-      this.route_link_back = 'new-physical-consultation/drugs-history'
+      this.route_link_next = '../weight';
+      this.route_link_back = '../drugs-history'
     }
     if (splitted_url[2] == 'add-pet') {
       this.route_boolean = 1;
-      this.route_link_next = 'add-pet/owner-informations';
-      this.route_link_back = 'add-pet/weight';
+      this.route_link_next = '/home/add-pet/owner-informations';
+      this.route_link_back = '/home/add-pet/weight';
     }
   }
 

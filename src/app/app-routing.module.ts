@@ -31,7 +31,7 @@ import {SupportingDietComponent} from "./new_physical_consultation/supporting-di
 import {PyodermaOtitisComponent} from "./new_physical_consultation/pyoderma-otitis/pyoderma-otitis.component";
 import {ResultComponent} from "./homemade_diet/result/result.component"
 import {LoginComponent} from "./others/login/login.component";
-
+import {UpdateComponent} from "./new_physical_consultation/update/update.component";
 
 const routes: Routes = [
   {
@@ -135,39 +135,45 @@ const routes: Routes = [
         children: [
           {
             path: 'pet',
-            component: PetComponent
+            component: PetComponent,
           },
           {
-            path: 'supporting-diet',
-            component: SupportingDietComponent
-          },
-          {
-            path: 'pyoderma-otitis',
-            component: PyodermaOtitisComponent
-          },
-          {
-            path : 'flea-treatment',
-            component: StepFleaTreatmentComponent
-          },
-          {
-            path : 'cadesi',
-            component: StepCadesiComponent
-          },
-          {
-            path: 'drugs-history',
-            component: StepDrugsHistoryComponent
-          },
-          {
-            path: 'fat',
-            component: StepFatComponent
-          },
-          {
-            path: 'weight',
-            component: StepWeightComponent
-          },
-          {
-            path: 'success',
-            component: StepSucessComponent
+            path: 'update/:id',
+            component: UpdateComponent,
+            children: [
+              {
+                path: 'supporting-diet',
+                component: SupportingDietComponent
+              },
+              {
+                path: 'pyoderma-otitis',
+                component: PyodermaOtitisComponent
+              },
+              {
+                path: 'flea-treatment',
+                component: StepFleaTreatmentComponent
+              },
+              {
+                path: 'cadesi',
+                component: StepCadesiComponent
+              },
+              {
+                path: 'drugs-history',
+                component: StepDrugsHistoryComponent
+              },
+              {
+                path: 'fat',
+                component: StepFatComponent
+              },
+              {
+                path: 'weight',
+                component: StepWeightComponent
+              },
+              {
+                path: 'success',
+                component: StepSucessComponent
+              }
+            ]
           }
         ]
       },
@@ -184,7 +190,7 @@ const routes: Routes = [
             component: SupportingDietComponent
           },
           {
-            path : 'cadesi',
+            path: 'cadesi',
             component: StepCadesiComponent
           },
           {
@@ -207,7 +213,7 @@ const routes: Routes = [
             component: PetComponent
           },
           {
-            path:'disclaimer',
+            path: 'disclaimer',
             component: StepDisclaimerComponent
           },
           {

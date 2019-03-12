@@ -3,7 +3,7 @@
   <section class="content-header">
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2" style=""> Is there any diarrhea since is fed with the new diet ? (or
+        <h1 class="control-label" for="id_Sup2" style=""> Is there any diarrhea since <b><app-common-data [element]="'pet_name'"></app-common-data></b> is fed with the new diet ? (or
           more than with the previous diet) </h1>
       </div>
       <!-- /.box-header -->
@@ -29,7 +29,7 @@
 
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Is there any vomitting since is fed with the new diet ? (or more than
+        <h1 class="control-label" for="id_Sup2"> Is there any vomitting since <b><app-common-data [element]="'pet_name'"></app-common-data></b> is fed with the new diet ? (or more than
           with the previous diet) </h1>
       </div>
       <!-- /.box-header -->
@@ -53,7 +53,7 @@
 
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Is the owner under the impression that is craving for food more than he
+        <h1 class="control-label" for="id_Sup2"> Is the owner under the impression that <b><app-common-data [element]="'pet_name'"></app-common-data></b> is craving for food more than he
           was before starting this diet ? </h1>
       </div>
       <!-- /.box-header -->
@@ -91,7 +91,7 @@
       </div>
     </ng-template>
 
-    <button routerLink="/home/{{ route_link_next }}" routerLinkActive="active"
+    <button [routerLink]="['../pyoderma-otitis']"
             type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
             style='float:right'>Continue
     </button>

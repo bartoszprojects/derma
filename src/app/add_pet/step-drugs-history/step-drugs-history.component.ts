@@ -27,18 +27,18 @@ checkRouteUrl() {
 
     if (this.router.url.includes(add_pet_substring)) {
       this.route_boolean = 'add-pet';
-      this.route_link_next = 'add-pet/name';
-      this.route_link_back = 'add-pet/desensitized'
+      this.route_link_next = '/home/add-pet/name';
+      this.route_link_back = '/home/add-pet/desensitized';
     }
     if (this.router.url.includes(new_physical_consultation_substring)) {
       this.route_boolean = 'new-physical-consultation';
-      this.route_link_next = 'new-physical-consultation/fat';
-      this.route_link_back = 'new-physical-consultation/cadesi'
+      this.route_link_next = '../fat';
+      this.route_link_back = '../cadesi';
     }
     if (this.router.url.includes(new_phone_consultation_substring)) {
       this.route_boolean = 'new-phone-consultation';
       this.route_link_next = 'new-phone-consultation/success';
-      this.route_link_back = 'new-phone-consultation/cadesi'
+      this.route_link_back = 'new-phone-consultation/cadesi';
     }
   }
 

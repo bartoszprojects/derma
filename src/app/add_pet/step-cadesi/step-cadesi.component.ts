@@ -30,13 +30,13 @@ export class StepCadesiComponent implements OnInit {
 
     if (this.router.url.includes(add_pet_substring)) {
       this.route_boolean = 'add-pet';
-      this.route_link_next = 'add-pet/flea-treatment';
-      this.route_link_back = 'add-pet/favrot-criteria'
+      this.route_link_next = '/home/add-pet/flea-treatment';
+      this.route_link_back = '/home/add-pet/favrot-criteria'
     }
     if (this.router.url.includes(new_physical_consultation_substring)) {
       this.route_boolean = 'new-physical-consultation';
-      this.route_link_next = 'new-physical-consultation/drugs-history';
-      this.route_link_back = 'new-physical-consultation/flea-treatment'
+      this.route_link_next = '../drugs-history';
+      this.route_link_back = '../flea-treatment'
     }
     if (this.router.url.includes(new_phone_consultation_substring)) {
       this.route_boolean = 'new-phone-consultation';

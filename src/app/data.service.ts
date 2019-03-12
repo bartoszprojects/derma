@@ -117,6 +117,16 @@ export class DataService {
     return this.http.get('http://127.0.0.1:8001/snippets/', httpOptions)
   }
 
+  getSingleDataFromBackend(id_pet) {
+     const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+    return this.http.get('http://127.0.0.1:8001/snippets/' + id_pet, httpOptions)
+  }
+
+
   putDataToBackend() {
     let data = this.getFormData();
     let now = moment();
@@ -124,7 +134,7 @@ export class DataService {
     let date_now = now_date.valueOf();
 
     let weight_logs_content = {};
-    weight_logs_content[date_now] = 11;
+    weight_logs_content[date_now] = data.weight;
     let fat_score_logs_content = {};
     fat_score_logs_content[date_now] = data.fat_score_dog;
     let pruritus_score_logs_content = {};

@@ -123,13 +123,13 @@
           </div>
         </div>
         <div class="buttons-wrapper">
-          <button routerLink="/home/{{ route_link_next }}" routerLinkActive="active" (click)="save()"
+          <button routerLink="{{ route_link_next }}" routerLinkActive="active" (click)="save()"
                   ui-sref="add_pet.flea_treatment"
                   ng-show="getTotal_of_cadesi()!=='0' & pet_data.pruritus_score!=''" id="" type="button" name="next"
                   class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
           </button>
 
-          <button routerLink="/home/{{ route_link_back }}" routerLinkActive="active" ng-click='back()'
+          <button routerLink="{{ route_link_back }}" routerLinkActive="active" ng-click='back()'
                   ui-sref="add_pet.favrot_criteria" id="moving" type="button"
                   name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
                   style='float:left'>Return
