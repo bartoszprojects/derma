@@ -140,6 +140,19 @@ export class DataService {
     return this.http.get('http://127.0.0.1:8002/api/dog-breed-list/', httpOptions)
   }
 
+  getRecipeDataFromBackend() {
+
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    headers = headers.set('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
+
+    const params = new HttpParams()
+      .set('id_pet', 'ebbd7e94-e6fa-4c37-b2bc-2af7c47c6286')
+      .set('voracious', '1')
+      .set('low_carb', '1');
+
+    return this.http.get('http://127.0.0.1:8002/api/recipe_derma' , {headers: headers, params: params})
+  }
+
   deleteSinglePetFromBackend() {
     const httpOptions = {
       headers: new HttpHeaders({

@@ -11,6 +11,7 @@ import {ChartsModule} from 'ng2-charts/ng2-charts';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 import { MomentModule } from 'ngx-moment';
+import {MatTableModule} from '@angular/material/table';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -99,7 +100,8 @@ import { CommonDataComponent } from './others/common-data/common-data.component'
     ChartsModule,
     MatExpansionModule,
     HttpClientModule,
-    MomentModule
+    MomentModule,
+    MatTableModule
 
   ],
   providers: [],
