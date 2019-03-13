@@ -20,6 +20,9 @@ export class PetComponent implements OnInit {
   wchich_id;
   id_pet : idPetModel;
   form: any;
+  hide_pet = false;
+  set_pet;
+  list_of_hidden = [];
 
   setSelected(index) {
     this.set_color = index;
@@ -76,6 +79,16 @@ export class PetComponent implements OnInit {
 
   putData() {
     this.formDataService.setId(this.id_pet);
+  }
+  hideSinglePetFromBackend(id) {
+    this.formDataService.hideSinglePetFromBackend(id);
+    this.router.navigate(['home/new-physical-consultation/pet']);
+  }
+  hidePet(index) {
+    this.hide_pet = true;
+    this.set_pet = index;
+    this.list_of_hidden.push(index);
+    console.log(this.list_of_hidden)
   }
 
 }

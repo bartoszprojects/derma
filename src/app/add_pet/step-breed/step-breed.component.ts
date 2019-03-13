@@ -12,7 +12,7 @@ import {StepBreed} from '../../formData.model';
   styleUrls: ['./step-breed.component.scss']
 })
 export class StepBreedComponent implements OnInit {
-
+  breeds;
   breed_form: StepBreed;
   form: any;
 
@@ -21,7 +21,9 @@ export class StepBreedComponent implements OnInit {
 
   ngOnInit() {
     this.breed_form = this.formDataService.getBreed();
-    console.log('Personal feature loaded!');
+    this.formDataService.getBreetDataFromBackend().subscribe(result => {
+    this.breeds = result
+  });
   }
 
   save() {

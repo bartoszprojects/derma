@@ -7,7 +7,6 @@
           <h1 class="control-label " for="id_crossed_name"> Tell us more about <b><app-pet-name></app-pet-name></b>'s breed !
           </h1>
         </div>
-        <!-- /.box-header -->
         <div class="box-body">
           <div style="text-align:center">
             <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 0"
@@ -25,12 +24,8 @@
               <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="2"
                      class='ng-hide'>I don't know</label>
           </div>
-
         </div>
-
-
       </div>
-      <!-- /.box-body -->
 
       <ng-template
         [ngIf]="breed_form.crossed == 0 || breed_form.crossed == 1 || breed_form.crossed == 2">
@@ -48,9 +43,9 @@
                     </h2>
 
                     <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
-                            #breed_dog_1="ngModel" [(ngModel)]="breed_form.breed_dog_1" name="breed_dog_1">
-                      <option class="dropdown-select">
-                        example
+                            #breed_dog_pure="ngModel" [(ngModel)]="breed_form.breed_dog_pure" name="breed_dog_pure">
+                      <option class="dropdown-select" *ngFor="let breed of breeds">
+                        {{ breed.name }}
                       </option>
                     </select>
 
@@ -64,12 +59,11 @@
                       </h2>
 
                       <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
-                              #breed_dog_2="ngModel" [(ngModel)]="breed_form.breed_dog_2" name="breed_dog_2">
-                        <option class="dropdown-select">
-                          example
+                              #breed_dog_2="ngModel" [(ngModel)]="breed_form.breed_dog_1" name="breed_dog_2">
+                        <option class="dropdown-select" *ngFor="let breed of breeds">
+                          {{ breed.name }}
                         </option>
                       </select>
-
 
                     </div>
                     <div class="col-lg-6 ng-class">
@@ -77,8 +71,8 @@
                       </h2>
                       <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
                               #breed_dog_2="ngModel" [(ngModel)]="breed_form.breed_dog_2" name="breed_dog_2">
-                        <option class="dropdown-select">
-                          example
+                        <option class="dropdown-select" *ngFor="let breed of breeds">
+                          {{ breed.name }}
                         </option>
                       </select>
                     </div>
@@ -94,12 +88,12 @@
                   <div id="format_dog_pictures" class="cc-format-selector has-feedback form-group">
 
 
-                    <label class="drinkcard-format-cc id_dog_format_0" [class.clicked_button]="breed_form.crossed == 1">
+                    <label class="drinkcard-format-cc id_dog_format_0" [class.clicked_button]="breed_form.crossed == 'A'">
                       <input #dog_format="ngModel" [(ngModel)]="breed_form.dog_format" name="dog_format" id="id_dog_format_0" type="radio" value="A"
                              style='width:0%' class='ng-hide'/></label>
 
 
-                    <label class="drinkcard-format-cc id_dog_format_1" [class.clicked_image]="breed_form.dog_format == 2">
+                    <label class="drinkcard-format-cc id_dog_format_1" [class.clicked_image]="breed_form.dog_format == 'B'">
                       <input #dog_format="ngModel" [(ngModel)]="breed_form.dog_format" name="dog_format"
                              id="id_dog_format_1" type="radio"
                              value="B"
@@ -107,21 +101,21 @@
                              class='ng-hide'/></label>
 
 
-                    <label class="drinkcard-format-cc id_dog_format_2" [class.clicked_image]="breed_form.dog_format == 3">
+                    <label class="drinkcard-format-cc id_dog_format_2" [class.clicked_image]="breed_form.dog_format == 'C'">
                       <input #dog_format="ngModel" [(ngModel)]="breed_form.dog_format" name="dog_format"
                              id="id_dog_format_2" type="radio"
                              value="C"
                              style='width:0%' class='ng-hide'/></label>
 
 
-                    <label class="drinkcard-format-cc id_dog_format_3" [class.clicked_image]="breed_form.dog_format == 4">
+                    <label class="drinkcard-format-cc id_dog_format_3" [class.clicked_image]="breed_form.dog_format == 'D'">
                       <input #dog_format="ngModel" [(ngModel)]="breed_form.dog_format" name="dog_format" id="id_dog_format_3" type="radio"
                              value="D"
                              style='width:0%'
                              class='ng-hide'/></label>
 
 
-                    <label class="drinkcard-format-cc id_dog_format_4" [class.clicked_image]="breed_form.dog_format == 5">
+                    <label class="drinkcard-format-cc id_dog_format_4" [class.clicked_image]="breed_form.dog_format == 'E'">
                       <input #dog_format="ngModel" [(ngModel)]="breed_form.dog_format" name="dog_format" id="id_dog_format_4" type="radio" value="E"
                              style='width:0%' class='ng-hide'/></label>
                   </div>
@@ -130,7 +124,6 @@
 
             </div>
           </div>
-          <!-- /.box-body -->
         </div>
       </ng-template>
 

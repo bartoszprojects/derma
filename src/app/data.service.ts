@@ -12,7 +12,7 @@ import {interval} from 'rxjs';
 import {switchMap, map, tap, share, shareReplay} from 'rxjs/operators';
 import * as moment from 'moment'
 import {post} from "selenium-webdriver/http";
-import {HttpParams} from  "@angular/common/http";
+import {HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -130,6 +130,47 @@ export class DataService {
     return this.http.get('http://127.0.0.1:8002/api/snippets/' + id_pet, httpOptions)
   }
 
+  getBreetDataFromBackend() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+      })
+    };
+    return this.http.get('http://127.0.0.1:8002/api/dog-breed-list/', httpOptions)
+  }
+
+  deleteSinglePetFromBackend() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+      })
+    };
+    return this.http.delete('http://127.0.0.1:8002/api/snippets/d075343f-976e-4b9c-a689-4dd2444a5592', httpOptions).subscribe(result => {
+      console.log('FROOM DELETE: ', result)
+    });
+  }
+
+  hideSinglePetFromBackend(id) {
+    var postData = {
+      "recruiter_id": 1,
+      "recruiter_email": "admin@example.com",
+      "display": false
+    };
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+      })
+    };
+
+    this.http.patch('http://127.0.0.1:8002/api/snippets/' + id + '/', postData, httpOptions)
+      .subscribe(result => {
+        console.log('FROOM HIDE: ', result)
+      });
+  }
 
   putDataToBackend() {
     let data = this.getFormData();
@@ -386,6 +427,7 @@ export class DataService {
   getBreed(): StepBreed {
     var breed: StepBreed = {
       crossed: this.formData.crossed,
+      breed_dog_pure: this.formData.breed_dog_pure,
       breed_dog_1: this.formData.breed_dog_1,
       breed_dog_2: this.formData.breed_dog_2,
       dog_format: this.formData.dog_format,
@@ -395,6 +437,7 @@ export class DataService {
 
   setBreed(data: StepBreed) {
     this.formData.crossed = data.crossed;
+    this.formData.breed_dog_pure = data.breed_dog_pure;
     this.formData.breed_dog_1 = data.breed_dog_1;
     this.formData.breed_dog_2 = data.breed_dog_2;
     this.formData.dog_format = data.dog_format;

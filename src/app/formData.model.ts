@@ -63,6 +63,7 @@ export class FormData {
   name = '';
   age = '';
   crossed = 0;
+  breed_dog_pure = '';
   breed_dog_1 = '';
   breed_dog_2 = '';
   dog_format = '';
@@ -116,6 +117,7 @@ export class FormData {
     this.name = '';
     this.age = '';
     this.crossed = 0;
+    this.breed_dog_pure = '';
     this.breed_dog_1 = '';
     this.breed_dog_2 = '';
     this.dog_format = '';
@@ -132,7 +134,7 @@ export class FormData {
 }
 
 export class idPetModel {
-  id_number : number = 0;
+  id_number: number = 0;
 }
 
 export class StepDisclaimer {
@@ -211,6 +213,7 @@ export class StepAge {
 
 export class StepBreed {
   crossed?: number = 0;
+  breed_dog_pure?: string = '';
   breed_dog_1?: string = '';
   breed_dog_2?: string = '';
   dog_format?: string = '';

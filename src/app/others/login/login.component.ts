@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from "../../data.service";
 import {Login} from "../../formData.model";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +11,11 @@ import {Login} from "../../formData.model";
 export class LoginComponent implements OnInit {
   login: Login;
   form: any;
-  constructor(private formDataService: DataService) { }
+  constructor(private formDataService: DataService, private router: Router) { }
 
   ngOnInit() {
-
     this.login = this.formDataService.getLogin();
+    this.router.navigate(['/home/welcome']);
   }
 
   save() {

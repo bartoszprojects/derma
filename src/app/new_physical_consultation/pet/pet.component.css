@@ -23,4 +23,8 @@ mat-expansion-panel {
   border: 2px solid black;
 }
 
+.wasClickedHide {
+  display: none !important;
+}
+
 /*# sourceMappingURL=pet.component.css.map */

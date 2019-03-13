@@ -38,6 +38,11 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
+    path: '',
+    redirectTo: 'home/welcome',
+    pathMatch: 'full'
+  },
+  {
     path: 'home', component: SmartAtopiaComponent, children: [
       {
         path: 'welcome',

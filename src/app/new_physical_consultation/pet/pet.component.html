@@ -24,12 +24,13 @@
 
 
     <div class="row">
-      <div *ngFor="let pet of pets">
-        <div class="col-md-6">
+      <div *ngFor="let pet of pets; let index = index">
+        <div *ngIf="pet.display == true && !list_of_hidden.includes(pet.id)" class="col-md-6" [class.wasClickedHide]="set_pet == pet.id">
           <div class="box box-widget widget-user-2 list-single-pet" (click)="setSelected(pet.id)"
                [class.wasClicked]="set_color == pet.id">
             <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" ng-click="askDelete($index,pet)"><i
+              <button type="button" class="btn btn-box-tool" (click)="hidePet(pet.id); hideSinglePetFromBackend(pet.id)"
+              ><i
                 class="fa fa-times"></i></button>
             </div>
 
