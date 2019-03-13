@@ -60,7 +60,7 @@ export class SmartAtopiaWelcomeComponent implements OnInit {
   ngOnInit() {
      let check_local_token = localStorage.getItem('access_token');
      console.log('check token', check_local_token);
-     if (check_local_token.length < 1) {
+     if (!check_local_token) {
        this.router.navigate(['/login']);
      }
   }

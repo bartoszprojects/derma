@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
   login: Login;
   form: any;
   access_token;
-  any_error = true;
 
   constructor(private formDataService: DataService, private router: Router) {
   }
@@ -27,7 +26,6 @@ export class LoginComponent implements OnInit {
       this.access_token = result['access_token'];
       localStorage.setItem('access_token', this.access_token);
       console.log('FROM LOCAL STORAGE', localStorage.getItem('access_token'));
-      this.any_error = false;
       this.router.navigate(['/home/welcome']);
     });
 
