@@ -98,26 +98,26 @@
             <div id="food_picture" class="food-selector has-feedback form-group">
 
 
-              <label class="ct-cn-food id_food_presentation_0" [class.clicked_image]="food_allergy.industrial_or_homemade == 0"> <input #industrial_or_homemade="ngModel"
+              <label class="ct-cn-food id_food_presentation_0" [class.clicked_image]="food_allergy.industrial_or_homemade == 'INDUSTRIAL'"> <input #industrial_or_homemade="ngModel"
                                                                        [(ngModel)]="food_allergy.industrial_or_homemade"
                                                                        name="industrial_or_homemade"
-                                                                       type="radio" value="0"
+                                                                       type="radio" value="INDUSTRIAL"
                                                                        class='form-control ng-hide'/></label>
 
-              <label class="ct-cn-food id_food_presentation_2" [class.clicked_image]="food_allergy.industrial_or_homemade == 1">
+              <label class="ct-cn-food id_food_presentation_2" [class.clicked_image]="food_allergy.industrial_or_homemade == 'HOMEMADE'">
                 <input #industrial_or_homemade="ngModel" [(ngModel)]="food_allergy.industrial_or_homemade"
-                       name="industrial_or_homemade" type="radio" value="1"
+                       name="industrial_or_homemade" type="radio" value="HOMEMADE"
                        class='form-control ng-hide'/></label>
             </div>
 
-            <ng-template [ngIf]="food_allergy.industrial_or_homemade == false">
+            <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'INDUSTRIAL'">
               <div ng-show="pet_data.food_allergy.type=='1'" class="box-body form-group has-feedback">
                 <blockquote>
                   <h2><p>Industrial Petfood</p></h2>
                 </blockquote>
               </div>
             </ng-template>
-            <ng-template [ngIf]="food_allergy.industrial_or_homemade == true">
+            <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'HOMEMADE'">
               <div ng-show="pet_data.food_allergy.type=='2'" class="box-body form-group has-feedback">
                 <blockquote>
                   <h2><p>Homemade Petfood</p></h2>
@@ -130,14 +130,14 @@
 
         </div>
       </ng-template>
-      <ng-template [ngIf]="food_allergy.industrial_or_homemade == false || food_allergy.industrial_or_homemade == true">
+      <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'INDUSTRIAL' || food_allergy.industrial_or_homemade == 'HOMEMADE'">
         <div class="box box-default box-solid">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label" for="id_Sup2"> What petfood did you use in particular ? </h1>
           </div>
 
           <div class="box-body">
-            <ng-template [ngIf]="food_allergy.industrial_or_homemade == false">
+            <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'INDUSTRIAL'">
               <div style="text-align:center">
 
                 <div>
@@ -208,7 +208,7 @@
 
               </div>
             </ng-template>
-            <ng-template [ngIf]="food_allergy.industrial_or_homemade == true">
+            <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'HOMEMADE'">
               <div ng-show="pet_data.food_allergy.type=='2'" style="text-align:center">
                 <div><p>
                   Share with us the ingredients of the recipe. Ex : chicken, pasta, spinach, minerals.</p></div>

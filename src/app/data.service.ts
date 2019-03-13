@@ -12,11 +12,14 @@ import {interval} from 'rxjs';
 import {switchMap, map, tap, share, shareReplay} from 'rxjs/operators';
 import * as moment from 'moment'
 import {post} from "selenium-webdriver/http";
+import {HttpParams} from  "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+  access_token;
+
   private formData: FormData = new FormData();
   private loginData: LoginData = new LoginData();
 
@@ -91,18 +94,17 @@ export class DataService {
       "age": Number(data.age),
       "accept_data_sharing": data.accept_data_sharing,
       "flea_treatment": data.flea_treatment,
-      "exclusion_diet": data.flea_allergy_excluded,
       "exlcusion_diet_food_recipe": "nbc"
     };
 
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'my-auth-token'
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
 
-    this.http.post('http://127.0.0.1:8001/snippets/', postData, httpOptions)
+    this.http.post('http://127.0.0.1:8002/api/snippets/', postData, httpOptions)
       .subscribe(result => {
         console.log('FROOM POSSTTT: ', result)
       });
@@ -112,18 +114,20 @@ export class DataService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get('http://127.0.0.1:8001/snippets/', httpOptions)
+    return this.http.get('http://127.0.0.1:8002/api/snippets/', httpOptions)
   }
 
   getSingleDataFromBackend(id_pet) {
-     const httpOptions = {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get('http://127.0.0.1:8001/snippets/' + id_pet, httpOptions)
+    return this.http.get('http://127.0.0.1:8002/api/snippets/' + id_pet, httpOptions)
   }
 
 
@@ -170,11 +174,11 @@ export class DataService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'my-auth-token'
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
 
-    this.http.put('http://127.0.0.1:8001/snippets/' + data.id_number + '/', postData, httpOptions)
+    this.http.patch('http://127.0.0.1:8002/api/snippets/' + data.id_number + '/', postData, httpOptions)
       .subscribe(result => {
         console.log('FROOM POSSTTT: ', result)
       });
@@ -486,20 +490,26 @@ export class DataService {
   }
 
   sendLoginToBackend() {
-    var postData = {
-      username: 'snv',
-      password: 'snv',
 
+    const payload = new HttpParams()
+      .set('username', 'rootx')
+      .set('password', 'senatorbambam')
+      .set('client_id', '0sVIx5DyqViweLdFnxIqClfY5DxKHGlaxCon9fM1')
+      .set('client_secret', 'bjtdtJq61lgdAWFGSCziNSM0Rm09uC27Ig3Xi8DhZEpKVuaHkZK3Y8AYlx8ZwWyjvbN1prxsQOCIYjwjXdG45f8A8zRbfH8XQvIKoSgXRBDwJXCzKf699cU11eHJho16')
+      .set('scope', 'read write')
+      .set('grant_type', 'password');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+      })
     };
 
-    let headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-
-    headers.append('responseType', 'text');
-    headers.append('Authorization', 'Bearer ' + 'oRJVuwLHlmsSSTnA0xiQrHoD0xKB95NuODCzXU3Ncc5nDxdaca4suVgtZOt7D5WS');
-
-    this.http.post('http://127.0.0.1:8001/login/', postData, {responseType: 'text' as 'json'})
+    this.http.post('http://127.0.0.1:8002/o/token/', payload, httpOptions)
       .subscribe(result => {
-        console.log('FROM LOGIN: ', result)
+        this.access_token = result['access_token'];
+        localStorage.setItem('access_token', this.access_token);
+        console.log('FROM LOCAL STORAGE', localStorage.getItem('access_token'))
       });
   }
 

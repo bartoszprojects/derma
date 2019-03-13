@@ -37,10 +37,10 @@ export class FormData {
   total = 0;
   pruritus_score = 0;
   flea_allergy_excluded = null;
-  flea_treatment = 0;
+  flea_treatment = '';
   excluded = null;
   more_8_weeks = null;
-  industrial_or_homemade = null;
+  industrial_or_homemade = '';
   what_petfood = '';
   pyodermatitis = null;
   pyodermatitis_history = null;
@@ -65,10 +65,10 @@ export class FormData {
   crossed = 0;
   breed_dog_1 = '';
   breed_dog_2 = '';
-  dog_format = 0;
-  gender = 0;
-  sexual_capacity = 0;
-  physical_activity = 0;
+  dog_format = '';
+  gender = '';
+  sexual_capacity = '';
+  physical_activity = '';
   weight = 0;
   fat_score_dog = 0;
   owner_name = '';
@@ -90,10 +90,10 @@ export class FormData {
     this.total = 0;
     this.pruritus_score = 0;
     this.flea_allergy_excluded = null;
-    this.flea_treatment = null;
+    this.flea_treatment = '';
     this.excluded = null;
     this.more_8_weeks = null;
-    this.industrial_or_homemade = null;
+    this.industrial_or_homemade = '';
     this.what_petfood = '';
     this.pyodermatitis = null;
     this.pyodermatitis_history = null;
@@ -118,10 +118,10 @@ export class FormData {
     this.crossed = 0;
     this.breed_dog_1 = '';
     this.breed_dog_2 = '';
-    this.dog_format = 0;
-    this.gender = 0;
-    this.sexual_capacity = 0;
-    this.physical_activity = 0;
+    this.dog_format = '';
+    this.gender = '';
+    this.sexual_capacity = '';
+    this.physical_activity = '';
     this.weight = 0;
     this.fat_score_dog = 0;
     this.owner_name = '';
@@ -158,13 +158,13 @@ export class StepCadesi {
 
 export class StepFleaTreatment {
   flea_allergy_excluded?: boolean = null;
-  flea_treatment?: number = 0;
+  flea_treatment?: string = '';
 }
 
 export class StepFoodAllergy {
   excluded?: boolean = null;
   more_8_weeks?: boolean = null;
-  industrial_or_homemade?: boolean = null;
+  industrial_or_homemade?: string = '';
   what_petfood?: string = '';
 }
 
@@ -213,19 +213,19 @@ export class StepBreed {
   crossed?: number = 0;
   breed_dog_1?: string = '';
   breed_dog_2?: string = '';
-  dog_format?: number = 0;
+  dog_format?: string = '';
 }
 
 export class StepGender {
-  gender?: number = 0;
+  gender?: string = '';
 }
 
 export class StepSex {
-  sexual_capacity?: number = 0;
+  sexual_capacity?: string = '';
 }
 
 export class StepPhysical {
-  physical_activity?: number = 0;
+  physical_activity?: string = '';
 }
 
 export class StepWeight {
