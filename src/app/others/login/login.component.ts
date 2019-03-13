@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from "../../data.service";
 import {Login} from "../../formData.model";
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,17 +11,26 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   login: Login;
   form: any;
-  constructor(private formDataService: DataService, private router: Router) { }
+  access_token;
+  any_error = true;
+
+  constructor(private formDataService: DataService, private router: Router) {
+  }
 
   ngOnInit() {
     this.login = this.formDataService.getLogin();
-    // this.router.navigate(['/home/welcome']);
   }
 
   save() {
     this.formDataService.setLogin(this.login);
-    console.log(this.formDataService.getLoginForm());
-    this.formDataService.sendLoginToBackend();
+    this.formDataService.sendLoginToBackend(this.login.username, this.login.password).subscribe(result => {
+      this.access_token = result['access_token'];
+      localStorage.setItem('access_token', this.access_token);
+      console.log('FROM LOCAL STORAGE', localStorage.getItem('access_token'));
+      this.any_error = false;
+      this.router.navigate(['/home/welcome']);
+    });
+
     return true;
   }
 

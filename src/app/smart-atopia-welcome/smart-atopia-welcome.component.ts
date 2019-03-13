@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -53,13 +54,14 @@ export class SmartAtopiaWelcomeComponent implements OnInit {
 
   ];
 
-
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
-
+     let check_local_token = localStorage.getItem('access_token');
+     console.log('check token', check_local_token);
+     if (check_local_token.length < 1) {
+       this.router.navigate(['/login']);
+     }
   }
-
-
 }
