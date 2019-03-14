@@ -104,7 +104,7 @@ export class DataService {
       })
     };
 
-    this.http.post('http://api.snv-derma.rootxnet.com/api/snippets/', postData, httpOptions)
+    this.http.post('https://api.snv-derma.rootxnet.com/api/snippets/', postData, httpOptions)
       .subscribe(result => {
         console.log('FROOM POSSTTT: ', result)
       });
@@ -117,7 +117,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get('http://api.snv-derma.rootxnet.com/api/snippets/', httpOptions)
+    return this.http.get('https://api.snv-derma.rootxnet.com/api/snippets/', httpOptions)
   }
 
   getSingleDataFromBackend(id_pet) {
@@ -127,7 +127,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get('http://api.snv-derma.rootxnet.com/api/snippets/' + id_pet, httpOptions)
+    return this.http.get('https://api.snv-derma.rootxnet.com/api/snippets/' + id_pet, httpOptions)
   }
 
   getBreetDataFromBackend() {
@@ -137,7 +137,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get('http://api.snv-derma.rootxnet.com/api/dog-breed-list/', httpOptions)
+    return this.http.get('https://api.snv-derma.rootxnet.com/api/dog-breed-list/', httpOptions)
   }
 
   getRecipeDataFromBackend() {
@@ -150,7 +150,7 @@ export class DataService {
       .set('voracious', '1')
       .set('low_carb', '1');
 
-    return this.http.get('http://api.snv-derma.rootxnet.com/api/recipe_derma' , {headers: headers, params: params})
+    return this.http.get('https://api.snv-derma.rootxnet.com/api/recipe_derma' , {headers: headers, params: params})
   }
 
   deleteSinglePetFromBackend() {
@@ -160,7 +160,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.delete('http://api.snv-derma.rootxnet.com/api/snippets/d075343f-976e-4b9c-a689-4dd2444a5592', httpOptions).subscribe(result => {
+    return this.http.delete('https://api.snv-derma.rootxnet.com/api/snippets/d075343f-976e-4b9c-a689-4dd2444a5592', httpOptions).subscribe(result => {
       console.log('FROOM DELETE: ', result)
     });
   }
@@ -179,7 +179,7 @@ export class DataService {
       })
     };
 
-    this.http.patch('http://api.snv-derma.rootxnet.com/api/snippets/' + id + '/', postData, httpOptions)
+    this.http.patch('https://api.snv-derma.rootxnet.com/api/snippets/' + id + '/', postData, httpOptions)
       .subscribe(result => {
         console.log('FROOM HIDE: ', result)
       });
@@ -232,7 +232,7 @@ export class DataService {
       })
     };
 
-    this.http.patch('http://api.snv-derma.rootxnet.com/api/snippets/' + data.id_number + '/', postData, httpOptions)
+    this.http.patch('https://api.snv-derma.rootxnet.com/api/snippets/' + data.id_number + '/', postData, httpOptions)
       .subscribe(result => {
         console.log('FROOM POSSTTT: ', result)
       });
@@ -561,7 +561,7 @@ export class DataService {
       })
     };
 
-    return this.http.post('http://api.snv-derma.rootxnet.com/o/token/', payload, httpOptions)
+    return this.http.post('https://api.snv-derma.rootxnet.com/o/token/', payload, httpOptions)
 
   }
 
