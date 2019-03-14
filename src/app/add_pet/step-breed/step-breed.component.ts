@@ -22,13 +22,27 @@ export class StepBreedComponent implements OnInit {
   ngOnInit() {
     this.breed_form = this.formDataService.getBreed();
     this.formDataService.getBreetDataFromBackend().subscribe(result => {
-    this.breeds = result
-  });
+      this.breeds = result
+    });
   }
 
   save() {
+    for (let elem in this.breeds) {
+      if (this.breeds && elem) {
+        if (this.breeds[elem].name == this.breed_form.breed_dog_pure) {
+          this.breed_form.breed_dog_pure = this.breeds[elem].id;
+        }
+        if (this.breeds[elem].name == this.breed_form.breed_dog_1) {
+          this.breed_form.breed_dog_1 = this.breeds[elem].id;
+        }
+        if (this.breeds[elem].name == this.breed_form.breed_dog_2) {
+          this.breed_form.breed_dog_2 = this.breeds[elem].id;
+        }
+      }
+    }
     this.formDataService.setBreed(this.breed_form);
     return true;
   }
+
 
 }

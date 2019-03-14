@@ -12,6 +12,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 import { MomentModule } from 'ngx-moment';
 import {MatTableModule} from '@angular/material/table';
+import {MatRadioModule} from '@angular/material/radio';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -101,7 +102,8 @@ import { CommonDataComponent } from './others/common-data/common-data.component'
     MatExpansionModule,
     HttpClientModule,
     MomentModule,
-    MatTableModule
+    MatTableModule,
+    MatRadioModule
 
   ],
   providers: [],

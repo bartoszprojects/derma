@@ -21,4 +21,15 @@ textarea {
   min-height: 140px;
 }
 
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 /*# sourceMappingURL=step-food-allergy.component.css.map */

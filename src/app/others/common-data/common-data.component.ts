@@ -24,14 +24,16 @@ export class CommonDataComponent implements OnInit {
   }
 
   getSingleDataFromBackend() {
+    console.log('SINGLE CALL FROM COMMON DATA COMPONENT');
     this.formDataService.getSingleDataFromBackend(this.get_param).subscribe(result => {
       this.pets = result[this.element]
     });
   }
+
   showUrlParam() {
     const param = this.route.parent.snapshot.params['id'];
     this.get_param = param;
-    console.log('url param id:     ', this.get_param)
+    console.log('url param id:', this.get_param)
   }
 }
 

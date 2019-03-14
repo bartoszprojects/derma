@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
     this.formDataService.sendLoginToBackend(this.login.username, this.login.password).subscribe(result => {
       this.access_token = result['access_token'];
       localStorage.setItem('access_token', this.access_token);
+      console.log('FULL RESULT FROM TOKEN: ', result);
       console.log('FROM LOCAL STORAGE', localStorage.getItem('access_token'));
       this.router.navigate(['/home/welcome']);
     });

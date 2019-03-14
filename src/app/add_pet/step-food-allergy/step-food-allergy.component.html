@@ -53,12 +53,14 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div style="text-align:center">
-              <label [class.clicked_button]="food_allergy.more_8_weeks == true" style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0">
+              <label [class.clicked_button]="food_allergy.more_8_weeks == true" style="font-size: 2.5vw;"
+                     class="btn btn-1 btn-1a btn-crossed_0">
                 <input #more_8_weeks="ngModel" [(ngModel)]="food_allergy.more_8_weeks" name="more_8_weeks"
                        class='ng-hide' class='form-control' type="radio" value="1"
                        class='ng-hide'> Yes</label>
 
-              <label [class.clicked_button_warning]="food_allergy.more_8_weeks == false"  style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1">
+              <label [class.clicked_button_warning]="food_allergy.more_8_weeks == false" style="font-size: 2.5vw;"
+                     class="btn btn-1 btn-1a btn-crossed_1">
                 <input #more_8_weeks="ngModel" [(ngModel)]="food_allergy.more_8_weeks" name="more_8_weeks"
                        class='ng-hide' class='form-control' type="radio" value="0"
                        class='ng-hide'> No </label>
@@ -98,13 +100,16 @@
             <div id="food_picture" class="food-selector has-feedback form-group">
 
 
-              <label class="ct-cn-food id_food_presentation_0" [class.clicked_image]="food_allergy.industrial_or_homemade == 'INDUSTRIAL'"> <input #industrial_or_homemade="ngModel"
-                                                                       [(ngModel)]="food_allergy.industrial_or_homemade"
-                                                                       name="industrial_or_homemade"
-                                                                       type="radio" value="INDUSTRIAL"
-                                                                       class='form-control ng-hide'/></label>
+              <label class="ct-cn-food id_food_presentation_0"
+                     [class.clicked_image]="food_allergy.industrial_or_homemade == 'INDUSTRIAL'"> <input
+                #industrial_or_homemade="ngModel"
+                [(ngModel)]="food_allergy.industrial_or_homemade"
+                name="industrial_or_homemade"
+                type="radio" value="INDUSTRIAL"
+                class='form-control ng-hide'/></label>
 
-              <label class="ct-cn-food id_food_presentation_2" [class.clicked_image]="food_allergy.industrial_or_homemade == 'HOMEMADE'">
+              <label class="ct-cn-food id_food_presentation_2"
+                     [class.clicked_image]="food_allergy.industrial_or_homemade == 'HOMEMADE'">
                 <input #industrial_or_homemade="ngModel" [(ngModel)]="food_allergy.industrial_or_homemade"
                        name="industrial_or_homemade" type="radio" value="HOMEMADE"
                        class='form-control ng-hide'/></label>
@@ -130,7 +135,8 @@
 
         </div>
       </ng-template>
-      <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'INDUSTRIAL' || food_allergy.industrial_or_homemade == 'HOMEMADE'">
+      <ng-template
+        [ngIf]="food_allergy.industrial_or_homemade == 'INDUSTRIAL' || food_allergy.industrial_or_homemade == 'HOMEMADE'">
         <div class="box box-default box-solid">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label" for="id_Sup2"> What petfood did you use in particular ? </h1>
@@ -138,73 +144,16 @@
 
           <div class="box-body">
             <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'INDUSTRIAL'">
-              <div style="text-align:center">
+              <div>
 
-                <div>
+                <mat-radio-group class="example-radio-group" [(ngModel)]="food_allergy.what_petfood"
+                                 [ngModelOptions]="{standalone: true}">
 
-                  <input #what_petfood="ngModel" [(ngModel)]="food_allergy.what_petfood" name="what_petfood"
-                         type="radio" value='Royal Canin Hypoallergenic'/> Royal
-                  Canin
-                  Hypoallergenic
-                </div>
+                  <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+                    {{season}}
+                  </mat-radio-button>
+                </mat-radio-group>
 
-                <div>
-                  <input #what_petfood="ngModel" [(ngModel)]="food_allergy.what_petfood" name="what_petfood"
-                         type="radio" value='Royal Canin Anallergenic'/> Royal
-                  Canin
-                  Anallergenic
-                </div>
-
-                <div>
-                  <input #what_petfood="ngModel" [(ngModel)]="food_allergy.what_petfood" name="what_petfood"
-                         type="radio" value="Hill's Z/D"/> Hill's Z/D
-                </div>
-
-                <div>
-                  <input #what_petfood="ngModel" [(ngModel)]="food_allergy.what_petfood" name="what_petfood"
-                         type="radio" value="Hill's D/D"/> Hill's D/D
-                </div>
-
-                <div>
-                  <input #what_petfood="ngModel" [(ngModel)]="food_allergy.what_petfood" name="what_petfood"
-                         type="radio" value="Derm Defense"/> Hill's Derm Defense
-                </div>
-
-                <div>
-                  <input #what_petfood="ngModel" [(ngModel)]="food_allergy.what_petfood" name="what_petfood"
-                         type="radio" value='Specific Food Allergy s D/D'/>
-                  Specific
-                  Food Allergy CDD
-                </div>
-
-                <div>
-                  <input #what_petfood="ngModel" [(ngModel)]="food_allergy.what_petfood" name="what_petfood"
-                         type="radio" value='Nestlé Purina HA s D/D'/> Nestlé
-                  Purina
-                  HA
-                </div>
-
-
-                <div>
-                  <input #what_petfood="ngModel" [(ngModel)]="food_allergy.what_petfood" name="what_petfood"
-                         type="radio"
-                         value="Virbac Hypoallergy - Food Intolerance's D/D"/> Virbac Hypoallergy - Food Intolerance
-                </div>
-
-                <div>
-                  <input #what_petfood="ngModel" [(ngModel)]="food_allergy.what_petfood" name="what_petfood"
-                         type="radio"
-                         value="Virbac Hypoallergy - Dermatology Support"/>
-                  Virbac Hypoallergy - Dermatology Support
-                </div>
-
-
-                <div>
-                  <input #what_petfood="ngModel" [(ngModel)]="food_allergy.what_petfood" name="what_petfood"
-                         type="radio"
-                         value="Advance Veterinary Diets Hypoallergenic"/>
-                  Advance Veterinary Diets Hypoallergenic
-                </div>
 
               </div>
             </ng-template>
@@ -225,15 +174,16 @@
         <!-- /.box-body -->
       </ng-template>
 
-        <button *ngIf="food_allergy.what_petfood.length > 0" (click)="save()" routerLink="/home/add-pet/pyodermatitis" routerLinkActive="active" name="next"
-                class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-                style='float:right'>Continue
-        </button>
+      <button *ngIf="food_allergy.what_petfood.length > 0" (click)="save()" routerLink="/home/add-pet/pyodermatitis"
+              routerLinkActive="active" name="next"
+              class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+              style='float:right'>Continue
+      </button>
 
-        <button routerLink="/home/add-pet/flea-treatment" routerLinkActive="active" id="" type="button" name="previous"
-                class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left"
-                value="Previous" style='float:left'>Return
-        </button>
+      <button routerLink="/home/add-pet/flea-treatment" routerLinkActive="active" id="" type="button" name="previous"
+              class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left"
+              value="Previous" style='float:left'>Return
+      </button>
     </form>
 
   </section>

@@ -5,7 +5,7 @@ import {FormBuilder} from '@angular/forms';
 import {Validators} from '@angular/forms';
 import {DataService} from '../../data.service';
 import {StepFleaTreatment} from '../../formData.model';
-import {Router} from "@angular/router";
+import {Router, NavigationEnd} from "@angular/router";
 
 @Component({
   selector: 'app-step-flea-treatment',
@@ -39,9 +39,14 @@ export class StepFleaTreatmentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+        if (!(evt instanceof NavigationEnd)) {
+            return;
+        }
+        document.body.scrollTop = 0;
+    });
     this.checkRouteUrl();
     this.flea = this.formDataService.getFleaTreatment();
-
   }
 
   save() {

@@ -42,6 +42,7 @@ table {
     float: left;
     width: 25%
   }
+
   .cadesi-pursuit-div:nth-child(2) {
     float: left;
     width: 75%
@@ -54,3 +55,15 @@ table {
   float: left;
   margin-top: 15px
 }
+
+table {
+  th {
+    text-align: center
+  }
+
+  td {
+    vertical-align: middle;
+    font-size: 35px;
+  }
+}
+

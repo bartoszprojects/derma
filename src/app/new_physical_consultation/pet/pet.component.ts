@@ -74,8 +74,11 @@ export class PetComponent implements OnInit {
   getDataFromBackend() {
     this.formDataService.getDataFromBackend().subscribe(result => {
         this.pets = result
-      });
-  }
+      },
+      error => {
+            this.router.navigate(['/login'])
+    })
+  };
 
   putData() {
     this.formDataService.setId(this.id_pet);

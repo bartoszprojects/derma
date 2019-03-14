@@ -6,13 +6,17 @@ import {Validators} from '@angular/forms';
 import {DataService} from '../../data.service';
 import {StepFoodAllergy} from '../../formData.model';
 
+
 @Component({
   selector: 'app-step-food-allergy',
   templateUrl: './step-food-allergy.component.html',
   styleUrls: ['./step-food-allergy.component.scss']
 })
 export class StepFoodAllergyComponent implements OnInit {
-
+  seasons: string[] = ['Royal Canin Hypoallergenic', 'Royal Canin Anallergenic', 'Hill\'s Z/D', 'Hill\'s D/D',
+    'Derm Defense', 'Specific Food Allergy s D/D', 'Nestlé Purina HA s D/D',
+    'Virbac Hypoallergy - Food Intolerance\'s D/D', 'Virbac Hypoallergy - Dermatology Support',
+    'Advance Veterinary Diets Hypoallergenic'];
   food_allergy: StepFoodAllergy;
   form: any;
 

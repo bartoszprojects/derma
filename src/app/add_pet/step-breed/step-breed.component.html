@@ -127,7 +127,7 @@
         </div>
       </ng-template>
 
-      <button *ngIf="breed_form.breed_dog_1 || breed_form.breed_dog_2 || breed_form.dog_format"
+      <button *ngIf="breed_form.breed_dog_pure || breed_form.breed_dog_1 || breed_form.breed_dog_2 || breed_form.dog_format"
               (click)="save()" routerLink="/home/add-pet/gender" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
@@ -143,3 +143,5 @@
 
   </section>
 </div>
+
+<button (click)="bartek()">check breed name-id</button>

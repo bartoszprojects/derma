@@ -11,11 +11,11 @@
           <div style="text-align:center" id="gender_pictures" class="ss-selector has-feedback form-group">
 
 
-            <label class="drunkcard-ss id_gender_1" style=""  [class.clicked_image]="gender_form.gender == 1"> <input #gender="ngModel" [(ngModel)]="gender_form.gender" name="gender" type="radio" value="MALE"
+            <label class="drunkcard-ss id_gender_1" style=""  [class.clicked_image]="gender_form.gender == 'MALE'"> <input #gender="ngModel" [(ngModel)]="gender_form.gender" name="gender" type="radio" value="MALE"
                                                                      class='ng-hide'/></label>
 
 
-            <label class="drunkcard-ss id_gender_2" style=""  [class.clicked_image]="gender_form.gender == 2"><input #gender="ngModel" [(ngModel)]="gender_form.gender" name="gender" type="radio" value="FEMALE"
+            <label class="drunkcard-ss id_gender_2" style=""  [class.clicked_image]="gender_form.gender == 'FEMALE'"><input #gender="ngModel" [(ngModel)]="gender_form.gender" name="gender" type="radio" value="FEMALE"
                                                                     class='ng-hide'/></label>
 
           </div>

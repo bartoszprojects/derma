@@ -23,7 +23,7 @@ let cadesi_dictionary = {
 };
 
 export class FormData {
-  id_number = 0;
+  id_number = '';
   diet_agreed = false;
   three_years = false;
   indoor_dog = false;
@@ -78,7 +78,7 @@ export class FormData {
   accept_data_sharing = false;
 
   clear() {
-    this.id_number = 0;
+    this.id_number = '';
     this.diet_agreed = false;
     this.indoor_dog = false;
     this.pruritus_corticoid = false;
@@ -134,7 +134,7 @@ export class FormData {
 }
 
 export class idPetModel {
-  id_number: number = 0;
+  id_number?: string = '';
 }
 
 export class StepDisclaimer {

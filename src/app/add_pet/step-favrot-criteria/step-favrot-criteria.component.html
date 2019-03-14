@@ -11,44 +11,61 @@
         <div class="box-body" style=''>
 
           <div>
-            <input (click)="favrot_click = favrot_click+ 1" type="checkbox" #three_years="ngModel" [(ngModel)]="favrot_criteria.three_years" required id="three_years"
-                   name="three_years"
-                   placeholder="three_years"> Onset of signs under 3 years of age
+            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #three_years="ngModel"
+                          [(ngModel)]="favrot_criteria.three_years" required id="three_years"
+                          name="three_years"> Onset of signs under 3 years of age
+            </mat-checkbox>
           </div>
 
           <div>
-            <input (click)="favrot_click = favrot_click+ 1" type="checkbox" #indoor_dog="ngModel" [(ngModel)]="favrot_criteria.indoor_dog" required id="indoor_dog" name="indoor_dog"
-                   placeholder="indoor_dog"/> Dog living mostly indoors
+            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #indoor_dog="ngModel"
+                          [(ngModel)]="favrot_criteria.indoor_dog" required id="indoor_dog" name="indoor_dog"
+            > Dog living mostly indoors
+            </mat-checkbox>
           </div>
 
           <div>
-            <input (click)="favrot_click = favrot_click+ 1" type="checkbox" #pruritus_corticoid="ngModel" [(ngModel)]="favrot_criteria.pruritus_corticoid" required id="pruritus_corticoid" name="pruritus_corticoid"
-                   placeholder="pruritus_corticoid"/> Glucocorticoid-responsive pruritus
+            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #pruritus_corticoid="ngModel"
+                          [(ngModel)]="favrot_criteria.pruritus_corticoid" required id="pruritus_corticoid"
+                          name="pruritus_corticoid"
+            > Glucocorticoid-responsive pruritus
+            </mat-checkbox>
           </div>
 
           <div>
-            <input (click)="favrot_click = favrot_click+ 1" type="checkbox" #no_lesion_pruritus="ngModel" [(ngModel)]="favrot_criteria.no_lesion_pruritus" required id="no_lesion_pruritus" name="no_lesion_pruritus"
-                   placeholder="no_lesion_pruritus"/> Pruritus without lesions at onset
+            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #no_lesion_pruritus="ngModel"
+                          [(ngModel)]="favrot_criteria.no_lesion_pruritus" required id="no_lesion_pruritus"
+                          name="no_lesion_pruritus"
+            > Pruritus without lesions at onset
+            </mat-checkbox>
           </div>
 
           <div>
-            <input (click)="favrot_click = favrot_click+ 1" type="checkbox" #front_feet="ngModel" [(ngModel)]="favrot_criteria.front_feet" required id="front_feet" name="front_feet"
-                   placeholder="front_feet"/> Affected front feet
+            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #front_feet="ngModel"
+                          [(ngModel)]="favrot_criteria.front_feet" required id="front_feet" name="front_feet"
+            > Affected front feet
+            </mat-checkbox>
           </div>
 
           <div>
-            <input (click)="favrot_click = favrot_click+ 1" type="checkbox" #ear_pinnae="ngModel" [(ngModel)]="favrot_criteria.ear_pinnae" required id="ear_pinnae" name="ear_pinnae"
-                   placeholder="ear_pinnae"/> Affected ear pinnae
+            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #ear_pinnae="ngModel"
+                          [(ngModel)]="favrot_criteria.ear_pinnae" required id="ear_pinnae" name="ear_pinnae"
+            > Affected ear pinnae
+            </mat-checkbox>
           </div>
 
           <div>
-            <input (click)="favrot_click = favrot_click+ 1" type="checkbox" #ear_margins="ngModel" [(ngModel)]="favrot_criteria.ear_margins" required id="ear_margins" name="ear_margins"
-                   placeholder="ear_margins"/> Non-affected ear margins
+            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #ear_margins="ngModel"
+                          [(ngModel)]="favrot_criteria.ear_margins" required id="ear_margins" name="ear_margins"
+            > Non-affected ear margins
+            </mat-checkbox>
           </div>
 
           <div>
-            <input (click)="favrot_click = favrot_click+ 1" type="checkbox" #dorso_lumbar="ngModel" [(ngModel)]="favrot_criteria.dorso_lumbar" required id="dorso_lumbar" name="dorso_lumbar"
-                   placeholder="dorso_lumbar"/> Non-affecteddorso-lumbar area.
+            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #dorso_lumbar="ngModel"
+                          [(ngModel)]="favrot_criteria.dorso_lumbar" required id="dorso_lumbar" name="dorso_lumbar"
+            > Non-affecteddorso-lumbar area.
+            </mat-checkbox>
           </div>
 
 

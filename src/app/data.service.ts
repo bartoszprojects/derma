@@ -63,9 +63,9 @@ export class DataService {
       "recruiter_email": "admin@example.com",
       "owner_phone": data.owner_phone,
       "pet_name": data.name,
-      "breed_dog_1_pure": null,
-      "breed_dog_1": data.breed_dog_1,
-      "breed_dog_2": data.breed_dog_2,
+      "breed_1_pure": data.breed_dog_pure,
+      "breed_1": data.breed_dog_1,
+      "breed_2": data.breed_dog_2,
       "dog_format": data.dog_format,
       "date_logs": {"inclusion_date": date_now},
       "display": 1,
@@ -141,12 +141,12 @@ export class DataService {
   }
 
   getRecipeDataFromBackend() {
-
+    let data = this.getFormData();
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     headers = headers.set('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
 
     const params = new HttpParams()
-      .set('id_pet', 'ebbd7e94-e6fa-4c37-b2bc-2af7c47c6286')
+      .set('id_pet', data.id_number)
       .set('voracious', '1')
       .set('low_carb', '1');
 

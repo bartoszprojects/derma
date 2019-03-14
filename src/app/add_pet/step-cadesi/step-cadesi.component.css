@@ -52,4 +52,12 @@ table {
   margin-top: 15px;
 }
 
+table th {
+  text-align: center;
+}
+table td {
+  vertical-align: middle;
+  font-size: 35px;
+}
+
 /*# sourceMappingURL=step-cadesi.component.css.map */
