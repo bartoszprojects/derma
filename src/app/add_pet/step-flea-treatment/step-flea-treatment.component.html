@@ -1,4 +1,7 @@
- <ng-view autoscroll="true"></ng-view>
+<div *ngIf="route_boolean == 0">
+<app-common-labels [label_title]="'New Physical Consultation'" [label_desc]="'Flea Treatment'"></app-common-labels>
+</div>
+
 
 <div style="width: auto" class="container">
 

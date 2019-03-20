@@ -238,7 +238,8 @@ const routes: Routes = [
           },
 
         ]
-      }
+      },
+      {path: 'my-pet-dashboard', component: PetComponent}
 
     ]
   },

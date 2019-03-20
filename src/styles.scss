@@ -63,4 +63,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: #FF6C3E!important;
 }
 
+.content, .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+.make-padding {
+  padding: 10px;
+  margin: 20px;
+}
+
 //label { font-size: 33px!important; font-weight: normal!important; }

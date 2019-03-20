@@ -1,3 +1,11 @@
+<div>
+  <app-common-labels [icon]="'fa fa-cutlery'" [label_title]="'UZH - Homemade food for Derma'"
+                     [label_desc]="'Let\'s cook!'"></app-common-labels>
+</div>
+
+<div style="width: auto" class="container">
+
+  <section class="content-header">
 <script type="text/ng-template" id="info_data.html">
   <div class="modal fade in" id="modal-default" style="display: block;">
     <div class="modal-dialog">
@@ -39,167 +47,172 @@
   }
 </style>
 
-<div class="box box-default box-solid ">
-  <div class="box-header with-border">
-    <h3 class="box-title" style="float: left">
-      {{ pet?.pet_name }}
-      's key datas
-    </h3>
-    <div style="float: right"><i style="font-size: 32px" class="material-icons" value="CPTURE"
-                                 (click)="captureScreen()">picture_as_pdf</i></div>
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body">
+  <div class="box box-default box-solid ">
+    <div class="box-header with-border">
+      <h3 class="box-title" style="float: left">
+        {{ pet?.pet_name }}
+        's key datas
+      </h3>
+      <div style="float: right"><i style="font-size: 32px" class="material-icons" value="CPTURE"
+                                   (click)="captureScreen()">picture_as_pdf</i></div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
 
-    <div class="row">
-      <div class="col-sm-4">
-        <!-- small box -->
-        <div class="small-box bg-aqua">
-          <div class="inner">
-            <h3>
-            {{ pet?.getIDEALWEIGHT }}
-              <sup style="font-size: 20px">kg</sup></h3>
+      <div class="row">
+        <div class="col-sm-4">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>
+                {{ pet?.getIDEALWEIGHT }}
+                <sup style="font-size: 20px">kg</sup></h3>
 
-            <p>Ideal Weight</p>
+              <p>Ideal Weight</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-ios-speedometer"></i>
+            </div>
+            <a data-toggle="modal" data-target="#myModal_pet_weight" href="#" class="small-box-footer">More info <i
+              class="fa fa-arrow-circle-right"></i></a>
           </div>
-          <div class="icon">
-            <i class="ion ion-ios-speedometer"></i>
+        </div>
+        <!-- ./col -->
+        <div class="col-sm-4">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>
+                {{ pet?.getCALCULUS.ER_tot }}
+                <sup style="font-size: 20px">kcal</sup></h3>
+              <p>Energy Requirement</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-ios-bolt"></i>
+            </div>
+            <a data-toggle="modal" href="#" data-target="#myModal_pet_energy" class="small-box-footer">More info <i
+              class="fa fa-arrow-circle-right"></i></a>
           </div>
-          <a data-toggle="modal" data-target="#myModal_pet_weight" href="#" class="small-box-footer">More info <i
-            class="fa fa-arrow-circle-right"></i></a>
+        </div>
+        <!-- ./col -->
+        <div class="col-sm-4">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>
+                {{ pet?.getCALCULUS.RPC }}
+
+                <sup style="font-size: 20px">g/Mcal</sup></h3>
+
+              <p>Protein's goal</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-erlenmeyer-flask-bubbles"></i>
+            </div>
+            <a ng-click="more_info(info_protein.Title,info_protein.Text)" class="small-box-footer">More info <i
+              class="fa fa-arrow-circle-right"></i></a>
+          </div>
         </div>
       </div>
-      <!-- ./col -->
-      <div class="col-sm-4">
-        <!-- small box -->
-        <div class="small-box bg-green">
-          <div class="inner">
-            <h3>
-              {{ pet?.getCALCULUS.ER_tot }}
-              <sup style="font-size: 20px">kcal</sup></h3>
-            <p>Energy Requirement</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-ios-bolt"></i>
-          </div>
-          <a data-toggle="modal" href="#" data-target="#myModal_pet_energy" class="small-box-footer">More info <i
-            class="fa fa-arrow-circle-right"></i></a>
-        </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-4">
-        <!-- small box -->
-        <div class="small-box bg-yellow">
-          <div class="inner">
-            <h3>
-      {{ pet?.getCALCULUS.RPC }}
 
-              <sup style="font-size: 20px">g/Mcal</sup></h3>
 
-            <p>Protein's goal</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-erlenmeyer-flask-bubbles"></i>
-          </div>
-          <a ng-click="more_info(info_protein.Title,info_protein.Text)" class="small-box-footer">More info <i
-            class="fa fa-arrow-circle-right"></i></a>
-        </div>
-      </div>
     </div>
 
-
   </div>
 
-</div>
-
-<div id="contentToConvert">
-  <uib-accordion>
-    <div uib-accordion-group is-open="status1.open" class="box box-primary box-default">
-      <uib-accordion-heading class="box-header with-border">
-        <h3><i class="fa fa-fw fa-bar-chart"></i><b>Taylor Made Recipe</b> : Start cooking
-          for
-          {{ pet?.pet_name }}
-          with this recipe<i class="pull-right glyphicon"></i>
-        </h3>
-      </uib-accordion-heading>
-      <div *ngFor="let food of data">
-        <div class="info-box">
+  <div id="contentToConvert">
+    <uib-accordion>
+      <div uib-accordion-group is-open="status1.open" class="box box-primary box-default">
+        <uib-accordion-heading class="box-header with-border">
+          <h3><i class="fa fa-fw fa-bar-chart"></i><b>Taylor Made Recipe</b> : Start cooking
+            for
+            {{ pet?.pet_name }}
+            with this recipe<i class="pull-right glyphicon"></i>
+          </h3>
+        </uib-accordion-heading>
+        <div *ngFor="let food of data">
+          <div class="info-box">
         <span class="info-box-icon">
           <img class="img-circle"
                src='https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/IMG_NATURAL/{{food.img}}'>
           </span>
-          <div class="info-box-content">
-            <span class="info-box-text">{{food.title}}</span>
-            <span class="info-box-number">{{food.quantity}} g</span>
-            <span class="info-box-text"><p>{{food.information_quantity}}</p></span>
+            <div class="info-box-content">
+              <span class="info-box-text">{{food.title}}</span>
+              <span class="info-box-number">{{food.quantity}} g</span>
+              <span class="info-box-text"><p>{{food.information_quantity}}</p></span>
+
+            </div>
 
           </div>
 
         </div>
 
       </div>
-
-    </div>
-  </uib-accordion>
+    </uib-accordion>
 
 
-  <uib-accordion>
-    <div uib-accordion-group is-open="status2.open" class="box box-primary box-default">
-      <uib-accordion-heading class="box-header with-border">
-        <h3><i class="fa fa-fw fa-bar-chart"></i><b>To Go Further</b> : Take a look at the macros <i
-          class="pull-right glyphicon" ng-class="{'fa fa-minus': status2.open, 'fa fa-plus': !status2.open}"></i></h3>
+    <uib-accordion>
+      <div uib-accordion-group is-open="status2.open" class="box box-primary box-default">
+        <uib-accordion-heading class="box-header with-border">
+          <h3><i class="fa fa-fw fa-bar-chart"></i><b>To Go Further</b> : Take a look at the macros <i
+            class="pull-right glyphicon" ng-class="{'fa fa-minus': status2.open, 'fa fa-plus': !status2.open}"></i></h3>
 
-      </uib-accordion-heading>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        </uib-accordion-heading>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="ingredients">
-          <th mat-header-cell *matHeaderCellDef>Ingredients</th>
-          <td mat-cell *matCellDef="let element"> {{element.ingredients}} </td>
-        </ng-container>
+          <ng-container matColumnDef="ingredients">
+            <th mat-header-cell *matHeaderCellDef>Ingredients</th>
+            <td mat-cell *matCellDef="let element"> {{element.ingredients}} </td>
+          </ng-container>
 
-        <ng-container matColumnDef="energy">
-          <th mat-header-cell *matHeaderCellDef>Energy (kcal)</th>
-          <td mat-cell *matCellDef="let element"> {{element.energy}} </td>
-        </ng-container>
+          <ng-container matColumnDef="energy">
+            <th mat-header-cell *matHeaderCellDef>Energy (kcal)</th>
+            <td mat-cell *matCellDef="let element"> {{element.energy}} </td>
+          </ng-container>
 
-        <ng-container matColumnDef="protein">
-          <th mat-header-cell *matHeaderCellDef>Protein</th>
-          <td mat-cell *matCellDef="let element"> {{element.protein}} </td>
-        </ng-container>
+          <ng-container matColumnDef="protein">
+            <th mat-header-cell *matHeaderCellDef>Protein</th>
+            <td mat-cell *matCellDef="let element"> {{element.protein}} </td>
+          </ng-container>
 
 
-        <ng-container matColumnDef="fat">
-          <th mat-header-cell *matHeaderCellDef>Fat</th>
-          <td mat-cell *matCellDef="let element"> {{element.fat}} </td>
-        </ng-container>
+          <ng-container matColumnDef="fat">
+            <th mat-header-cell *matHeaderCellDef>Fat</th>
+            <td mat-cell *matCellDef="let element"> {{element.fat}} </td>
+          </ng-container>
 
-        <ng-container matColumnDef="carbohydrate">
-          <th mat-header-cell *matHeaderCellDef>Carbohydrate</th>
-          <td mat-cell *matCellDef="let element"> {{element.carbohydrate}} </td>
-        </ng-container>
+          <ng-container matColumnDef="carbohydrate">
+            <th mat-header-cell *matHeaderCellDef>Carbohydrate</th>
+            <td mat-cell *matCellDef="let element"> {{element.carbohydrate}} </td>
+          </ng-container>
 
-        <ng-container matColumnDef="calcium">
-          <th mat-header-cell *matHeaderCellDef>Calcium</th>
-          <td mat-cell *matCellDef="let element"> {{element.calcium}} </td>
-        </ng-container>
+          <ng-container matColumnDef="calcium">
+            <th mat-header-cell *matHeaderCellDef>Calcium</th>
+            <td mat-cell *matCellDef="let element"> {{element.calcium}} </td>
+          </ng-container>
 
-        <ng-container matColumnDef="phosphorus">
-          <th mat-header-cell *matHeaderCellDef>Phosphorus</th>
-          <td mat-cell *matCellDef="let element"> {{element.phosphorus}} </td>
-        </ng-container>
+          <ng-container matColumnDef="phosphorus">
+            <th mat-header-cell *matHeaderCellDef>Phosphorus</th>
+            <td mat-cell *matCellDef="let element"> {{element.phosphorus}} </td>
+          </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
 
-    </div>
-  </uib-accordion>
+      </div>
+    </uib-accordion>
+  </div>
+  <button id="moving" type="button" name="previous"
+          class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>Return
+  </button>
+
+
+  <!--       <div id="grid1" ui-grid="gridOptions" class="grid"></div>
+   -->
+
+  </section>
 </div>
-<button ui-sref-active="active" ng-click='back()' ui-sref="homemade.details" id="moving" type="button" name="previous"
-        class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>Return
-</button>
 
 
-<!--       <div id="grid1" ui-grid="gridOptions" class="grid"></div>
- -->
-
+{{ data | json }}

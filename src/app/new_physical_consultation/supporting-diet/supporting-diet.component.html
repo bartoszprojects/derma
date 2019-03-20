@@ -1,10 +1,23 @@
+<div *ngIf="route_boolean == 0">
+  <app-common-labels [label_title]="'New Physical Consultation'"
+                     [label_desc]="'How is this new diet going ?'"></app-common-labels>
+</div>
+
+<div *ngIf="route_boolean == 1">
+  <app-common-labels [label_title]="'New Phone Consultation'"
+                     [label_desc]="'How is this new diet going ?'"></app-common-labels>
+</div>
+
 <div style="width: auto" class="container">
 
   <section class="content-header">
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2" style=""> Is there any diarrhea since <b><app-common-data [element]="'pet_name'"></app-common-data></b> is fed with the new diet ? (or
-          more than with the previous diet) </h1>
+        <h1 class="control-label" for="id_Sup2" style=""> Is there any diarrhea since <b>
+          <app-common-data [element]="'pet_name'"></app-common-data>
+        </b> is fed with the new diet ? (or
+          more than with the previous diet)
+        </h1>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -15,9 +28,10 @@
                    id="id_crossed_0" value="1"
                    ng-model="pet_data['diarrhea']" ng-required> Yes </label>
 
-          <label [class.clicked_button]="diarrhea == 0" style="font-size: 2.5vw" ng-class="{'active-button':pet_data['diarrhea']=='0'}" for="id_crossed_1"
+          <label [class.clicked_button]="diarrhea == 0" style="font-size: 2.5vw"
+                 ng-class="{'active-button':pet_data['diarrhea']=='0'}" for="id_crossed_1"
                  class="btn btn-1 btn-1a btn-crossed_1">
-            <input  [(ngModel)]="diarrhea" class='ng-hide' class='form-control' type="radio" name="crossed"
+            <input [(ngModel)]="diarrhea" class='ng-hide' class='form-control' type="radio" name="crossed"
                    id="id_crossed_1" value="0"
                    ng-model="pet_data['diarrhea']" ng-required class='ng-hide'> No </label>
         </div>
@@ -29,20 +43,27 @@
 
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Is there any vomitting since <b><app-common-data [element]="'pet_name'"></app-common-data></b> is fed with the new diet ? (or more than
-          with the previous diet) </h1>
+        <h1 class="control-label" for="id_Sup2"> Is there any vomitting since <b>
+          <app-common-data [element]="'pet_name'"></app-common-data>
+        </b> is fed with the new diet ? (or more than
+          with the previous diet)
+        </h1>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
-          <label [class.clicked_button_warning]="vomitting == 1" style="font-size: 2.5vw" ng-class="{'active-button':pet_data['vomitting']=='1'}" for="id_crossed_10"
+          <label [class.clicked_button_warning]="vomitting == 1" style="font-size: 2.5vw"
+                 ng-class="{'active-button':pet_data['vomitting']=='1'}" for="id_crossed_10"
                  class="btn btn-1 btn-1a btn-crossed_0">
-            <input [(ngModel)]="vomitting" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_10" value="1"
+            <input [(ngModel)]="vomitting" class='ng-hide' class='form-control' type="radio" name="crossed"
+                   id="id_crossed_10" value="1"
                    ng-model="pet_data['vomitting']" ng-required> Yes </label>
 
-          <label [class.clicked_button]="vomitting == 0" style="font-size: 2.5vw" ng-class="{'active-button':pet_data['vomitting']=='0'}" for="id_crossed_11"
+          <label [class.clicked_button]="vomitting == 0" style="font-size: 2.5vw"
+                 ng-class="{'active-button':pet_data['vomitting']=='0'}" for="id_crossed_11"
                  class="btn btn-1 btn-1a btn-crossed_1">
-            <input [(ngModel)]="vomitting" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_11" value="0"
+            <input [(ngModel)]="vomitting" class='ng-hide' class='form-control' type="radio" name="crossed"
+                   id="id_crossed_11" value="0"
                    ng-model="pet_data['vomitting']" ng-required class='ng-hide'> No </label>
         </div>
 
@@ -53,20 +74,26 @@
 
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Is the owner under the impression that <b><app-common-data [element]="'pet_name'"></app-common-data></b> is craving for food more than he
-          was before starting this diet ? </h1>
+        <h1 class="control-label" for="id_Sup2"> Is the owner under the impression that <b>
+          <app-common-data [element]="'pet_name'"></app-common-data>
+        </b> is craving for food more than he
+          was before starting this diet ?
+        </h1>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
           <label [class.clicked_button_warning]="satiety == 1" style="font-size: 2.5vw;" for="id_crossed_303"
                  class="btn btn-1 btn-1a btn-crossed_0">
-            <input [(ngModel)]="satiety" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_303" value="1"
+            <input [(ngModel)]="satiety" class='ng-hide' class='form-control' type="radio" name="crossed"
+                   id="id_crossed_303" value="1"
                    ng-model="pet_data['satiety']" ng-required> Yes</label>
 
-          <label [class.clicked_button]="satiety == 0" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['satiety']=='0'}" for="id_crossed_110"
+          <label [class.clicked_button]="satiety == 0" style="font-size: 2.5vw;"
+                 ng-class="{'active-button':pet_data['satiety']=='0'}" for="id_crossed_110"
                  class="btn btn-1 btn-1a btn-crossed_1">
-            <input [(ngModel)]="satiety" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_110" value="0"
+            <input [(ngModel)]="satiety" class='ng-hide' class='form-control' type="radio" name="crossed"
+                   id="id_crossed_110" value="0"
                    ng-model="pet_data['satiety']" ng-required class='ng-hide'> No </label>
         </div>
 

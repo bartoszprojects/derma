@@ -49,6 +49,7 @@ import { LoginComponent } from './others/login/login.component';
 import { PetNameComponent } from './others/common/pet-name/pet-name.component';
 import { UpdateComponent } from './new_physical_consultation/update/update.component';
 import { CommonDataComponent } from './others/common-data/common-data.component';
+import { CommonLabelsComponent } from './others/common-labels/common-labels.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { CommonDataComponent } from './others/common-data/common-data.component'
     PetNameComponent,
     UpdateComponent,
     CommonDataComponent,
+    CommonLabelsComponent,
   ],
   imports: [
     BrowserModule,

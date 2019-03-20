@@ -1,3 +1,11 @@
+<div *ngIf="route_boolean == 'new-physical-consultation'">
+<app-common-labels [label_title]="'New Physical Consultation'" [label_desc]="'Drugs History'"></app-common-labels>
+</div>
+<div *ngIf="route_boolean == 'new-phone-consultation'">
+<app-common-labels [label_title]="'New Phone Consultation'" [label_desc]="'Drugs History'"></app-common-labels>
+</div>
+
+
 <div style="width: auto" class="container">
 
   <section class="content-header">
@@ -62,7 +70,7 @@
               <div class="col-sm-10">
                 <div class='input-group'>
                   <input #prednisolone="ngModel" [(ngModel)]="drug_history_form.prednisolone" name="prednisolone"
-                         type="number" class="form-control" placeholder="Posology">
+                         type="number" class="form-control" placeholder="Posology" min="0">
                   <span class="input-group-addon">mg/kg/day</span>
                 </div>
               </div>
@@ -73,7 +81,7 @@
               <div class="col-sm-10">
                 <div class='input-group'>
                   <input #oclacitinib="ngModel" [(ngModel)]="drug_history_form.oclacitinib" name="oclacitinib"
-                         type="number" class="form-control" placeholder="Posology">
+                         type="number" class="form-control" placeholder="Posology" min="0">
                   <span class="input-group-addon">mg/kg/day</span>
                 </div>
               </div>
@@ -85,7 +93,7 @@
               <div class="col-sm-10">
                 <div class='input-group'>
                   <input #cyclosporine="ngModel" [(ngModel)]="drug_history_form.cyclosporine" name="cyclosporine"
-                         type="number" class="form-control" placeholder="Posology">
+                         type="number" class="form-control" placeholder="Posology" min="0">
                   <span class="input-group-addon">mg/kg/day</span>
                 </div>
               </div>
@@ -114,7 +122,7 @@
               <div class="col-sm-10">
                 <div class='input-group'>
                   <input #cortavance="ngModel" [(ngModel)]="drug_history_form.cortavance" name="cortavance"
-                         type="number" class="form-control" placeholder="Frequencies of use each week">
+                         type="number" class="form-control" placeholder="Frequencies of use each week" min="0">
                   <span class="input-group-addon">times/week</span>
                 </div>
               </div>
@@ -126,7 +134,7 @@
                 <div class='input-group'>
                   <input #antibacterial_shampoo="ngModel" [(ngModel)]="drug_history_form.antibacterial_shampoo"
                          name="antibacterial_shampoo" type="number" class="form-control"
-                         placeholder="Frequencies of use each week">
+                         placeholder="Frequencies of use each week" min="0">
                   <span class="input-group-addon">times/week</span>
                 </div>
               </div>
@@ -139,7 +147,7 @@
                 <div class='input-group'>
                   <input #dermatologic_shampoo="ngModel" [(ngModel)]="drug_history_form.dermatologic_shampoo"
                          name="dermatologic_shampoo" type="number" class="form-control"
-                         placeholder="Frequencies of use each week">
+                         placeholder="Frequencies of use each week" min="0">
                   <span class="input-group-addon">times/week</span>
                 </div>
               </div>
@@ -163,7 +171,7 @@
                 <div class="col-sm-10">
                   <div class='input-group'>
                     <input #omega="ngModel" [(ngModel)]="drug_history_form.omega" name="omega" type="number"
-                           class="form-control" placeholder="Frequencies of use each week">
+                           class="form-control" placeholder="Frequencies of use each week" min="0">
                     <span class="input-group-addon">times/week</span>
                   </div>
                 </div>
@@ -174,7 +182,7 @@
                 <div class="col-sm-10">
                   <div class='input-group'>
                     <input #yeast="ngModel" [(ngModel)]="drug_history_form.yeast" name="yeast" type="number"
-                           class="form-control" placeholder="Frequencies of use each week">
+                           class="form-control" placeholder="Frequencies of use each week" min="0">
                     <span class="input-group-addon">times/week</span>
                   </div>
                 </div>

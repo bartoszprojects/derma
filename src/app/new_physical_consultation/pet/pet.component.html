@@ -1,3 +1,9 @@
+<div *ngIf="route_boolean == '0'"><app-common-labels [icon]="'fa fa-stethoscope'" [label_title]="'New Physical Consultation'" [label_desc]="'Select Your Pet'"></app-common-labels></div>
+<div *ngIf="route_boolean == '1'"><app-common-labels [icon]="'fa fa-stethoscope'" [label_title]="'New Phone Consultation'" [label_desc]="'Select Your Pet'"></app-common-labels></div>
+<div *ngIf="route_boolean == '2'"><app-common-labels [icon]="'fa fa-cutlery'" [label_title]="'UZH - Homemade food for Derma'" [label_desc]="'Select Your Pet'"></app-common-labels></div>
+
+
+
 <div style="width: auto" class="container">
 
   <section class="content-header">
@@ -34,8 +40,8 @@
                 class="fa fa-times"></i></button>
             </div>
 
-            <div class="widget-user-header" [class.girl-header]="pet?.gender == 2"
-                 [class.boy-header]="pet?.gender == 1">
+            <div class="widget-user-header" [class.girl-header]="pet?.gender == 'FEMALE'"
+                 [class.boy-header]="pet?.gender == 'MALE'">
 
               <div class="widget-user-image">
                 <img class="img-circle" src="https://smart-nutrition.s3.amazonaws.com/data/img/dog_user.png"
@@ -163,7 +169,7 @@
         </div>
       </div>
 
-      <button *ngIf="is_clicked" routerLink="/home/{{ route_link_next }}" routerLinkActive="active" (click)="putData()"
+      <button *ngIf="is_clicked && route_boolean != 3" routerLink="/home/{{ route_link_next }}" routerLinkActive="active" (click)="putData()"
               id="moving" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>

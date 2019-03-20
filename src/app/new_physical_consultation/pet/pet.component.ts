@@ -47,6 +47,9 @@ export class PetComponent implements OnInit {
       this.route_boolean = 2;
       this.route_link_next = 'homemade/update/' + this.wchich_id + '/disclaimer';
     }
+     if (splitted_url[2] == 'my-pet-dashboard') {
+      this.route_boolean = 3;
+    }
   }
 
   constructor(private router: Router, private formDataService: DataService) {

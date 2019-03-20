@@ -64,7 +64,7 @@
 
         </div>
         <div class="pull-left info">
-          <p>Hiiiiii </p>
+          <p>Hi rootx </p>
           <a href="#"><i class="fa fa-circle text-success"></i> SN is ready to work !</a>
 
 
@@ -72,45 +72,45 @@
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul ng-controller="lateral-bar" class="sidebar-menu">
-        <li class="header">Smart-Nutrition's tools</li>
+        <li class="header">Smart Atopia tools</li>
 
 
         <li class="treeview">
-          <a>
+          <a routerLink="/home/welcome" routerLinkActive="active">
             <i class="fa fa-home"></i><span>HOME</span>
 
           </a>
         </li>
 
-        <li ng-show='' class="treeview">
-          <a href=""><i class="glyphicon glyphicon-dashboard"></i><span>My Pets</span>
+        <li class="treeview">
+          <a routerLink="/home/my-pet-dashboard" routerLinkActive="active"><i class="glyphicon glyphicon-dashboard"></i><span>My Pets Dashboard</span>
 
           </a>
         </li>
 
-        <li ng-show='' class="treeview">
-          <a href=""><i class="fa fa-bar-chart"></i><span>Petfood Comparator</span>
-
-          </a>
-        </li>
-
-
-        <li ng-show='' class="treeview">
-          <a href=""><i class="fa fa-calculator"></i><span>Petfood Quantificator</span>
+        <li class="treeview">
+          <a routerLink="/home/add-pet/disclaimer" routerLinkActive="active"><i class="fa fa-plus"></i><span>Include a new Pet</span>
 
           </a>
         </li>
 
 
-        <li ng-show='' class="treeview">
-          <a href=""><i class="glyphicon glyphicon-transfer"></i><span>Petfood Switcher</span>
+        <li class="treeview">
+          <a routerLink="/home/new-physical-consultation/pet" routerLinkActive="active"><i class="fa fa-stethoscope"></i><span>New Physical Consultation</span>
 
           </a>
         </li>
 
 
-        <li ng-show='' class="treeview">
-          <a href=""><i class="fa fa-cutlery"></i><span>Homemade Recipe Maker</span>
+        <li class="treeview">
+          <a routerLink="/home/new-phone-consultation/pet" routerLinkActive="active"><i class="fa fa-phone"></i><span>New Phone Consultation</span>
+
+          </a>
+        </li>
+
+
+        <li class="treeview">
+          <a routerLink="/home/homemade/pet" routerLinkActive="active"><i class="fa fa-cutlery"></i><span>Homemade Diet</span>
 
           </a>
         </li>

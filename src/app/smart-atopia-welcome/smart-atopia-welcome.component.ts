@@ -14,7 +14,7 @@ export class SmartAtopiaWelcomeComponent implements OnInit {
     {
       id: 1,
       icon: "glyphicon glyphicon-dashboard",
-      url: '',
+      url: '/home/my-pet-dashboard',
       title: "My Pets Dashboard",
       desc_title: "Manage the pet you included in the study",
       desc_desc: "Access those pet's profile"
@@ -47,7 +47,7 @@ export class SmartAtopiaWelcomeComponent implements OnInit {
       id: 5,
       icon: "fa fa-cutlery",
       url: '/home/homemade/pet',
-      title: 'DermatologiC Homemade Diet',
+      title: 'Dermatologic Homemade Diet',
       desc_title: "Design a tailor-made dermatologic recipe",
       desc_desc: "This diet will be specifically enriched in nutrients to improve the candidate's skin conditione"
     }
