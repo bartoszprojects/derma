@@ -6,4 +6,8 @@ table {
   cursor: pointer;
 }
 
+.info-box-icon > img {
+  max-width: 85%;
+}
+
 /*# sourceMappingURL=result.component.css.map */
