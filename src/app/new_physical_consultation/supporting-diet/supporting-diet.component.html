@@ -7,7 +7,6 @@
   <app-common-labels [label_title]="'New Phone Consultation'"
                      [label_desc]="'How is this new diet going ?'"></app-common-labels>
 </div>
-
 <div style="width: auto" class="container">
 
   <section class="content-header">
@@ -22,18 +21,18 @@
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
-          <label [class.clicked_button_warning]="diarrhea == 1" style="font-size: 2.5vw" for="id_crossed_0"
-                 class="btn btn-1 btn-1a btn-crossed_0">
-            <input [(ngModel)]="diarrhea" class='ng-hide' class='form-control' type="radio" name="crossed"
-                   id="id_crossed_0" value="1"
-                   ng-model="pet_data['diarrhea']" ng-required> Yes </label>
+          <label [class.clicked_button_warning]="diarrhea == 1" style="font-size: 2.5vw"
+                 class="btn btn-1 btn-1a btn-crossed_1">
+            <input (click)="make_diet_supporting()" [(ngModel)]="diarrhea" class='form-control' type="radio" name="third"
+                   value="1"
+                   > Yes </label>
 
           <label [class.clicked_button]="diarrhea == 0" style="font-size: 2.5vw"
-                 ng-class="{'active-button':pet_data['diarrhea']=='0'}" for="id_crossed_1"
-                 class="btn btn-1 btn-1a btn-crossed_1">
-            <input [(ngModel)]="diarrhea" class='ng-hide' class='form-control' type="radio" name="crossed"
-                   id="id_crossed_1" value="0"
-                   ng-model="pet_data['diarrhea']" ng-required class='ng-hide'> No </label>
+
+                 class="btn btn-1 btn-1a btn-crossed_0">
+            <input (click)="make_diet_not_supporting()" [(ngModel)]="diarrhea" class='form-control' type="radio" name="third"
+                   value="0"
+                  > No </label>
         </div>
 
       </div>
@@ -53,18 +52,16 @@
       <div class="box-body">
         <div style="text-align:center">
           <label [class.clicked_button_warning]="vomitting == 1" style="font-size: 2.5vw"
-                 ng-class="{'active-button':pet_data['vomitting']=='1'}" for="id_crossed_10"
-                 class="btn btn-1 btn-1a btn-crossed_0">
-            <input [(ngModel)]="vomitting" class='ng-hide' class='form-control' type="radio" name="crossed"
-                   id="id_crossed_10" value="1"
-                   ng-model="pet_data['vomitting']" ng-required> Yes </label>
+                 class="btn btn-1 btn-1a btn-crossed_1">
+            <input (click)="make_diet_supporting()" [(ngModel)]="vomitting" class='form-control' type="radio" name="second"
+                   value="1"
+                   ng-required> Yes </label>
 
           <label [class.clicked_button]="vomitting == 0" style="font-size: 2.5vw"
-                 ng-class="{'active-button':pet_data['vomitting']=='0'}" for="id_crossed_11"
-                 class="btn btn-1 btn-1a btn-crossed_1">
-            <input [(ngModel)]="vomitting" class='ng-hide' class='form-control' type="radio" name="crossed"
-                   id="id_crossed_11" value="0"
-                   ng-model="pet_data['vomitting']" ng-required class='ng-hide'> No </label>
+                               class="btn btn-1 btn-1a btn-crossed_0">
+            <input (click)="make_diet_not_supporting()" [(ngModel)]="vomitting" class='form-control' type="radio" name="second"
+                   value="0"
+                   > No </label>
         </div>
 
       </div>
@@ -83,18 +80,17 @@
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
-          <label [class.clicked_button_warning]="satiety == 1" style="font-size: 2.5vw;" for="id_crossed_303"
-                 class="btn btn-1 btn-1a btn-crossed_0">
-            <input [(ngModel)]="satiety" class='ng-hide' class='form-control' type="radio" name="crossed"
-                   id="id_crossed_303" value="1"
-                   ng-model="pet_data['satiety']" ng-required> Yes</label>
+          <label [class.clicked_button_warning]="satiety == 1" style="font-size: 2.5vw;"
+                 class="btn btn-1 btn-1a btn-crossed_1">
+            <input (click)="make_diet_supporting()" [(ngModel)]="satiety" class='form-control' type="radio" name="first"
+                   value="1"
+                   > Yes</label>
 
           <label [class.clicked_button]="satiety == 0" style="font-size: 2.5vw;"
-                 ng-class="{'active-button':pet_data['satiety']=='0'}" for="id_crossed_110"
-                 class="btn btn-1 btn-1a btn-crossed_1">
-            <input [(ngModel)]="satiety" class='ng-hide' class='form-control' type="radio" name="crossed"
-                   id="id_crossed_110" value="0"
-                   ng-model="pet_data['satiety']" ng-required class='ng-hide'> No </label>
+                 class="btn btn-1 btn-1a btn-crossed_0">
+            <input (click)="make_diet_not_supporting()" [(ngModel)]="satiety" class='form-control' type="radio" name="first"
+                   value="0"
+                  > No </label>
         </div>
 
       </div>
@@ -118,7 +114,7 @@
       </div>
     </ng-template>
 
-    <button routerLink="{{ route_link_next }}" routerLinkActive="active"
+    <button routerLink="{{ route_link_next }}" routerLinkActive="active" (click)="save()"
             type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
             style='float:right'>Continue
     </button>

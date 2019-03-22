@@ -7,18 +7,18 @@
         <h1 class="control-label" for="id_Sup2"> Is <b><app-common-data [element]="'pet_name'"></app-common-data></b> having a
           Pyoderma now ? </h1>
       </div>
-      <!-- /.box-header -->
+
       <div class="box-body">
         <div style="text-align:center">
-          <label [class.clicked_button_warning]="pyodermatitis == 1" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['pyodermatitis']=='1'}"
-                 for="id_crossed_0" class="btn btn-1 btn-1a btn-crossed_0">
-            <input [(ngModel)]="pyodermatitis" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_0" value="1"
+          <label [class.clicked_button_warning]="pyodermatitis == 1" style="font-size: 2.5vw;"
+                 class="btn btn-1 btn-1a btn-crossed_0">
+            <input (click)="is_pyodermatitis = true"  [(ngModel)]="pyodermatitis" class='form-control' type="radio" value="1" name="third"
                    > Yes</label>
 
-          <label [class.clicked_button]="pyodermatitis == 0" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['pyodermatitis']=='0'}"
-                 for="id_crossed_1" class="btn btn-1 btn-1a btn-crossed_1">
-            <input [(ngModel)]="pyodermatitis" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_1" value="0"
-                   class='ng-hide'> No </label>
+          <label [class.clicked_button]="pyodermatitis == 0" style="font-size: 2.5vw;"
+                 class="btn btn-1 btn-1a btn-crossed_1">
+            <input (click)="is_pyodermatitis = null" [(ngModel)]="pyodermatitis" class='form-control' type="radio" value="0" name="third"
+                   > No </label>
         </div>
 
       </div>
@@ -49,15 +49,15 @@
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
-          <label [class.clicked_button_warning]="otitis == 1" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='1'}" for="id_crossed_3"
+          <label [class.clicked_button_warning]="otitis == 1" style="font-size: 2.5vw;"
                  class="btn btn-1 btn-1a btn-crossed_0">
-            <input [(ngModel)]="otitis" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_3" value="1"
+            <input (click)="is_otitis = true" [(ngModel)]="otitis" class='form-control' type="radio" value="1" name="second"
                    > Yes</label>
 
-          <label [class.clicked_button]="otitis == 0"  style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['otitis']=='0'}" for="id_crossed_4"
+          <label [class.clicked_button]="otitis == 0"  style="font-size: 2.5vw;"
                  class="btn btn-1 btn-1a btn-crossed_1">
-            <input [(ngModel)]="otitis" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_4" value="0"
-                  class='ng-hide'> No </label>
+            <input (click)="is_otitis = null" [(ngModel)]="otitis" class='form-control' type="radio" value="0" name="second"
+                  > No </label>
         </div>
 
       </div>
@@ -88,15 +88,15 @@
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
-          <label [class.clicked_button_warning]="malassezia == 1" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['malassezia']=='1'}" for="id_crossed_9"
+          <label [class.clicked_button_warning]="malassezia == 1" style="font-size: 2.5vw;"
                  class="btn btn-1 btn-1a btn-crossed_0">
-            <input [(ngModel)]="malassezia" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_9" value="1"
+            <input (click)="is_malassezia = true" [(ngModel)]="malassezia" class='form-control' type="radio" value="1" name="first"
                    > Yes</label>
 
-          <label [class.clicked_button]="malassezia == 0" style="font-size: 2.5vw;" ng-class="{'active-button':pet_data['malassezia']=='0'}" for="id_crossed_10"
+          <label [class.clicked_button]="malassezia == 0" style="font-size: 2.5vw;"
                  class="btn btn-1 btn-1a btn-crossed_1">
-            <input [(ngModel)]="malassezia" class='ng-hide' class='form-control' type="radio" name="crossed" id="id_crossed_10" value="0"
-                   class='ng-hide'> No </label>
+            <input (click)="is_malassezia = null" [(ngModel)]="malassezia" class='form-control' type="radio" value="0" name="first"
+                   > No </label>
         </div>
 
       </div>
@@ -118,7 +118,7 @@
     </div>
 
     </ng-template>
-    <button [routerLink]="['../flea-treatment']"
+    <button [routerLink]="['../flea-treatment']" (click)="save()"
       type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
       style='float:right'>Continue
     </button>

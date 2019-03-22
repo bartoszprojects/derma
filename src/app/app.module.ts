@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MomentModule } from 'ngx-moment';
 import {MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { KeysPipe } from './pipes/keys';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -88,6 +90,7 @@ import { CommonLabelsComponent } from './others/common-labels/common-labels.comp
     UpdateComponent,
     CommonDataComponent,
     CommonLabelsComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
@@ -105,8 +108,8 @@ import { CommonLabelsComponent } from './others/common-labels/common-labels.comp
     HttpClientModule,
     MomentModule,
     MatTableModule,
-    MatRadioModule
-
+    MatRadioModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent],

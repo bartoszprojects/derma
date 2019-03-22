@@ -3,6 +3,10 @@ import {Router} from "@angular/router";
 import {MatExpansionModule} from '@angular/material/expansion';
 import {DataService} from '../../data.service';
 import {idPetModel} from '../../formData.model';
+import { Pipe, PipeTransform } from '@angular/core';
+import * as _ from 'lodash';
+
+
 @Component({
   selector: 'app-pet',
   templateUrl: './pet.component.html',
@@ -23,6 +27,9 @@ export class PetComponent implements OnInit {
   hide_pet = false;
   set_pet;
   list_of_hidden = [];
+  hide_container;
+  _: any = _;
+
 
   setSelected(index) {
     this.set_color = index;
@@ -30,6 +37,16 @@ export class PetComponent implements OnInit {
     this.is_clicked = true;
     this.id_pet.id_number = this.wchich_id;
     this.checkRouteUrl()
+  }
+
+  changeContainer(bool) {
+    if (bool == 'true') {
+      this.hide_container = true;
+    }
+    if (bool == 'false') {
+      this.hide_container = false;
+    }
+
   }
 
   checkRouteUrl() {
@@ -96,5 +113,6 @@ export class PetComponent implements OnInit {
     this.list_of_hidden.push(index);
     console.log(this.list_of_hidden)
   }
+
 
 }

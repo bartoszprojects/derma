@@ -1,10 +1,18 @@
-<div *ngIf="route_boolean == '0'"><app-common-labels [icon]="'fa fa-stethoscope'" [label_title]="'New Physical Consultation'" [label_desc]="'Select Your Pet'"></app-common-labels></div>
-<div *ngIf="route_boolean == '1'"><app-common-labels [icon]="'fa fa-stethoscope'" [label_title]="'New Phone Consultation'" [label_desc]="'Select Your Pet'"></app-common-labels></div>
-<div *ngIf="route_boolean == '2'"><app-common-labels [icon]="'fa fa-cutlery'" [label_title]="'UZH - Homemade food for Derma'" [label_desc]="'Select Your Pet'"></app-common-labels></div>
+<div *ngIf="route_boolean == '0'">
+  <app-common-labels [icon]="'fa fa-stethoscope'" [label_title]="'New Physical Consultation'"
+                     [label_desc]="'Select Your Pet'"></app-common-labels>
+</div>
+<div *ngIf="route_boolean == '1'">
+  <app-common-labels [icon]="'fa fa-stethoscope'" [label_title]="'New Phone Consultation'"
+                     [label_desc]="'Select Your Pet'"></app-common-labels>
+</div>
+<div *ngIf="route_boolean == '2'">
+  <app-common-labels [icon]="'fa fa-cutlery'" [label_title]="'UZH - Homemade food for Derma'"
+                     [label_desc]="'Select Your Pet'"></app-common-labels>
+</div>
 
 
-
-<div style="width: auto" class="container">
+<div style="width: auto" class="container" [class.containter-to-hide]="hide_container == true">
 
   <section class="content-header">
     <div class="row">
@@ -28,31 +36,69 @@
       <br>
     </div>
 
-
     <div class="row">
       <div *ngFor="let pet of pets; let index = index">
-        <div *ngIf="pet.display == true && !list_of_hidden.includes(pet.id)" class="col-md-6" [class.wasClickedHide]="set_pet == pet.id">
+        <div *ngIf="pet.display == true && !list_of_hidden.includes(pet.id)" class="col-md-6"
+             [class.wasClickedHide]="set_pet == pet.id">
           <div class="box box-widget widget-user-2 list-single-pet" (click)="setSelected(pet.id)"
                [class.wasClicked]="set_color == pet.id">
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" (click)="hidePet(pet.id); hideSinglePetFromBackend(pet.id)"
-              ><i
-                class="fa fa-times"></i></button>
-            </div>
 
-            <div class="widget-user-header" [class.girl-header]="pet?.gender == 'FEMALE'"
+
+            <div class="pet-list-header" [class.girl-header]="pet?.gender == 'FEMALE'"
                  [class.boy-header]="pet?.gender == 'MALE'">
-
-              <div class="widget-user-image">
-                <img class="img-circle" src="https://smart-nutrition.s3.amazonaws.com/data/img/dog_user.png"
-                     alt="Pet Avatar Dog">
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool"
+                        (click)="changeContainer('true')"><i class="fa fa-times-circle"></i></button>
               </div>
 
-              <!-- /.widget-user-image -->
-              <h3 class="widget-user-username">{{ pet?.pet_name }}</h3>
-              <!--<h5 style="font-size:12px" ng-if="pet.is_sick==1"><b>The Homemade recipe is available but need to be-->
-              <!--checked by your Vet</b></h5>-->
-              <h5 class="widget-user-desc">Inclusion Date :<i>{{ pet?.date_logs.inclusion_date }}</i></h5>
+              <div *ngIf="hide_container == true" class="confirm-hide-pet">
+                <p style="font-size: 22px">Are you sure to hide this Pet ?</p>
+                <button type="button" (click)="changeContainer('false')" class="next btn-special btn-4 btn-4a"
+                        style="padding: 10px 30px 10px 30px">No
+                </button>
+                <button (click)="hidePet(pet.id); hideSinglePetFromBackend(pet.id); changeContainer('false')"
+                        class="next btn-special btn-4 btn-4a" style="padding: 10px 30px 10px 30px">Yes
+                </button>
+              </div>
+
+
+              <div class="widget-user-header" [class.girl-header]="pet?.gender == 'FEMALE'"
+                   [class.boy-header]="pet?.gender == 'MALE'">
+
+                <div class="widget-user-image">
+                  <img class="img-circle" src="https://smart-nutrition.s3.amazonaws.com/data/img/dog_user.png"
+                       alt="Pet Avatar Dog">
+                </div>
+                <div class="widget-user-informations">
+                  <!-- /.widget-user-image -->
+                  <h3 class="widget-user-username">{{ pet?.pet_name }}</h3>
+                  <!--<h5 style="font-size:12px" ng-if="pet.is_sick==1"><b>The Homemade recipe is available but need to be-->
+                  <!--checked by your Vet</b></h5>-->
+                  <h5 class="widget-user-desc">Inclusion Date:<span> {{ pet?.date_logs.inclusion_date }}</span></h5>
+                  <h5 class="widget-user-desc">Owner Name:<span> {{ pet?.owner_name }}</span></h5>
+                  <h5 class="widget-user-desc">Owner Phone:<span> {{ pet?.owner_phone }}</span></h5>
+                  <h5 class="widget-user-desc">Recruiter Email:<span> {{ pet?.recruiter_email }}</span></h5>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <span style="font-size: 14px">Events History:</span><span>&nbsp;	&nbsp;	</span>
+                    </mat-expansion-panel-header>
+                    <ul>
+                    <ul>
+                      <li *ngFor='let key of _.keys(pet?.date_logs)'>{{key}}: {{pet?.date_logs[key]}}</li>
+                    </ul>
+                    </ul>
+
+                  </mat-expansion-panel>
+                </div>
+                <div
+                  *ngIf="pet?.pyodermatitis_history || pet?.otitis_history || pet?.malassezia_history || pet?.exclusion_reason.length > 0"
+                  class="widget-user-warning">
+                  <i class="fa fa-exclamation-triangle"></i>
+                  <h5>This Pet has a diseases history.</h5>
+                  <h5>Look at your pet closely !</h5>
+                </div>
+
+              </div>
             </div>
             <div class="box-footer no-padding">
 
@@ -169,7 +215,8 @@
         </div>
       </div>
 
-      <button *ngIf="is_clicked && route_boolean != 3" routerLink="/home/{{ route_link_next }}" routerLinkActive="active" (click)="putData()"
+      <button *ngIf="is_clicked && route_boolean != 3" routerLink="/home/{{ route_link_next }}"
+              routerLinkActive="active" (click)="putData()"
               id="moving" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>

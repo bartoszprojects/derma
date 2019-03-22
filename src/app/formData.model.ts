@@ -76,6 +76,7 @@ export class FormData {
   owner_phone = '';
   owner_email = '';
   accept_data_sharing = false;
+  exclusion_reason = [];
 
   clear() {
     this.id_number = '';
@@ -130,6 +131,7 @@ export class FormData {
     this.owner_phone = '';
     this.owner_email = '';
     this.accept_data_sharing = false;
+    this.exclusion_reason = [];
   }
 }
 
@@ -264,6 +266,8 @@ export class LoginData {
     this.username = '';
     this.password = '';
   }
+}
 
-
+export class Status {
+  exclusion_reason?: Array<any> = []
 }

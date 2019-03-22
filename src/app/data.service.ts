@@ -3,7 +3,7 @@ import {
   FormData, StepDisclaimer, StepFavrotCriteria, StepCadesi, StepFleaTreatment,
   StepFoodAllergy, StepPyodermatitis, StepMalassezia, StepOtitis,
   StepDesensitized, StepDrugsHistory, StepName, StepAge, StepBreed, StepGender, StepSex, StepPhysical, StepWeight,
-  StepFat, StepOwnerInformations, Login, LoginData, idPetModel
+  StepFat, StepOwnerInformations, Login, LoginData, idPetModel, Status
 } from './formData.model';
 import {Observable, Subject, ReplaySubject, timer, from} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
@@ -94,7 +94,7 @@ export class DataService {
       "age": Number(data.age),
       "accept_data_sharing": data.accept_data_sharing,
       "flea_treatment": data.flea_treatment,
-      "exlcusion_diet_food_recipe": "nbc"
+      "exlcusion_diet_food_recipe": "nbc",
     };
 
     const httpOptions = {
@@ -106,7 +106,7 @@ export class DataService {
 
     this.http.post('https://api.snv-derma.rootxnet.com/api/snippets/', postData, httpOptions)
       .subscribe(result => {
-        console.log('FROOM POSSTTT: ', result)
+        console.log('POST: ', result)
       });
   }
 
@@ -118,6 +118,16 @@ export class DataService {
       })
     };
     return this.http.get('https://api.snv-derma.rootxnet.com/api/snippets/', httpOptions)
+  }
+
+  getRecruiterFromBackend() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+      })
+    };
+    return this.http.get('https://api.snv-derma.rootxnet.com/api/user/', httpOptions)
   }
 
   getSingleDataFromBackend(id_pet) {
@@ -223,6 +233,7 @@ export class DataService {
       "cadesi_details_logs": cadesi_details_logs_content,
       "drug_logs": drug_logs_content,
       "fat_score_logs": fat_score_logs_content,
+      "exclusion_reason": data.exclusion_reason
     };
 
     const httpOptions = {
@@ -541,8 +552,15 @@ export class DataService {
     this.loginData.password = data.password;
   }
 
-  getLoginForm(): LoginData {
-    return this.loginData;
+  getStatus(): Status {
+    var status_form: Status = {
+      exclusion_reason: this.formData.exclusion_reason,
+    };
+    return status_form;
+  }
+
+  setStatus(data: Status) {
+    this.formData.exclusion_reason = data.exclusion_reason;
   }
 
   sendLoginToBackend(username, password) {
