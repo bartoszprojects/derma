@@ -4,7 +4,7 @@
     <form #gender_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label">Is <b><app-pet-name></app-pet-name></b> a boy or a girl ?</h1>
+          <h1 class="control-label"> <b><app-pet-name></app-pet-name></b> est un mâle ou une femelle ?</h1>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -23,13 +23,13 @@
         </div>
 
         <button *ngIf="gender_form.gender" (click)="save()" routerLink="/home/add-pet/sex" routerLinkActive="active"  id="moving" type="button" name="next"
-                class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
+                class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Suivant
         </button>
 
         <button routerLink="/home/add-pet/breed" routerLinkActive="active"
                 id="" type="button" name="previous"
                 class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
-          Return
+          Retour
         </button>
 
       </div>

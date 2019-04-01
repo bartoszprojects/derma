@@ -17,24 +17,38 @@
                   <app-pet-name></app-pet-name>
                 </b>
                 <b>
-                  <app-common-data [element]="'pet_name'"></app-common-data>
+                  Note d'état corporel de <app-common-data [element]="'pet_name'"></app-common-data>
                 </b>
-                's Fat/Lean Ratio.
-              </h1>
-              <h4
+<!--                 's Fat/Lean Ratio.
+ -->              </h1>
+           <!--    <h4
                 class="control-label"><i> Try to figure out which skectch fits the best to
                 <b>
                   <app-pet-name></app-pet-name>
                 </b>.<br> When you click on a skecth you get additional keys of decision ! </i>
+              </h4> -->
+
+   <h4
+                class="control-label"><i> Determiner la silhouette corporelle qui correspond le mieux à 
+                <b>
+                  <app-pet-name></app-pet-name>
+                </b>.<br> Lorsque vous cliquez sur une silhouette, des informations additionnelles apparaissent </i>
               </h4>
+
+
             </div>
           </div>
           <div *ngIf="route_boolean == 0">
-            <h1 class="control-label">
+          <!--   <h1 class="control-label">
               Update
               <b><app-common-data [element]="'pet_name'"></app-common-data></b>
               's BCS - click on the picture to get more details
+            </h1> -->
+  <h1 class="control-label">
+              Mettez à jour la not d'état corporelle de 
+              <b><app-common-data [element]="'pet_name'"></app-common-data></b>
             </h1>
+
           </div>
 
           <!-- /.box-header -->
@@ -91,10 +105,16 @@
               <ng-template [ngIf]="fat_form.fat_score_dog == 1">
                 <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='1'} ">
                   <blockquote>
-                    <p>Ribs, lumbar vertebrae, pelvic bones and all bony prominences evident from a distance. No
+<!--                     <p>Ribs, lumbar vertebrae, pelvic bones and all bony prominences evident from a distance. No
                       discernible
                       body fat. Obvious loss of muscle mass.</p>
-                    <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
+
+
+ -->                    
+                    <p>Les côtes, les vertèbres lombaires et toutes les proéminences osseuses sont visibles à distance. Pas de masse graisseuse apparente. Fonte musculaire évidente.</p>
+
+
+ <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
                       Assess
                       the
                       Body Condition of Their Dog or Cat
@@ -105,10 +125,13 @@
               <ng-template [ngIf]="fat_form.fat_score_dog == 3">
                 <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='3'} ">
                   <blockquote>
-                    <p>Ribs easily palpated and may be visible with no palpable fat. Tops of lumbar vertebrae visible.
+<!--                     <p>Ribs easily palpated and may be visible with no palpable fat. Tops of lumbar vertebrae visible.
                       Pelvic
                       bones becoming prominent. Obvious waist and abdominal tuck. </p>
-                    <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
+ -->                    
+                    <p>Les côtes sont facilement palpables et peuvent être visible à distance. La partie dorsale des vertèbres lombaires est visible. Taille marquée. </p>
+
+ <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
                       Assess
                       the
                       Body Condition of Their Dog or Cat
@@ -119,10 +142,14 @@
               <ng-template [ngIf]="fat_form.fat_score_dog == 5">
                 <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='5'} ">
                   <blockquote>
-                    <p>Ribs palpable without excess fat covering. Waist observed behind ribs when viewed from above.
+<!--                     <p>Ribs palpable without excess fat covering. Waist observed behind ribs when viewed from above.
                       Abdomen
                       tucked up when viewed from side.</p>
-                    <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
+
+ -->                    
+                    <p>Les côtes sont palpables et recouverte d'une légère épaisseur graisseuse. La taille est visible quand elle est obsevé avec une vue dorso-ventrale.</p>
+
+ <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
                       Assess
                       the
                       Body Condition of Their Dog or Cat
@@ -133,11 +160,14 @@
               <ng-template [ngIf]="fat_form.fat_score_dog == 7">
                 <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.fat_score_dog!=='7'} ">
                   <blockquote>
-                    <p>Ribs palpable with dif culty; heavy fat cover. Noticeable fat deposits over lumbar area and base
+<!--                     <p>Ribs palpable with dif culty; heavy fat cover. Noticeable fat deposits over lumbar area and base
                       of
                       tail.
                       Waist absent or barely visible. Abdominal tuck may be present.</p>
-                    <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
+ -->                    
+                   <p>Les côtes sont difficilement palpables. Couverture graissuese importante. Dépot graisseux notable en région lombaire et à la base de la queue. La taille n'est pas remarquable. L'abdomen peut avoir une forme pendulaire. </p>
+
+ <small>A. Germain and ali <cite title="J. Nutr. July 2006 ">A Simple, Reliable Tool for Owners to
                       Assess
                       the
                       Body Condition of Their Dog or Cat
@@ -298,17 +328,34 @@
       <!--</div>-->
 
     </form>
-    <button *ngIf="fat_form.fat_score_dog" (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
+<!--     <button *ngIf="fat_form.fat_score_dog" (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
             id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
             style='float:right'>Continue
     </button>
 
-    <button routerLink="{{ route_link_back }}" routerLinkActive="active"
+ -->   
+    <button *ngIf="fat_form.fat_score_dog" (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
+            id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+            style='float:right'>Suivant
+    </button>
+
+
+
+<!--   <button routerLink="{{ route_link_back }}" routerLinkActive="active"
             id="moving" type="button"
             name="previous"
             class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
       Return
     </button>
+ -->
+  <button routerLink="{{ route_link_back }}" routerLinkActive="active"
+            id="moving" type="button"
+            name="previous"
+            class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
+      Retour
+    </button>
+
+
 
   </section>
 </div>

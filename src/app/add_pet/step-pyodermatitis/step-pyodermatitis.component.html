@@ -4,7 +4,7 @@
     <form #pyodermatitisForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label" for="id_Sup2"> Is this dog having a Pyoderma now ? </h1>
+          <h1 class="control-label" for="id_Sup2"> Votre candidat a-t-il une pyodermite ? </h1>
         </div>
         <div class="box-body">
           <div style="text-align:center">
@@ -12,13 +12,13 @@
                    [class.clicked_button_warning]="pyodermatitis_form.pyodermatitis == true">
               <input #pyodermatitis="ngModel" [(ngModel)]="pyodermatitis_form.pyodermatitis" name="pyodermatitis"
                      class='ng-hide' class='form-control' type="radio" value="1"
-              > Yes</label>
+              > Oui </label>
 
             <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1"
                    [class.clicked_button]="pyodermatitis_form.pyodermatitis == false">
               <input #pyodermatitis="ngModel" [(ngModel)]="pyodermatitis_form.pyodermatitis" name="pyodermatitis"
                      class='ng-hide' class='form-control' type="radio" value="0"
-                     class='ng-hide'> No </label>
+                     class='ng-hide'> Non </label>
           </div>
         </div>
       </div>
@@ -26,12 +26,12 @@
       <ng-template [ngIf]="pyodermatitis_form.pyodermatitis == true">
         <div class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border error-header">
-            <h1 class="control-label" for="id_Sup2"> Warning </h1>
+            <h1 class="control-label" for="id_Sup2"> Attention </h1>
           </div>
           <div class="box-body">
             <div style="text-align:center">
               <label style="font-size: 2.5vw">
-                Pyoderma must be cured before joining the study!</label>
+                La pyodermite doit être traitée avant l'inclusion</label>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@
       <ng-template [ngIf]="pyodermatitis_form.pyodermatitis == false">
         <div ng-show="pet_data['pyodermatitis']=='0'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
-            <h1 class="control-label">Has this candidate ever encounter Pyoderma episodes in the past ?</h1>
+            <h1 class="control-label">Ce candidat est-il connu pour avoir eu des épisodes de pyodermites dans le passé ?</h1>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -49,13 +49,13 @@
                      [class.clicked_button]="pyodermatitis_form.pyodermatitis_history == true">
                 <input #pyodermatitis_history="ngModel" [(ngModel)]="pyodermatitis_form.pyodermatitis_history"
                        name="pyodermatitis_history" class='ng-hide' class='form-control' type="radio" value="1"
-                > Yes</label>
+                > Oui </label>
 
               <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1"
                      [class.clicked_button]="pyodermatitis_form.pyodermatitis_history == false">
                 <input #pyodermatitis_history="ngModel" [(ngModel)]="pyodermatitis_form.pyodermatitis_history"
                        name="pyodermatitis_history" class='ng-hide' class='form-control' type="radio" value="0"
-                       class='ng-hide'> No </label>
+                       class='ng-hide'> Non </label>
             </div>
             <!-- /.box-body -->
           </div>
@@ -64,13 +64,13 @@
             *ngIf="pyodermatitis_form.pyodermatitis_history == false || pyodermatitis_form.pyodermatitis_history == true"
             (click)="save()" routerLink="/home/add-pet/malassezia" routerLinkActive="active"
             id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-            style='float:right'>Continue
+            style='float:right'>Suivant
           </button>
 
           <button routerLink="/home/add-pet/food-allergy" routerLinkActive="active" ng-click='backward()'
                   id="moving" type="button"
                   name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
-                  style='float:left'>Return
+                  style='float:left'>Retour
           </button>
 
         </div>

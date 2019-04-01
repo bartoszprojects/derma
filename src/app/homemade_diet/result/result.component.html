@@ -51,7 +51,7 @@
       <div class="box-header with-border">
         <h3 class="box-title" style="float: left">
           {{ pet?.pet_name }}
-          's key datas
+          's données nutritrionnelles
         </h3>
         <div style="float: right"><i style="font-size: 32px" class="material-icons" value="CPTURE"
                                      (click)="captureScreen()">picture_as_pdf</i></div>
@@ -68,7 +68,7 @@
                   {{ pet?.getIDEALWEIGHT }}
                   <sup style="font-size: 20px">kg</sup></h3>
 
-                <p>Ideal Weight</p>
+                <p>Poids de forme</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-speedometer"></i>
@@ -85,7 +85,7 @@
                 <h3>
                   {{ pet?.getCALCULUS.ER_tot }}
                   <sup style="font-size: 20px">kcal</sup></h3>
-                <p>Energy Requirement</p>
+                <p>Besoin Energétique</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-bolt"></i>
@@ -104,7 +104,7 @@
 
                   <sup style="font-size: 20px">g/Mcal</sup></h3>
 
-                <p>Protein's goal</p>
+                <p>Besoin protéique</p>
               </div>
               <div class="icon">
                 <i class="ion ion-erlenmeyer-flask-bubbles"></i>
@@ -124,10 +124,8 @@
       <uib-accordion>
         <div uib-accordion-group is-open="status1.open" class="box box-primary box-default">
           <uib-accordion-heading class="box-header with-border">
-            <h3><i class="fa fa-fw fa-bar-chart"></i><b>Taylor Made Recipe</b> : Start cooking
-              for
-              {{ pet?.pet_name }}
-              with this recipe<i class="pull-right glyphicon"></i>
+            <h3><i class="fa fa-fw fa-bar-chart"></i><b>Recette sur mesure</b> à objectifs dermatologiques pour :{{ pet?.pet_name }}
+            <i class="pull-right glyphicon"></i>
             </h3>
           </uib-accordion-heading>
           <div *ngFor="let food of data">
@@ -154,7 +152,7 @@
       <uib-accordion>
         <div uib-accordion-group is-open="status2.open" class="box box-primary box-default">
           <uib-accordion-heading class="box-header with-border">
-            <h3><i class="fa fa-fw fa-bar-chart"></i><b>To Go Further</b> : Take a look at the macros <i
+            <h3><i class="fa fa-fw fa-bar-chart"></i><b>Pour aller plus loin</b> : Distribution des macro-éléments <i
               class="pull-right glyphicon" ng-class="{'fa fa-minus': status2.open, 'fa fa-plus': !status2.open}"></i>
             </h3>
 
@@ -162,28 +160,28 @@
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <ng-container matColumnDef="ingredients">
-              <th mat-header-cell *matHeaderCellDef>Ingredients</th>
+              <th mat-header-cell *matHeaderCellDef>Ingrédients</th>
               <td mat-cell *matCellDef="let element"> {{element.ingredients}} </td>
             </ng-container>
 
             <ng-container matColumnDef="energy">
-              <th mat-header-cell *matHeaderCellDef>Energy (kcal)</th>
+              <th mat-header-cell *matHeaderCellDef>Energie (kcal)</th>
               <td mat-cell *matCellDef="let element"> {{element.energy}} </td>
             </ng-container>
 
             <ng-container matColumnDef="protein">
-              <th mat-header-cell *matHeaderCellDef>Protein</th>
+              <th mat-header-cell *matHeaderCellDef>Protéines</th>
               <td mat-cell *matCellDef="let element"> {{element.protein}} </td>
             </ng-container>
 
 
             <ng-container matColumnDef="fat">
-              <th mat-header-cell *matHeaderCellDef>Fat</th>
+              <th mat-header-cell *matHeaderCellDef>Lipides</th>
               <td mat-cell *matCellDef="let element"> {{element.fat}} </td>
             </ng-container>
 
             <ng-container matColumnDef="carbohydrate">
-              <th mat-header-cell *matHeaderCellDef>Carbohydrate</th>
+              <th mat-header-cell *matHeaderCellDef>Glucides</th>
               <td mat-cell *matCellDef="let element"> {{element.carbohydrate}} </td>
             </ng-container>
 
@@ -193,7 +191,7 @@
             </ng-container>
 
             <ng-container matColumnDef="phosphorus">
-              <th mat-header-cell *matHeaderCellDef>Phosphorus</th>
+              <th mat-header-cell *matHeaderCellDef>Phosphore</th>
               <td mat-cell *matCellDef="let element"> {{element.phosphorus}} </td>
             </ng-container>
 
@@ -206,7 +204,7 @@
     </div>
     <button id="moving" type="button" name="previous"
             class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
-      Return
+      Retour
     </button>
 
 

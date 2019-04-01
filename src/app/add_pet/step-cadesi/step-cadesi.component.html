@@ -14,10 +14,18 @@
           <div class="box box-default box-solid ">
             <div style="text-align:center" class="box-header with-border">
               <div>
-                <h1 for="id_pet_name">Fill this CADESI-04 scale for your candidate</h1>
-              </div>
+<!--                 <h1 for="id_pet_name">Fill this CADESI-04 scale for your candidate</h1>
+ -->              
+
+                <h1 for="id_pet_name">Veuillez évaluer le CADESI-04 de votre candidat au moyen de l'échelle suivante</h1>
+
+
+</div>
               <div>
-                <p for="id_pet_name">Click on each digit to increase the score</p>
+<!--                 <p for="id_pet_name">Click on each digit to increase the score</p>
+ -->
+                <p for="id_pet_name">Cliquez sur les chiffres du tableau pour en augmenter la valeur d'un point</p>
+
               </div>
             </div>
             <div style="text-align:center" class="box-body">
@@ -31,23 +39,31 @@
                         Total: {{ cadesi.total  }} </h2>
                     </div>
                     <div>
-                      <h2 style="color:red" ng-show="getTotal_of_cadesi()>35" class="box-title"
+                   <!--    <h2 style="color:red" ng-show="getTotal_of_cadesi()>35" class="box-title"
                           ng-class="{cadesi_sup_35:getTotal_of_cadesi()>35}">This study only includes mild atopic
                         dermatitis
                         cases
-                        (cadesi-04 < 35 )</h2>
-                    </div>
+                        (cadesi-04 < 35 )</h2> -->
+<!--                         We get rid of that BARTOZC
+ -->                    </div>
 
                   </div>
                   <div class="box-body table-responsive no-padding">
                     <table class="table disable-text-selection">
                       <tbody>
                       <tr>
-                        <th>Region Picture</th>
+                     <!--    <th>Region Picture</th>
                         <th>Region Name</th>
                         <th>Erythema</th>
                         <th>Lichenification</th>
-                        <th>Alopecia</th>
+                        <th>Alopecia</th> -->
+
+                        <th>Région d'intéret</th>
+                        <th>Nom de la ragion</th>
+                        <th>Erythème</th>
+                        <th>Lichénification</th>
+                        <th>Alopécie</th>
+
                       </tr>
 
                       <tr style='text-align:center;font-size:50px' *ngFor="let region of cadesi_details | keyvalue">
@@ -74,7 +90,11 @@
 
         <div class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
-            <h1 class="control-label"> Estimate the pruritus score (10 points-scale) </h1>
+<!--             <h1 class="control-label"> Estimate the pruritus score (10 points-scale) </h1>
+ -->
+            <h1 class="control-label"> Estimez le score de prurit avec cette échelle à 10 niveaux</h1>
+
+
           </div>
           <div class="cadesi-pursuit-wrapper">
             <div class="box-body cadesi-pursuit-div" style="text-align:center">
@@ -87,61 +107,115 @@
             <div class="cadesi-pursuit-div" style="text-align:center">
               <div
                 [ngStyle]="(cadesi.pruritus_score == null || cadesi.pruritus_score == 0 || cadesi.pruritus_score == 1) && {'color': 'red'}">
-                <h3><span> No itching </span></h3>
+<!--                 <h3><span> No itching </span></h3>
                 <h4> Normal Dog, I don't think itching is a problem </h4>
-              </div>
+ -->            
+                <h3><span> Pas de grattage </span></h3>
+                <h4> Mon chien est normal, et je ne crois pas que la démangeaison ou le grattage soit un problème pour lui.  </h4>
+
+
+
+   </div>
 
               <div
                 [ngStyle]="(cadesi.pruritus_score == 1 || cadesi.pruritus_score == 2 || cadesi.pruritus_score == 3) && {'color': 'red'}">
-                <h3><span> Very Mild Itching / Occasional Episodes </span></h3>
+<!--                 <h3><span> Very Mild Itching / Occasional Episodes </span></h3>
                 <h4> The dog is slightly more itchy than it was before the skin problem started</h4>
-              </div>
+ -->              
+
+                <h3><span> Très léger grattage / Episodes sporadiques </span></h3>
+                <h4> Le chien se gratte légèrement plus qu'avant d'avoir ses problèmes de peau</h4>
+
+
+
+</div>
 
 
               <div
                 [ngStyle]="(cadesi.pruritus_score == 3 || cadesi.pruritus_score == 4 || cadesi.pruritus_score == 5) && {'color': 'red'}">
-                <h3><span>Mild itching / a bit more frequent</span></h3>
+<!--                 <h3><span>Mild itching / a bit more frequent</span></h3>
                 <h4>Wouldn't itch when sleeping, eating, playing, exercising or being distracted </h4>
-              </div>
+ -->              
+
+                <h3><span>Léger grattage / un peu plus fréquent</span></h3>
+                <h4>Mon chien ne se gratte pas lorsqu'il dort, mange, joue ou est distrait par une activité</h4>
+
+
+</div>
 
 
               <div
                 [ngStyle]="(cadesi.pruritus_score == 5 || cadesi.pruritus_score == 6 || cadesi.pruritus_score == 7) && {'color': 'red'}">
-                <h3><span> Moderate itching / regular episodes </span></h3>
+<!--                 <h3><span> Moderate itching / regular episodes </span></h3>
                 <h4> Itching might occur at night (if observed), but not when eating, playing, or being distracted </h4>
-              </div>
+ -->              
+
+                <h3><span> Grattage modéré / épisodes réguliers </span></h3>
+                <h4> Le grattage peut avoir lieu la nuit (si observé par le propriétaire), mais pas quand le chien mange, joue ou est distrait par une autre activité.</h4>
+
+
+
+
+
+</div>
 
 
               <div
                 [ngStyle]="(cadesi.pruritus_score == 7 || cadesi.pruritus_score == 8 || cadesi.pruritus_score == 9) && {'color': 'red'}">
-                <h3><span> Severe itching / prolonged episodes </span></h3>
+<!--                 <h3><span> Severe itching / prolonged episodes </span></h3>
                 <h4> Itching might occur at night (if observed) and also when eating, playing, exercising or being
                   distracted </h4>
+ -->
+                <h3><span> Grattage sévère / multiples épisodes prolongés </span></h3>
+                <h4> Le grattage peut avoir lieu la nuit (si observé par le propriétaire), mais aussi quand le chien mange, joue ou est distrait par une autre activité.</h4>
+
+
               </div>
 
 
               <div [ngStyle]="(cadesi.pruritus_score == 10 || cadesi.pruritus_score == 9) && {'color': 'red'}">
-                <h3><span> Extremely sever itching / almost continuous </span></h3>
+<!--                 <h3><span> Extremely sever itching / almost continuous </span></h3>
                 <h4> Itching doesn't stop whatever is happening, even in the consulting room (needs to be physically
                   restrained
                   from itching) </h4>
-              </div>
+ -->       
+                <h3><span> Grattage extrèmement sévère / pratiquement en permanence </span></h3>
+                <h4> Le grattage ne s'arrête pas, quelque soit ce que fait le chien, même dans la salle de consultation où il faut l'empêcher physiquement de se gratter).</h4>
+
+
+
+        </div>
             </div>
           </div>
         </div>
         <div class="buttons-wrapper">
-          <button routerLink="{{ route_link_next }}" routerLinkActive="active" (click)="save()"
+<!--           <button routerLink="{{ route_link_next }}" routerLinkActive="active" (click)="save()"
                   ui-sref="add_pet.flea_treatment"
                   ng-show="getTotal_of_cadesi()!=='0' & pet_data.pruritus_score!=''" id="" type="button" name="next"
                   class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
           </button>
+ -->
 
-          <button routerLink="{{ route_link_back }}" routerLinkActive="active" ng-click='back()'
+           <button routerLink="{{ route_link_next }}" routerLinkActive="active" (click)="save()"
+                  ui-sref="add_pet.flea_treatment"
+                  ng-show="getTotal_of_cadesi()!=='0' & pet_data.pruritus_score!=''" id="" type="button" name="next"
+                  class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Suivant
+          </button>
+
+<!--           <button routerLink="{{ route_link_back }}" routerLinkActive="active" ng-click='back()'
                   ui-sref="add_pet.favrot_criteria" id="moving" type="button"
                   name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
                   style='float:left'>Return
           </button>
-        </div>
+ -->      
+          <button routerLink="{{ route_link_back }}" routerLinkActive="active" ng-click='back()'
+                  ui-sref="add_pet.favrot_criteria" id="moving" type="button"
+                  name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
+                  style='float:left'>Retour
+          </button>
+
+
+   </div>
 
       </form>
 
