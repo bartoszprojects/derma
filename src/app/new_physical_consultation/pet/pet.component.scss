@@ -32,7 +32,7 @@ mat-expansion-panel {
   background: white;
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.32);
   top: 50%;
-  left: 50%;
+  left: calc(50% - 175px);
   z-index: 99999;
   border-radius: 8px;
   padding: 20px;

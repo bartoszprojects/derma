@@ -61,12 +61,12 @@
               </div>
 
               <div *ngIf="hide_container == true" class="confirm-hide-pet">
-                <p style="font-size: 22px">Are you sure to hide this Pet ?</p>
+                <p style="font-size: 22px">Êtes vous sûr de vouloir supprimer cet animal ?</p>
                 <button type="button" (click)="changeContainer('false')" class="next btn-special btn-4 btn-4a"
-                        style="padding: 10px 30px 10px 30px">No
+                        style="padding: 10px 30px 10px 30px">Non
                 </button>
                 <button (click)="hidePet(pet.id); hideSinglePetFromBackend(pet.id); changeContainer('false')"
-                        class="next btn-special btn-4 btn-4a" style="padding: 10px 30px 10px 30px">Yes
+                        class="next btn-special btn-4 btn-4a" style="padding: 10px 30px 10px 30px">Oui
                 </button>
               </div>
 
