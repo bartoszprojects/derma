@@ -6,6 +6,8 @@
 </div>
 
 <div style="width: auto" class="container">
+  <mat-toolbar color="primary"></mat-toolbar>
+
   <div>
 
     <section class="content-header">
@@ -13,6 +15,7 @@
         <ng-template [ngIf]="route_boolean == 'add-pet' || route_boolean == 'new-physical-consultation'">
           <div class="box box-default box-solid ">
             <div style="text-align:center" class="box-header with-border">
+
               <div>
 <!--                 <h1 for="id_pet_name">Fill this CADESI-04 scale for your candidate</h1>
  -->              
@@ -28,16 +31,17 @@
 
               </div>
             </div>
+            <mat-toolbar color="warn">
+              <h2 class="box-title">
+              Total: {{ cadesi.total  }} </h2>
+            </mat-toolbar>
             <div style="text-align:center" class="box-body">
 
 
               <div class="col-xs-12">
                 <div class="box">
                   <div class="box-header">
-                    <div>
-                      <h2 class="box-title" ng-class="{cadesi_sup_35:getTotal_of_cadesi()>35}">
-                        Total: {{ cadesi.total  }} </h2>
-                    </div>
+
                     <div>
                    <!--    <h2 style="color:red" ng-show="getTotal_of_cadesi()>35" class="box-title"
                           ng-class="{cadesi_sup_35:getTotal_of_cadesi()>35}">This study only includes mild atopic

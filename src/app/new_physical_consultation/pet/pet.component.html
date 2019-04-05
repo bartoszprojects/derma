@@ -12,33 +12,42 @@
 </div>
 
 
-<div style="width: auto" class="container" [class.containter-to-hide]="hide_container == true">
+<div style="width: auto" class="container" [class.containter-to-hide]="hide_container === true">
+  <mat-toolbar color="primary"></mat-toolbar>
+  <mat-toolbar color="warn">
 
-  <section class="content-header">
-    <div class="row">
-      <div class="col-lg-6 col-xs-6">
-        <!-- small box -->
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-search"></i></span>
-          <input ng-model="query" type="text" class="form-control" placeholder="Rechercher un animal par son nom">
-        </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-lg-6 col-xs-6">
-        <a routerLink="/home/add-pet/disclaimer" routerLinkActive="active">
-          <button type="button" class="btn btn-block btn-default">Inclure un nouvel animal <i class="fa fa-plus"
-                                                                                   style="float:right"></i></button>
-        </a>
+    <div class="col-lg-6 col-xs-6">
+      <!-- small box -->
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+        <input type="text" [(ngModel)]="search2" class="form-control" placeholder="Rechercher un animal par son nom">
       </div>
     </div>
+    <!-- ./col -->
+    <div class="col-lg-6 col-xs-6">
+      <a routerLink="/home/add-pet/disclaimer" routerLinkActive="active">
+        <button type="button" class="btn btn-block btn-default">Inclure un nouvel animal <i class="fa fa-plus"
+                                                                                            style="float:right"></i>
+        </button>
+      </a>
+    </div>
+
+    <button *ngIf="is_clicked && route_boolean != 3" routerLink="/home/{{ route_link_next }}"
+            routerLinkActive="active" (click)="putData()"
+            id="moving" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right pet-button"
+            value="Next">Suivant
+    </button>
+  </mat-toolbar>
+  <section class="content-header">
 
     <div>
       <br>
     </div>
 
-    <div class="row">
-      <div *ngFor="let pet of pets; let index = index">
-        <div *ngIf="pet.display == true && !list_of_hidden.includes(pet.id)" class="col-md-6"
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+      <div *ngFor="let pet of pets  | filter:[{field:'pet_name', value: search2}]; let index=index"
+           class="repeated-pet">
+        <div *ngIf="pet.display == true && !list_of_hidden.includes(pet.id)" class="col-md-6" style="width: 100%"
              [class.wasClickedHide]="set_pet == pet.id">
           <div class="box box-widget widget-user-2 list-single-pet" (click)="setSelected(pet.id)"
                [class.wasClicked]="set_color == pet.id">
@@ -47,7 +56,7 @@
             <div class="pet-list-header" [class.girl-header]="pet?.gender == 'FEMALE'"
                  [class.boy-header]="pet?.gender == 'MALE'">
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool"
+                <button type="button" class="btn-box-tool" style="border: none"
                         (click)="changeContainer('true')"><i class="fa fa-times-circle"></i></button>
               </div>
 
@@ -74,18 +83,20 @@
                   <h3 class="widget-user-username">{{ pet?.pet_name }}</h3>
                   <!--<h5 style="font-size:12px" ng-if="pet.is_sick==1"><b>The Homemade recipe is available but need to be-->
                   <!--checked by your Vet</b></h5>-->
-                  <h5 class="widget-user-desc">Inclusion Date:<span> {{ pet?.date_logs.inclusion_date }}</span></h5>
-                  <h5 class="widget-user-desc">Owner Name:<span> {{ pet?.owner_name }}</span></h5>
-                  <h5 class="widget-user-desc">Owner Phone:<span> {{ pet?.owner_phone }}</span></h5>
-                  <h5 class="widget-user-desc">Recruiter Email:<span> {{ pet?.recruiter_email }}</span></h5>
+                  <h5 class="widget-user-desc">Date d’inclusion:<span> {{ pet?.date_logs.inclusion_date }}</span></h5>
+                  <h5 class="widget-user-desc">Nom du propriétaire:<span> {{ pet?.owner_name }}</span></h5>
+                  <h5 class="widget-user-desc">Numéro de téléphone du propriétaire :<span> {{ pet?.owner_phone }}</span>
+                  </h5>
+                  <h5 class="widget-user-desc">Email du vétérinaire recruteur:<span> {{ pet?.recruiter_email }}</span>
+                  </h5>
                   <mat-expansion-panel>
                     <mat-expansion-panel-header>
-                      <span style="font-size: 14px">Events History:</span><span>&nbsp;	&nbsp;	</span>
+                      <span style="font-size: 14px">Historique:</span><span>&nbsp;	&nbsp;	</span>
                     </mat-expansion-panel-header>
                     <ul>
-                    <ul>
-                      <li *ngFor='let key of _.keys(pet?.date_logs)'>{{key}}: {{pet?.date_logs[key]}}</li>
-                    </ul>
+                      <ul>
+                        <li *ngFor='let key of _.keys(pet?.date_logs)'>{{key}}: {{pet?.date_logs[key]}}</li>
+                      </ul>
                     </ul>
 
                   </mat-expansion-panel>
@@ -94,8 +105,8 @@
                   *ngIf="pet?.pyodermatitis_history || pet?.otitis_history || pet?.malassezia_history || pet?.exclusion_reason.length > 0"
                   class="widget-user-warning">
                   <i class="fa fa-exclamation-triangle"></i>
-                  <h5>This Pet has a diseases history.</h5>
-                  <h5>Look at your pet closely !</h5>
+                  <p>Cet animal a une histoire de maladies.</p>
+                  <p>Regarde attentivement ton animal!</p>
                 </div>
 
               </div>
@@ -108,106 +119,106 @@
                   <a>Ideal Weights<span class="pull-right badge bg-blue">{{ pet?.getIDEALWEIGHT }} kg</span></a>
                 </li>
 
-                <mat-expansion-panel>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      Update Weights
+                <!--                <mat-expansion-panel>-->
+                <!--                  <mat-expansion-panel-header>-->
+                <!--                    <mat-panel-title>-->
+                <!--                      Update Weights-->
 
-                    </mat-panel-title>
+                <!--                    </mat-panel-title>-->
 
-                  </mat-expansion-panel-header>
-                  <li>
-                    <div style="border-top-style: solid; border-top-color:#3c8dbc;"
-                         uib-collapse="!pet.expanded">
-                      <form name="weightForm">
-                        <div class="modal-header">
-                          <h3 style="text-align:center" class="modal-title" id="modal-title"> Follow up
-                            with <b></b> weight </h3>
-
-
-                          <canvas baseChart id="bar" class="chart chart-bar" style="width: 100%"
-                                  [datasets]="pieChartData"
-                                  [labels]="pieChartLabels"
-                                  [chartType]="pieChartType"
-                                  [legend]="false"
-                                  (chartClick)="chartClicked($event)"></canvas>
-                        </div>
-
-                        <div>
-                        </div>
+                <!--                  </mat-expansion-panel-header>-->
+                <!--                  <li>-->
+                <!--                    <div style="border-top-style: solid; border-top-color:#3c8dbc;"-->
+                <!--                         uib-collapse="!pet.expanded">-->
+                <!--                      <form name="weightForm">-->
+                <!--                        <div class="modal-header">-->
+                <!--                          <h3 style="text-align:center" class="modal-title" id="modal-title"> Follow up-->
+                <!--                            with <b></b> weight </h3>-->
 
 
-                        <mat-expansion-panel>
-                          <mat-expansion-panel-header>
-                            <mat-panel-title>
-                              Add a Weight to logs
+                <!--                          <canvas baseChart id="bar" class="chart chart-bar" style="width: 100%"-->
+                <!--                                  [datasets]="pieChartData"-->
+                <!--                                  [labels]="pieChartLabels"-->
+                <!--                                  [chartType]="pieChartType"-->
+                <!--                                  [legend]="false"-->
+                <!--                                  (chartClick)="chartClicked($event)"></canvas>-->
+                <!--                        </div>-->
 
-                            </mat-panel-title>
-
-                          </mat-expansion-panel-header>
-
-                          <div class="col-lg-6">
-
-
-                            <p class="input-group">
-                              <input name="new_date"
-                                     ng-class="{ 'has-error' : weightForm.new_date.$invalid && !weightForm.new_date.$pristine ,'has-success':weightForm.new_date.$valid}"
-                                     type="text" class="form-control" uib-datepicker-popup
-                                     ng-model="pet_to_show_weight.dt" is-open="popup2.opened"
-                                     datepicker-options="dateOptions" ng-required="true"
-                                     close-text="Close" ng-click="open2()" required/>
-                              <span class="input-group-btn">
-                                      <button type="button" class="btn btn-default" ng-click="open2()"><i
-                                        class="glyphicon glyphicon-calendar"></i>
-                                      </button>
-                                </span>
-                            </p>
-
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="form-group has-feedback">
-                              <input style='width:100%'
-
-                                     min="0" max="150" ng-model="pet_to_show_weight.new_weight"
-                                     type="number" class="form-control" name="new_weight"
-                                     placeholder="Type your pet'sweight on the specified date"
-                                     required>
-
-                            </div>
-
-                          </div>
-                          <p style='text-align:center'
-                             ng-show="weightForm.new_weight.$error.min || weightForm.new_weight.$error.max"
-                             class="help-block error">Do not get cocky and give me a valid weight</p>
-                          <p style='text-align:center' ng-show="weightForm.new_weight.$error.number"
-                             class="help-block error">You could at list give numbers! </p>
+                <!--                        <div>-->
+                <!--                        </div>-->
 
 
-                          <button style='width:100%' ng-disabled="weightForm.$invalid"
-                                  ng-click='update_weight(pet)' type="button"
-                                  class="btn btn-info btn-flat">Update current Weight
-                          </button>
+                <!--                        <mat-expansion-panel>-->
+                <!--                          <mat-expansion-panel-header>-->
+                <!--                            <mat-panel-title>-->
+                <!--                              Add a Weight to logs-->
 
-                        </mat-expansion-panel>
-                        <div>
-                        </div>
-                        <div>
-                        </div>
-                      </form>
+                <!--                            </mat-panel-title>-->
 
-                    </div>
-                  </li>
+                <!--                          </mat-expansion-panel-header>-->
 
-                </mat-expansion-panel>
-                <mat-expansion-panel>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      Update Datas
+                <!--                          <div class="col-lg-6">-->
 
-                    </mat-panel-title>
 
-                  </mat-expansion-panel-header>
-                </mat-expansion-panel>
+                <!--                            <p class="input-group">-->
+                <!--                              <input name="new_date"-->
+                <!--                                     ng-class="{ 'has-error' : weightForm.new_date.$invalid && !weightForm.new_date.$pristine ,'has-success':weightForm.new_date.$valid}"-->
+                <!--                                     type="text" class="form-control" uib-datepicker-popup-->
+                <!--                                     ng-model="pet_to_show_weight.dt" is-open="popup2.opened"-->
+                <!--                                     datepicker-options="dateOptions" ng-required="true"-->
+                <!--                                     close-text="Close" ng-click="open2()" required/>-->
+                <!--                              <span class="input-group-btn">-->
+                <!--                                      <button type="button" class="btn btn-default" ng-click="open2()"><i-->
+                <!--                                        class="glyphicon glyphicon-calendar"></i>-->
+                <!--                                      </button>-->
+                <!--                                </span>-->
+                <!--                            </p>-->
+
+                <!--                          </div>-->
+                <!--                          <div class="col-lg-6">-->
+                <!--                            <div class="form-group has-feedback">-->
+                <!--                              <input style='width:100%'-->
+
+                <!--                                     min="0" max="150" ng-model="pet_to_show_weight.new_weight"-->
+                <!--                                     type="number" class="form-control" name="new_weight"-->
+                <!--                                     placeholder="Type your pet'sweight on the specified date"-->
+                <!--                                     required>-->
+
+                <!--                            </div>-->
+
+                <!--                          </div>-->
+                <!--                          <p style='text-align:center'-->
+                <!--                             ng-show="weightForm.new_weight.$error.min || weightForm.new_weight.$error.max"-->
+                <!--                             class="help-block error">Do not get cocky and give me a valid weight</p>-->
+                <!--                          <p style='text-align:center' ng-show="weightForm.new_weight.$error.number"-->
+                <!--                             class="help-block error">You could at list give numbers! </p>-->
+
+
+                <!--                          <button style='width:100%' ng-disabled="weightForm.$invalid"-->
+                <!--                                  ng-click='update_weight(pet)' type="button"-->
+                <!--                                  class="btn btn-info btn-flat">Update current Weight-->
+                <!--                          </button>-->
+
+                <!--                        </mat-expansion-panel>-->
+                <!--                        <div>-->
+                <!--                        </div>-->
+                <!--                        <div>-->
+                <!--                        </div>-->
+                <!--                      </form>-->
+
+                <!--                    </div>-->
+                <!--                  </li>-->
+
+                <!--                </mat-expansion-panel>-->
+                <!--                <mat-expansion-panel>-->
+                <!--                  <mat-expansion-panel-header>-->
+                <!--                    <mat-panel-title>-->
+                <!--                      Update Datas-->
+
+                <!--                    </mat-panel-title>-->
+
+                <!--                  </mat-expansion-panel-header>-->
+                <!--                </mat-expansion-panel>-->
 
               </ul>
             </div>
@@ -215,13 +226,9 @@
         </div>
       </div>
 
-      <button *ngIf="is_clicked && route_boolean != 3" routerLink="/home/{{ route_link_next }}"
-              routerLinkActive="active" (click)="putData()"
-              id="moving" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-              style='float:right'>Continue
-      </button>
 
     </div>
+
   </section>
 
 </div>

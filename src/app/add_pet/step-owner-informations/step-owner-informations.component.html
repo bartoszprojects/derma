@@ -5,7 +5,8 @@
     <form #owner_informations_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label" for="id_Sup2"> Afin que le prorpiétaire puisse être contacté par l'université de Zürich  
+          <h1 class="control-label" for="id_Sup2"> Afin que le prorpiétaire puisse être contacté par l'université de
+            Zürich
             Let's fill some data about the owner in order for UZH to contact him
             ? </h1>
         </div>
@@ -47,8 +48,10 @@
 
                     <mat-checkbox #accept_data_sharing="ngModel"
                                   [(ngModel)]="owner_informations_form.accept_data_sharing"
-                                  name="accept_data_sharing"> Le propriétaire accepte de partager les données médicales de son chie avec l'université de Zürich et d'être contacté par un membre de l'université de Zürich par email ou par téléphone, si nécessaire. 
-                                                      </mat-checkbox>
+                                  name="accept_data_sharing"> Le propriétaire accepte de partager les données médicales
+                      de son chie avec l'université de Zürich et d'être <br>
+                      contacté par un membre de l'université de Zürich par email ou par téléphone, si nécessaire.
+                    </mat-checkbox>
 
                   </div>
                 </div>
