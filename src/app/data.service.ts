@@ -160,7 +160,7 @@ export class DataService {
       .set('voracious', '1')
       .set('low_carb', '1');
 
-    return this.http.get('https://api.snv-derma.rootxnet.com/api/recipe_derma' , {headers: headers, params: params})
+    return this.http.get('https://api.snv-derma.rootxnet.com/api/recipe_derma/' , {headers: headers, params: params})
   }
 
   deleteSinglePetFromBackend() {
@@ -578,7 +578,6 @@ export class DataService {
         'Content-Type': 'application/x-www-form-urlencoded',
       })
     };
-
     return this.http.post('https://api.snv-derma.rootxnet.com/o/token/', payload, httpOptions)
 
   }
