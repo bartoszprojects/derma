@@ -137,7 +137,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get('https://api.snv-derma.rootxnet.com/api/snippets/' + id_pet, httpOptions)
+    return this.http.get('https://api.snv-derma.rootxnet.com/api/snippets/' + id_pet + '/', httpOptions)
   }
 
   getBreetDataFromBackend() {
@@ -170,7 +170,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.delete('https://api.snv-derma.rootxnet.com/api/snippets/d075343f-976e-4b9c-a689-4dd2444a5592', httpOptions).subscribe(result => {
+    return this.http.delete('https://api.snv-derma.rootxnet.com/api/snippets/d075343f-976e-4b9c-a689-4dd2444a5592/', httpOptions).subscribe(result => {
       console.log('FROOM DELETE: ', result)
     });
   }
