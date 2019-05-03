@@ -50,8 +50,8 @@
     <div class="box box-default box-solid ">
       <div class="box-header with-border">
         <h3 class="box-title" style="float: left">
+          Données nutritrionnelles de
           {{ pet?.pet_name }}
-          's données nutritrionnelles
         </h3>
         <div style="float: right"><i style="font-size: 32px" class="material-icons" value="CPTURE"
                                      (click)="captureScreen()">picture_as_pdf</i></div>
@@ -124,7 +124,7 @@
       <uib-accordion>
         <div uib-accordion-group is-open="status1.open" class="box box-primary box-default">
           <uib-accordion-heading class="box-header with-border">
-            <h3><i class="fa fa-fw fa-bar-chart"></i><b>Recette sur mesure</b> à objectifs dermatologiques pour :{{ pet?.pet_name }}
+            <h3><i class="fa fa-cutlery"></i> <b> Recette sur mesure</b> à objectifs dermatologiques pour :{{ pet?.pet_name }}
             <i class="pull-right glyphicon"></i>
             </h3>
           </uib-accordion-heading>
@@ -132,7 +132,7 @@
             <div class="info-box">
         <span class="info-box-icon">
           <img class="img-circle"
-               src='https://api.snv-derma.rootxnet.com/media/{{food.img}}'>
+               src='http://127.0.0.1:8002/media/{{food.img}}'>
           </span>
               <div class="info-box-content">
                 <span class="info-box-text">{{food.title}}</span>
@@ -148,11 +148,84 @@
         </div>
       </uib-accordion>
 
+            <uib-accordion>
+        <div uib-accordion-group is-open="status1.open" class="box box-primary box-default">
+          <uib-accordion-heading class="box-header with-border">
+            <h3><i class="fa fa-exchange"></i>  <b> Transition Alimentaire</b> (optionnelle)
+            <i class="pull-right glyphicon"></i>
+            </h3>
+          </uib-accordion-heading>
+          <h4>La transition alimentaire est en particulier recommandée pour les chiens ayant une ration originelle industrielle (sèche ou humide) ou souffrant d'une fragilité digestive.
+          Le plan de transition proposé permet d'introduire un ou plusieurs aliments de la recette jour après jour et de permettre aux micro-organismes digestifs de votre chien de s'adapter à cette nouvelle alimentation.
+            Cette transition dure 4 jours. Toutes les quantités sont ici exprimées en pourcentages de la recette formulée plus haut ou de l'alimentation actuelle.</h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Jour 1</th>
+      <th scope="col">Jour 2</th>
+      <th scope="col">Jour 3</th>
+      <th scope="col">Jour 4</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Ration Originale (Pâtée ou Croqquettes)</th>
+      <td>75 %</td>
+      <td>50 % </td>
+      <td>25 %</td>
+      <td>0 %</td>
+
+    </tr>
+    <tr>
+      <th scope="row">Riz et Haricots verts </th>
+      <td>100 % </td>
+      <td>100 % </td>
+      <td>100 % </td>
+      <td>100 % </td>
+    </tr>
+    <tr>
+
+      <tr>
+      <th scope="row">Poulet</th>
+      <td>0 %</td>
+      <td>50 %</td>
+      <td>50 % </td>
+      <td>100 % </td>
+    </tr>
+    <tr>
+
+      <th scope="row">Banane et Huile de Colza</th>
+      <td>0 %</td>
+      <td>0 %</td>
+      <td>100%</td>
+      <td>100% </td>
+    </tr>
+
+      <tr>
+      <th scope="row">Levure, Myrtille et AGEPI</th>
+      <td>0 %</td>
+      <td>0 % </td>
+      <td>0 %</td>
+      <td>100 %</td>
+    </tr>
+
+
+  </tbody>
+</table>
+
+
+
+        </div>
+      </uib-accordion>
+
 
       <uib-accordion>
         <div uib-accordion-group is-open="status2.open" class="box box-primary box-default">
           <uib-accordion-heading class="box-header with-border">
-            <h3><i class="fa fa-fw fa-bar-chart"></i><b>Pour aller plus loin</b> : Distribution des macro-éléments <i
+            <h3><i class="fa fa-fw fa-bar-chart"></i><b> Pour aller plus loin</b> : Distribution des macro-éléments <i
               class="pull-right glyphicon" ng-class="{'fa fa-minus': status2.open, 'fa fa-plus': !status2.open}"></i>
             </h3>
 

@@ -121,11 +121,21 @@
 
               <div class="col-sm-10">
                 <div class='input-group'>
-                  <input #oclacitinib="ngModel" [(ngModel)]="drug_history_form.oclacitinib" name="oclacitinib"
-                         type="number" class="form-control" placeholder="Posology" min="0">
 <!--                   <span class="input-group-addon">mg/kg/day</span>
+
  -->
-                  <span class="input-group-addon">mg/kg/jour</span>
+
+
+
+
+
+                  <mat-radio-group [(ngModel)] = "drug_history_form.oclacitinib" >
+  <mat-radio-button value="BID">Deux fois par jour</mat-radio-button>
+  <mat-radio-button value="SID">Une fois par jour</mat-radio-button>
+  <mat-radio-button value="EOD">Tous les deux jours</mat-radio-button>
+  <mat-radio-button value="E3D">Tous les trois jours</mat-radio-button>
+</mat-radio-group>
+
 
                 </div>
               </div>
@@ -136,12 +146,16 @@
 
               <div class="col-sm-10">
                 <div class='input-group'>
-                  <input #cyclosporine="ngModel" [(ngModel)]="drug_history_form.cyclosporine" name="cyclosporine"
-                         type="number" class="form-control" placeholder="Posology" min="0">
-                  <span class="input-group-addon">mg/kg/jour</span>
+
+                  <mat-radio-group [(ngModel)]="drug_history_form.cyclosporine" #radioGroup="matRadioGroup">
+  <mat-radio-button value="SID">Une fois par jour</mat-radio-button>
+  <mat-radio-button value="EOD">Tous les deux jours</mat-radio-button>
+  <mat-radio-button value="E3D">Tous les trois jours</mat-radio-button>
+  <mat-radio-button value="E4D">Tous les quatre jours</mat-radio-button>
+</mat-radio-group>
+
                   
-<!--                   <span class="input-group-addon">mg/kg/jour</span>
- -->
+
 
                 </div>
               </div>
@@ -150,6 +164,7 @@
           </div>
 
         </div>
+                  {{drug_history_form|json}}
 
 
         <div ng-show="pet_data.drug_history_known=='1'" class="box box-default box-solid ">
@@ -288,7 +303,7 @@
               style='float:right'>Continue
       </button>
  -->
-      <button (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
+      <button  *ngIf="drug_history_form.drug_history_known == true" (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Suivant
       </button>
