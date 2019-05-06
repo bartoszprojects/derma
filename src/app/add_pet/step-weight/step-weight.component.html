@@ -11,21 +11,20 @@
         <div style="text-align:center" class="box-header with-border">
           <div *ngIf="route_boolean == 1">
             <h1 class="control-label " for="id_weight">
+              Le poids de 
               <b>
                 <app-pet-name></app-pet-name>
               </b>
-              's Weight
             </h1>
-            <h4 class="control-label " for="id_weight"><i> Use the paw to select <b>
+            <h4 class="control-label " for="id_weight"><i> Utilisez le curseur pour choisir le poids de  <b>
               <app-pet-name></app-pet-name>
-            </b>'s
-              weight.<br></i>
+            </b><br></i>
             </h4>
           </div>
           <div *ngIf="route_boolean == 0">
             <h1 class="control-label " for="id_weight">
-              Update
-              <b><app-common-data [element]="'pet_name'"></app-common-data></b>'s Weight
+              Mettre à jour le poids de 
+              <b><app-common-data [element]="'pet_name'"></app-common-data></b>
             </h1>
           </div>
         </div>
@@ -44,12 +43,12 @@
     <button *ngIf="weight_form.weight > 0" (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
             id="moving"
             type="button" name="next"
-            class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
+            class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Suivant
     </button>
 
     <button routerLink="{{ route_link_back }}" routerLinkActive="active" id="" type="button" name="previous"
             class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
-      Return
+      Retour
     </button>
 
 

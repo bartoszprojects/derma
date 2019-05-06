@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Smart-Nutrition | Home</title>
+  <title>Smart-Atopia | Home </title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 
@@ -20,7 +20,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 
 
-<div class="wrapper">
+<div class="xwrapper">
 
   <header class="main-header">
     <!-- Logo -->
@@ -38,7 +38,7 @@
 
           <li class="dropdown messages-menu">
             <a>
-              <span (click)="logout()" style="cursor: pointer">Logout</span>
+              <span (click)="logout()" style="cursor: pointer">Deconnexion</span>
             </a>
         </ul>
       </div>
@@ -56,9 +56,9 @@
           <img src="assets/static/data/img/uzh.jpg" class="img-circle" alt="User Image">
 
         </div>
-        <div class="pull-left info">
-          <p>Hi {{ recruiter }} </p>
-          <a href="#"><i class="fa fa-circle text-success"></i> SN is ready to work !</a>
+        <div class="pull-left info pull-left-hello">
+          <p style="margin: 0;white-space: normal;">Bonjour {{ recruiter }} </p>
+<!--          <a href="#"><i class="fa fa-circle text-success"></i> Smart-Atopia is ready to work and updated!</a>-->
 
 
         </div>
@@ -76,13 +76,13 @@
         </li>
 
         <li class="treeview">
-          <a routerLink="/home/my-pet-dashboard" routerLinkActive="active"><i class="glyphicon glyphicon-dashboard"></i><span>My Pets Dashboard</span>
+          <a routerLink="/home/my-pet-dashboard" routerLinkActive="active"><i class="glyphicon glyphicon-dashboard"></i><span>Mes animaux inclus</span>
 
           </a>
         </li>
 
         <li class="treeview">
-          <a routerLink="/home/add-pet/disclaimer" routerLinkActive="active"><i class="fa fa-plus"></i><span>Include a new Pet</span>
+          <a routerLink="/home/add-pet/disclaimer" routerLinkActive="active"><i class="fa fa-plus"></i><span>Inclure un nouvel animal</span>
 
           </a>
         </li>
@@ -90,14 +90,14 @@
 
         <li class="treeview">
           <a routerLink="/home/new-physical-consultation/pet" routerLinkActive="active"><i
-            class="fa fa-stethoscope"></i><span>New Physical Consultation</span>
+            class="fa fa-stethoscope"></i><span>Nouvelle consultation physique</span>
 
           </a>
         </li>
 
 
         <li class="treeview">
-          <a routerLink="/home/new-phone-consultation/pet" routerLinkActive="active"><i class="fa fa-phone"></i><span>New Phone Consultation</span>
+          <a routerLink="/home/new-phone-consultation/pet" routerLinkActive="active"><i class="fa fa-phone"></i><span>Nouvelle consultation à distance (mail/tel) </span>
 
           </a>
         </li>
@@ -105,7 +105,7 @@
 
         <li class="treeview">
           <a routerLink="/home/homemade/pet" routerLinkActive="active"><i
-            class="fa fa-cutlery"></i><span>Homemade Diet</span>
+            class="fa fa-cutlery"></i><span>Ration ménagère dermatologique</span>
 
           </a>
         </li>
@@ -121,7 +121,7 @@
   <div class="content-wrapper" style="min-height: 100vh">
     <router-outlet></router-outlet>
 
-
+<pre>{{ formData | json }}</pre>
 
 
   </div>

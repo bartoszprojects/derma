@@ -15,41 +15,41 @@ export class SmartAtopiaWelcomeComponent implements OnInit {
       id: 1,
       icon: "glyphicon glyphicon-dashboard",
       url: '/home/my-pet-dashboard',
-      title: "My Pets Dashboard",
-      desc_title: "Manage the pet you included in the study",
-      desc_desc: "Access those pet's profile"
+      title: "Mes animaux inclus",
+      desc_title: "Aperçu des animaux que vous avez inclus dans l'étude",
+      desc_desc: "Accès aux profiles des animaux inclus"
     },
     {
       id: 2,
       icon: "fa fa-plus",
       url: "/home/add-pet/disclaimer",
-      title: "Include a new Pet",
-      desc_title: "Include an atopic dog",
-      desc_desc: "Click on the cross to add a pet to UZH's study!"
+      title: "Inclure un nouvel animal",
+      desc_title: "Inclure un chien atopique",
+      desc_desc: "Cliquer sur la croix pour inclure un nouvel animal dans l'étude"
     },
     {
       id: 3,
       icon: "fa fa-stethoscope",
       url: '/home/new-physical-consultation/pet',
-      title: 'New Physical Consultation',
-      desc_title: "Add a physical consultation",
-      desc_desc: "Follow up Consultation"
+      title: 'Nouvelle consultation physique',
+      desc_title: "Renseigner les données d'une nouvelle consultation physique",
+      desc_desc: "Consultation de suivi"
     },
     {
       id: 4,
       icon: "fa fa-phone",
       url: '/home/new-phone-consultation/pet',
-      title: 'New Phone Consultation',
-      desc_title: "Add a Telephone consultation",
-      desc_desc: "Follow up by Telephone"
+      title: 'Nouvelle Consultation à distance (tel/mail)',
+      desc_title: "Renseigner les données d'une nouvelle consultation téléphonique",
+      desc_desc: "Consultation de suivi à distance (tel/mail)"
     },
     {
       id: 5,
       icon: "fa fa-cutlery",
       url: '/home/homemade/pet',
-      title: 'Dermatologic Homemade Diet',
-      desc_title: "Design a tailor-made dermatologic recipe",
-      desc_desc: "This diet will be specifically enriched in nutrients to improve the candidate's skin conditione"
+      title: 'Ration ménagère dermatologique',
+      desc_title: "Ration ménagère complète et équilibre à objectifs dermatologiques",
+      desc_desc: "Cette ration sera enrichie en nutriments particuliers pour améliorer la prise en charge de l'atopie"
     }
 
   ];

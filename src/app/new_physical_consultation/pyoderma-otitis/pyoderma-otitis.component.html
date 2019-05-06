@@ -4,8 +4,7 @@
   <section class="content-header">
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Is <b><app-common-data [element]="'pet_name'"></app-common-data></b> having a
-          Pyoderma now ? </h1>
+        <h1 class="control-label" for="id_Sup2">  <b><app-common-data [element]="'pet_name'"></app-common-data></b> a-t-il une pyodermite au moment de la consultation ? </h1>
       </div>
 
       <div class="box-body">
@@ -13,12 +12,12 @@
           <label [class.clicked_button_warning]="pyodermatitis == 1" style="font-size: 2.5vw;"
                  class="btn btn-1 btn-1a btn-crossed_0">
             <input (click)="is_pyodermatitis = true"  [(ngModel)]="pyodermatitis" class='form-control' type="radio" value="1" name="third"
-                   > Yes</label>
+                   > Oui </label>
 
           <label [class.clicked_button]="pyodermatitis == 0" style="font-size: 2.5vw;"
                  class="btn btn-1 btn-1a btn-crossed_1">
             <input (click)="is_pyodermatitis = null" [(ngModel)]="pyodermatitis" class='form-control' type="radio" value="0" name="third"
-                   > No </label>
+                   > Non </label>
         </div>
 
       </div>
@@ -28,13 +27,13 @@
     <ng-template [ngIf]="pyodermatitis == 1">
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border error-header">
-        <h1 class="control-label" for="id_Sup2"> Warning </h1>
+        <h1 class="control-label" for="id_Sup2"> Attention </h1>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
           <label style="font-size: 2.5vw">
-            Pyoderma must cured to remain in the study!</label>
+            La pyodermite doit être traitée pour rester dans l'étude.</label>
         </div>
       </div>
 
@@ -43,8 +42,7 @@
 
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Is <b><app-common-data [element]="'pet_name'"></app-common-data></b> having an externa
-          otitis now ? </h1>
+        <h1 class="control-label" for="id_Sup2"> <b><app-common-data [element]="'pet_name'"></app-common-data></b> a-t-il une otite externe au moment de la consultation ? </h1>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -52,12 +50,12 @@
           <label [class.clicked_button_warning]="otitis == 1" style="font-size: 2.5vw;"
                  class="btn btn-1 btn-1a btn-crossed_0">
             <input (click)="is_otitis = true" [(ngModel)]="otitis" class='form-control' type="radio" value="1" name="second"
-                   > Yes</label>
+                   > Oui </label>
 
           <label [class.clicked_button]="otitis == 0"  style="font-size: 2.5vw;"
                  class="btn btn-1 btn-1a btn-crossed_1">
             <input (click)="is_otitis = null" [(ngModel)]="otitis" class='form-control' type="radio" value="0" name="second"
-                  > No </label>
+                  > Non </label>
         </div>
 
       </div>
@@ -67,13 +65,13 @@
     <ng-template [ngIf]="otitis == 1">
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border error-header">
-        <h1 class="control-label" for="id_Sup2"> Warning </h1>
+        <h1 class="control-label" for="id_Sup2"> Attention </h1>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
           <label style="font-size: 2.5vw">
-            Externa otits must be cured to remain in the study</label>
+            L'otite externe doit être traitée pour rester dans l'étude</label>
         </div>
       </div>
 
@@ -82,8 +80,7 @@
 
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border">
-        <h1 class="control-label" for="id_Sup2"> Is <b><app-common-data [element]="'pet_name'"></app-common-data></b> having Malassezia
-          dermatitis now ? </h1>
+        <h1 class="control-label" for="id_Sup2"><b><app-common-data [element]="'pet_name'"></app-common-data></b> a-t-il une dermatite à Malassezia ? </h1>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -91,12 +88,12 @@
           <label [class.clicked_button_warning]="malassezia == 1" style="font-size: 2.5vw;"
                  class="btn btn-1 btn-1a btn-crossed_0">
             <input (click)="is_malassezia = true" [(ngModel)]="malassezia" class='form-control' type="radio" value="1" name="first"
-                   > Yes</label>
+                   > Oui </label>
 
           <label [class.clicked_button]="malassezia == 0" style="font-size: 2.5vw;"
                  class="btn btn-1 btn-1a btn-crossed_1">
             <input (click)="is_malassezia = null" [(ngModel)]="malassezia" class='form-control' type="radio" value="0" name="first"
-                   > No </label>
+                   > Non </label>
         </div>
 
       </div>
@@ -105,13 +102,13 @@
     <ng-template [ngIf]="malassezia == 1">
     <div class="box box-default box-solid ">
       <div style="text-align:center" class="box-header with-border error-header">
-        <h1 class="control-label" for="id_Sup2"> Warning </h1>
+        <h1 class="control-label" for="id_Sup2"> Attention </h1>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
         <div style="text-align:center">
           <label style="font-size: 2.5vw">
-            Malassezia dermatitis must be cured to remain in the study</label>
+            La dermatite à Malassezia doit être traitée pour rester dans l'étude</label>
         </div>
       </div>
 
@@ -120,12 +117,12 @@
     </ng-template>
     <button [routerLink]="['../flea-treatment']" (click)="save()"
       type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-      style='float:right'>Continue
+      style='float:right'>Suivant
     </button>
 
     <button routerLink="/home/new-physical-consultation/supporting-diet" type="button"
             name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
-            style='float:left'>Return
+            style='float:left'>Retour
     </button>
 
   </section>

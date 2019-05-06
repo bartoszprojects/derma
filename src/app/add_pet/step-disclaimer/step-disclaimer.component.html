@@ -9,17 +9,26 @@
   <section class="content-header">
     <form #diet_agreedForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid">
-        <div style="text-align:center" class="box-header with-border">
+<!--         <div style="text-align:center" class="box-header with-border">
           <h1><i class="icon fa fa-warning"></i> This clinical study aims at studying the relationship between <b>atopic
             dermatitis</b> and <b>homemade diet</b> <i class="icon fa fa-warning"></i></h1>
           <h3 style='color:red'> Those diet are not balanced for specific therapeutic and physiolgic situation. Please
             do
             attest that : </h3>
         </div>
-        <!-- /.box-header -->
+ -->        
+        <div style="text-align:center" class="box-header with-border">
+          <h1><i class="icon fa fa-warning"></i> Cette étude vise à améliorer la prise en charge de la <b>dermatite atopique</b> gâce à la <b>ration ménagère</b><i class="icon fa fa-warning"></i></h1>
+          <h3 style='color:red'> Les rations ménagères à visée dermatologique proposées ici ne sont pas adpatées pour toutes les situations physiologiques ou pathologiques . Veuillez attester des éléments suivants: </h3>
+        </div>
+
+
+
+
+ <!-- /.box-header -->
         <div class="box-body">
           <div style="text-align:left" class="age">
-            <ul>
+<!--             <ul>
               <li>Your candidate is not a growing dog, lactating or pregnant bitch</li>
               <li> Your candidate is not suffering from any gastrointestinal diseases that would require specific
                 adjustment
@@ -36,13 +45,36 @@
                 pasta, blueberries, yeast
               </li>
             </ul>
-            <div class="form-group">
+ -->            
+
+            <ul>
+              <li>Votre candidat n'est pas un chien en croissance, une chienne en lactation ou gestante.</li>
+              <li> Votre candidat ne souffre de troubles gastro-entérologiques nécessitant une adaptation particulière de l'alimentation : MICI au sens large, Insuffisance pancréatique exocrine, Diabète sucré, etc (liste non exhaustive)
+              </li> Votre candidat ne souffre pas de maladie rénale chronique ou de cardiopathie nécessitant une adaptation particulière de l'alimentation
+              <li>
+              </li>
+              <li>Votre candidat n'est pas atteint d'un cancer</li>
+              <li>Votre candidat n'est pas obèse et ne participe pas à un programme de perte de poids</li>
+              <li>Votre candidat n'a pas d'intolérance ou d'allergie alimentaire connue à l'un des ingrédients : poulet, courgettes, myrtilles, oeuf (blanc et jaune), levure de bière, riz. 
+              </li>
+            </ul>
+
+
+
+
+ <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
-                  <mat-checkbox #diet_agreed="ngModel" [(ngModel)]="disclaimer.diet_agreed" required id="diet_agreed"
+<!--                   <mat-checkbox #diet_agreed="ngModel" [(ngModel)]="disclaimer.diet_agreed" required id="diet_agreed"
                                 name="diet_agreed">I agree with the previous statements
                   </mat-checkbox>
-                </div>
+ -->              
+                  <mat-checkbox #diet_agreed="ngModel" [(ngModel)]="disclaimer.diet_agreed" required id="diet_agreed"
+                                name="diet_agreed">J'atteste de la véracité des éléments précédents
+                  </mat-checkbox>
+
+
+  </div>
               </div>
 
 
@@ -52,20 +84,35 @@
         </div>
       </div>
       <!-- /.box-body -->
-
+<!-- 
       <button *ngIf="disclaimer.diet_agreed == true" routerLink="{{ route_link_next }}" routerLinkActive="active"
               (click)="save()"
               type="submit"
               class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
       </button>
+ -->
+
+       <button *ngIf="disclaimer.diet_agreed == true" routerLink="{{ route_link_next }}" routerLinkActive="active"
+              (click)="save()"
+              type="button"
+              class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Suivant
+      </button>
 
 
-      <button routerLink="{{ route_link_back }}" routerLinkActive="active" ng-click='back()'
+<!--       <button routerLink="{{ route_link_back }}" routerLinkActive="active" ng-click='back()'
               ui-sref="add_pet.favrot_criteria"
               id="moving" type="button"
               name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
               style='float:left'>Return
       </button>
+ -->
+
+      <button *ngIf="disclaimer.diet_agreed == true" routerLink="{{ route_link_next }}" routerLinkActive="active"
+              (click)="save()"
+              type="button"
+              class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Retour
+      </button>
+
 
     </form>
 

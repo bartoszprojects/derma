@@ -4,8 +4,7 @@
     <form #food_allergyForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label" for="id_Sup2"> Has food allergy been ruled out with an exclusion diet
-            ? </h1>
+          <h1 class="control-label" for="id_Sup2"> L'allergie alimentaire a-t-elle été exclue avec un régime d'exclusion ?</h1>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -14,13 +13,13 @@
                    class="btn btn-1 btn-1a btn-crossed_0">
               <input #excluded="ngModel" [(ngModel)]="food_allergy.excluded" name="excluded" class='ng-hide'
                      class='form-control' type="radio" value="1"
-              > Yes</label>
+              > Oui</label>
 
             <label [class.clicked_button_warning]="food_allergy.excluded == false" style="font-size: 2.5vw;"
                    class="btn btn-1 btn-1a btn-crossed_1">
               <input #excluded="ngModel" [(ngModel)]="food_allergy.excluded" name="excluded" class='form-control'
                      type="radio" value="0"
-                     class='ng-hide'> No </label>
+                     class='ng-hide'> Non </label>
           </div>
 
         </div>
@@ -30,13 +29,13 @@
       <ng-template [ngIf]="food_allergy.excluded == false">
         <div ng-show="pet_data.food_allergy.excluded=='0'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border error-header">
-            <h1 class="control-label" for="id_Sup2"> Warning </h1>
+            <h1 class="control-label" for="id_Sup2"> Attention </h1>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <div style="text-align:center">
               <label style="font-size: 2.5vw">
-                Food allergy must be ruled out first before joining the study!</label>
+                L'allergie alimentaire doit être exclue avant d'être inlcu dans l'étude</label>
             </div>
           </div>
 
@@ -47,8 +46,7 @@
       <ng-template [ngIf]="food_allergy.excluded == true">
         <div ng-show="pet_data.food_allergy.excluded=='1'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
-            <h1 class="control-label" for="id_Sup2"> Has this exclusion diet been followed for 8 weeks
-              ? </h1>
+            <h1 class="control-label" for="id_Sup2"> Ce régime d'exclusion a-t-il été suivi pendant 8 semaines ? </h1>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -57,13 +55,13 @@
                      class="btn btn-1 btn-1a btn-crossed_0">
                 <input #more_8_weeks="ngModel" [(ngModel)]="food_allergy.more_8_weeks" name="more_8_weeks"
                        class='ng-hide' class='form-control' type="radio" value="1"
-                       class='ng-hide'> Yes</label>
+                       class='ng-hide'> Oui </label>
 
               <label [class.clicked_button_warning]="food_allergy.more_8_weeks == false" style="font-size: 2.5vw;"
                      class="btn btn-1 btn-1a btn-crossed_1">
                 <input #more_8_weeks="ngModel" [(ngModel)]="food_allergy.more_8_weeks" name="more_8_weeks"
                        class='ng-hide' class='form-control' type="radio" value="0"
-                       class='ng-hide'> No </label>
+                       class='ng-hide'> Non </label>
             </div>
 
           </div>
@@ -76,13 +74,13 @@
         <div
           class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border error-header">
-            <h1 class="control-label" for="id_Sup2"> Warning </h1>
+            <h1 class="control-label" for="id_Sup2"> Attention </h1>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <div style="text-align:center">
               <label style="font-size: 2.5vw">
-                You need a 8 week long exclusion diet to exclude food allergy</label>
+                L'exclusion de l'allergie alimentaire ne peut être que valide si le régime d'exclusion a été suivi pendant 8 semaines.</label>
             </div>
           </div>
 
@@ -93,7 +91,7 @@
         <div ng-show="pet_data.food_allergy.excluded=='1' && pet_data.food_allergy.more_8_weeks=='1'"
              class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
-            <h1 class="control-label"> Has Food Allergy been ruled out with industrial or homemade diet? </h1>
+            <h1 class="control-label"> L'allergie alimentaire a-t-elle été exclue avec un aliment industriel ou une ration ménagère </h1>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -118,14 +116,14 @@
             <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'INDUSTRIAL'">
               <div ng-show="pet_data.food_allergy.type=='1'" class="box-body form-group has-feedback">
                 <blockquote>
-                  <h2><p>Industrial Petfood</p></h2>
+                  <h2><p>Aliment industriel</p></h2>
                 </blockquote>
               </div>
             </ng-template>
             <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'HOMEMADE'">
               <div ng-show="pet_data.food_allergy.type=='2'" class="box-body form-group has-feedback">
                 <blockquote>
-                  <h2><p>Homemade Petfood</p></h2>
+                  <h2><p>Ration ménagère</p></h2>
                 </blockquote>
 
               </div>
@@ -139,7 +137,7 @@
         [ngIf]="food_allergy.industrial_or_homemade == 'INDUSTRIAL' || food_allergy.industrial_or_homemade == 'HOMEMADE'">
         <div class="box box-default box-solid">
           <div style="text-align:center" class="box-header with-border">
-            <h1 class="control-label" for="id_Sup2"> What petfood did you use in particular ? </h1>
+            <h1 class="control-label" for="id_Sup2"> Quel aliment a été utilisé en particulier pour cette exclusion alimentaire ?</h1>
           </div>
 
           <div class="box-body">
@@ -160,7 +158,7 @@
             <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'HOMEMADE'">
               <div ng-show="pet_data.food_allergy.type=='2'" style="text-align:center">
                 <div><p>
-                  Share with us the ingredients of the recipe. Ex : chicken, pasta, spinach, minerals.</p></div>
+                  Veuillez renseigner succintement les ingrédients utilisées pour composer la ration ménagère. Par exemple : poulet, riz, haricots verts, huile de colza, complément minéral Viti5 </p></div>
                 <div>
                   <textarea #what_petfood="ngModel" [(ngModel)]="food_allergy.what_petfood"
                             name="what_petfood"></textarea>
@@ -175,14 +173,14 @@
       </ng-template>
 
       <button *ngIf="food_allergy.what_petfood.length > 0" (click)="save()" routerLink="/home/add-pet/pyodermatitis"
-              routerLinkActive="active" name="next"
+              routerLinkActive="active" name="next" type="button"
               class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-              style='float:right'>Continue
+              style='float:right'>Suivant
       </button>
 
       <button routerLink="/home/add-pet/flea-treatment" routerLinkActive="active" id="" type="button" name="previous"
               class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left"
-              value="Previous" style='float:left'>Return
+              value="Previous" style='float:left'>Retour
       </button>
     </form>
 

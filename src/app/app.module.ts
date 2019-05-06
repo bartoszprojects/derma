@@ -15,6 +15,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { KeysPipe } from './pipes/keys';
+import { JsonFilterByPipe } from './pipes/filter';
+import { PipesModule } from 'w-ng5';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -90,7 +93,8 @@ import { CommonLabelsComponent } from './others/common-labels/common-labels.comp
     UpdateComponent,
     CommonDataComponent,
     CommonLabelsComponent,
-    KeysPipe
+    KeysPipe,
+    JsonFilterByPipe
   ],
   imports: [
     BrowserModule,
@@ -109,7 +113,9 @@ import { CommonLabelsComponent } from './others/common-labels/common-labels.comp
     MomentModule,
     MatTableModule,
     MatRadioModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent],

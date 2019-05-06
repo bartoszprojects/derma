@@ -3,6 +3,7 @@ import {DataService} from '../../data.service';
 import {MatTableModule} from '@angular/material/table';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-result',
@@ -16,13 +17,14 @@ export class ResultComponent implements OnInit {
   dataSource;
   single_pet_id;
   pet;
-  constructor(private formDataService: DataService) {
+  single_pet_id_from_url;
+
+  constructor(private formDataService: DataService,  private route: ActivatedRoute) {
   }
 
   getSingleDataFromBackend() {
       this.formDataService.getSingleDataFromBackend(this.single_pet_id.id_number).subscribe(result => {
         this.pet = result;
-        console.log('vvvvvvvvvvvvvvvvvvv', this.pet)
       });
     }
 
@@ -58,14 +60,12 @@ export class ResultComponent implements OnInit {
       var imgHeight = canvas.height * imgWidth / canvas.width;
       var heightLeft = imgHeight;
 
-      const contentDataURL = canvas.toDataURL('image/png')
+      const contentDataURL = canvas.toDataURL('image/png');
       let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF
       var position = 0;
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
       pdf.save('MYPdf.pdf'); // Generated PDF
     });
   }
-
-
 
 }

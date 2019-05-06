@@ -4,9 +4,8 @@
     <form #physical_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label"> How active is <b><app-pet-name></app-pet-name></b> ? </h1> <br>
-          <h4><i>Select the picture that fits best <b><app-pet-name></app-pet-name></b>s daily phsyical expenditure. <br> Get
-            further informations by selecting a picture </i></h4>
+          <h1 class="control-label"> Quel est le niveau d'activité de <b><app-pet-name></app-pet-name></b> ? </h1> <br>
+          <h4><i>Choisissez l'image <b><app-pet-name></app-pet-name></b>s qui correspond le mieux <br> Des précisions supplémentaires sont disponibles lorsque vous cliquez sur une image</i></h4>
         </div>
         <!-- /.box-header -->
         <div style="text-align:center" class="box-body">
@@ -46,7 +45,7 @@
           <ng-template [ngIf]="physical_form.physical_activity == 'NONE'">
             <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='1'} ">
               <blockquote>
-                <p> Your dog is a typical dog ! Small leash walk every day and never more than one hour. </p>
+                <p> Un chien calme et paisible : pas plus d'une heure de promenade en laisse par jour </p>
                 <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for Dog
                 </cite></small>
               </blockquote>
@@ -56,7 +55,7 @@
           <ng-template [ngIf]="physical_form.physical_activity == 'SMALL'">
             <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='2'} ">
               <blockquote>
-                <p> Your dog is doing at least one hour of moderate exercice : long walk </p>
+                <p> Un chien modérement actif : une heure de promenade active par jour. Avec ou sans laisse.</p>
                 <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for Dog
                 </cite></small>
               </blockquote>
@@ -65,9 +64,7 @@
           <ng-template [ngIf]="physical_form.physical_activity == 'HIGH'">
             <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='3'} ">
               <blockquote>
-                <p> Your dog is doing at least one hour of intense exercice : running while you're biking or running (or
-                  a
-                  friend, family member of yours), agility training. This also includes one-time-a-week hunting dogs</p>
+                <p> Un chien actif qui pratique au moins une heure d'acitivité intense chaque jour : courrir avec son maître (à pieds ou à vélo), faire de l'agility ...
                 <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for dog
                 </cite></small>
               </blockquote>
@@ -77,7 +74,7 @@
           <ng-template [ngIf]="physical_form.physical_activity == 'WORKING'">
             <div class="box-body form-group has-feedback ng-class:{'ng-hide': pet_data.physical_activity!=='4'} ">
               <blockquote>
-                <p>Your dog is a real worker : every-day hunting dogs, guard dog, guide dog and any assistance dog </p>
+                <p>Un chien de travail : au moins six heure d'acitivté par jour (chien d'assistance, de troupeaux ... ) </p>
                 <small> FEDIAF <cite title="Nutritionnal Guideline for Dogs and Cats "> Physical Activities for dog
                 </cite></small>
               </blockquote>
@@ -90,13 +87,13 @@
     </form>
     <button *ngIf="physical_form.physical_activity" (click)="save()" routerLink="/home/add-pet/weight" routerLinkActive="active"
            id="moving" type="button" name="next"
-            class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Continue
+            class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Suivant
     </button>
 
     <button routerLink="/home/add-pet/sex" routerLinkActive="active" id=""
             type="button" name="previous"
             class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
-      Return
+      Retour
     </button>
 
   </section>

@@ -4,8 +4,12 @@
     <form #age_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label"> How old is <b><app-pet-name></app-pet-name></b> ? </h1>
-        </div>
+<!--           <h1 class="control-label"> How old is <b><app-pet-name></app-pet-name></b> ? </h1>
+ -->
+          <h1 class="control-label"> Quel âge a <b><app-pet-name></app-pet-name></b> ? </h1>
+
+
+</div>
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
@@ -14,10 +18,17 @@
               <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap" [(ngModel)]="age_year" name="age_year">
                 <option class="dropdown-select" *ngFor="let year of years">
                   {{year}}
-                  <span *ngIf="year == 0"> years</span>
+<!--                   <span *ngIf="year == 0"> years</span>
                   <span *ngIf="year == 1"> year</span>
                   <span *ngIf="year > 1"> years</span>
-                </option>
+ -->
+                  <span *ngIf="year == 0"> années</span>
+                  <span *ngIf="year == 1"> années</span>
+                  <span *ngIf="year > 1"> années</span>
+
+
+
+  </option>
               </select>
             </div>
 
@@ -26,10 +37,16 @@
               <select class="dropdown-select" theme="bootstrap"[(ngModel)]="age_month" name="age_month">
                 <option class="dropdown-select" *ngFor="let month of months">
                   {{month}}
-                  <span *ngIf="month == 0"> months</span>
+<!--                   <span *ngIf="month == 0"> months</span>
                   <span *ngIf="month == 1"> month</span>
                   <span *ngIf="month > 1"> months</span>
-                </option>
+ -->
+                  <span *ngIf="month == 0"> mois</span>
+                  <span *ngIf="month == 1"> mois</span>
+                  <span *ngIf="month > 1"> mois</span>
+
+
+</option>
               </select>
             </div>
 
@@ -40,18 +57,34 @@
       </div>
 
 
-      <button  *ngIf="age_year && age_month" (click)="save()" routerLink="/home/add-pet/breed" routerLinkActive="active"  id="moving"
+<!--       <button  *ngIf="age_year && age_month" (click)="save()" routerLink="/home/add-pet/breed" routerLinkActive="active"  id="moving"
               type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
       </button>
+ -->
 
+       <button  *ngIf="age_year && age_month" (click)="save()" routerLink="/home/add-pet/breed" routerLinkActive="active"  id="moving"
+              type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+              style='float:right'>Suivant
+      </button>
 
-      <button routerLink="/home/add-pet/name" routerLinkActive="active" ng-click="backward()" id="" type="button"
+<!--       <button routerLink="/home/add-pet/name" routerLinkActive="active" ng-click="backward()" id="" type="button"
               name="previous"
               class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
         Return
       </button>
-    </form>
+ -->
+
+      <button routerLink="/home/add-pet/name" routerLinkActive="active" ng-click="backward()" id="" type="button"
+              name="previous"
+              class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
+        Retour
+      </button>
+
+
+
+
+</form>
 
   </section>
 </div>

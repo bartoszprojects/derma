@@ -21,7 +21,7 @@ export class StepBreedComponent implements OnInit {
 
   ngOnInit() {
     this.breed_form = this.formDataService.getBreed();
-    this.formDataService.getBreetDataFromBackend().subscribe(result => {
+    this.formDataService.getBreedDataFromBackend().subscribe(result => {
       this.breeds = result
     });
   }

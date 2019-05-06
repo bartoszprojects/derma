@@ -4,8 +4,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {DataService} from '../../data.service';
 import {idPetModel} from '../../formData.model';
 import { Pipe, PipeTransform } from '@angular/core';
-import * as _ from 'lodash';
-
+import * as _ from 'lodash'
 
 @Component({
   selector: 'app-pet',
@@ -46,7 +45,6 @@ export class PetComponent implements OnInit {
     if (bool == 'false') {
       this.hide_container = false;
     }
-
   }
 
   checkRouteUrl() {

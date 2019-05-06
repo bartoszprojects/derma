@@ -16,7 +16,7 @@ export class StepFoodAllergyComponent implements OnInit {
   seasons: string[] = ['Royal Canin Hypoallergenic', 'Royal Canin Anallergenic', 'Hill\'s Z/D', 'Hill\'s D/D',
     'Derm Defense', 'Specific Food Allergy s D/D', 'Nestlé Purina HA s D/D',
     'Virbac Hypoallergy - Food Intolerance\'s D/D', 'Virbac Hypoallergy - Dermatology Support',
-    'Advance Veterinary Diets Hypoallergenic'];
+    'Advance Veterinary Diets Hypoallergenic','Autre'];
   food_allergy: StepFoodAllergy;
   form: any;
 

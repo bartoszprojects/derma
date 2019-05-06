@@ -4,25 +4,51 @@
     <form #breed_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label " for="id_crossed_name"> Tell us more about <b><app-pet-name></app-pet-name></b>'s breed !
+<!--           <h1 class="control-label " for="id_crossed_name"> Tell us more about <b><app-pet-name></app-pet-name></b>'s breed !
           </h1>
-        </div>
+ -->        
+          <h1 class="control-label " for="id_crossed_name"> La race de  <b><app-pet-name></app-pet-name></b> !
+          </h1>
+
+</div>
         <div class="box-body">
           <div style="text-align:center">
-            <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 0"
+<!--             <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 0"
                    class="btn btn-1 btn-1a btn-crossed_0">
               <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="0"> Pure Breed
             </label>
+ -->
+
+            <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 0"
+                   class="btn btn-1 btn-1a btn-crossed_0">
+              <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="0"> Race pure
+            </label>
+
+
+
+<!--             <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 1"
+                   class="btn btn-1 btn-1a btn-crossed_1">
+              <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="1"
+                     class='ng-hide'> Crossed Breeds</label>
+ -->
 
             <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 1"
                    class="btn btn-1 btn-1a btn-crossed_1">
               <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="1"
-                     class='ng-hide'> Crossed Breeds</label>
+                     class='ng-hide'> Croisés </label>
+
+<!-- 
+            <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 2"
+                   class="btn btn-1 btn-1a btn-crossed_2">
+              <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="2"
+                     class='ng-hide'>I don't know</label> -->
 
             <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 2"
                    class="btn btn-1 btn-1a btn-crossed_2">
               <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="2"
-                     class='ng-hide'>I don't know</label>
+                     class='ng-hide'>Je ne sais pas</label>
+
+
           </div>
         </div>
       </div>
@@ -39,8 +65,12 @@
                 <ng-template [ngIf]="breed_form.crossed == 0">
                   <div class="has-feedback form-group ng-class">
 
-                    <h2 class="control-label" for="id_breed_dog_1_pure"> What is <b><app-pet-name></app-pet-name></b>'s breed ?
+<!--                     <h2 class="control-label" for="id_breed_dog_1_pure"> What is <b><app-pet-name></app-pet-name></b>'s breed ?
                     </h2>
+
+ -->                    <h2 class="control-label" for="id_breed_dog_1_pure"> Quelle est la race de <b><app-pet-name></app-pet-name></b> ?
+                    </h2>
+
 
                     <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
                             #breed_dog_pure="ngModel" [(ngModel)]="breed_form.breed_dog_pure" name="breed_dog_pure">
@@ -55,8 +85,12 @@
                 <ng-template [ngIf]="breed_form.crossed == 1">
                   <div class="has-feedback form-group ng-class" ng-show="pet_data.crossed==1">
                     <div class="col-lg-6 ng-class">
-                      <h2 class="control-label" for="id_breed_dog_1"> What is <b><app-pet-name></app-pet-name></b>'s 1st breed ?
+<!--                       <h2 class="control-label" for="id_breed_dog_1"> What is <b><app-pet-name></app-pet-name></b>'s 1st breed ?
                       </h2>
+ -->
+                      <h2 class="control-label" for="id_breed_dog_1"> Indiquez la première des deux races du croisement dont <b><app-pet-name></app-pet-name></b> est issu ?
+                      </h2>
+
 
                       <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
                               #breed_dog_2="ngModel" [(ngModel)]="breed_form.breed_dog_1" name="breed_dog_2">
@@ -67,9 +101,15 @@
 
                     </div>
                     <div class="col-lg-6 ng-class">
-                      <h2 class="control-label" for="id_breed_dog_2"> What is <b><app-pet-name></app-pet-name></b>'s 2nd breed ?
+<!--                       <h2 class="control-label" for="id_breed_dog_2"> What is <b><app-pet-name></app-pet-name></b>'s 2nd breed ?
                       </h2>
-                      <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
+
+ -->                      
+
+                      <h2 class="control-label" for="id_breed_dog_2"> Indiquez la seconde des deux races du croisement dont  <b><app-pet-name></app-pet-name></b> est issu ?
+                      </h2>
+
+ <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
                               #breed_dog_2="ngModel" [(ngModel)]="breed_form.breed_dog_2" name="breed_dog_2">
                         <option class="dropdown-select" *ngFor="let breed of breeds">
                           {{ breed.name }}
@@ -83,8 +123,12 @@
               <ng-template [ngIf]="breed_form.crossed == 2">
                 <div>
                   <div style="text-align:center">
-                    <h2 class="control-label" for="id_dog_format"> Evaluate <b><app-pet-name></app-pet-name></b>'s size </h2>
-                  </div>
+<!--                     <h2 class="control-label" for="id_dog_format"> Evaluate <b><app-pet-name></app-pet-name></b>'s size </h2>
+ -->                  
+
+                    <h2 class="control-label" for="id_dog_format"> Evaluez le morphotype de  <b><app-pet-name></app-pet-name></b> </h2>
+
+</div>
                   <div id="format_dog_pictures" class="cc-format-selector has-feedback form-group">
 
 
@@ -126,20 +170,34 @@
           </div>
         </div>
       </ng-template>
-
+<!-- 
       <button *ngIf="breed_form.breed_dog_pure || breed_form.breed_dog_1 || breed_form.breed_dog_2 || breed_form.dog_format"
               (click)="save()" routerLink="/home/add-pet/gender" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Continue
+      </button>
+ -->
+
+      <button *ngIf="breed_form.breed_dog_pure || breed_form.breed_dog_1 || breed_form.breed_dog_2 || breed_form.dog_format"
+              (click)="save()" routerLink="/home/add-pet/gender" routerLinkActive="active"
+              id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+              style='float:right'>Suivant
       </button>
 
 
       <button routerLink="/home/add-pet/age" routerLinkActive="active"
               id="moving" type="button"
               name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
+              style='float:left'>Retour
+      </button>
+
+
+<!--       <button routerLink="/home/add-pet/age" routerLinkActive="active"
+              id="moving" type="button"
+              name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
               style='float:left'>Return
       </button>
-    </form>
+ -->    </form>
 
   </section>
 </div>
