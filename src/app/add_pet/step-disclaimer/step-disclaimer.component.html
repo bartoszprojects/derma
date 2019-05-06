@@ -94,7 +94,7 @@
 
        <button *ngIf="disclaimer.diet_agreed == true" routerLink="{{ route_link_next }}" routerLinkActive="active"
               (click)="save()"
-              type="submit"
+              type="button"
               class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Suivant
       </button>
 
@@ -109,7 +109,7 @@
 
       <button *ngIf="disclaimer.diet_agreed == true" routerLink="{{ route_link_next }}" routerLinkActive="active"
               (click)="save()"
-              type="submit"
+              type="button"
               class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Retour
       </button>
 

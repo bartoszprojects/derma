@@ -14,6 +14,8 @@ import * as moment from 'moment'
 import {post} from "selenium-webdriver/http";
 import {HttpParams} from "@angular/common/http";
 
+const main_url = 'https://api.snv-derma.rootxnet.com';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -104,7 +106,7 @@ export class DataService {
       })
     };
 
-    this.http.post('http://127.0.0.1:8002/api/snippets/', postData, httpOptions)
+    this.http.post(main_url + '/api/snippets/', postData, httpOptions)
       .subscribe(result => {
         console.log('POST: ', result)
       });
@@ -117,7 +119,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get('http://127.0.0.1:8002/api/snippets/', httpOptions)
+    return this.http.get(main_url + '/api/snippets/', httpOptions)
   }
 
   getRecruiterFromBackend() {
@@ -127,7 +129,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get('http://127.0.0.1:8002/api/user/', httpOptions)
+    return this.http.get(main_url + '/api/user/', httpOptions)
   }
 
   getSingleDataFromBackend(id_pet) {
@@ -137,17 +139,17 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get('http://127.0.0.1:8002/api/snippets/' + id_pet + '/', httpOptions)
+    return this.http.get(main_url + '/api/snippets/' + id_pet + '/', httpOptions)
   }
 
-  getBreetDataFromBackend() {
+  getBreedDataFromBackend() {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get('http://127.0.0.1:8002/api/dog-breed-list/', httpOptions)
+    return this.http.get(main_url + '/api/dog-breed-list/', httpOptions)
   }
 
   getRecipeDataFromBackend() {
@@ -160,7 +162,7 @@ export class DataService {
       .set('voracious', '1')
       .set('low_carb', '1');
 
-    return this.http.get('http://127.0.0.1:8002/api/recipe_derma/' , {headers: headers, params: params})
+    return this.http.get(main_url +  '/api/recipe_derma/' , {headers: headers, params: params})
   }
 
   deleteSinglePetFromBackend() {
@@ -170,8 +172,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.delete('http://127.0.0.1:8002/api/snippets/d075343f-976e-4b9c-a689-4dd2444a5592/', httpOptions).subscribe(result => {
-      console.log('FROOM DELETE: ', result)
+    return this.http.delete(main_url + '/api/snippets/d075343f-976e-4b9c-a689-4dd2444a5592/', httpOptions).subscribe(result => {
     });
   }
 
@@ -189,9 +190,8 @@ export class DataService {
       })
     };
 
-    this.http.patch('http://127.0.0.1:8002/api/snippets/' + id + '/', postData, httpOptions)
+    this.http.patch(main_url + '/api/snippets/' + id + '/', postData, httpOptions)
       .subscribe(result => {
-        console.log('FROOM HIDE: ', result)
       });
   }
 
@@ -243,9 +243,8 @@ export class DataService {
       })
     };
 
-    this.http.patch('http://127.0.0.1:8002/api/snippets/' + data.id_number + '/', postData, httpOptions)
+    this.http.patch(main_url + '/api/snippets/' + data.id_number + '/', postData, httpOptions)
       .subscribe(result => {
-        console.log('FROOM POSSTTT: ', result)
       });
   }
 
@@ -578,7 +577,7 @@ export class DataService {
         'Content-Type': 'application/x-www-form-urlencoded',
       })
     };
-    return this.http.post('http://127.0.0.1:8002/o/token/', payload, httpOptions)
+    return this.http.post(main_url + '/o/token/', payload, httpOptions)
 
   }
 

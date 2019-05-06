@@ -2,7 +2,7 @@
   <app-common-labels [icon]="'fa fa-cutlery'" [label_title]="'UZH - Homemade food for Derma'"
                      [label_desc]="'Let\'s cook!'"></app-common-labels>
 </div>
-
+<p>{{ single_pet_id_from_url }}</p>
 <div style="width: auto" class="container" id="contentToConvert">
 
   <section class="content-header">
@@ -132,7 +132,7 @@
             <div class="info-box">
         <span class="info-box-icon">
           <img class="img-circle"
-               src='http://127.0.0.1:8002/media/{{food.img}}'>
+               src='https://api.snv-derma.rootxnet.com/media/{{food.img}}'>
           </span>
               <div class="info-box-content">
                 <span class="info-box-text">{{food.title}}</span>
@@ -155,7 +155,7 @@
             <i class="pull-right glyphicon"></i>
             </h3>
           </uib-accordion-heading>
-          <h4>La transition alimentaire est en particulier recommandée pour les chiens ayant une ration originelle industrielle (sèche ou humide) ou souffrant d'une fragilité digestive.
+          <h4 style="padding: 15px">La transition alimentaire est en particulier recommandée pour les chiens ayant une ration originelle industrielle (sèche ou humide) ou souffrant d'une fragilité digestive.
           Le plan de transition proposé permet d'introduire un ou plusieurs aliments de la recette jour après jour et de permettre aux micro-organismes digestifs de votre chien de s'adapter à cette nouvelle alimentation.
             Cette transition dure 4 jours. Toutes les quantités sont ici exprimées en pourcentages de la recette formulée plus haut ou de l'alimentation actuelle.</h4>
 

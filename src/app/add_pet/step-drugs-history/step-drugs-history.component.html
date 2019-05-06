@@ -1,8 +1,8 @@
 <div *ngIf="route_boolean == 'new-physical-consultation'">
-<app-common-labels [label_title]="'New Physical Consultation'" [label_desc]="'Drugs History'"></app-common-labels>
+  <app-common-labels [label_title]="'New Physical Consultation'" [label_desc]="'Drugs History'"></app-common-labels>
 </div>
 <div *ngIf="route_boolean == 'new-phone-consultation'">
-<app-common-labels [label_title]="'New Phone Consultation'" [label_desc]="'Drugs History'"></app-common-labels>
+  <app-common-labels [label_title]="'New Phone Consultation'" [label_desc]="'Drugs History'"></app-common-labels>
 </div>
 
 
@@ -13,43 +13,42 @@
       <ng-template [ngIf]="route_boolean == 'add-pet'">
         <div class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
-           <!--  <h1 class="control-label" for="id_Sup2"> Is the drug history of the past month known
-              ? </h1> -->
- <h1 class="control-label" for="id_Sup2"> L'historique médicamenteux du mois passé est-il connu ?</h1>
+            <!--  <h1 class="control-label" for="id_Sup2"> Is the drug history of the past month known
+               ? </h1> -->
+            <h1 class="control-label" for="id_Sup2"> L'historique médicamenteux du mois passé est-il connu ?</h1>
 
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <div style="text-align:center">
-<!--               <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0"
-                     [class.clicked_button]="drug_history_form.drug_history_known == true">
-                <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known"
-                       name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="1">
-                Yes</label>
- -->
-                          <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0"
+              <!--               <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0"
+                                   [class.clicked_button]="drug_history_form.drug_history_known == true">
+                              <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known"
+                                     name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="1">
+                              Yes</label>
+               -->
+              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0"
                      [class.clicked_button]="drug_history_form.drug_history_known == true">
                 <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known"
                        name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="1">
                 Oui</label>
 
 
-<!--  <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1"
-                     [class.clicked_button_warning]="drug_history_form.drug_history_known == false">
-                <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known"
-                       name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="0"
-                       class='ng-hide'> No </label>
- -->            
+              <!--  <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1"
+                                   [class.clicked_button_warning]="drug_history_form.drug_history_known == false">
+                              <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known"
+                                     name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="0"
+                                     class='ng-hide'> No </label>
+               -->
 
- <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1"
+              <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1"
                      [class.clicked_button_warning]="drug_history_form.drug_history_known == false">
                 <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known"
                        name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="0"
                        class='ng-hide'> Non </label>
 
 
-
-</div>
+            </div>
           </div>
         </div>
       </ng-template>
@@ -57,23 +56,23 @@
       <ng-template [ngIf]="drug_history_form.drug_history_known == false">
         <div ng-show="pet_data.drug_history_known=='0'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border error-header">
-<!--             <h1 class="control-label" for="id_Sup2"> Warning </h1>
- -->          
+            <!--             <h1 class="control-label" for="id_Sup2"> Warning </h1>
+             -->
             <h1 class="control-label" for="id_Sup2"> Attention </h1>
 
 
-</div>
+          </div>
           <!-- /.box-header -->
           <div class="box-body">
             <div style="text-align:center">
-<!--               <label style="font-size: 2.5vw">
-                A drug history must be known to join the study!</label>
- -->            
+              <!--               <label style="font-size: 2.5vw">
+                              A drug history must be known to join the study!</label>
+               -->
               <label style="font-size: 2.5vw">
                 L'historique médicamenteux doit être connu pour rejoindre l'étude!</label>
 
 
-</div>
+            </div>
           </div>
 
         </div>
@@ -82,19 +81,22 @@
         [ngIf]="drug_history_form.drug_history_known == true && route_boolean == 'add-pet' || route_boolean == 'new-physical-consultation' || route_boolean == 'new-phone-consultation'">
         <div ng-show="pet_data.drug_history_known=='1'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
-<!--             <h1 *ngIf="route_boolean == 'add-pet'" class="control-label">Select the systemic product with wich atopis dermatitis is being controlled for
-              this
-              dog
-              ? </h1>
- -->            
+            <!--             <h1 *ngIf="route_boolean == 'add-pet'" class="control-label">Select the systemic product with wich atopis dermatitis is being controlled for
+                          this
+                          dog
+                          ? </h1>
+             -->
 
-            <h1 *ngIf="route_boolean == 'add-pet'" class="control-label">Indiquez la dose du/des médicament(s) systémique(s) employé(s) pour contrôler cette dermatite atopique</h1>
+            <h1 *ngIf="route_boolean == 'add-pet'" class="control-label">Indiquez la dose du/des médicament(s)
+              systémique(s) employé(s) pour contrôler cette dermatite atopique</h1>
 
 
- <!-- <h1 *ngIf="route_boolean == 'new-physical-consultation' || route_boolean == 'new-phone-consultation'" class="control-label">Is there any update of the previously used systemic posology ?
-            </h1> -->
+            <!-- <h1 *ngIf="route_boolean == 'new-physical-consultation' || route_boolean == 'new-phone-consultation'" class="control-label">Is there any update of the previously used systemic posology ?
+                       </h1> -->
 
-<h1 *ngIf="route_boolean == 'new-physical-consultation' || route_boolean == 'new-phone-consultation'" class="control-label">Y'a-t-il une modification du traitement systémique (adaptation de la posologie, suppression d'un médicament) ?
+            <h1 *ngIf="route_boolean == 'new-physical-consultation' || route_boolean == 'new-phone-consultation'"
+                class="control-label">Y'a-t-il une modification du traitement systémique (adaptation de la posologie,
+              suppression d'un médicament) ?
             </h1>
 
 
@@ -109,11 +111,11 @@
                 <div class='input-group'>
                   <input #prednisolone="ngModel" [(ngModel)]="drug_history_form.prednisolone" name="prednisolone"
                          type="number" class="form-control" placeholder="Posology" min="0">
-<!--                   <span class="input-group-addon">mg/kg/day</span>
- -->                
+                  <!--                   <span class="input-group-addon">mg/kg/day</span>
+                   -->
                   <span class="input-group-addon">mg/kg/jour</span>
 
-</div>
+                </div>
               </div>
             </div>
             <div class="form-group">
@@ -121,20 +123,16 @@
 
               <div class="col-sm-10">
                 <div class='input-group'>
-<!--                   <span class="input-group-addon">mg/kg/day</span>
+                  <!--                   <span class="input-group-addon">mg/kg/day</span>
 
- -->
-
-
-
-
-
-                  <mat-radio-group [(ngModel)] = "drug_history_form.oclacitinib" >
-  <mat-radio-button value="BID">Deux fois par jour</mat-radio-button>
-  <mat-radio-button value="SID">Une fois par jour</mat-radio-button>
-  <mat-radio-button value="EOD">Tous les deux jours</mat-radio-button>
-  <mat-radio-button value="E3D">Tous les trois jours</mat-radio-button>
-</mat-radio-group>
+                   -->
+                  <mat-radio-group
+                  #oclacitinib="ngModel" [(ngModel)]="drug_history_form.oclacitinib" name="oclacitinib">
+                    <mat-radio-button value="BID">Deux fois par jour</mat-radio-button>
+                    <mat-radio-button value="SID">Une fois par jour</mat-radio-button>
+                    <mat-radio-button value="EOD">Tous les deux jours</mat-radio-button>
+                    <mat-radio-button value="E3D">Tous les trois jours</mat-radio-button>
+                  </mat-radio-group>
 
 
                 </div>
@@ -147,14 +145,13 @@
               <div class="col-sm-10">
                 <div class='input-group'>
 
-                  <mat-radio-group [(ngModel)]="drug_history_form.cyclosporine" #radioGroup="matRadioGroup">
-  <mat-radio-button value="SID">Une fois par jour</mat-radio-button>
-  <mat-radio-button value="EOD">Tous les deux jours</mat-radio-button>
-  <mat-radio-button value="E3D">Tous les trois jours</mat-radio-button>
-  <mat-radio-button value="E4D">Tous les quatre jours</mat-radio-button>
-</mat-radio-group>
-
-                  
+                  <mat-radio-group
+                  #cyclosporine="ngModel" [(ngModel)]="drug_history_form.cyclosporine" name="cyclosporine">
+                    <mat-radio-button value="SID">Une fois par jour</mat-radio-button>
+                    <mat-radio-button value="EOD">Tous les deux jours</mat-radio-button>
+                    <mat-radio-button value="E3D">Tous les trois jours</mat-radio-button>
+                    <mat-radio-button value="E4D">Tous les quatre jours</mat-radio-button>
+                  </mat-radio-group>
 
 
                 </div>
@@ -164,23 +161,25 @@
           </div>
 
         </div>
-                  {{drug_history_form|json}}
+        {{drug_history_form|json}}
 
 
         <div ng-show="pet_data.drug_history_known=='1'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
-<!--             <h1 *ngIf="route_boolean == 'add-pet'" class="control-label">Select the topic product with wich atopis dermatitis is being controlled for this
-              dog
-              ? </h1>
- -->            
+            <!--             <h1 *ngIf="route_boolean == 'add-pet'" class="control-label">Select the topic product with wich atopis dermatitis is being controlled for this
+                          dog
+                          ? </h1>
+             -->
 
-            <h1 *ngIf="route_boolean == 'add-pet'" class="control-label">Indiquez la dose / fréquence d'utilisation des produits topiques employés pour contrôler la dermatite atopiqe</h1>
+            <h1 *ngIf="route_boolean == 'add-pet'" class="control-label">Indiquez la dose / fréquence d'utilisation des
+              produits topiques employés pour contrôler la dermatite atopiqe</h1>
 
-<!--  <h1 *ngIf="route_boolean == 'new-physical-consultation' || route_boolean == 'new-phone-consultation'" class="control-label">Is there any update of the previously used topic posology ?
- -->
+            <!--  <h1 *ngIf="route_boolean == 'new-physical-consultation' || route_boolean == 'new-phone-consultation'" class="control-label">Is there any update of the previously used topic posology ?
+             -->
 
- <h1 *ngIf="route_boolean == 'new-physical-consultation' || route_boolean == 'new-phone-consultation'" class="control-label">Y'a-t-il une modification du traitement topique (adaptation de la posologie, suppression d'un médicament) ?
-
+            <h1 *ngIf="route_boolean == 'new-physical-consultation' || route_boolean == 'new-phone-consultation'"
+                class="control-label">Y'a-t-il une modification du traitement topique (adaptation de la posologie,
+              suppression d'un médicament) ?
 
 
             </h1>
@@ -189,8 +188,8 @@
 
           <div class="box-body">
             <div class="form-group">
-<!--               <label class="col-sm-2 control-label">Cortavance / Topic Prednisolone</label>
- -->
+              <!--               <label class="col-sm-2 control-label">Cortavance / Topic Prednisolone</label>
+               -->
 
               <label class="col-sm-2 control-label">Cortavance ou Prednisolone topique</label>
 
@@ -198,20 +197,20 @@
               <div class="col-sm-10">
                 <div class='input-group'>
                   <input #cortavance="ngModel" [(ngModel)]="drug_history_form.cortavance" name="cortavance"
-                         type="number" class="form-control" placeholder="Frequence d'utilisation chaque semaine" min="0">
-<!--                   <span class="input-group-addon">times/week</span>
- -->                
+                         type="number" class="form-control" placeholder="Frequence d'utilisation chaque semaine"
+                         min="0">
+                  <!--                   <span class="input-group-addon">times/week</span>
+                   -->
                   <span class="input-group-addon">fois/semaine</span>
 
 
-</div>
+                </div>
               </div>
             </div>
             <div class="form-group">
-<!--               <label class="col-sm-2 control-label">Antiseptic Shampoo (ex : Douxo Pyo)</label>
- -->
+              <!--               <label class="col-sm-2 control-label">Antiseptic Shampoo (ex : Douxo Pyo)</label>
+               -->
               <label class="col-sm-2 control-label">Shaampoing antiséptique (ex : Douxo Pyo)</label>
-
 
 
               <div class="col-sm-10">
@@ -219,16 +218,16 @@
                   <input #antibacterial_shampoo="ngModel" [(ngModel)]="drug_history_form.antibacterial_shampoo"
                          name="antibacterial_shampoo" type="number" class="form-control"
                          placeholder="Frequence d'utilisation chaque semaine" min="0">
-<!--                   <span class="input-group-addon">times/week</span>
- -->                
+                  <!--                   <span class="input-group-addon">times/week</span>
+                   -->
                   <span class="input-group-addon">fois/semaine</span>
                 </div>
               </div>
             </div>
 
             <div class="form-group">
-<!--               <label class="col-sm-2 control-label">Dermatologic Shampoo (ex : Douxo Calm)</label>
- -->
+              <!--               <label class="col-sm-2 control-label">Dermatologic Shampoo (ex : Douxo Calm)</label>
+               -->
               <label class="col-sm-2 control-label">Shaampoing dermatologique (ex : Douxo Calm)</label>
 
 
@@ -249,8 +248,8 @@
         <ng-template [ngIf]="drug_history_form.drug_history_known == true || route_boolean == 'add-pet'">
           <div class="box box-default box-solid ">
             <div style="text-align:center" class="box-header with-border">
-<!--               <h1 class="control-label">Are there any food oral supplements ?</h1>
- -->              <h1 class="control-label">Y'a-t-il une prise de complément alimentaire ?</h1>
+              <!--               <h1 class="control-label">Are there any food oral supplements ?</h1>
+               --> <h1 class="control-label">Y'a-t-il une prise de complément alimentaire ?</h1>
 
 
             </div>
@@ -258,36 +257,36 @@
 
             <div class="box-body">
               <div class="form-group">
-<!--                 <label class="col-sm-2 control-label">Omega3/Omega6 - Fish Oil </label>
- -->                <label class="col-sm-2 control-label">Omega3/Omega6 - Huile de poisson</label>
+                <!--                 <label class="col-sm-2 control-label">Omega3/Omega6 - Fish Oil </label>
+                 --> <label class="col-sm-2 control-label">Omega3/Omega6 - Huile de poisson</label>
 
 
                 <div class="col-sm-10">
                   <div class='input-group'>
                     <input #omega="ngModel" [(ngModel)]="drug_history_form.omega" name="omega" type="number"
                            class="form-control" placeholder="Fréquence de distribution" min="0">
-<!--                     <span class="input-group-addon">times/week</span>
- -->                  
+                    <!--                     <span class="input-group-addon">times/week</span>
+                     -->
                     <span class="input-group-addon">fois/semaine</span>
 
 
-</div>
+                  </div>
                 </div>
               </div>
               <div class="form-group">
-<!--                 <label class="col-sm-2 control-label">Yeast</label>
- -->
-                 <label class="col-sm-2 control-label">Levure de bière</label>
+                <!--                 <label class="col-sm-2 control-label">Yeast</label>
+                 -->
+                <label class="col-sm-2 control-label">Levure de bière</label>
 
                 <div class="col-sm-10">
                   <div class='input-group'>
                     <input #yeast="ngModel" [(ngModel)]="drug_history_form.yeast" name="yeast" type="number"
                            class="form-control" placeholder="Fréquence de distribution" min="0">
-<!--                     <span class="input-group-addon">times/week</span>
- -->                  
+                    <!--                     <span class="input-group-addon">times/week</span>
+                     -->
                     <span class="input-group-addon">fois/semaine</span>
 
-</div>
+                  </div>
                 </div>
               </div>
 
@@ -298,31 +297,27 @@
         </ng-template>
       </ng-template>
 
-<!--       <button (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
-              id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
-              style='float:right'>Continue
-      </button>
- -->
-      <button  *ngIf="drug_history_form.drug_history_known == true" (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
+      <!--<button (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
+                    id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
+                    style='float:right'>Continue</button>
+       -->
+      <button *ngIf="drug_history_form.drug_history_known == true" (click)="save()" routerLink="{{ route_link_next }}"
+              routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Suivant
       </button>
 
+      <!--<button routerLink="{{ route_link_back }}" routerLinkActive="active" id="moving" type="button"
+                    name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
+                    style='float:left'>Return</button> -->
 
-
-<!--       <button routerLink="{{ route_link_back }}" routerLinkActive="active" id="moving" type="button"
-              name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
-              style='float:left'>Return
-      </button>
- -->    
       <button routerLink="{{ route_link_back }}" routerLinkActive="active" id="moving" type="button"
               name="previous" class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous"
               style='float:left'>Retour
       </button>
 
 
-
-</form>
+    </form>
 
   </section>
 </div>
