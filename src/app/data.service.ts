@@ -21,7 +21,7 @@ const main_url = 'https://api.snv-derma.rootxnet.com';
 })
 export class DataService {
   access_token;
-
+  drugs_history_data;
   private formData: FormData = new FormData();
   private loginData: LoginData = new LoginData();
 
@@ -162,7 +162,7 @@ export class DataService {
       .set('voracious', '1')
       .set('low_carb', '1');
 
-    return this.http.get(main_url +  '/api/recipe_derma/' , {headers: headers, params: params})
+    return this.http.get(main_url + '/api/recipe_derma/', {headers: headers, params: params})
   }
 
   deleteSinglePetFromBackend() {
@@ -197,55 +197,67 @@ export class DataService {
 
   putDataToBackend() {
     let data = this.getFormData();
-    let now = moment();
-    let now_date = moment(now).format("YYYY-MM-DD");
-    let date_now = now_date.valueOf();
 
-    let weight_logs_content = {};
-    weight_logs_content[date_now] = data.weight;
-    let fat_score_logs_content = {};
-    fat_score_logs_content[date_now] = data.fat_score_dog;
-    let pruritus_score_logs_content = {};
-    pruritus_score_logs_content[date_now] = data.pruritus_score;
-    let cadesi_total_logs_content = {};
-    cadesi_total_logs_content[date_now] = data.total;
-    let cadesi_details_logs_content = {};
-    cadesi_details_logs_content[date_now] = data.cadesi_details_logs;
-    let drug_logs_single_content = {
-      "cortavance": data.cortavance,
-      "oclacitinib": data.oclacitinib,
-      "cyclosporine": data.cyclosporine,
-      "prednisolone": data.prednisolone,
-      "dermatologic_shampoo": data.dermatologic_shampoo,
-      "antibacterial_shampoo": data.antibacterial_shampoo
-    };
-    let drug_logs_content = {};
-    drug_logs_content[date_now] = drug_logs_single_content;
+    this.getSingleDataFromBackend(data.id_number).subscribe(result => {
 
-    var postData = {
-      "recruiter_id": 1,
-      "recruiter_email": "admin@example.com",
-      "id": data.id_number,
-      "weight_logs": weight_logs_content,
-      "flea_treatment": data.flea_treatment,
-      "pruritus_score_logs": pruritus_score_logs_content,
-      "cadesi_total_logs": cadesi_total_logs_content,
-      "cadesi_details_logs": cadesi_details_logs_content,
-      "drug_logs": drug_logs_content,
-      "fat_score_logs": fat_score_logs_content,
-      "exclusion_reason": data.exclusion_reason
-    };
+      let now = moment();
+      let now_date = moment(now).format("YYYY-MM-DD");
+      let date_now = now_date.valueOf();
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
-      })
-    };
+      let drug_logs_single_content = {
+        "cortavance": data.cortavance,
+        "oclacitinib": data.oclacitinib,
+        "cyclosporine": data.cyclosporine,
+        "prednisolone": data.prednisolone,
+        "dermatologic_shampoo": data.dermatologic_shampoo,
+        "antibacterial_shampoo": data.antibacterial_shampoo
+      };
 
-    this.http.patch(main_url + '/api/snippets/' + data.id_number + '/', postData, httpOptions)
-      .subscribe(result => {
-      });
+      let drug_logs_content = {};
+      drug_logs_content = result['drug_logs'];
+      drug_logs_content[date_now] = drug_logs_single_content;
+      this.drugs_history_data = drug_logs_content;
+      console.log('ooooooooooooooooooooooooooooooo', this.drugs_history_data);
+
+      let weight_logs_content = {};
+      weight_logs_content[date_now] = data.weight;
+      let fat_score_logs_content = {};
+      fat_score_logs_content[date_now] = data.fat_score_dog;
+      let pruritus_score_logs_content = {};
+      pruritus_score_logs_content[date_now] = data.pruritus_score;
+      let cadesi_total_logs_content = {};
+      cadesi_total_logs_content[date_now] = data.total;
+      let cadesi_details_logs_content = {};
+      cadesi_details_logs_content[date_now] = data.cadesi_details_logs;
+
+      var postData = {
+        "recruiter_id": 1,
+        "recruiter_email": "admin@example.com",
+        "id": data.id_number,
+        "weight_logs": weight_logs_content,
+        "flea_treatment": data.flea_treatment,
+        "pruritus_score_logs": pruritus_score_logs_content,
+        "cadesi_total_logs": cadesi_total_logs_content,
+        "cadesi_details_logs": cadesi_details_logs_content,
+        "drug_logs": this.drugs_history_data,
+        "fat_score_logs": fat_score_logs_content,
+        "exclusion_reason": data.exclusion_reason
+      };
+
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+        })
+      };
+
+      this.http.patch(main_url + '/api/snippets/' + data.id_number + '/', postData, httpOptions)
+        .subscribe(result => {
+        });
+
+    });
+
+
   }
 
   getId(): idPetModel {
@@ -586,6 +598,10 @@ export class DataService {
     console.log('from DataService:');
     console.log(this.formData);
     return this.formData;
+  }
+
+  clearFormData(): any {
+    return this.formData.clear();
   }
 
 }

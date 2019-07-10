@@ -53,7 +53,7 @@ export class FormData {
   desensitized_more_6_months = null;
   drug_history_known = null;
   prednisolone = 0;
-  oclacitinib = 0;
+  oclacitinib = "";
   cyclosporine = 0;
   cortavance = 0;
   antibacterial_shampoo = 0;
@@ -108,7 +108,7 @@ export class FormData {
     this.desensitized_more_6_months = null;
     this.drug_history_known = null;
     this.prednisolone = 0;
-    this.oclacitinib = 0;
+    this.oclacitinib = "";
     this.cyclosporine = 0;
     this.cortavance = 0;
     this.antibacterial_shampoo = 0;
@@ -196,7 +196,7 @@ export class StepDesensitized {
 export class StepDrugsHistory {
   drug_history_known?: boolean = null;
   prednisolone?: number = 0;
-  oclacitinib?: number = 0;
+  oclacitinib?: string = "";
   cyclosporine?: number = 0;
   cortavance?: number = 0;
   antibacterial_shampoo?: number = 0;

@@ -91,7 +91,8 @@ export class PetComponent implements OnInit {
 
   getDataFromBackend() {
     this.formDataService.getDataFromBackend().subscribe(result => {
-        this.pets = result
+        this.pets = result;
+        console.log(this.pets)
       },
       error => {
             this.router.navigate(['/login'])

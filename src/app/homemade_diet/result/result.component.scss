@@ -8,3 +8,9 @@ table {
 .info-box-icon>img {
   max-width: 85%
 }
+
+.info-box-text p {
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}

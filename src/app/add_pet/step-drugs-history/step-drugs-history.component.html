@@ -1,3 +1,6 @@
+<p>{{ last_drug_logs_data | json }}</p>
+<p></p>
+
 <div *ngIf="route_boolean == 'new-physical-consultation'">
   <app-common-labels [label_title]="'New Physical Consultation'" [label_desc]="'Drugs History'"></app-common-labels>
 </div>
@@ -30,7 +33,7 @@
               <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0"
                      [class.clicked_button]="drug_history_form.drug_history_known == true">
                 <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known"
-                       name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="1">
+                       (click)="check_button('true')" name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="1">
                 Oui</label>
 
 
@@ -44,7 +47,7 @@
               <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1"
                      [class.clicked_button_warning]="drug_history_form.drug_history_known == false">
                 <input #drug_history_known="ngModel" [(ngModel)]="drug_history_form.drug_history_known"
-                       name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="0"
+                       (click)="check_button('false')" name="drug_history_known" class='ng-hide' class='form-control' type="radio" value="0"
                        class='ng-hide'> Non </label>
 
 
@@ -301,7 +304,7 @@
                     id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
                     style='float:right'>Continue</button>
        -->
-      <button *ngIf="drug_history_form.drug_history_known == true" (click)="save()" routerLink="{{ route_link_next }}"
+      <button *ngIf="show_button == true" (click)="save()" routerLink="{{ route_link_next }}"
               routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Suivant

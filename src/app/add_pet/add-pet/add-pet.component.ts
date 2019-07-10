@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {DataService} from '../../data.service';
 @Component({
   selector: 'app-add-pet',
   templateUrl: './add-pet.component.html',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPetComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formDataService: DataService) { }
 
   ngOnInit() {
+    this.formDataService.clearFormData()
   }
 
 }

@@ -1,290 +1,315 @@
-<div>
-  <app-common-labels [icon]="'fa fa-cutlery'" [label_title]="'Université de Zürich - Dermatite Atopique '"
-                     [label_desc]="'Ration Ménagère'"></app-common-labels>
-</div>
-<p>{{ single_pet_id_from_url }}</p>
-<div style="width: auto" class="container" id="contentToConvert">
+<div id="contentToConvert">
+  <div
+    style="text-align:center;padding: 20px 30px; background-color: rgb(243, 156, 18);
+   z-index: 999999; font-size: 16px; font-weight: 600; background-position: initial;
+    background-repeat: initial;">
+    <h2 style="color: rgba(255, 255, 255, 0.901961); display: inline-block; margin-right: 10px; text-decoration: none;">
+      <i class="fa fa-cutlery"></i> Université de Zürich - Dermatite Atopique : Ration Ménagère</h2>
+    <h2 update-title style="color: rgba(255, 255, 255, 0.901961); display: inline-block;"></h2>
 
-  <section class="content-header">
-    <script type="text/ng-template" id="info_data.html">
-      <div class="modal fade in" id="modal-default" style="display: block;">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              {{title_modal}}
-              <span aria-hidden="true">×</span>
-              <h4 class="modal-title">Default Modal</h4>
-            </div>
-            <div class="modal-body">
-              <p>{{text_modal}}
-              </p>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-default" type="button" ng-click="ok()">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </script>
+  </div>
 
-    <script type="text/ng-template" id="myModalContent_delete.html">
-      <div class="alert alert-warning">
-        <div class="modal-header">
-          <h3 class="modal-title" id="modal-title">Are you sure you want to delete {% verbatim
-            %}{{pet_to_be_deleted.pet_name}}{% endverbatim %}? </h3>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-default" type="button" ng-click="ok()">Yes I am</button>
-          <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
-        </div>
-      </div>
-    </script>
-
-    <style>
-      .grid {
-        width: 100%;
-        height: 100%;
-      }
-    </style>
-
-    <div class="box box-default box-solid ">
-      <div class="box-header with-border">
-        <h3 class="box-title" style="float: left">
-          Données nutritrionnelles de
-          {{ pet?.pet_name }}
-        </h3>
-        <div style="float: right"><i style="font-size: 32px" class="material-icons" value="CPTURE"
-                                     (click)="captureScreen()">picture_as_pdf</i></div>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-
-        <div class="row">
-          <div class="col-sm-4">
-            <!-- small box -->
-            <div class="small-box bg-aqua">
-              <div class="inner">
-                <h3>
-                  {{ pet?.getIDEALWEIGHT }}
-                  <sup style="font-size: 20px">kg</sup></h3>
-
-                <p>Poids de forme</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-ios-speedometer"></i>
-              </div>
-              <a data-toggle="modal" data-target="#myModal_pet_weight" href="#" class="small-box-footer">More info <i
-                class="fa fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-sm-4">
-            <!-- small box -->
-            <div class="small-box bg-green">
-              <div class="inner">
-                <h3>
-                  {{ pet?.getCALCULUS.ER_tot }}
-                  <sup style="font-size: 20px">kcal</sup></h3>
-                <p>Besoin Energétique</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-ios-bolt"></i>
-              </div>
-              <a data-toggle="modal" href="#" data-target="#myModal_pet_energy" class="small-box-footer">More info <i
-                class="fa fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-sm-4">
-            <!-- small box -->
-            <div class="small-box bg-yellow">
-              <div class="inner">
-                <h3>
-                  {{ pet?.getCALCULUS.RPC }}
-
-                  <sup style="font-size: 20px">g/Mcal</sup></h3>
-
-                <p>Besoin protéique</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-erlenmeyer-flask-bubbles"></i>
-              </div>
-              <a ng-click="more_info(info_protein.Title,info_protein.Text)" class="small-box-footer">More info <i
-                class="fa fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-
+  <section data-html2canvas-ignore="true" class="content" style="min-height: 50px">
+    <div uib-alert id="alert" class="alert callout callout-danger" close="bCloseAlert=1" ng-hide="bCloseAlert">
+      <h4>Que fait-on ici ? </h4>
+      <p>Nous allons créer une ration ménagère complète et équilibrée pour un animal donné, enrichie en composé
+        d'intéret dermatologique. Cette ration ménagère est faite sur-mesure pour un animal considéré</p>
     </div>
-
-    <div>
-      <uib-accordion>
-        <div uib-accordion-group is-open="status1.open" class="box box-primary box-default">
-          <uib-accordion-heading class="box-header with-border">
-            <h3><i class="fa fa-cutlery"></i> <b> Recette sur mesure</b> à objectifs dermatologiques pour :{{ pet?.pet_name }}
-            <i class="pull-right glyphicon"></i>
-            </h3>
-          </uib-accordion-heading>
-          <div *ngFor="let food of data">
-            <div class="info-box">
-        <span class="info-box-icon">
-          <img class="img-circle"
-               src='https://api.snv-derma.rootxnet.com/media/{{food.img}}'>
-          </span>
-              <div class="info-box-content">
-                <span class="info-box-text">{{food.title}}</span>
-                <span class="info-box-number">{{food.quantity}} g</span>
-                <span class="info-box-text"><p>{{food.information_quantity}}</p></span>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </uib-accordion>
-
-            <uib-accordion>
-        <div uib-accordion-group is-open="status1.open" class="box box-primary box-default">
-          <uib-accordion-heading class="box-header with-border">
-            <h3><i class="fa fa-exchange"></i>  <b> Transition Alimentaire</b> (optionnelle)
-            <i class="pull-right glyphicon"></i>
-            </h3>
-          </uib-accordion-heading>
-          <h4 style="padding: 15px">La transition alimentaire est en particulier recommandée pour les chiens ayant une ration originelle industrielle (sèche ou humide) ou souffrant d'une fragilité digestive.
-          Le plan de transition proposé permet d'introduire un ou plusieurs aliments de la recette jour après jour et de permettre aux micro-organismes digestifs de votre chien de s'adapter à cette nouvelle alimentation.
-            Cette transition dure 4 jours. Toutes les quantités sont ici exprimées en pourcentages de la recette formulée plus haut ou de l'alimentation actuelle.</h4>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Jour 1</th>
-      <th scope="col">Jour 2</th>
-      <th scope="col">Jour 3</th>
-      <th scope="col">Jour 4</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Ration Originale (Pâtée ou Croqquettes)</th>
-      <td>75 %</td>
-      <td>50 % </td>
-      <td>25 %</td>
-      <td>0 %</td>
-
-    </tr>
-    <tr>
-      <th scope="row">Riz et Haricots verts </th>
-      <td>100 % </td>
-      <td>100 % </td>
-      <td>100 % </td>
-      <td>100 % </td>
-    </tr>
-    <tr>
-
-      <tr>
-      <th scope="row">Poulet</th>
-      <td>0 %</td>
-      <td>50 %</td>
-      <td>50 % </td>
-      <td>100 % </td>
-    </tr>
-    <tr>
-
-      <th scope="row">Banane et Huile de Colza</th>
-      <td>0 %</td>
-      <td>0 %</td>
-      <td>100%</td>
-      <td>100% </td>
-    </tr>
-
-      <tr>
-      <th scope="row">Levure, Myrtille et AGEPI</th>
-      <td>0 %</td>
-      <td>0 % </td>
-      <td>0 %</td>
-      <td>100 %</td>
-    </tr>
-
-
-  </tbody>
-</table>
-
-
-
-        </div>
-      </uib-accordion>
-
-
-      <uib-accordion>
-        <div uib-accordion-group is-open="status2.open" class="box box-primary box-default">
-          <uib-accordion-heading class="box-header with-border">
-            <h3><i class="fa fa-fw fa-bar-chart"></i><b> Pour aller plus loin</b> : Distribution des macro-éléments <i
-              class="pull-right glyphicon" ng-class="{'fa fa-minus': status2.open, 'fa fa-plus': !status2.open}"></i>
-            </h3>
-
-          </uib-accordion-heading>
-          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-            <ng-container matColumnDef="ingredients">
-              <th mat-header-cell *matHeaderCellDef>Ingrédients</th>
-              <td mat-cell *matCellDef="let element"> {{element.ingredients}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="energy">
-              <th mat-header-cell *matHeaderCellDef>Energie (kcal)</th>
-              <td mat-cell *matCellDef="let element"> {{element.energy}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="protein">
-              <th mat-header-cell *matHeaderCellDef>Protéines</th>
-              <td mat-cell *matCellDef="let element"> {{element.protein}} </td>
-            </ng-container>
-
-
-            <ng-container matColumnDef="fat">
-              <th mat-header-cell *matHeaderCellDef>Lipides</th>
-              <td mat-cell *matCellDef="let element"> {{element.fat}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="carbohydrate">
-              <th mat-header-cell *matHeaderCellDef>Glucides</th>
-              <td mat-cell *matCellDef="let element"> {{element.carbohydrate}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="calcium">
-              <th mat-header-cell *matHeaderCellDef>Calcium</th>
-              <td mat-cell *matCellDef="let element"> {{element.calcium}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="phosphorus">
-              <th mat-header-cell *matHeaderCellDef>Phosphore</th>
-              <td mat-cell *matCellDef="let element"> {{element.phosphorus}} </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-
-        </div>
-      </uib-accordion>
-    </div>
-    <button id="moving" type="button" name="previous"
-            class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
-      Retour
-    </button>
-
-
-    <!--       <div id="grid1" ui-grid="gridOptions" class="grid"></div>
-     -->
-
   </section>
+
+  <div style="width: auto" class="container">
+
+    <section class="content-header">
+      <script type="text/ng-template" id="info_data.html">
+        <div class="modal fade in" id="modal-default" style="display: block;">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                {{title_modal}}
+                <span aria-hidden="true">×</span>
+                <h4 class="modal-title">Default Modal</h4>
+              </div>
+              <div class="modal-body">
+                <p>{{text_modal}}
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-default" type="button" ng-click="ok()">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </script>
+
+      <script type="text/ng-template" id="myModalContent_delete.html">
+        <div class="alert alert-warning">
+          <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Are you sure you want to delete {% verbatim
+              %}{{pet_to_be_deleted.pet_name}}{% endverbatim %}? </h3>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" type="button" ng-click="ok()">Yes I am</button>
+            <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+          </div>
+        </div>
+      </script>
+
+      <style>
+        .grid {
+          width: 100%;
+          height: 100%;
+        }
+      </style>
+
+      <div class="box box-default box-solid ">
+        <div class="box-header with-border">
+          <h3 class="box-title" style="float: left">
+            Données nutritrionnelles de
+            {{ pet?.pet_name }}
+          </h3>
+          <div style="float: right; display: flex">
+          <span *ngIf="show_pdf_spinner">
+            <img style="height: 50px" src="./assets/static/data/img/spinner2.gif"/>
+          </span>
+            <i style="font-size: 32px;margin-top: 7px;" class="material-icons" value="CPTURE"
+               (click)="captureScreen()">
+              picture_as_pdf
+            </i>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+
+          <div class="row">
+            <div class="col-sm-4">
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                  <h3>
+                    {{ pet?.getIDEALWEIGHT }}
+                    <sup style="font-size: 20px">kg</sup></h3>
+
+                  <p>Poids de forme</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-ios-speedometer"></i>
+                </div>
+                <a data-toggle="modal" data-target="#myModal_pet_weight" href="#" class="small-box-footer">More info <i
+                  class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-sm-4">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>
+                    {{ pet?.getCALCULUS.ER_tot }}
+                    <sup style="font-size: 20px">kcal</sup></h3>
+                  <p>Besoin Energétique</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-ios-bolt"></i>
+                </div>
+                <a data-toggle="modal" href="#" data-target="#myModal_pet_energy" class="small-box-footer">More info <i
+                  class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-sm-4">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>
+                    {{ pet?.getCALCULUS.RPC }}
+
+                    <sup style="font-size: 20px">g/Mcal</sup></h3>
+
+                  <p>Besoin protéique</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-erlenmeyer-flask-bubbles"></i>
+                </div>
+                <a ng-click="more_info(info_protein.Title,info_protein.Text)" class="small-box-footer">More info <i
+                  class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div>
+        <uib-accordion>
+          <div uib-accordion-group is-open="status1.open" class="box box-primary box-default">
+            <uib-accordion-heading class="box-header with-border">
+              <h3><i class="fa fa-cutlery"></i> <b> Recette sur mesure</b> à objectifs dermatologiques pour
+                :{{ pet?.pet_name }}
+                <i class="pull-right glyphicon"></i>
+              </h3>
+            </uib-accordion-heading>
+            <div *ngFor="let food of data">
+              <div class="info-box">
+        <span class="info-box-icon" style="display: flex; justify-content: center">
+          <img class="img-circle"
+               src='{{food.img}}'>
+          </span>
+                <div class="info-box-content">
+                  <span class="info-box-text">{{food.title}}</span>
+                  <span class="info-box-number">{{food.quantity}} g</span>
+                  <span class="info-box-text"><p>{{food.information_quantity}}</p></span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </uib-accordion>
+
+        <uib-accordion>
+          <div uib-accordion-group is-open="status1.open" class="box box-primary box-default">
+            <uib-accordion-heading class="box-header with-border">
+              <h3><i class="fa fa-exchange"></i> <b> Transition Alimentaire</b> (optionnelle)
+                <i class="pull-right glyphicon"></i>
+              </h3>
+            </uib-accordion-heading>
+            <h4 style="padding: 15px">La transition alimentaire est en particulier recommandée pour les chiens ayant une
+              ration originelle industrielle (sèche ou humide) ou souffrant d'une fragilité digestive.
+              Le plan de transition proposé permet d'introduire un ou plusieurs aliments de la recette jour après jour
+              et de permettre aux micro-organismes digestifs de votre chien de s'adapter à cette nouvelle alimentation.
+              Cette transition dure 4 jours. Toutes les quantités sont ici exprimées en pourcentages de la recette
+              formulée plus haut ou de l'alimentation actuelle.</h4>
+
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Jour 1</th>
+                <th scope="col">Jour 2</th>
+                <th scope="col">Jour 3</th>
+                <th scope="col">Jour 4</th>
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th scope="row">Ration Originale (Pâtée ou Croqquettes)</th>
+                <td>75 %</td>
+                <td>50 %</td>
+                <td>25 %</td>
+                <td>0 %</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Riz et Haricots verts</th>
+                <td>100 %</td>
+                <td>100 %</td>
+                <td>100 %</td>
+                <td>100 %</td>
+              </tr>
+              <tr>
+
+              <tr>
+                <th scope="row">Poulet</th>
+                <td>0 %</td>
+                <td>50 %</td>
+                <td>50 %</td>
+                <td>100 %</td>
+              </tr>
+              <tr>
+
+                <th scope="row">Banane et Huile de Colza</th>
+                <td>0 %</td>
+                <td>0 %</td>
+                <td>100%</td>
+                <td>100%</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Levure, Myrtille et AGEPI</th>
+                <td>0 %</td>
+                <td>0 %</td>
+                <td>0 %</td>
+                <td>100 %</td>
+              </tr>
+
+
+              </tbody>
+            </table>
+
+
+          </div>
+        </uib-accordion>
+
+
+        <uib-accordion>
+          <div uib-accordion-group is-open="status2.open" class="box box-primary box-default">
+            <uib-accordion-heading class="box-header with-border">
+              <h3><i class="fa fa-fw fa-bar-chart"></i><b> Pour aller plus loin</b> : Distribution des macro-éléments <i
+                class="pull-right glyphicon" ng-class="{'fa fa-minus': status2.open, 'fa fa-plus': !status2.open}"></i>
+              </h3>
+
+            </uib-accordion-heading>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+              <ng-container matColumnDef="ingredients">
+                <th mat-header-cell *matHeaderCellDef>Ingrédients</th>
+                <td mat-cell *matCellDef="let element"> {{element.ingredients}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="energy">
+                <th mat-header-cell *matHeaderCellDef>Energie (kcal)</th>
+                <td mat-cell *matCellDef="let element"> {{element.energy}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="protein">
+                <th mat-header-cell *matHeaderCellDef>Protéines</th>
+                <td mat-cell *matCellDef="let element"> {{element.protein}} </td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="fat">
+                <th mat-header-cell *matHeaderCellDef>Lipides</th>
+                <td mat-cell *matCellDef="let element"> {{element.fat}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="carbohydrate">
+                <th mat-header-cell *matHeaderCellDef>Glucides</th>
+                <td mat-cell *matCellDef="let element"> {{element.carbohydrate}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="calcium">
+                <th mat-header-cell *matHeaderCellDef>Calcium</th>
+                <td mat-cell *matCellDef="let element"> {{element.calcium}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="phosphorus">
+                <th mat-header-cell *matHeaderCellDef>Phosphore</th>
+                <td mat-cell *matCellDef="let element"> {{element.phosphorus}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+          </div>
+        </uib-accordion>
+      </div>
+      <button data-html2canvas-ignore="true" id="moving" type="button" name="previous"
+              class="previous btn-special btn-4-prev btn-4b-prev icon-arrow-left" value="Previous" style='float:left'>
+        Retour
+      </button>
+
+
+      <!--       <div id="grid1" ui-grid="gridOptions" class="grid"></div>
+       -->
+
+    </section>
+  </div>
+
+
 </div>
-
-

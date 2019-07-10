@@ -18,7 +18,7 @@
 }
 
 .mat-slider-vertical {
-  height: 450px;
+  height: 550px;
 }
 
 
@@ -47,6 +47,11 @@ table {
     float: left;
     width: 75%
   }
+}
+
+.cadesi-pursuit-div {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .buttons-wrapper {

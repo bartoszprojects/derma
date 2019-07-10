@@ -10,4 +10,10 @@ table {
   max-width: 85%;
 }
 
+.info-box-text p {
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}
+
 /*# sourceMappingURL=result.component.css.map */
