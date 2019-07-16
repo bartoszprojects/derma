@@ -75,7 +75,7 @@
                     <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
                             #breed_dog_pure="ngModel" [(ngModel)]="breed_form.breed_dog_pure" name="breed_dog_pure">
                       <option class="dropdown-select" *ngFor="let breed of breeds">
-                        {{ breed.name }}
+                        {{ breed }}
                       </option>
                     </select>
 
@@ -95,7 +95,7 @@
                       <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
                               #breed_dog_2="ngModel" [(ngModel)]="breed_form.breed_dog_1" name="breed_dog_2">
                         <option class="dropdown-select" *ngFor="let breed of breeds">
-                          {{ breed.name }}
+                          {{ breed }}
                         </option>
                       </select>
 
@@ -112,7 +112,7 @@
  <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
                               #breed_dog_2="ngModel" [(ngModel)]="breed_form.breed_dog_2" name="breed_dog_2">
                         <option class="dropdown-select" *ngFor="let breed of breeds">
-                          {{ breed.name }}
+                          {{ breed }}
                         </option>
                       </select>
                     </div>

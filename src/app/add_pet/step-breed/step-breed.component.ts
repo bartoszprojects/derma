@@ -15,6 +15,7 @@ export class StepBreedComponent implements OnInit {
   breeds;
   breed_form: StepBreed;
   form: any;
+  breeds_sorted_array = [];
 
   constructor(private formDataService: DataService) {
   }
@@ -22,7 +23,15 @@ export class StepBreedComponent implements OnInit {
   ngOnInit() {
     this.breed_form = this.formDataService.getBreed();
     this.formDataService.getBreedDataFromBackend().subscribe(result => {
-      this.breeds = result
+      this.breeds = result;
+      let temp_array = [];
+      for (let elem in this.breeds) {
+        temp_array.push(this.breeds[elem].name)
+      }
+      this.breeds_sorted_array = temp_array.sort();
+      console.log(this.breeds);
+      console.log('aaaaarray', this.breeds_sorted_array);
+      this.breeds = this.breeds_sorted_array;
     });
   }
 
