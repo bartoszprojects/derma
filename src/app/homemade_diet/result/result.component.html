@@ -11,9 +11,9 @@
 
   <section data-html2canvas-ignore="true" class="content" style="min-height: 50px">
     <div uib-alert id="alert" class="alert callout callout-danger" close="bCloseAlert=1" ng-hide="bCloseAlert">
-      <h4>Que fait-on ici ? </h4>
-      <p>Nous allons créer une ration ménagère complète et équilibrée pour un animal donné, enrichie en composé
-        d'intéret dermatologique. Cette ration ménagère est faite sur-mesure pour un animal considéré</p>
+      <h4>Explications </h4>
+      <p>Nous allons créer une ration ménagère complète et équilibrée pour un animal donné. Cette ration a été générée par des vétérinaires nutritionnistes expérimentés.
+        d'intéret dermatologique. Cette ration ménagère est faite sur-mesure pour un animal considéré et pour une durée de six mois. Elle ne devra être en aucun cas être poursuivie au delà sauf avec l'accord du moniteur de l'étude. </p>
     </div>
   </section>
 
@@ -121,9 +121,9 @@
               <div class="small-box bg-yellow">
                 <div class="inner">
                   <h3>
-                    {{ pet?.getCALCULUS.RPC }}
+                    {{ pet?.getCALCULUS.Protein_Quantity }}
 
-                    <sup style="font-size: 20px">g/Mcal</sup></h3>
+                    <sup style="font-size: 20px">g/j</sup></h3>
 
                   <p>Besoin protéique</p>
                 </div>
@@ -259,6 +259,11 @@
               <ng-container matColumnDef="ingredients">
                 <th mat-header-cell *matHeaderCellDef>Ingrédients</th>
                 <td mat-cell *matCellDef="let element"> {{element.ingredients}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="quantity">
+                <th mat-header-cell *matHeaderCellDef>Quantité (g)</th>
+                <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
               </ng-container>
 
               <ng-container matColumnDef="energy">
