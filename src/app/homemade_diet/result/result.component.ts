@@ -3,7 +3,7 @@ import {DataService} from '../../data.service';
 import {MatTableModule} from '@angular/material/table';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
 import {Observable, Observer} from 'rxjs';
 
 
@@ -23,6 +23,7 @@ export class ResultComponent implements OnInit {
   base64Image: any;
   convertedImageUrl: any;
   show_pdf_spinner = false;
+
   constructor(private formDataService: DataService, private route: ActivatedRoute) {
   }
 
@@ -61,7 +62,7 @@ export class ResultComponent implements OnInit {
 
 
       this.dataSource = this.table_data;
-      console.log(this.table_data)
+      console.log(this.table_data);
     });
   }
 
@@ -72,20 +73,20 @@ export class ResultComponent implements OnInit {
     html2canvas(data).then(canvas => {
 
       const contentDataURL = canvas.toDataURL('image/png');
-      let pdf = new jspdf('p', 'mm'); // A4 size page of PDF
-       var position = 0;
+      let pdf = new jspdf('p', 'pt', 'a4', true); // A4 size page of PDF
+      var position = 0;
 
       var imgWidth = pdf.internal.pageSize.getWidth();
       var pageHeight = pdf.internal.pageSize.getHeight();
       var imgHeight = canvas.height * imgWidth / canvas.width;
       var heightLeft = imgHeight;
 
-      pdf.addImage(contentDataURL, 'PNG', 0, position,imgWidth,imgHeight);
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight, '', 'FAST');
       heightLeft -= pageHeight;
       while (heightLeft >= 0) {
         position = heightLeft - imgHeight;
         pdf.addPage();
-        pdf.addImage(contentDataURL, 'PNG', 0, position,imgWidth,imgHeight);
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight, '', 'FAST');
         heightLeft -= pageHeight;
       }
       pdf.save('MYPdf.pdf'); // Generated PDF
@@ -114,13 +115,13 @@ export class ResultComponent implements OnInit {
   }
 
   getBase64Image(img: HTMLImageElement) {
-    var canvas = document.createElement("canvas");
+    var canvas = document.createElement('canvas');
     canvas.width = img.width;
     canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
+    var ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0);
-    var dataURL = canvas.toDataURL("image/png");
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+    var dataURL = canvas.toDataURL('image/png');
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
   }
 
 }
