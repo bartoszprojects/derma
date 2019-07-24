@@ -6,7 +6,7 @@
         <div style="text-align:center" class="box-header with-border">
 <!--           <h1 class="control-label " for="id_crossed_name"> Tell us more about <b><app-pet-name></app-pet-name></b>'s breed !
           </h1>
- -->        
+ -->
           <h1 class="control-label " for="id_crossed_name"> La race de  <b><app-pet-name></app-pet-name></b> !
           </h1>
 
@@ -37,7 +37,7 @@
               <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="1"
                      class='ng-hide'> Croisés </label>
 
-<!-- 
+<!--
             <label style="font-size: 2.5vw;" [class.clicked_button]="breed_form.crossed == 2"
                    class="btn btn-1 btn-1a btn-crossed_2">
               <input #crossed="ngModel" [(ngModel)]="breed_form.crossed" name="crossed" class='ng-hide' class='form-control' type="radio" value="2"
@@ -74,8 +74,8 @@
 
                     <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
                             #breed_dog_pure="ngModel" [(ngModel)]="breed_form.breed_dog_pure" name="breed_dog_pure">
-                      <option class="dropdown-select" *ngFor="let breed of breeds">
-                        {{ breed }}
+                      <option class="dropdown-select" *ngFor="let breed of breeds" [ngValue]="breed.id">
+                        {{ breed.name }}
                       </option>
                     </select>
 
@@ -94,8 +94,8 @@
 
                       <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
                               #breed_dog_2="ngModel" [(ngModel)]="breed_form.breed_dog_1" name="breed_dog_2">
-                        <option class="dropdown-select" *ngFor="let breed of breeds">
-                          {{ breed }}
+                        <option class="dropdown-select" *ngFor="let breed of breeds" [ngValue]="breed.id">
+                          {{ breed.name }}
                         </option>
                       </select>
 
@@ -104,15 +104,15 @@
 <!--                       <h2 class="control-label" for="id_breed_dog_2"> What is <b><app-pet-name></app-pet-name></b>'s 2nd breed ?
                       </h2>
 
- -->                      
+ -->
 
                       <h2 class="control-label" for="id_breed_dog_2"> Indiquez la seconde des deux races du croisement dont  <b><app-pet-name></app-pet-name></b> est issu ?
                       </h2>
 
  <select class="dropdown-select ng-dirty ng-valid ng-touched" theme="bootstrap"
                               #breed_dog_2="ngModel" [(ngModel)]="breed_form.breed_dog_2" name="breed_dog_2">
-                        <option class="dropdown-select" *ngFor="let breed of breeds">
-                          {{ breed }}
+                        <option class="dropdown-select" *ngFor="let breed of breeds" [ngValue]="breed.id">
+                          {{ breed.name }}
                         </option>
                       </select>
                     </div>
@@ -124,7 +124,7 @@
                 <div>
                   <div style="text-align:center">
 <!--                     <h2 class="control-label" for="id_dog_format"> Evaluate <b><app-pet-name></app-pet-name></b>'s size </h2>
- -->                  
+ -->
 
                     <h2 class="control-label" for="id_dog_format"> Evaluez le morphotype de  <b><app-pet-name></app-pet-name></b> </h2>
 
@@ -170,7 +170,7 @@
           </div>
         </div>
       </ng-template>
-<!-- 
+<!--
       <button *ngIf="breed_form.breed_dog_pure || breed_form.breed_dog_1 || breed_form.breed_dog_2 || breed_form.dog_format"
               (click)="save()" routerLink="/home/add-pet/gender" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
