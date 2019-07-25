@@ -3,40 +3,6 @@
   <section class="content-header">
     <form #otitis_form_formForm="ngForm" class="editForm" novalidate (ngSubmit)="save()">
       <div class="box box-default box-solid ">
-        <div style="text-align:center" class="box-header with-border">
-          <h1 class="control-label" for="id_Sup2"> Est-ce que chien est connu pour avoir des otites récurrentes / chroniques ? </h1>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div style="text-align:center">
-            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_0" [class.clicked_button_warning]="otitis_form.recurring_otitis == true">
-              <input #recurring_otitis="ngModel" [(ngModel)]="otitis_form.recurring_otitis" name="recurring_otitis" class='ng-hide' class='form-control' type="radio" value="1"> Oui</label>
-
-            <label style="font-size: 2.5vw;" class="btn btn-1 btn-1a btn-crossed_1" [class.clicked_button]="otitis_form.recurring_otitis == false">
-              <input #recurring_otitis="ngModel" [(ngModel)]="otitis_form.recurring_otitis" name="recurring_otitis" class='ng-hide' class='form-control' type="radio" value="0"
-                     class='ng-hide'> Non </label>
-          </div>
-
-        </div>
-
-      </div>
-      <ng-template [ngIf]="otitis_form.recurring_otitis == true">
-        <div ng-show="pet_data['recurring_otitis']=='1'" class="box box-default box-solid ">
-          <div style="text-align:center" class="box-header with-border error-header">
-            <h1 class="control-label" for="id_Sup2"> Attention </h1>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <div style="text-align:center">
-              <label style="font-size: 2.5vw">
-                Votre candidat ne peut être inclu dans l'étude. La survenue d'otites pourraient biaiser régulièrement le score de CADESI-04 et créer une erreur systématique. </label>
-            </div>
-          </div>
-
-        </div>
-      </ng-template>
-      <ng-template [ngIf]="otitis_form.recurring_otitis == false">
-        <div ng-show="pet_data['recurring_otitis']=='0'" class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label" for="id_Sup2"> Est-ce que ce chien a une otite externe en ce moment ? </h1>
           </div>
@@ -56,8 +22,7 @@
           </div>
 
         </div>
-      </ng-template>
-      <ng-template [ngIf]="otitis_form.otitis == true && otitis_form.recurring_otitis == false">
+      <ng-template [ngIf]="otitis_form.otitis == true">
         <div ng-show="pet_data['otitis']=='1' " class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border error-header">
             <h1 class="control-label" for="id_Sup2"> Attention </h1>
@@ -72,7 +37,7 @@
 
         </div>
       </ng-template>
-    <ng-template [ngIf]="otitis_form.otitis == false && otitis_form.recurring_otitis == false">
+    <ng-template [ngIf]= "otitis_form.otitis == false">
       <div class="box box-default box-solid ">
         <div style="text-align:center" class="box-header with-border">
           <h1 class="control-label">Votre candidat a-t-il déjà eu des épiosdes d'otites dans le passé ?</h1>
@@ -96,7 +61,7 @@
 
     </ng-template>
 
-      <button  *ngIf="otitis_form.otitis_history == false || otitis_form.otitis_history == true" (click)="save()" routerLink="/home/add-pet/desensitized" routerLinkActive="active"
+      <button  *ngIf="otitis_form.otitis == false && otitis_form.otitis_history == false ||otitis_form.otitis == false && otitis_form.otitis_history == true" (click)="save()" routerLink="/home/add-pet/desensitized" routerLinkActive="active"
               id="" type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'> Suivant
       </button>

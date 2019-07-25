@@ -87,7 +87,7 @@
         </div>
       </ng-template>
 
-      <ng-template [ngIf]="food_allergy.more_8_weeks == true">
+      <ng-template [ngIf]="food_allergy.excluded == true && food_allergy.more_8_weeks == true">
         <div ng-show="pet_data.food_allergy.excluded=='1' && pet_data.food_allergy.more_8_weeks=='1'"
              class="box box-default box-solid ">
           <div style="text-align:center" class="box-header with-border">
@@ -113,14 +113,14 @@
                        class='form-control ng-hide'/></label>
             </div>
 
-            <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'INDUSTRIAL'">
+            <ng-template [ngIf]="food_allergy.excluded == true && food_allergy.more_8_weeks == true && food_allergy.industrial_or_homemade == 'INDUSTRIAL'">
               <div ng-show="pet_data.food_allergy.type=='1'" class="box-body form-group has-feedback">
                 <blockquote>
                   <h2><p>Aliment industriel</p></h2>
                 </blockquote>
               </div>
             </ng-template>
-            <ng-template [ngIf]="food_allergy.industrial_or_homemade == 'HOMEMADE'">
+            <ng-template [ngIf]="food_allergy.excluded == true && food_allergy.more_8_weeks == true && food_allergy.industrial_or_homemade == 'HOMEMADE'">
               <div ng-show="pet_data.food_allergy.type=='2'" class="box-body form-group has-feedback">
                 <blockquote>
                   <h2><p>Ration ménagère</p></h2>
@@ -134,7 +134,7 @@
         </div>
       </ng-template>
       <ng-template
-        [ngIf]="food_allergy.industrial_or_homemade == 'INDUSTRIAL' || food_allergy.industrial_or_homemade == 'HOMEMADE'">
+        [ngIf]="food_allergy.excluded == true && food_allergy.more_8_weeks == true && food_allergy.industrial_or_homemade == 'INDUSTRIAL' || food_allergy.excluded == true && food_allergy.more_8_weeks == true && food_allergy.industrial_or_homemade == 'HOMEMADE'">
         <div class="box box-default box-solid">
           <div style="text-align:center" class="box-header with-border">
             <h1 class="control-label" for="id_Sup2"> Quel aliment a été utilisé en particulier pour cette exclusion alimentaire ?</h1>
@@ -172,7 +172,7 @@
         <!-- /.box-body -->
       </ng-template>
 
-      <button *ngIf="food_allergy.what_petfood.length > 0" (click)="save()" routerLink="/home/add-pet/pyodermatitis"
+      <button *ngIf="food_allergy.excluded == true && food_allergy.more_8_weeks == true && food_allergy.what_petfood.length > 0" (click)="save()" routerLink="/home/add-pet/pyodermatitis"
               routerLinkActive="active" name="next" type="button"
               class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
               style='float:right'>Suivant

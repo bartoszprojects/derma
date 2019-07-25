@@ -66,7 +66,7 @@
                 <img src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/nexgard.jpg"/>
               </label>
               <label [class.clicked_image]="flea.flea_treatment == 'SIMPARICA'" class="drunkcard-ss"><input #flea_treatment="ngModel" [(ngModel)]="flea.flea_treatment"
-                                                 required id="h"
+                                                 required id="flea_treatment_2"
                                                  name="flea_treatment"
                                                  placeholder="flea_treatment" type="radio" value="SIMPARICA"
                                                  class='ng-hide form-control'/>
@@ -74,12 +74,22 @@
               </label>
 
               <label [class.clicked_image]="flea.flea_treatment == 'BRAVECTO'" class="drunkcard-ss"> <input #flea_treatment="ngModel" [(ngModel)]="flea.flea_treatment"
-                                                  required id="dh"
+                                                  required id="dflea_treatment"
                                                   name="flea_treatment"
                                                   placeholder="flea_treatment" type="radio" value="BRAVECTO"
                                                   class='ng-hide form-control'/>
                 <img
                 src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/bravecto.jpg"/></label>
+
+              <label [class.clicked_image]="flea.flea_treatment == 'CREDELIO'" class="drunkcard-ss"> <input #flea_treatment="ngModel" [(ngModel)]="flea.flea_treatment"
+                                                  required id="dhflea_treatment"
+                                                  name="flea_treatment"
+                                                  placeholder="flea_treatment" type="radio" value="CREDELIO"
+                                                  class='ng-hide form-control'/>
+                <img
+                src="https://s3-us-west-2.amazonaws.com/smart-nutrition/data/img/drug/credelio.jpg"/></label>
+
+
 
               <ng-template [ngIf]="flea.flea_treatment == 'NEXGARD'">
                 <h3 ng-show="pet_data['flea_drug']=='1'" class="control-label"><b>NexGard &copy; </b> (fréquence : 5 semaines )
@@ -91,12 +101,16 @@
               <ng-template [ngIf]="flea.flea_treatment == 'BRAVECTO'">
                 <h3 ng-show="pet_data['flea_drug']=='3'" class="control-label"><b> Bravecto &copy; </b> (fréquence : 3 mois )
                 </h3></ng-template>
+              <ng-template [ngIf]="flea.flea_treatment == 'CREDELIO'">
+                <h3 ng-show="pet_data['flea_drug']=='4'" class="control-label"><b> Credelio &copy; </b> (fréquence : 4 semaines )
+                </h3></ng-template>
+
 
             </div>
             <!-- /.box-body -->
           </div>
 
-          <button *ngIf="flea.flea_treatment == 'NEXGARD' || flea.flea_treatment == 'SIMPARICA' || flea.flea_treatment == 'BRAVECTO'" (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
+          <button *ngIf="flea.flea_treatment == 'NEXGARD' || flea.flea_treatment == 'SIMPARICA' || flea.flea_treatment == 'BRAVECTO' || flea.flea_treatment == 'CREDELIO'" (click)="save()" routerLink="{{ route_link_next }}" routerLinkActive="active"
                   type="button" name="next" class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next"
                   style='float:right'>Suivant
           </button>
