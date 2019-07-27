@@ -195,13 +195,13 @@ export class DataService {
       });
   }
 
-  putDataToBackend() {
+   putDataToBackend() {
     let data = this.getFormData();
 
     this.getSingleDataFromBackend(data.id_number).subscribe(result => {
 
       let now = moment();
-      let now_date = moment(now).format("YYYY-MM-DD");
+      let now_date = moment(now).format("YYYY-MM-DD:hh-mm-ss");
       let date_now = now_date.valueOf();
 
       let drug_logs_single_content = {
@@ -212,23 +212,27 @@ export class DataService {
         "dermatologic_shampoo": data.dermatologic_shampoo,
         "antibacterial_shampoo": data.antibacterial_shampoo
       };
-
       let drug_logs_content = {};
       drug_logs_content = result['drug_logs'];
-      drug_logs_content[date_now] = drug_logs_single_content;
+      drug_logs_content[date_now.toString()] = drug_logs_single_content;
       this.drugs_history_data = drug_logs_content;
-      console.log('ooooooooooooooooooooooooooooooo', this.drugs_history_data);
+      console.log('drugs_history_data', this.drugs_history_data);
 
       let weight_logs_content = {};
-      weight_logs_content[date_now] = data.weight;
+      weight_logs_content = result['weight_logs'];
+      weight_logs_content[date_now.toString()] = data.weight;
       let fat_score_logs_content = {};
-      fat_score_logs_content[date_now] = data.fat_score_dog;
+      fat_score_logs_content = result['fat_score_logs'];
+      fat_score_logs_content[date_now.toString()] = data.fat_score_dog;
       let pruritus_score_logs_content = {};
-      pruritus_score_logs_content[date_now] = data.pruritus_score;
+      pruritus_score_logs_content = result['pruritus_score_logs'];
+      pruritus_score_logs_content[date_now.toString()] = data.pruritus_score;
       let cadesi_total_logs_content = {};
-      cadesi_total_logs_content[date_now] = data.total;
+      cadesi_total_logs_content = result['cadesi_total_logs'];
+      cadesi_total_logs_content[date_now.toString()] = data.total;
       let cadesi_details_logs_content = {};
-      cadesi_details_logs_content[date_now] = data.cadesi_details_logs;
+      cadesi_details_logs_content = result['cadesi_details_logs'];
+      cadesi_details_logs_content[date_now.toString()] = data.cadesi_details_logs;
 
       var postData = {
         "recruiter_id": 1,
