@@ -10,9 +10,9 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import 'rxjs';
 import {interval} from 'rxjs';
 import {switchMap, map, tap, share, shareReplay} from 'rxjs/operators';
-import * as moment from 'moment'
-import {post} from "selenium-webdriver/http";
-import {HttpParams} from "@angular/common/http";
+import * as moment from 'moment';
+import {post} from 'selenium-webdriver/http';
+import {HttpParams} from '@angular/common/http';
 
 const main_url = 'https://api.snv-derma.rootxnet.com';
 
@@ -32,7 +32,7 @@ export class DataService {
     let data = this.getFormData();
 
     let now = moment();
-    let now_date = moment(now).format("YYYY-MM-DD");
+    let now_date = moment(now).format('YYYY-MM-DD');
     let date_now = now_date.valueOf();
 
     let weight_logs_content = {};
@@ -46,45 +46,48 @@ export class DataService {
     let cadesi_details_logs_content = {};
     cadesi_details_logs_content[date_now] = data.cadesi_details_logs;
     let drug_logs_single_content = {
-      "omega": data.omega,
-      "yeast": data.yeast,
-      "cortavance": data.cortavance,
-      "oclacitinib": data.oclacitinib,
-      "cyclosporine": data.cyclosporine,
-      "prednisolone": data.prednisolone,
-      "dermatologic_shampoo": data.dermatologic_shampoo,
-      "antibacterial_shampoo": data.antibacterial_shampoo
+      'omega': data.omega,
+      'yeast': data.yeast,
+      'cortavance': data.cortavance,
+      'oclacitinib': data.oclacitinib,
+      'cyclosporine': data.cyclosporine,
+      'prednisolone': data.prednisolone,
+      'dermatologic_shampoo': data.dermatologic_shampoo,
+      'antibacterial_shampoo': data.antibacterial_shampoo
     };
     let drug_logs_content = {};
     drug_logs_content[date_now] = drug_logs_single_content;
 
+    console.log('§§§§§§§§§§§§');
+    console.log(data.breed_dog_pure);
+    console.log('§§§§§§§§§§§§');
     var postData = {
-      "owner_email": data.owner_email,
-      "owner_name": data.owner_name,
-      "recruiter_id": 1,
-      "recruiter_email": "admin@example.com",
-      "owner_phone": data.owner_phone,
-      "pet_name": data.name,
-      "breed_1_pure": data.breed_dog_pure,
-      "breed_1": data.breed_dog_1,
-      "breed_2": data.breed_dog_2,
-      "dog_format": data.dog_format,
-      "date_logs": {"inclusion_date": date_now},
-      "display": 1,
-      "gender": data.gender,
-      "weight_logs": weight_logs_content,
-      "fat_score_logs": fat_score_logs_content,
-      "sexual_capacity": data.sexual_capacity,
-      "physical_activity": data.physical_activity,
-      "favrot_criteria": {
-        "ear_pinnae": data.ear_pinnae,
-        "front_feet": data.front_feet,
-        "indoor_dog": data.indoor_dog,
-        "ear_margins": data.ear_margins,
-        "three_years": data.three_years,
-        "dorso_lumbar": data.dorso_lumbar,
-        "no_lesion_pruritus": data.no_lesion_pruritus,
-        "pruritus_corticoid": data.pruritus_corticoid
+      'owner_email': data.owner_email,
+      'owner_name': data.owner_name,
+      'recruiter_id': 1,
+      'recruiter_email': 'admin@example.com',
+      'owner_phone': data.owner_phone,
+      'pet_name': data.name,
+      'breed_1_pure': data.breed_dog_pure,
+      'breed_1': data.breed_dog_1,
+      'breed_2': data.breed_dog_2,
+      'dog_format': data.dog_format,
+      'date_logs': {'inclusion_date': date_now},
+      'display': 1,
+      'gender': data.gender,
+      'weight_logs': weight_logs_content,
+      'fat_score_logs': fat_score_logs_content,
+      'sexual_capacity': data.sexual_capacity,
+      'physical_activity': data.physical_activity,
+      'favrot_criteria': {
+        'ear_pinnae': data.ear_pinnae,
+        'front_feet': data.front_feet,
+        'indoor_dog': data.indoor_dog,
+        'ear_margins': data.ear_margins,
+        'three_years': data.three_years,
+        'dorso_lumbar': data.dorso_lumbar,
+        'no_lesion_pruritus': data.no_lesion_pruritus,
+        'pruritus_corticoid': data.pruritus_corticoid
       },
       "pruritus_score_logs": pruritus_score_logs_content,
       "cadesi_total_logs": cadesi_total_logs_content,
@@ -97,6 +100,7 @@ export class DataService {
       "accept_data_sharing": data.accept_data_sharing,
       "flea_treatment": data.flea_treatment,
       "exlcusion_diet_food_recipe": data.what_petfood,
+
     };
 
     const httpOptions = {
@@ -108,7 +112,7 @@ export class DataService {
 
     this.http.post(main_url + '/api/snippets/', postData, httpOptions)
       .subscribe(result => {
-        console.log('POST: ', result)
+        console.log('POST: ', result);
       });
   }
 
@@ -119,7 +123,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get(main_url + '/api/snippets/', httpOptions)
+    return this.http.get(main_url + '/api/snippets/', httpOptions);
   }
 
   getRecruiterFromBackend() {
@@ -129,7 +133,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get(main_url + '/api/user/', httpOptions)
+    return this.http.get(main_url + '/api/user/', httpOptions);
   }
 
   getSingleDataFromBackend(id_pet) {
@@ -139,7 +143,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get(main_url + '/api/snippets/' + id_pet + '/', httpOptions)
+    return this.http.get(main_url + '/api/snippets/' + id_pet + '/', httpOptions);
   }
 
   getBreedDataFromBackend() {
@@ -149,7 +153,7 @@ export class DataService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    return this.http.get(main_url + '/api/dog-breed-list/', httpOptions)
+    return this.http.get(main_url + '/api/dog-breed-list/', httpOptions);
   }
 
   getRecipeDataFromBackend() {
@@ -162,7 +166,7 @@ export class DataService {
       .set('voracious', '1')
       .set('low_carb', '1');
 
-    return this.http.get(main_url + '/api/recipe_derma/', {headers: headers, params: params})
+    return this.http.get(main_url + '/api/recipe_derma/', {headers: headers, params: params});
   }
 
   deleteSinglePetFromBackend() {
@@ -178,9 +182,9 @@ export class DataService {
 
   hideSinglePetFromBackend(id) {
     var postData = {
-      "recruiter_id": 1,
-      "recruiter_email": "admin@example.com",
-      "display": false
+      'recruiter_id': 1,
+      'recruiter_email': 'admin@example.com',
+      'display': false
     };
 
     const httpOptions = {
@@ -258,12 +262,12 @@ export class DataService {
       let date_now = now_date.valueOf();
 
       let drug_logs_single_content = {
-        "cortavance": data.cortavance,
-        "oclacitinib": data.oclacitinib,
-        "cyclosporine": data.cyclosporine,
-        "prednisolone": data.prednisolone,
-        "dermatologic_shampoo": data.dermatologic_shampoo,
-        "antibacterial_shampoo": data.antibacterial_shampoo
+        'cortavance': data.cortavance,
+        'oclacitinib': data.oclacitinib,
+        'cyclosporine': data.cyclosporine,
+        'prednisolone': data.prednisolone,
+        'dermatologic_shampoo': data.dermatologic_shampoo,
+        'antibacterial_shampoo': data.antibacterial_shampoo
       };
       let drug_logs_content = {};
       drug_logs_content = result['drug_logs'];
@@ -326,7 +330,7 @@ export class DataService {
     var idpet: idPetModel = {
       id_number: this.formData.id_number
     };
-    return idpet
+    return idpet;
   }
 
   setId(data: idPetModel) {
@@ -651,7 +655,7 @@ export class DataService {
         'Content-Type': 'application/x-www-form-urlencoded',
       })
     };
-    return this.http.post(main_url + '/o/token/', payload, httpOptions)
+    return this.http.post(main_url + '/o/token/', payload, httpOptions);
 
   }
 
