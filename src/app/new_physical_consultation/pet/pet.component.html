@@ -27,7 +27,7 @@
     <div class="col-lg-6 col-xs-6">
       <a routerLink="/home/add-pet/disclaimer" routerLinkActive="active">
         <button type="button" class="btn btn-block btn-default">Inclure un nouvel animal <i class="fa fa-plus"
-                                                                                            style="float:right"></i>
+                                                                                            style="float:right; line-height: 20px"></i>
         </button>
       </a>
     </div>
@@ -87,7 +87,9 @@
                   <h5 class="widget-user-desc">Nom du propriétaire:<span> {{ pet?.owner_name }}</span></h5>
                   <h5 class="widget-user-desc">Numéro de téléphone du propriétaire :<span> {{ pet?.owner_phone }}</span>
                   </h5>
-                  <h5 class="widget-user-desc">Email du vétérinaire recruteur:<span> {{ pet?.recruiter }}</span>
+                  <h5 class="widget-user-desc">Email du vétérinaire recruteur:<span> {{ recruiter }}</span>
+                  </h5>
+                  <h5 class="widget-user-desc">Email du propriétaire:<span> {{ pet?.owner_email }}</span>
                   </h5>
                   <mat-expansion-panel>
                     <mat-expansion-panel-header>

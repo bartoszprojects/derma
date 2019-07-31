@@ -96,7 +96,7 @@ export class DataService {
       "age": Number(data.age),
       "accept_data_sharing": data.accept_data_sharing,
       "flea_treatment": data.flea_treatment,
-      "exlcusion_diet_food_recipe": "nbc",
+      "exlcusion_diet_food_recipe": data.what_petfood,
     };
 
     const httpOptions = {
@@ -195,6 +195,59 @@ export class DataService {
       });
   }
 
+  putDataToBackendPhoneCons() {
+    let data = this.getFormData();
+    this.getSingleDataFromBackend(data.id_number).subscribe(result => {
+      let now = moment();
+      let now_date = moment(now).format("YYYY-MM-DD:hh-mm-ss");
+      let date_now = now_date.valueOf();
+
+      let cadesi_total_logs_content = {};
+      cadesi_total_logs_content = result['cadesi_total_logs'];
+      cadesi_total_logs_content[date_now.toString()] = data.total;
+
+      let drug_logs_single_content = {
+        "cortavance": data.cortavance,
+        "oclacitinib": data.oclacitinib,
+        "cyclosporine": data.cyclosporine,
+        "prednisolone": data.prednisolone,
+        "dermatologic_shampoo": data.dermatologic_shampoo,
+        "antibacterial_shampoo": data.antibacterial_shampoo
+      };
+
+      let drug_logs_content = {};
+      drug_logs_content = result['drug_logs'];
+      drug_logs_content[date_now.toString()] = drug_logs_single_content;
+
+      let inclusion_date = {};
+      inclusion_date = result['date_logs'];
+      inclusion_date['phone_consultation'] = date_now.toString();
+
+      var postData = {
+        "recruiter_id": 1,
+        "recruiter_email": "admin@example.com",
+        "id": data.id_number,
+        "cadesi_total_logs": cadesi_total_logs_content,
+        "drug_logs": drug_logs_content,
+        "date_logs": inclusion_date
+      };
+
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+        })
+      };
+
+      this.http.patch(main_url + '/api/snippets/' + data.id_number + '/', postData, httpOptions)
+        .subscribe(result => {
+        });
+
+    })
+  }
+
+
+
    putDataToBackend() {
     let data = this.getFormData();
 
@@ -234,6 +287,10 @@ export class DataService {
       cadesi_details_logs_content = result['cadesi_details_logs'];
       cadesi_details_logs_content[date_now.toString()] = data.cadesi_details_logs;
 
+      let inclusion_date = {};
+      inclusion_date = result['date_logs'];
+      inclusion_date['physical_consultation'] = date_now.toString();
+
       var postData = {
         "recruiter_id": 1,
         "recruiter_email": "admin@example.com",
@@ -245,7 +302,8 @@ export class DataService {
         "cadesi_details_logs": cadesi_details_logs_content,
         "drug_logs": this.drugs_history_data,
         "fat_score_logs": fat_score_logs_content,
-        "exclusion_reason": data.exclusion_reason
+        "exclusion_reason": data.exclusion_reason,
+        "date_logs": inclusion_date
       };
 
       const httpOptions = {

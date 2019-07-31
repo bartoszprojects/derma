@@ -30,5 +30,4 @@ export class SmartAtopiaComponent implements OnInit {
       },
     )
   };
-
 }

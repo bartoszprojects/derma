@@ -26,11 +26,9 @@ export class StepBreedComponent implements OnInit {
       this.breeds = result;
       let temp_array = [];
       for (let elem in this.breeds) {
-        temp_array.push(this.breeds[elem])
+        temp_array.push(this.breeds[elem].name)
       }
       this.breeds_sorted_array = temp_array.sort();
-      console.log(this.breeds);
-      console.log('aaaaarray', this.breeds_sorted_array);
       this.breeds = this.breeds_sorted_array;
     });
   }

@@ -52,6 +52,10 @@ export class StepSucessComponent implements OnInit {
       console.log('PUT DATA TO BACKEND')
     }
 
+    if (this.route_boolean == 'new-phone-consultation') {
+      this.DataService.putDataToBackendPhoneCons();
+    }
+
 
   }
 }

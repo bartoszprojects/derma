@@ -27,6 +27,7 @@ export class PetComponent implements OnInit {
   set_pet;
   list_of_hidden = [];
   hide_container;
+  recruiter;
   _: any = _;
 
 
@@ -74,6 +75,7 @@ export class PetComponent implements OnInit {
     this.id_pet = this.formDataService.getId();
     this.checkRouteUrl();
     this.getDataFromBackend();
+    this.getRecruiterFromBackend();
 
   }
 
@@ -112,6 +114,10 @@ export class PetComponent implements OnInit {
     this.list_of_hidden.push(index);
     console.log(this.list_of_hidden)
   }
-
-
+  getRecruiterFromBackend() {
+    this.formDataService.getRecruiterFromBackend().subscribe(result => {
+        this.recruiter = result['email']
+      },
+    )
+  };
 }
