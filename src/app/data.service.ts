@@ -32,7 +32,7 @@ export class DataService {
     let data = this.getFormData();
 
     let now = moment();
-    let now_date = moment(now).format('YYYY-MM-DD');
+    let now_date = moment(now).format("YYYY-MM-DD:hh-mm-ss");
     let date_now = now_date.valueOf();
 
     let weight_logs_content = {};

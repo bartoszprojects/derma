@@ -16,6 +16,7 @@ export class StepBreedComponent implements OnInit {
   breed_form: StepBreed;
   form: any;
   breeds_sorted_array = [];
+  original_breeds;
 
   constructor(private formDataService: DataService) {
   }
@@ -24,6 +25,8 @@ export class StepBreedComponent implements OnInit {
 
     this.breed_form = this.formDataService.getBreed();
     this.formDataService.getBreedDataFromBackend().subscribe(result => {
+      this.original_breeds = result;
+      console.log('oroginal breeeeeds', this.original_breeds);
       this.breeds = result;
       let temp_array = [];
       for (let elem in this.breeds) {
@@ -43,16 +46,16 @@ export class StepBreedComponent implements OnInit {
   }
 
   save() {
-    for (let elem in this.breeds) {
-      if (this.breeds && elem) {
-        if (this.breeds[elem].name == this.breed_form.breed_dog_pure) {
-          this.breed_form.breed_dog_pure = this.breeds[elem].id;
+    for (let elem in this.original_breeds) {
+      if (this.original_breeds && elem) {
+        if (this.original_breeds[elem].name == this.breed_form.breed_dog_pure) {
+          this.breed_form.breed_dog_pure = this.original_breeds[elem].id;
         }
-        if (this.breeds[elem].name == this.breed_form.breed_dog_1) {
-          this.breed_form.breed_dog_1 = this.breeds[elem].id;
+        if (this.original_breeds[elem].name == this.breed_form.breed_dog_1) {
+          this.breed_form.breed_dog_1 = this.original_breeds[elem].id;
         }
-        if (this.breeds[elem].name == this.breed_form.breed_dog_2) {
-          this.breed_form.breed_dog_2 = this.breeds[elem].id;
+        if (this.original_breeds[elem].name == this.breed_form.breed_dog_2) {
+          this.breed_form.breed_dog_2 = this.original_breeds[elem].id;
         }
       }
     }
