@@ -21,6 +21,7 @@ export class StepBreedComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.breed_form = this.formDataService.getBreed();
     this.formDataService.getBreedDataFromBackend().subscribe(result => {
       this.breeds = result;
@@ -30,7 +31,15 @@ export class StepBreedComponent implements OnInit {
       }
       this.breeds_sorted_array = temp_array.sort();
       this.breeds = this.breeds_sorted_array;
+      this.breed_form.breed_dog_pure = '';
     });
+  }
+
+  clearList() {
+    this.breed_form.breed_dog_pure = '';
+    this.breed_form.breed_dog_1 = '';
+    this.breed_form.breed_dog_2 = '';
+    this.breed_form.dog_format = '';
   }
 
   save() {

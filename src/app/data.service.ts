@@ -201,14 +201,15 @@ export class DataService {
 
   putDataToBackendPhoneCons() {
     let data = this.getFormData();
+    console.log(this.getFormData());
     this.getSingleDataFromBackend(data.id_number).subscribe(result => {
       let now = moment();
       let now_date = moment(now).format("YYYY-MM-DD:hh-mm-ss");
       let date_now = now_date.valueOf();
 
-      let cadesi_total_logs_content = {};
-      cadesi_total_logs_content = result['cadesi_total_logs'];
-      cadesi_total_logs_content[date_now.toString()] = data.total;
+      let pruritus_score_logs_content = {};
+      pruritus_score_logs_content = result['pruritus_score_logs'];
+      pruritus_score_logs_content[date_now.toString()] = data.pruritus_score;
 
       let drug_logs_single_content = {
         "cortavance": data.cortavance,
@@ -231,7 +232,7 @@ export class DataService {
         "recruiter_id": 1,
         "recruiter_email": "admin@example.com",
         "id": data.id_number,
-        "cadesi_total_logs": cadesi_total_logs_content,
+        "pruritus_score_logs": pruritus_score_logs_content,
         "drug_logs": drug_logs_content,
         "date_logs": inclusion_date
       };
@@ -245,12 +246,12 @@ export class DataService {
 
       this.http.patch(main_url + '/api/snippets/' + data.id_number + '/', postData, httpOptions)
         .subscribe(result => {
+          console.log(result);
+          console.log(postData)
         });
 
     })
   }
-
-
 
    putDataToBackend() {
     let data = this.getFormData();
