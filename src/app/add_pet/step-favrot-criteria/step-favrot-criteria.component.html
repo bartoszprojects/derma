@@ -20,7 +20,7 @@
                                       name="three_years"> Onset of signs under 3 years of age
                         </mat-checkbox>
              -->
-            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #three_years="ngModel"
+            <mat-checkbox #three_years="ngModel" (ngModelChange)="changeFavrotCheckboxes($event)"
                           [(ngModel)]="favrot_criteria.three_years" required id="three_years"
                           name="three_years"> Apparition des signes avant trois ans
             </mat-checkbox>
@@ -34,7 +34,7 @@
                         > Dog living mostly indoors
                         </mat-checkbox>
              -->
-            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #indoor_dog="ngModel"
+            <mat-checkbox (ngModelChange)="changeFavrotCheckboxes($event)" #indoor_dog="ngModel"
                           [(ngModel)]="favrot_criteria.indoor_dog" required id="indoor_dog" name="indoor_dog"
             > Le chien vit principalement à l'intérieur
             </mat-checkbox>
@@ -49,7 +49,7 @@
                         > Glucocorticoid-responsive pruritus
                         </mat-checkbox>
              -->
-            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #pruritus_corticoid="ngModel"
+            <mat-checkbox (ngModelChange)="changeFavrotCheckboxes($event)" #pruritus_corticoid="ngModel"
                           [(ngModel)]="favrot_criteria.pruritus_corticoid" required id="pruritus_corticoid"
                           name="pruritus_corticoid"
             > Le prurit répond aux corticoïdes
@@ -65,7 +65,7 @@
                         > Pruritus without lesions at onset
                         </mat-checkbox>
              -->
-            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #no_lesion_pruritus="ngModel"
+            <mat-checkbox (ngModelChange)="changeFavrotCheckboxes($event)" #no_lesion_pruritus="ngModel"
                           [(ngModel)]="favrot_criteria.no_lesion_pruritus" required id="no_lesion_pruritus"
                           name="no_lesion_pruritus"
             > Le prurit originel est alésionnel
@@ -75,28 +75,28 @@
           </div>
 
           <div>
-            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #front_feet="ngModel"
+            <mat-checkbox (ngModelChange)="changeFavrotCheckboxes($event)" #front_feet="ngModel"
                           [(ngModel)]="favrot_criteria.front_feet" required id="front_feet" name="front_feet"
             > Les membres antérieurs sont atteints
             </mat-checkbox>
           </div>
 
           <div>
-            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #ear_pinnae="ngModel"
+            <mat-checkbox (ngModelChange)="changeFavrotCheckboxes($event)" #ear_pinnae="ngModel"
                           [(ngModel)]="favrot_criteria.ear_pinnae" required id="ear_pinnae" name="ear_pinnae"
             > Les conques auriculaires sont atteintes
             </mat-checkbox>
           </div>
 
           <div>
-            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #ear_margins="ngModel"
+            <mat-checkbox (ngModelChange)="changeFavrotCheckboxes($event)" #ear_margins="ngModel"
                           [(ngModel)]="favrot_criteria.ear_margins" required id="ear_margins" name="ear_margins"
             > Le bord des oreilles est épargné
             </mat-checkbox>
           </div>
 
           <div>
-            <mat-checkbox (click)="favrot_click = favrot_click+ 1" #dorso_lumbar="ngModel"
+            <mat-checkbox (ngModelChange)="changeFavrotCheckboxes($event)" #dorso_lumbar="ngModel"
                           [(ngModel)]="favrot_criteria.dorso_lumbar" required id="dorso_lumbar" name="dorso_lumbar"
             > La région dorso-lombaire est épargnée
             </mat-checkbox>

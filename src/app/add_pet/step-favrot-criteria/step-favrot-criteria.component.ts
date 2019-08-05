@@ -15,9 +15,18 @@ import {Router} from "@angular/router";
 export class StepFavrotCriteriaComponent implements OnInit {
   title = 'Please tell us about yourself.';
   favrot_criteria: StepFavrotCriteria;
-  favrot_click =0;
+  favrot_click = 0;
   form: any;
   constructor(private router: Router, private formDataService: DataService) {
+  }
+
+  changeFavrotCheckboxes($event) {
+    if ($event == true) {
+      this.favrot_click += 1
+    }
+    if ($event == false){
+      this.favrot_click -= 1
+    }
   }
 
   ngOnInit() {

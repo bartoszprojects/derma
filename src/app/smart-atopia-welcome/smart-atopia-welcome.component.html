@@ -46,7 +46,7 @@
     </div>
 
 
-    <div class="bs-callout bs-callout-primary information_tool_box">
+    <div *ngIf="mouse_tab" class="bs-callout bs-callout-primary information_tool_box">
       <div class="row" *ngFor="let tab of main_tabs">
         <div *ngIf="mouse_tab == tab.id">
           <div class="col-sm-8">

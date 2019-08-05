@@ -72,8 +72,6 @@
                   <mat-checkbox #diet_agreed="ngModel" [(ngModel)]="disclaimer.diet_agreed" required id="diet_agreed"
                                 name="diet_agreed">J'atteste de la véracité des éléments précédents
                   </mat-checkbox>
-
-
   </div>
               </div>
 
@@ -107,15 +105,11 @@
       </button>
  -->
 
-      <button *ngIf="disclaimer.diet_agreed == true" routerLink="{{ route_link_next }}" routerLinkActive="active"
+      <button *ngIf="disclaimer.diet_agreed == true" routerLink="/" routerLinkActive="active"
               (click)="save()"
               type="button"
               class="next btn-special btn-4 btn-4a icon-arrow-right" value="Next" style='float:right'>Retour
       </button>
-
-
     </form>
-
-
   </section>
 </div>
