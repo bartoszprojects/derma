@@ -97,7 +97,7 @@
                     </mat-expansion-panel-header>
                     <ul>
                       <ul>
-                        <li *ngFor='let key of _.keys(pet?.date_logs)'>{{key}}: {{pet?.date_logs[key]}}</li>
+                        <li *ngFor='let elem of pet?.date_logs'>{{ elem.action }} : {{ elem.date }}</li>
                       </ul>
                     </ul>
 

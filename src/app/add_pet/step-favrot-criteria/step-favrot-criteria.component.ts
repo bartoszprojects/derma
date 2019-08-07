@@ -18,6 +18,7 @@ export class StepFavrotCriteriaComponent implements OnInit {
   favrot_click = 0;
   form: any;
   constructor(private router: Router, private formDataService: DataService) {
+    this.formDataService.clearFavrot();
   }
 
   changeFavrotCheckboxes($event) {
@@ -30,11 +31,13 @@ export class StepFavrotCriteriaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.favrot_click = 0;
     this.favrot_criteria = this.formDataService.getFavrotCriteria();
     console.log('Personal feature loaded!');
   }
 
   save() {
+    this.favrot_click = 0;
     this.formDataService.setFavrotCriteria(this.favrot_criteria);
     return true;
   }

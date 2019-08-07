@@ -133,6 +133,16 @@ export class FormData {
     this.accept_data_sharing = false;
     this.exclusion_reason = [];
   }
+
+  clear_favrot() {
+    this.indoor_dog = false;
+    this.pruritus_corticoid = false;
+    this.no_lesion_pruritus = false;
+    this.front_feet = false;
+    this.ear_pinnae = false;
+    this.ear_margins = false;
+    this.dorso_lumbar = false;
+  }
 }
 
 export class idPetModel {

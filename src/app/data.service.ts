@@ -72,7 +72,7 @@ export class DataService {
       'breed_1': data.breed_dog_1,
       'breed_2': data.breed_dog_2,
       'dog_format': data.dog_format,
-      'date_logs': {'inclusion_date': date_now},
+      'date_logs': [{'action':'inclusion_date', 'date':date_now}],
       'display': 1,
       'gender': data.gender,
       'weight_logs': weight_logs_content,
@@ -224,9 +224,8 @@ export class DataService {
       drug_logs_content = result['drug_logs'];
       drug_logs_content[date_now.toString()] = drug_logs_single_content;
 
-      let inclusion_date = {};
-      inclusion_date = result['date_logs'];
-      inclusion_date['phone_consultation'] = date_now.toString();
+      let inclusion_date = result['date_logs'];
+      inclusion_date.push({'action': 'phone_consultation','date':date_now.toString()});
 
       var postData = {
         "recruiter_id": 1,
@@ -292,9 +291,8 @@ export class DataService {
       cadesi_details_logs_content = result['cadesi_details_logs'];
       cadesi_details_logs_content[date_now.toString()] = data.cadesi_details_logs;
 
-      let inclusion_date = {};
-      inclusion_date = result['date_logs'];
-      inclusion_date['physical_consultation'] = date_now.toString();
+      let inclusion_date = result['date_logs'];
+      inclusion_date.push({'action': 'physical_consultation','date':date_now.toString()});
 
       var postData = {
         "recruiter_id": 1,
@@ -669,6 +667,10 @@ export class DataService {
 
   clearFormData(): any {
     return this.formData.clear();
+  }
+
+  clearFavrot(): any {
+    return this.formData.clear_favrot()
   }
 
 }
