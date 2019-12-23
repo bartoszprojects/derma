@@ -53,7 +53,7 @@ export class FormData {
   desensitized_more_6_months = null;
   drug_history_known = null;
   prednisolone = 0;
-  oclacitinib = "";
+  oclacitinib = 0;
   cyclosporine = 0;
   cortavance = 0;
   antibacterial_shampoo = 0;
