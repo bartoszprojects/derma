@@ -128,6 +128,7 @@
                    -->
                   <mat-radio-group
                   #oclacitinib="ngModel" [(ngModel)]="drug_history_form.oclacitinib" name="oclacitinib">
+                    <mat-radio-button value="0">Jamais</mat-radio-button>
                     <mat-radio-button value="BID">Deux fois par jour</mat-radio-button>
                     <mat-radio-button value="SID">Une fois par jour</mat-radio-button>
                     <mat-radio-button value="EOD">Tous les deux jours</mat-radio-button>
@@ -147,6 +148,7 @@
 
                   <mat-radio-group
                   #cyclosporine="ngModel" [(ngModel)]="drug_history_form.cyclosporine" name="cyclosporine">
+                    <mat-radio-button value="0" >Jamais</mat-radio-button>
                     <mat-radio-button value="SID">Une fois par jour</mat-radio-button>
                     <mat-radio-button value="EOD">Tous les deux jours</mat-radio-button>
                     <mat-radio-button value="E3D">Tous les trois jours</mat-radio-button>
